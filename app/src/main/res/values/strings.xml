@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Leruka</string>
+    <string name="title_activity_guest_main">GuestMainActivity</string>
 </resources>
