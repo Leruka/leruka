@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Leruka</string>
-    <string name="title_activity_guest_main">Menü Gast</string>
-    <string name="title_activity_user_main">Menü Benutzer</string>
+    <string name="title_activity_guest_main">Menu Guest</string>
+    <string name="title_activity_user_main">Menu User</string>
 </resources>
