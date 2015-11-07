@@ -17,6 +17,7 @@ Feature: Change Settings
     And I click "bestätigen"
     Then the password will be changed in the database
 
+    
 
   Scenario: change password with invalid old password
     Given I started the app
