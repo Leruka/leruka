@@ -2,31 +2,74 @@ Feature: Change Settings
   As a logged in user
   I want to change my settings
 
+  Background:
+    Given a user with the display name "Henry"
+    And the password "password123"
+
   Scenario: change password works fine
     Given I started the app
-    And I am logged in
+    And I am logged in as "Henry"
     When I click the button "Einstellungen"
     And I click the button "Passwort ändern"
-    And I fill out all required fields
+    And I fill in "password123" in the field "altes Passwort"
+    And I fill in "1234" in the field "neues Passwort"
+    And I fill in "1234" in the field "neues Passwort wiederholen"
     And I click "bestätigen"
-    And all input fields are valid
-    Then I want the password to be changed
-    But if one input element is not valid
-    Then The password should not be changed
-    And I must correct the invalid input fields
+    Then the password will be changed in the database
+
+
+  Scenario: change password with invalid old password
+    Given I started the app
+    And I am logged in as "Henry"
+    When I click the button "Einstellungen"
+    And I click the button "Passwort ändern"
+    And I fill in "password" in the field "altes Passwort"
+    And I fill in "1234" in the field "neues Passwort"
+    And I fill in "1234" in the field "neues Passwort wiederholen"
+    And I click "bestätigen"
+    Then the password will not be changed in the database
+    And I will see the page "Passwort ändern"
+    And I will see an error message "Eingabe ungültig!"
+
+  Scenario: change password with invalid new password
+    Given I started the app
+    And I am logged in as "Henry"
+    When I click the button "Einstellungen"
+    And I click the button "Passwort ändern"
+    And I fill in "password123" in the field "altes Passwort"
+    And I fill in "1234" in the field "neues Passwort"
+    And I fill in "5678" in the field "neues Passwort wiederholen"
+    And I click "bestätigen"
+    Then the password will not be changed in the database
+    And I will see the page "Passwort ändern"
+    And I will see an error message "Eingabe ungültig!"
+
+
 
   Scenario: change display name works fine
     Given I started the app
-    And I am logged in
+    And I am logged in as "Henry"
     When I click the button "Einstellungen"
     And I click the button "Name ändern"
-    And I fill out all required fields
+    And I fill in field "Name" the new display name "Leon"
     And I click "bestätigen"
     And the display name is available
-    Then I want the display name to be changed
-    And I want the name in the public highscore to be changed
-    But if the display name is not available
-    Then The name should not to be changed
+    Then The display name want to be changed
+    And The name in the public highscore want to be changed
+
+
+  Scenario: change display name with name in use
+    Given I started the app
+    And I am logged in as "Henry"
+    When I click the button "Einstellungen"
+    And I click the button "Name ändern"
+    And I fill in field "Name" the new display name "Tina"
+    And I click "bestätigen"
+    And the display name is not available
+    Then The display name want not to be changed
+    And I want to see the "Anzeigenamen ändern" page
+    And I will see an error message "Name schon vergeben!"
+
 
   Scenario: Cancel change the password
     Given I started the app
