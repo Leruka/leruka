@@ -4,6 +4,6 @@ Feature: new public highscore
 
   Scenario: view public highscore
     Given I started the app
-    When I press "öffentlicher highscore"
+    When I press "Öffentlicher Highscore"
     And score data is in the database
-    Then I should see "the public highscore"
+    Then I should see the public highscore

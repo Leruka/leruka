@@ -11,10 +11,10 @@ Feature: Change Settings
     And I am logged in as "Henry"
     When I click the button "Einstellungen"
     And I click the button "Passwort ändern"
-    And I fill in "password123" in the field "altes Passwort"
-    And I fill in "1234" in the field "neues Passwort"
-    And I fill in "1234" in the field "neues Passwort wiederholen"
-    And I click "bestätigen"
+    And I fill in "password123" in the field "Altes Passwort"
+    And I fill in "1234" in the field "Neues Passwort"
+    And I fill in "1234" in the field "Neues Passwort wiederholen"
+    And I click "Speichern"
     Then the password will be changed in the database
 
     
@@ -24,10 +24,10 @@ Feature: Change Settings
     And I am logged in as "Henry"
     When I click the button "Einstellungen"
     And I click the button "Passwort ändern"
-    And I fill in "password" in the field "altes Passwort"
-    And I fill in "1234" in the field "neues Passwort"
-    And I fill in "1234" in the field "neues Passwort wiederholen"
-    And I click "bestätigen"
+    And I fill in "password" in the field "Altes Passwort"
+    And I fill in "1234" in the field "Neues Passwort"
+    And I fill in "1234" in the field "Neues Passwort wiederholen"
+    And I click "Speichern"
     Then the password will not be changed in the database
     And I will see the page "Passwort ändern"
     And I will see an error message "Eingabe ungültig!"
@@ -37,10 +37,10 @@ Feature: Change Settings
     And I am logged in as "Henry"
     When I click the button "Einstellungen"
     And I click the button "Passwort ändern"
-    And I fill in "password123" in the field "altes Passwort"
-    And I fill in "1234" in the field "neues Passwort"
-    And I fill in "5678" in the field "neues Passwort wiederholen"
-    And I click "bestätigen"
+    And I fill in "password123" in the field "Altes Passwort"
+    And I fill in "1234" in the field "Neues Passwort"
+    And I fill in "5678" in the field "Neues Passwort wiederholen"
+    And I click "Speichern"
     Then the password will not be changed in the database
     And I will see the page "Passwort ändern"
     And I will see an error message "Eingabe ungültig!"
@@ -53,7 +53,7 @@ Feature: Change Settings
     When I click the button "Einstellungen"
     And I click the button "Name ändern"
     And I fill in field "Name" the new display name "Leon"
-    And I click "bestätigen"
+    And I click "Speichern"
     And the display name is available
     Then The display name want to be changed
     And The name in the public highscore want to be changed
@@ -65,7 +65,7 @@ Feature: Change Settings
     When I click the button "Einstellungen"
     And I click the button "Name ändern"
     And I fill in field "Name" the new display name "Tina"
-    And I click "bestätigen"
+    And I click "Speichern"
     And the display name is not available
     Then The display name want not to be changed
     And I want to see the "Anzeigenamen ändern" page
@@ -78,7 +78,7 @@ Feature: Change Settings
     When I click the button "Einstellungen ändern"
     And I click the button "Passwort ändern"
     And I fill in the required fields
-    And I click "abbrechen"
+    And I click "Zurück"
     Then I want to see the "Einstellungen" page
     And I want the password not to be changed
 
@@ -87,6 +87,6 @@ Feature: Change Settings
     When I click the button "Einstellungen ändern"
     And I click the button "Name ändern"
     And I fill in the fields
-    And I click "abbrechen"
-    Then I want to see the "Enstellungen" page
+    And I click "Zurück"
+    Then I want to see the "Einstellungen" page
     And I want my display name not to be changed
