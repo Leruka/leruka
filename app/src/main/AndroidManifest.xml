@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--AndroidManifest.xml -->
+<!-- AndroidManifest.xml -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.leruka.leruka" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,22 +13,49 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".GuestMainActivity"
+            android:name=".activity.GuestMainActivity"
             android:label="@string/title_activity_guest_main"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".UserMainActivity"
+            android:name=".activity.UserMainActivity"
             android:label="@string/title_activity_user_main"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.InstructionActivity"
+            android:label="@string/title_activity_instruction"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.PublicHighscoreActivity"
+            android:label="@string/title_activity_public_highscore"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".activity.PrtivateHighscoreActivity"
+            android:label="@string/title_activity_prtivate_highscore"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>
 

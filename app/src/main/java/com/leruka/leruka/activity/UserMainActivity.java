@@ -1,4 +1,4 @@
-package com.leruka.leruka;
+package com.leruka.leruka.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
+
+import com.leruka.leruka.R;
+import com.leruka.leruka.activity.GuestMainActivity;
+import com.leruka.leruka.user.User;
 
 public class UserMainActivity extends AppCompatActivity {
 
@@ -17,17 +22,12 @@ public class UserMainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        ((TextView) findViewById(R.id.textWelcome))
+                .setText("Hi, " + User.getCurrentUser().getUserName());
+
     }
 
-    public void logOut(View view) {
+    public void onLogout(View view) {
         Intent intent = new Intent(this, GuestMainActivity.class);
         startActivity(intent);
     }

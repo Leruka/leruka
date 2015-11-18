@@ -2,4 +2,13 @@
     <string name="app_name">Leruka</string>
     <string name="title_activity_guest_main">Menu Guest</string>
     <string name="title_activity_user_main">Menu User</string>
+    <string name="title_activity_register">Register</string>
+    <string name="welcomeMessage">Willkommen zu LeRuKa</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_instruction">InstructionActivity</string>
+    <string name="title_activity_public_highscore">PublicHighscoreActivity</string>
+    <string name="title_activity_prtivate_highscore">PrtivateHighscoreActivity</string>
+    <string name="uername">Nickname</string>
+    <string name="password">Passwort</string>
+    <string name="login">Login</string>
 </resources>
