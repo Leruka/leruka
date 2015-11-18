@@ -13,7 +13,7 @@ import com.leruka.leruka.R;
 import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.user.User;
 
-public class UserMainActivity extends AppCompatActivity {
+public class UserMainActivity extends LerukaActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

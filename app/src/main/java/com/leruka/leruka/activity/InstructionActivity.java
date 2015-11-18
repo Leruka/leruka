@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.leruka.leruka.R;
 
-public class InstructionActivity extends AppCompatActivity {
+public class InstructionActivity extends LerukaActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

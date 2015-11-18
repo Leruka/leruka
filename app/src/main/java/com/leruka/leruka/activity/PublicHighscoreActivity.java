@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.leruka.leruka.R;
 
-public class PublicHighscoreActivity extends AppCompatActivity {
+public class PublicHighscoreActivity extends LerukaActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
