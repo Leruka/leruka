@@ -5,7 +5,7 @@ import android.widget.Toast;
 import com.leruka.leruka.main.Central;
 
 /**
- * Created by leif on 11.11.15.
+ * This Class provides Methods for displaying messages to the user
  */
 public class Message {
 
@@ -29,8 +29,8 @@ public class Message {
         Central.getCurrentActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast errorToast = Toast.makeText(Central.getCurrentActivity().getApplicationContext(), message, MESSAGE_DURATION);
-                errorToast.show();
+                Toast messageToast = Toast.makeText(Central.getCurrentActivity().getApplicationContext(), message, MESSAGE_DURATION);
+                messageToast.show();
             }
         });
     }
