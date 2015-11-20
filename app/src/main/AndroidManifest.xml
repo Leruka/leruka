@@ -57,6 +57,11 @@
             android:label="@string/title_activity_prtivate_highscore"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".activity.GameInstructionActivity"
+            android:label="@string/title_activity_game_instruction"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>
