@@ -8,9 +8,9 @@ import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpPost;
 import com.leruka.leruka.net.PostObject;
+import com.leruka.leruka.net.ResponseObject;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import de.leifb.objectJson.Json;
@@ -57,10 +57,10 @@ public class Login {
         new LoginPost().execute(postObject);
     }
 
-    public static void receiveLogin(String result) {
+    public static void receiveLogin(ResponseObject result) {
         //TODO parse json
 
-        Message.showMessage(result);
+        Message.showMessage(result.getResponseJson().toString());
 
         // everything is fine
         // User.setSessionID(session);
@@ -77,7 +77,7 @@ public class Login {
 
     private static class LoginPost extends HttpPost {
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(ResponseObject result) {
             receiveLogin(result);
         }
     }

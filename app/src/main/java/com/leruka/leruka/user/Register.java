@@ -8,6 +8,7 @@ import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpPost;
 import com.leruka.leruka.net.PostObject;
+import com.leruka.leruka.net.ResponseObject;
 
 import java.io.IOException;
 import java.net.URL;
@@ -57,16 +58,34 @@ public class Register {
         User.setCurrentUser(user);
     }
 
-    public static void receiveRegister(String session) {
-        if (session == null || session.equals("")) {
+    public static void receiveRegister(ResponseObject response) {
+
+        if (response == null) {
+            // Some kind of unknown error
+            Message.showErrorMessage("could not read the servers response");
             return;
         }
 
-        Message.showMessage("SessionID: " + session);
+        Json responseJson = response.getResponseJson();
 
-        // everything is fine
-        User.setSessionID(session);
+        if (!response.isSuccess()) {
+            // could not register
+            Message.showErrorMessage(responseJson.getString("errorMessage"));
+            return; //TODO weitere Fehlerbehandlung
+        }
 
+        String sessionID = responseJson.getString("sessionID");
+
+        if (sessionID == null || sessionID.isEmpty()) {
+            // could not receive a session ID
+            Message.showErrorMessage("Could not login, please try again later");
+            return;
+        }
+
+        // save the session ID
+        User.setSessionID(sessionID);
+
+        // Change the activity
         Activity currentActivity = Central.getCurrentActivity();
         if (currentActivity.getClass().equals(RegisterActivity.class)) {
             // The activity has not changed. Proceed to main menu
@@ -93,7 +112,7 @@ public class Register {
 
     private static class RegisterPost extends HttpPost {
         @Override
-        protected void onPostExecute(String result) {
+        protected void onPostExecute(ResponseObject result) {
             receiveRegister(result);
         }
     }
