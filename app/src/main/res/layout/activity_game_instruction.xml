@@ -25,4 +25,5 @@
     <include layout="@layout/content_game_instruction" />
 
 
+
 </android.support.design.widget.CoordinatorLayout>

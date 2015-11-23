@@ -9,6 +9,12 @@ import android.view.View;
 
 import com.leruka.leruka.R;
 
+/**
+ * Created by Kassandra
+ *
+ * 20.11.2015
+ */
+
 public class GameInstructionActivity extends AppCompatActivity {
 
     @Override
