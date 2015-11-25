@@ -1,8 +1,11 @@
 package com.leruka.leruka.user;
 
 import android.app.Activity;
+import android.util.Log;
 
+import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.activity.LoginActivity;
+import com.leruka.leruka.activity.RegisterActivity;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
@@ -57,21 +60,53 @@ public class Login {
         new LoginPost().execute(postObject);
     }
 
-    public static void receiveLogin(ResponseObject result) {
-        //TODO parse json
-
-        Message.showMessage(result.getResponseJson().toString());
-
-        // everything is fine
-        // User.setSessionID(session);
-
+    public static void receiveLoginOrRegister(ResponseObject response) {
+        // hide spinner
         Activity currentActivity = Central.getCurrentActivity();
-        if (currentActivity.getClass().equals(LoginActivity.class)) {
+        if (currentActivity.getClass().equals(RegisterActivity.class)) {
+            ((RegisterActivity) currentActivity).hideProgressDialog();
+        } else if (currentActivity.getClass().equals(LoginActivity.class)) {
+            ((LoginActivity) currentActivity).hideProgressDialog();
+        }
+        // Check for null
+        if (response == null) {
+            Message.showErrorMessage(0);
+            return;
+        }
+        // parse the JSON
+        Json responseJson = response.getResponseJson();
+        // Check for success
+        if (!response.isSuccess()) {
+            // could not register
+            Message.showErrorMessage(response.getErrorCode());
+            return; //TODO weitere Fehlerbehandlung
+        }
+        // Get sessionID
+        String sessionID = responseJson.getString("sessionID");
+        if (sessionID == null || sessionID.isEmpty()) {
+            // could not receive a session ID
+            Message.showErrorMessage(0);
+            return;
+        }
+        // Save the session ID
+        User.setSessionID(sessionID);
+        // Show Result
+        if (currentActivity.getClass().equals(RegisterActivity.class)) {
+            // The activity has not changed. Proceed to main menu
+            ((RegisterActivity) currentActivity).onReceiveRegister();
+        } else if (currentActivity.getClass().equals(LoginActivity.class)) {
             // The activity has not changed. Proceed to main menu
             ((LoginActivity) currentActivity).onReceiveLogin();
-        } else {
+        } else if (currentActivity.getClass().equals(GuestMainActivity.class)) {
+            // TODO
+        }
+        else {
             Message.showMessage("Successfully logged in!");
         }
+    }
+
+    public static void receiveLogin(ResponseObject response) {
+        receiveLoginOrRegister(response);
     }
 
 

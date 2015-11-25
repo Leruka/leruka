@@ -70,7 +70,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/anleitung"
+        android:text="@string/instruction"
         android:id="@+id/buttonAnleitung"
         android:layout_below="@+id/button9"
         android:layout_alignParentLeft="true"

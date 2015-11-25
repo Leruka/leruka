@@ -1,6 +1,7 @@
 package com.leruka.leruka.user;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.leruka.leruka.activity.RegisterActivity;
 import com.leruka.leruka.helper.Message;
@@ -29,6 +30,7 @@ public class Register {
 
         if (!isValid(name, pass1, pass2)) {
             Message.showErrorMessage("Bitte überprüfe deine Eingebe"); //TODO anzeigen, wo der Fehler ist
+            ((RegisterActivity) Central.getCurrentActivity()).hideProgressDialog();
             return;
         }
 
@@ -59,40 +61,7 @@ public class Register {
     }
 
     public static void receiveRegister(ResponseObject response) {
-
-        if (response == null) {
-            // Some kind of unknown error
-            Message.showErrorMessage("could not read the servers response");
-            return;
-        }
-
-        Json responseJson = response.getResponseJson();
-
-        if (!response.isSuccess()) {
-            // could not register
-            Message.showErrorMessage(responseJson.getString("errorMessage"));
-            return; //TODO weitere Fehlerbehandlung
-        }
-
-        String sessionID = responseJson.getString("sessionID");
-
-        if (sessionID == null || sessionID.isEmpty()) {
-            // could not receive a session ID
-            Message.showErrorMessage("Could not login, please try again later");
-            return;
-        }
-
-        // save the session ID
-        User.setSessionID(sessionID);
-
-        // Change the activity
-        Activity currentActivity = Central.getCurrentActivity();
-        if (currentActivity.getClass().equals(RegisterActivity.class)) {
-            // The activity has not changed. Proceed to main menu
-            ((RegisterActivity) currentActivity).onReceiveRegister();
-        } else {
-            Message.showMessage("Successfully logged in!");
-        }
+        Login.receiveLoginOrRegister(response);
     }
 
     private static boolean isValid(String name, String pass1, String pass2) {
