@@ -49,7 +49,7 @@ public class Message {
         else if (errorCode == ErrorCodes.DB_UNKNOWN_ERROR)
             msg = "Es ist ein interner Fehler aufgetreten";
         else if (errorCode == ErrorCodes.REQUEST_CONTENT_TYPE_NOT_JSON)
-            msg = "Es sind Kommunikationsprobleme mit dem Server Aufgetreten";
+            msg = "Es sind Kommunikationsprobleme mit dem Server aufgetreten";
         else
             msg = "Ein unbekannter Feheler ist aufgetreten";
         if (Central.isDev) showErrorMessage("[" + errorCode + "] " + msg);
