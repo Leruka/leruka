@@ -7,12 +7,14 @@ import android.app.Activity;
  */
 public class Central {
 
-    private static Activity currentActivity;
+    // Finals
+    public static final boolean isDev = true;
 
-
+    // Attributes
     public static Activity getCurrentActivity() {
         return currentActivity;
     }
+    private static Activity currentActivity;
 
     public static void setCurrentActivity(Activity currentActivity) {
         Central.currentActivity = currentActivity;

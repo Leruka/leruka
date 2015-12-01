@@ -5,6 +5,8 @@ import android.widget.Toast;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ErrorCodes;
 
+import java.io.FileDescriptor;
+
 /**
  * This Class provides Methods for displaying messages to the user
  */
@@ -37,16 +39,21 @@ public class Message {
     }
 
     public static void showErrorMessage(int errorCode) {
+        String msg;
         if (errorCode == ErrorCodes.USER_NAME_USED)
-            showErrorMessage("Der Benutzername wird schon verendet");
+            msg = "Der Benutzername wird schon verendet";
         else if (errorCode == ErrorCodes.USER_NAME_INVALID)
-            showErrorMessage("Der Benutzername ist nicht vergeben");
+            msg = "Der Benutzername ist nicht vergeben";
         else if (errorCode == ErrorCodes.USER_PASS_INVALID)
-            showErrorMessage("Das Paswort ist falsch");
+            msg = "Das Paswort ist falsch";
         else if (errorCode == ErrorCodes.DB_UNKNOWN_ERROR)
-            showErrorMessage("Es ist ein interner Fehler aufgetreten");
+            msg = "Es ist ein interner Fehler aufgetreten";
+        else if (errorCode == ErrorCodes.REQUEST_CONTENT_TYPE_NOT_JSON)
+            msg = "Es sind Kommunikationsprobleme mit dem Server Aufgetreten";
         else
-            showErrorMessage("Ein unbekannter Feheler ist aufgetreten");
+            msg = "Ein unbekannter Feheler ist aufgetreten";
+        if (Central.isDev) showErrorMessage("[" + errorCode + "] " + msg);
+        else showErrorMessage(msg);
     }
 
 
