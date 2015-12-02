@@ -12,7 +12,7 @@ import java.io.FileDescriptor;
  */
 public class Message {
 
-    private static final int MESSAGE_DURATION = Toast.LENGTH_LONG;
+    private static final int MESSAGE_DURATION = Toast.LENGTH_SHORT;
 
     public static void showErrorMessage(final String message) {
 
