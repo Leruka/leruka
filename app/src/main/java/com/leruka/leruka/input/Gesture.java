@@ -5,24 +5,30 @@ import android.view.MotionEvent;
 import com.leruka.leruka.helper.Message;
 
 /**
- * Created by leif on 09.11.15.
+ * Created by ruth on 09.11.15.
  */
 public class Gesture {
 
-    public static void processGesture(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+    private static final int NONE = 0;
+    private static final int UP = 1;
+    private static final int DOWN = 2;
 
-        if (e1.getY() - e2.getY() < -50 ) {
-            Message.showMessage("runter d " + Math.round(Math.abs(e1.getY() - e2.getY())));
-
+    public static void processGesture(MotionEvent e1, MotionEvent e2) {
+        int gesture = detect(e1, e2);
+        switch (gesture) {
+            case UP:
+                Message.showMessage("hoch");
+                break;
+            case DOWN:
+                Message.showMessage("runter");
+                break;
         }
-        else if (e1.getY() - e2.getY() > 50) {
-            Message.showMessage("hoch d " + Math.round(e1.getY() - e2.getY()));
-        }
-
     }
 
-    private static void detect() {
-        //TODO
+    private static int detect(MotionEvent e1, MotionEvent e2) {
+        if (e1.getY() - e2.getY() < -50 ) return DOWN;
+        if (e1.getY() - e2.getY() > 50) return UP;
+        return NONE;
     }
 
 
