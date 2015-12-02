@@ -9,6 +9,7 @@ public class Central {
 
     // Finals
     public static final boolean isDev = true;
+    public static final int targetTickNanos = 1000000; // 1/10 s
 
     // Attributes
     public static Activity getCurrentActivity() {
