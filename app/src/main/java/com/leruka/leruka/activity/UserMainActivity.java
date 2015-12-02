@@ -37,4 +37,8 @@ public class UserMainActivity extends LerukaActivity {
         startActivity(intent);
     }
 
+    public void onSpielStarten(View view) {
+        Intent intent = new Intent(this, TestGestureActivity.class);
+        startActivity(intent);
+    }
 }

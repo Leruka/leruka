@@ -34,4 +34,9 @@ public class GuestMainActivity extends LerukaActivity {
         Intent intent = new Intent(this, GameInstructionActivity.class);
         startActivity(intent);
     }
+
+    public void onSpielStarten(View view) {
+        Intent intent = new Intent(this, TestGestureActivity.class);
+        startActivity(intent);
+    }
 }
