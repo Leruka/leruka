@@ -10,14 +10,13 @@ import com.leruka.leruka.helper.Message;
 public class Gesture {
 
     public static void processGesture(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        // msg.showMessage("" + e1.getY() + "..... " + e2.getY());
 
-        if (e1.getX() - e2.getY() < 0 ) {
-            Message.showMessage("runter");
+        if (e1.getY() - e2.getY() < -50 ) {
+            Message.showMessage("runter d " + Math.round(Math.abs(e1.getY() - e2.getY())));
 
-        } else
-        if (e2.getX() - e1.getY() < 0) {
-            Message.showMessage("hoch" );
+        }
+        else if (e1.getY() - e2.getY() > 50) {
+            Message.showMessage("hoch d " + Math.round(e1.getY() - e2.getY()));
         }
 
     }
