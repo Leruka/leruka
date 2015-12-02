@@ -41,7 +41,7 @@ public class Message {
     public static void showErrorMessage(int errorCode) {
         String msg;
         if (errorCode == ErrorCodes.USER_NAME_USED)
-            msg = "Der Benutzername wird schon verendet";
+            msg = "Der Benutzername wird schon verwendet";
         else if (errorCode == ErrorCodes.USER_NAME_INVALID)
             msg = "Der Benutzername ist nicht vergeben";
         else if (errorCode == ErrorCodes.USER_PASS_INVALID)
