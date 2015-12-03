@@ -1,13 +1,18 @@
 package com.leruka.leruka.game;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.leruka.leruka.activity.GameMainActivity;
+import com.leruka.leruka.activity.GuestMainActivity;
+import com.leruka.leruka.activity.UserMainActivity;
 import com.leruka.leruka.game.process.DrawProcess;
 import com.leruka.leruka.game.process.MainProcess;
 import com.leruka.leruka.game.track.Track;
 import com.leruka.leruka.game.track.creator.TestStage;
+import com.leruka.leruka.main.Central;
 
 /**
  * This class is controlling all the actions that have to be done in order to run the game itself
@@ -46,6 +51,15 @@ public class Game {
         init();
         Game.surfaceHolder = surfaceHolder;
         start();
+    }
+
+    public static void stop() {
+        MainProcess.end();
+        DrawProcess.end();
+        // Go to main menu
+        //TODO make gotToMain for logged / not logged in
+        Intent intent = new Intent(Central.getCurrentActivity(), GuestMainActivity.class);
+        Central.getCurrentActivity().startActivity(intent);
     }
 
     public static void redraw() {
