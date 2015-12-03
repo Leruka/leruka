@@ -37,5 +37,9 @@ public class Player {
         //TODO
     }
 
+    public void update() {
+        //TODO
+    }
+
 
 }

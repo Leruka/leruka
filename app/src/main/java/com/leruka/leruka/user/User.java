@@ -1,5 +1,7 @@
 package com.leruka.leruka.user;
 
+import android.text.TextUtils;
+
 import com.leruka.leruka.helper.Message;
 
 import java.security.MessageDigest;
@@ -14,6 +16,7 @@ public class User {
     // Attributes
     private static User currentUser;
     private static String sessionID;
+    private static boolean isCurrentValid;
 
     private static final int USERNAME_MIN_LENGTH = 1;
     private static final int USERNAME_MAX_LENGTH = 16;
@@ -34,6 +37,14 @@ public class User {
 
     public static void setCurrentUser(User currentUser) {
         User.currentUser = currentUser;
+    }
+
+    public static boolean hasValidUser() {
+        return isCurrentValid;
+    }
+
+    protected static void updateValid(boolean valid) {
+        isCurrentValid = valid;
     }
 
     /**

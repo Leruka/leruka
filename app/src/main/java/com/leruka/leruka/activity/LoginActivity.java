@@ -10,7 +10,6 @@ import android.widget.EditText;
 import com.leruka.leruka.R;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.user.Login;
-import com.leruka.leruka.user.User;
 
 public class LoginActivity extends LerukaActivity {
 

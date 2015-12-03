@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.draw.Background;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,18 +14,27 @@ import java.util.List;
 public class Track {
 
     // Attributes
-    private static Background background;
-    private static Player player;
-    private static List<Obstacle> obstacles;
-    private static int position;
+    private Background background;
+    private Player player;
+    private List<Obstacle> obstacles;
+    private int position;
+
+    public Track(Background background, Player player) {
+        this.background = background;
+        this.player = player;
+        this.position = 0;
+        this.obstacles = new ArrayList<>();
+    }
 
     // Methods
     public void draw(Canvas canvas) {
-        //TODO
+        // Draw Track
+        this.background.draw(canvas);
     }
 
     public void update() {
-        //TODO
+        this.background.update();
+        this.player.update();
     }
 
 }
