@@ -3,6 +3,7 @@ package com.leruka.leruka.game;
 import android.graphics.Canvas;
 
 import com.leruka.leruka.game.draw.Animation;
+import com.leruka.leruka.helper.Message;
 
 /**
  * Created by leif on 09.11.15.
@@ -16,16 +17,17 @@ public class Player {
 
     // Constructor
     public Player() {
-        //TODO
+        //TODO load images / animations
     }
 
     // Methods
     protected void jump() {
+        Message.showMessage("JUMP!");
         //TODO
-        Animation a = new Animation(null, 3);
     }
 
     protected void duck() {
+        Message.showMessage("DUCK!");
         //TODO
     }
 
