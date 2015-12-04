@@ -54,18 +54,25 @@ public class Central {
     public static void setCurrentActivity(Activity currentActivity) {
         // On first time: get the display metrics
         if (Central.currentActivity == null) {
-
+            Point size = new Point();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                Point size = new Point();
                 currentActivity.getWindowManager().getDefaultDisplay().getRealSize(size);
-                Central.displayHeight = size.x; // note: switch height and width,
-                Central.displayWidth = size.y; // cause landscape!
             } else {
                 DisplayMetrics metrics = new DisplayMetrics();
                 currentActivity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-                Central.displayHeight = metrics.widthPixels;
-                Central.displayWidth = metrics.heightPixels;
+                size.set(metrics.widthPixels, metrics.heightPixels);
             }
+            // depending on device, x and y my be mixed. use larger as width for landscape
+            if (size.x > size.y) {
+                Central.displayHeight = size.y;
+                Central.displayWidth = size.x;
+            }
+            else {
+                Central.displayHeight = size.x;
+                Central.displayWidth = size.y;
+            }
+
+
         }
         // Set the activity
         Central.currentActivity = currentActivity;

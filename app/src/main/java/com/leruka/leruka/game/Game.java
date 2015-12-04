@@ -10,6 +10,7 @@ import com.leruka.leruka.game.process.MainProcess;
 import com.leruka.leruka.game.track.Track;
 import com.leruka.leruka.game.track.creator.TestStage;
 import com.leruka.leruka.input.Gesture;
+import com.leruka.leruka.main.Central;
 
 /**
  * This class is controlling all the actions that have to be done in order to run the game itself.
