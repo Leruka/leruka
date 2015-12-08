@@ -30,11 +30,16 @@ public class Track {
     public void draw(Canvas canvas) {
         // Draw Track
         this.background.draw(canvas);
+        this.player.draw(canvas);
     }
 
     public void update() {
         this.background.update();
         this.player.update();
+    }
+
+    public Player getPlayer() {
+        return this.player;
     }
 
 }

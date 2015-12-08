@@ -1,9 +1,17 @@
 package com.leruka.leruka.game;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 
+import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;
+import com.leruka.leruka.helper.Measure;
+import com.leruka.leruka.helper.ResourceProvider;
 import com.leruka.leruka.helper.Message;
+import com.leruka.leruka.main.Central;
 
 /**
  * Created by leif on 09.11.15.
@@ -11,36 +19,108 @@ import com.leruka.leruka.helper.Message;
 public class Player {
 
     // Attributes
+    private float pixelGravity;
+    private int groundLevel;
+    private Rect rect;
+    private float velocityY;
+    private float jumpVelocity;
     private boolean isJumping;
     private boolean isDucking;
+    private int duckTimer;
+    private int duckTimerDefault = 100;
     private Animation currentAnimation;
 
+    private Bitmap img;
+    private Bitmap imgWalk;
+    private Bitmap imgDuck;
+    private Bitmap imgJump;
+
     // Constructor
-    public Player() {
-        //TODO load images / animations
+    public Player(int groundLevel) {
+        // Load image first -> get dimensions
+        this.imgWalk = ResourceProvider.loadImageWithHeight(R.drawable.test_player0, Measure.ph(40));
+        this.imgJump = this.imgWalk;
+        this.imgDuck = ResourceProvider.loadImageWithHeight(R.drawable.test_player_duck0,
+                this.imgWalk.getHeight() / 2);
+        this.img = this.imgWalk;
+        // position and dimension
+        this.groundLevel = groundLevel;
+        this.rect = new Rect();
+        this.rect.bottom = groundLevel;
+        this.rect.left = Measure.pw(5);
+        this.rect.right = this.rect.left + this.img.getWidth();
+        this.rect.top = this.rect.bottom - this.img.getHeight();
+        this.velocityY = 0;
+        this.jumpVelocity = Central.getDisplayHeight() / -30;
+        this.pixelGravity = jumpVelocity / -25;
+        // state
+        this.isJumping = false;
+        this.isDucking = false;
     }
 
     // Methods
     protected void jump() {
-        Message.showMessage("JUMP!");
-        //TODO
+        if (!this.isJumping) {
+            this.velocityY = jumpVelocity;
+            this.isJumping = true;
+        }
     }
 
     protected void duck() {
-        Message.showMessage("DUCK!");
-        //TODO
+        if (!this.isDucking) {
+            // switch img
+            int oldHeight = this.img.getHeight();
+            this.img = this.imgDuck;
+            if (this.isJumping) // different behavior when jumping
+                this.rect.bottom -= oldHeight - this.img.getHeight();
+            else
+                this.rect.top += oldHeight - this.img.getHeight();
+            // Set state
+            this.duckTimer = this.duckTimerDefault;
+            this.isDucking = true;
+        }
+        else {
+            // reset timer > duck longer
+            this.duckTimer = this.duckTimerDefault;
+        }
     }
 
     protected void collide() {
         //TODO
     }
 
-    protected void draw(Canvas canvas) {
-        //TODO
+    public void draw(Canvas canvas) {
+        canvas.drawBitmap(this.img, this.rect.left, this.rect.top, null);
+        // draw rect
+        Paint p = new Paint();
+        p.setColor(Color.RED);
+        p.setStyle(Paint.Style.STROKE);
+        canvas.drawRect(this.rect, p);
     }
 
     public void update() {
-        //TODO
+        if (this.isJumping) {
+            // test, if the new position will be on the ground
+            if (this.rect.bottom + velocityY >= this.groundLevel) {
+                this.rect.offsetTo(this.rect.left, this.groundLevel - this.rect.height());
+                this.isJumping = false;
+            }
+            else {
+                this.rect.offset(0, (int) velocityY);
+            }
+            this.velocityY += pixelGravity;
+        }
+        if (this.isDucking) {
+            this.duckTimer--;
+            if (this.duckTimer <= 0) {
+                // switch img
+                int oldHeight = this.img.getHeight();
+                this.img = this.imgWalk;
+                this.rect.top += oldHeight - this.img.getHeight();
+                // Set state
+                this.isDucking = false;
+            }
+        }
     }
 
 

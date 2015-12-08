@@ -9,7 +9,7 @@ import com.leruka.leruka.main.Central;
 /**
  * Created by leifb on 04.12.15.
  */
-public class Image {
+public class ResourceProvider {
 
     private static BitmapFactory.Options dimensionConfig;
 

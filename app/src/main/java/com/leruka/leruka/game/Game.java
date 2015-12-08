@@ -45,10 +45,10 @@ public class Game {
         MainProcess.init();
         // init draw process
         DrawProcess.init();
-        // Create Player
-        player = new Player();
         // Create Track
-        track = TestStage.createTrack(player);
+        track = TestStage.createTrack();
+        // Get player
+        player = track.getPlayer();
     }
 
     /**

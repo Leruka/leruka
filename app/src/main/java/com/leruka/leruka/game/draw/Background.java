@@ -3,6 +3,7 @@ package com.leruka.leruka.game.draw;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
+import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.main.Central;
 
 /**
@@ -18,7 +19,7 @@ public class Background {
     /** The position of the image where it should jump back to 0 */
     private int minPos;
     /** The pixel width the background is moving each tick */
-    private static float step = 1;
+    private float step;
 
     /**
      * Creates a new Background object. The image should look nice when repeating. It has not to be
@@ -28,13 +29,14 @@ public class Background {
     public Background(Bitmap image) {
         this.position = 0;
         this.setUpLongImage(image, Central.getDisplayWidth(), Central.getDisplayHeight());
+        this.step = Central.getDisplayWidth() / 2000f;
     }
 
     /**
      * Moves the background one step or to 0, if needed.
      */
     public void update() {
-        this.position -= step;
+        position -= step;
         if (position <= minPos) position = 0;
     }
 

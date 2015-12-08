@@ -1,16 +1,13 @@
 package com.leruka.leruka.game.track.creator;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Point;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.draw.Background;
 import com.leruka.leruka.game.track.Track;
-import com.leruka.leruka.helper.Image;
+import com.leruka.leruka.helper.Measure;
+import com.leruka.leruka.helper.ResourceProvider;
 import com.leruka.leruka.main.Central;
 
 /**
@@ -19,12 +16,17 @@ import com.leruka.leruka.main.Central;
 public class TestStage {
 
 
-    public static Track createTrack(Player player) {
+    public static Track createTrack() {
 
-        Bitmap backgroundImage = Image.loadImageWithHeight(R.drawable.test_res,
+        int groundLevel = Central.getDisplayHeight() - Measure.ph(5);
+
+        // Create Player
+        Player p = new Player(groundLevel);
+
+        Bitmap backgroundImage = ResourceProvider.loadImageWithHeight(R.drawable.test_bg0,
                 Central.getDisplayHeight());
         Background background = new Background(backgroundImage);
-        return new Track(background, player);
+        return new Track(background, p);
 
     }
 
