@@ -38,9 +38,9 @@ public class Player {
     // Constructor
     public Player(int groundLevel) {
         // Load image first -> get dimensions
-        this.imgWalk = ResourceProvider.loadImageWithHeight(R.drawable.test_player0, Measure.ph(40));
+        this.imgWalk = ResourceProvider.loadImageWithHeight(R.drawable.run1, Measure.ph(40));
         this.imgJump = this.imgWalk;
-        this.imgDuck = ResourceProvider.loadImageWithHeight(R.drawable.test_player_duck0,
+        this.imgDuck = ResourceProvider.loadImageWithHeight(R.drawable.run1,
                 this.imgWalk.getHeight() / 2);
         this.img = this.imgWalk;
         // position and dimension
