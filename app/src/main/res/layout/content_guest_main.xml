@@ -63,7 +63,8 @@
         android:layout_alignLeft="@+id/btnRegistrieren"
         android:layout_alignStart="@+id/btnRegistrieren"
         android:layout_alignRight="@+id/btnRegistrieren"
-        android:layout_alignEnd="@+id/btnRegistrieren"/>
+        android:layout_alignEnd="@+id/btnRegistrieren"
+        android:onClick="onPublicScore"/>
 
     <Button
         android:layout_width="wrap_content"

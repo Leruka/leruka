@@ -27,12 +27,11 @@ public class Score_Helper extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         String [] privateScoreArr = {
-                "1. - 751  - 08.12.2015",
-                "2. - 650  - 08.12.2015",
-                "3. - 629  - 08.12.2015",
-                "4. - 458  - 08.12.2015",
-                "5. - 350  - 08.12.2015",
-
+                "1.  -  751  -  08.12.2015",
+                "2.  -  650  -  08.12.2015",
+                "3.  -  629  -  08.12.2015",
+                "4.  -  458  -  08.12.2015",
+                "5.  -  350  -  08.12.2015",
         };
 
         List <String> privateScore = new ArrayList<>(Arrays.asList(privateScoreArr));

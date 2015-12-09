@@ -6,10 +6,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
 
 import com.leruka.leruka.R;
 
 public class PublicHighscoreActivity extends LerukaActivity {
+
+    private ListView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +20,8 @@ public class PublicHighscoreActivity extends LerukaActivity {
         setContentView(R.layout.activity_public_highscore);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        listview = (ListView) findViewById(R.id.listview_highscore);
     }
 
 }

@@ -39,4 +39,9 @@ public class GuestMainActivity extends LerukaActivity {
         Intent intent = new Intent(this, GameMainActivity.class);
         startActivity(intent);
     }
+
+    public void onPublicScore(View view) {
+        Intent intent = new Intent(this, PublicHighscoreActivity.class);
+        startActivity(intent);
+    }
 }
