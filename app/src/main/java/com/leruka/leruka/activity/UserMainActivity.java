@@ -41,4 +41,9 @@ public class UserMainActivity extends LerukaActivity {
         Intent intent = new Intent(this, GameMainActivity.class);
         startActivity(intent);
     }
+
+    public void onPrivateScore(View view) {
+        Intent intent = new Intent(this, PrtivateHighscoreActivity.class);
+        startActivity(intent);
+    }
 }
