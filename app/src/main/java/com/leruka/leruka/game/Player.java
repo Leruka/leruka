@@ -28,28 +28,23 @@ public class Player {
     private boolean isDucking;
     private int duckTimer;
     private int duckTimerDefault = 100;
-    private Animation currentAnimation;
 
-    private Bitmap img;
-    private Bitmap imgWalk;
-    private Bitmap imgDuck;
-    private Bitmap imgJump;
+    private Animation animation;
+    private Animation animationWalk;
+    private Animation animationDuck;
+    private Animation animationJump;
 
     // Constructor
     public Player(int groundLevel) {
         // Load image first -> get dimensions
-        this.imgWalk = ResourceProvider.loadImageWithHeight(R.drawable.run1, Measure.ph(40));
-        this.imgJump = this.imgWalk;
-        this.imgDuck = ResourceProvider.loadImageWithHeight(R.drawable.run1,
-                this.imgWalk.getHeight() / 2);
-        this.img = this.imgWalk;
+        this.animation = createRunAnimation(Measure.ph(40));
         // position and dimension
         this.groundLevel = groundLevel;
         this.rect = new Rect();
         this.rect.bottom = groundLevel;
         this.rect.left = Measure.pw(5);
-        this.rect.right = this.rect.left + this.img.getWidth();
-        this.rect.top = this.rect.bottom - this.img.getHeight();
+        this.rect.right = this.rect.left + this.animation.getWidth();
+        this.rect.top = this.rect.bottom - this.animation.getHeight();
         this.velocityY = 0;
         this.jumpVelocity = Central.getDisplayHeight() / -30;
         this.pixelGravity = jumpVelocity / -25;
@@ -67,7 +62,7 @@ public class Player {
     }
 
     protected void duck() {
-        if (!this.isDucking) {
+        /*if (!this.isDucking) {
             // switch img
             int oldHeight = this.img.getHeight();
             this.img = this.imgDuck;
@@ -82,7 +77,7 @@ public class Player {
         else {
             // reset timer > duck longer
             this.duckTimer = this.duckTimerDefault;
-        }
+        }*/
     }
 
     protected void collide() {
@@ -90,7 +85,7 @@ public class Player {
     }
 
     public void draw(Canvas canvas) {
-        canvas.drawBitmap(this.img, this.rect.left, this.rect.top, null);
+        canvas.drawBitmap(this.animation.currentFrame(), this.rect.left, this.rect.top, null);
         // draw rect
         Paint p = new Paint();
         p.setColor(Color.RED);
@@ -99,6 +94,7 @@ public class Player {
     }
 
     public void update() {
+        this.animation.update();
         if (this.isJumping) {
             // test, if the new position will be on the ground
             if (this.rect.bottom + velocityY >= this.groundLevel) {
@@ -114,13 +110,37 @@ public class Player {
             this.duckTimer--;
             if (this.duckTimer <= 0) {
                 // switch img
-                int oldHeight = this.img.getHeight();
-                this.img = this.imgWalk;
-                this.rect.top += oldHeight - this.img.getHeight();
+                int oldHeight = this.animation.getHeight();
+                this.animation = this.animationWalk;
+                this.rect.top += oldHeight - this.animation.getHeight();
                 // Set state
                 this.isDucking = false;
             }
         }
+    }
+
+    // Statics for creation
+
+    public static Animation createRunAnimation(int height) {
+        // Create Bitmap
+        Bitmap[] bitmaps = new Bitmap[] {
+                ResourceProvider.loadImageWithHeight(R.drawable.run1, height),
+                ResourceProvider.loadImageWithHeight(R.drawable.run2, height),
+                ResourceProvider.loadImageWithHeight(R.drawable.run3, height),
+                ResourceProvider.loadImageWithHeight(R.drawable.run4, height),
+                ResourceProvider.loadImageWithHeight(R.drawable.run5, height),
+                ResourceProvider.loadImageWithHeight(R.drawable.run6, height)
+        };
+        // Set timing
+        int[] repeats = new int[] {
+                15,
+                15,
+                15,
+                15,
+                15,
+                15
+        };
+        return new Animation(bitmaps, repeats);
     }
 
 

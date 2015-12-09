@@ -13,6 +13,8 @@ public class Animation {
     private Bitmap[] frames;
     private int currentTime;
     private int[] repeats;
+    private int height;
+    private int width;
 
     // Constructor
     public Animation(Bitmap[] frames, int[] repeats) {
@@ -20,29 +22,35 @@ public class Animation {
         this.totalFrames = frames.length;
         this.currentFrame = 0;
         this.repeats = repeats;
-
+        this.height = frames[0].getHeight();
+        this.width = frames[0].getWidth();
     }
 
     public Bitmap currentFrame() {
-        currentTime = repeats[currentFrame];
         return this.frames[this.currentFrame];
     }
 
     public void update() {
-        if (currentTime != 0) {
-            currentTime = currentTime - 1;
+        if (currentTime > 0) {
+            currentTime--;
         } else {
-            currentFrame = currentFrame + 1;
-            currentFrame();
-        }
-        if (currentFrame >= totalFrames) {
-            currentFrame = 0;
-            currentFrame();
+            currentFrame++;
+            if (currentFrame >= totalFrames) currentFrame = 0;
+            currentTime = repeats[currentFrame];
         }
     }
 
+    public int getHeight() {
+        return this.height;
+    }
+
+    public int getWidth() {
+        return this.width;
+    }
+
     public void reset() {
-        //TODO
+        this.currentFrame = 0;
+        this.currentTime = repeats[0];
     }
 
 }
