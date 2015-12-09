@@ -11,7 +11,7 @@
     <string name="username">Nickname</string>
     <string name="password">Passwort</string>
     <string name="login">Login</string>
-    <string name="instruction">Spieleanleitung</string>
+    <string name="instruction">Spielanleitung</string>
     <string name="title_activity_game_instruction">Spielanleitung</string>
     <string name="large_text">
         "Leandro hat ein Problem!\n\nWir schreiben das Jahr 2015. Der Markt an Lieferservicen ist überfüllt. "
