@@ -112,14 +112,21 @@ public class Login {
     }
 
 
-    private static class LoginPost extends HttpPost {
+    private static class LoginPost extends HttpPost<User.ResponseLogin> {
+
         @Override
-        protected void onPostExecute(InputStream in) {
+        protected User.ResponseLogin CreateResponseObject(InputStream in) {
             try {
-                receiveLogin(User.ResponseLogin.parseFrom(in));
+                return User.ResponseLogin.parseFrom(in);
             } catch (IOException e) {
                 e.printStackTrace();
+                return null;
             }
+        }
+
+        @Override
+        protected void onPostExecute(User.ResponseLogin response) {
+            receiveLogin(response);
         }
     }
 

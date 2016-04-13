@@ -81,14 +81,26 @@ public class Register {
         return proto.toByteArray();
     }
 
-    private static class RegisterPost extends HttpPost {
+    private static class RegisterPost extends HttpPost<User.ResponseLogin> {
+
         @Override
-        protected void onPostExecute(InputStream in) {
+        protected void onPostExecute(User.ResponseLogin response) {
+            //TODO currently only a LoginResponse is returned. switch to RegisterResponse!
+            if (response != null) {
+                Login.receiveLoginOrRegister(response);
+            }
+            else {
+                //TODO
+            }
+        }
+
+        @Override
+        protected User.ResponseLogin CreateResponseObject(InputStream in) {
             try {
-                //TODO currently only a LoginResponse is returned. switch to RegisterResponse!
-                Login.receiveLoginOrRegister(User.ResponseLogin.parseFrom(in));
+                return User.ResponseLogin.parseFrom(in);
             } catch (IOException e) {
                 e.printStackTrace();
+                return null;
             }
         }
     }

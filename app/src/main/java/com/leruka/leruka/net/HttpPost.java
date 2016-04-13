@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.user.Register;
+import com.leruka.protobuf.User;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -20,7 +21,7 @@ import de.leifb.objectJson.Json;
 /**
  * Created by leif on 11.11.15.
  */
-public class HttpPost extends AsyncTask<PostObject, Integer, InputStream> {
+public abstract class HttpPost<T> extends AsyncTask<PostObject, Integer, T> {
 
     private static String USER_AGENT;
 
@@ -28,8 +29,7 @@ public class HttpPost extends AsyncTask<PostObject, Integer, InputStream> {
         USER_AGENT = "LerukaApp/0.1"; //TODO put version somewhere else
     }
 
-    @Override
-    protected InputStream doInBackground(PostObject... params) {
+    protected T doInBackground(PostObject... params) {
         //TODO Check connection state
 
         // Only use one PostObject
@@ -66,11 +66,12 @@ public class HttpPost extends AsyncTask<PostObject, Integer, InputStream> {
                 in = conn.getInputStream();
             }
 
-            return in;
+            return this.CreateResponseObject(in);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
 
+    abstract protected T CreateResponseObject(InputStream in);
 }
