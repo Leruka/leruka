@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<fragment
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragment"
-    android:name="com.leruka.leruka.helper.Public_Score_Helper"
-    tools:layout="@layout/fragment_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:id="@+id/public_score_table"
+    android:stretchColumns="0,1,2"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    style="@style/AppTheme">
+
+    <TableRow style="@style/AppTheme">
+        <TextView
+            android:text="feld01" />
+        <TextView
+            android:text="feld1222" />
+        <TextView
+            android:text="feld1222" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="feld1" />
+        <TextView
+            android:text="feld2" />
+        <TextView
+            android:text="feld3" />
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="feld1" />
+        <TextView
+            android:text="feld2" />
+        <TextView
+            android:text="feld3" />
+    </TableRow>
+
+</TableLayout>

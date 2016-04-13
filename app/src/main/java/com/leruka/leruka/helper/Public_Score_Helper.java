@@ -20,6 +20,9 @@ import java.util.List;
 public class Public_Score_Helper extends Fragment{
 
     public Public_Score_Helper() {
+
+
+
     }
 
     @Override
