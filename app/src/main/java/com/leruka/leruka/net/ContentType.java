@@ -4,7 +4,9 @@ package com.leruka.leruka.net;
  * Created by leif on 18.11.15.
  */
 public enum ContentType {
-    json("application/json");
+
+    json("application/json"),
+    protobuf("application/x-protobuf");
 
     private String string;
 

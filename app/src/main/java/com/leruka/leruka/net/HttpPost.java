@@ -6,18 +6,21 @@ import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.user.Register;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import de.leifb.objectJson.Json;
 
 /**
  * Created by leif on 11.11.15.
  */
-public class HttpPost extends AsyncTask<PostObject, Integer, ResponseObject> {
+public class HttpPost extends AsyncTask<PostObject, Integer, InputStream> {
 
     private static String USER_AGENT;
 
@@ -26,12 +29,11 @@ public class HttpPost extends AsyncTask<PostObject, Integer, ResponseObject> {
     }
 
     @Override
-    protected ResponseObject doInBackground(PostObject... params) {
+    protected InputStream doInBackground(PostObject... params) {
         //TODO Check connection state
 
         // Only use one PostObject
         if (params == null || params.length < 1) {
-            // MÖÖP
             return null;
         }
 
@@ -45,7 +47,7 @@ public class HttpPost extends AsyncTask<PostObject, Integer, ResponseObject> {
             conn.setReadTimeout(10000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");
-            conn.setRequestProperty("Accept", "application/json");
+            conn.setRequestProperty("Accept", "application/x-protobuf");
             conn.setRequestProperty("Content-Type", params[0].getContentType());
             conn.setRequestProperty("Charset", "UTF-8");
             conn.setRequestProperty("User-Agent",USER_AGENT);
@@ -54,14 +56,9 @@ public class HttpPost extends AsyncTask<PostObject, Integer, ResponseObject> {
             conn.connect();
             conn.getOutputStream().write(content);
 
-            // read the response
-            // Create Response
-            ResponseObject responseObject = new ResponseObject();
-
             // Get input stream and status code
             InputStream in;
             int statusCode = conn.getResponseCode();
-            responseObject.setStatusCode(statusCode);
             if (statusCode != 200) {
                 in = conn.getErrorStream();
             }
@@ -69,32 +66,10 @@ public class HttpPost extends AsyncTask<PostObject, Integer, ResponseObject> {
                 in = conn.getInputStream();
             }
 
-            // Read the input stream
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            StringBuilder result = new StringBuilder();
-            String line;
-            while((line = reader.readLine()) != null) {
-                result.append(line);
-            }
-            // disconnect
-            conn.disconnect();
-
-            // Create the response Json
-            responseObject.setResponseJson(new Json(result.toString()));
-
-            // Set the error Code
-            if (statusCode != 200) {
-                responseObject.setErrorCode(
-                        responseObject.getResponseJson().getInt("errorCode")
-                );
-            }
-
-            // Set success
-            responseObject.setSuccess(responseObject.getResponseJson().getBoolean("success"));
-            return responseObject;
+            return in;
         } catch (IOException e) {
+            e.printStackTrace();
             return null;
-
         }
     }
 

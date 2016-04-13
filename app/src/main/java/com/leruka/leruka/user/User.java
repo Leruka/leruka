@@ -1,7 +1,5 @@
 package com.leruka.leruka.user;
 
-import android.text.TextUtils;
-
 import com.leruka.leruka.helper.Message;
 
 import java.security.MessageDigest;

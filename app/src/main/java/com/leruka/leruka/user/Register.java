@@ -1,20 +1,18 @@
 package com.leruka.leruka.user;
 
-import android.app.Activity;
-import android.util.Log;
-
+import com.google.protobuf.InvalidProtocolBufferException;
 import com.leruka.leruka.activity.RegisterActivity;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpPost;
 import com.leruka.leruka.net.PostObject;
-import com.leruka.leruka.net.ResponseObject;
+
+import com.leruka.protobuf.User;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
-
-import de.leifb.objectJson.Json;
 
 /**
  * Created by leif on 09.11.15.
@@ -34,7 +32,8 @@ public class Register {
             return;
         }
 
-        User user = new User(name, User.sha256(pass1));
+        com.leruka.leruka.user.User user =
+                new com.leruka.leruka.user.User(name, com.leruka.leruka.user.User.sha256(pass1));
 
         try {
             sendRegister(user);
@@ -43,11 +42,11 @@ public class Register {
         }
     }
 
-    private static void sendRegister(User user) throws IOException {
+    private static void sendRegister(com.leruka.leruka.user.User user) throws IOException {
         PostObject postObject = new PostObject(
                 new URL(REGISTER_URL),
-                ContentType.json,
-                getRegisterJson(
+                ContentType.protobuf,
+                getRegisterBytes(
                         user.getUserName(),
                         user.getPasswordHash()
                 )
@@ -57,11 +56,13 @@ public class Register {
         new RegisterPost().execute(postObject);
 
         // Save the user
-        User.setCurrentUser(user);
+        com.leruka.leruka.user.User.setCurrentUser(user);
     }
 
-    public static void receiveRegister(ResponseObject response) {
-        Login.receiveLoginOrRegister(response);
+    public static void receiveRegister(User.ResponseRegister response) {
+        //TODO check successful register
+
+        Login.receiveLoginOrRegister(response.getLogin());
     }
 
     private static boolean isValid(String name, String pass1, String pass2) {
@@ -72,17 +73,23 @@ public class Register {
         return (pass2.equals(pass1));
     }
 
-    private static byte[] getRegisterJson(String name, String pass) {
-        Json json = new Json();
-        json.addAttribute("userName", name);
-        json.addAttribute("passwordHash", pass);
-        return json.toString().getBytes();
+    private static byte[] getRegisterBytes(String name, String pass) {
+        User.RequestRegister proto = User.RequestRegister.newBuilder()
+                .setName(name)
+                .setPassword(pass)
+                .build();
+        return proto.toByteArray();
     }
 
     private static class RegisterPost extends HttpPost {
         @Override
-        protected void onPostExecute(ResponseObject result) {
-            receiveRegister(result);
+        protected void onPostExecute(InputStream in) {
+            try {
+                //TODO currently only a LoginResponse is returned. switch to RegisterResponse!
+                Login.receiveLoginOrRegister(User.ResponseLogin.parseFrom(in));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
