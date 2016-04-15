@@ -10,7 +10,6 @@ import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;
 import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.helper.ResourceProvider;
-import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 
 /**
@@ -110,6 +109,17 @@ public class Player {
             this.duckTimer--;
             if (this.duckTimer <= 0) {
                 // switch img
+                /*Bitmap[] bitmaps = new Bitmap[] {
+                        ResourceProvider.loadImageWithHeight(R.drawable.rolle1, 100),
+                        ResourceProvider.loadImageWithHeight(R.drawable.rolle2, 100),
+                        ResourceProvider.loadImageWithHeight(R.drawable.rolle3, 100),
+                        ResourceProvider.loadImageWithHeight(R.drawable.rolle4, 100),
+                        ResourceProvider.loadImageWithHeight(R.drawable.rolle5, 100),
+                        ResourceProvider.loadImageWithHeight(R.drawable.rolle6, 100)
+
+                };*/
+                ResourceProvider.loadImageWithHeight(R.drawable.rolle3, 100);
+
                 int oldHeight = this.animation.getHeight();
                 this.animation = this.animationWalk;
                 this.rect.top += oldHeight - this.animation.getHeight();
@@ -129,10 +139,22 @@ public class Player {
                 ResourceProvider.loadImageWithHeight(R.drawable.run3, height),
                 ResourceProvider.loadImageWithHeight(R.drawable.run4, height),
                 ResourceProvider.loadImageWithHeight(R.drawable.run5, height),
-                ResourceProvider.loadImageWithHeight(R.drawable.run6, height)
+                ResourceProvider.loadImageWithHeight(R.drawable.run6, height),
+                ResourceProvider.loadImageWithHeight(R.drawable.rolle1, 200),
+                ResourceProvider.loadImageWithHeight(R.drawable.rolle2, 200),
+                ResourceProvider.loadImageWithHeight(R.drawable.rolle3, 200),
+                ResourceProvider.loadImageWithHeight(R.drawable.rolle4, 200),
+                ResourceProvider.loadImageWithHeight(R.drawable.rolle5, 200),
+                ResourceProvider.loadImageWithHeight(R.drawable.rolle6, 200)
         };
         // Set timing
         int[] repeats = new int[] {
+                15,
+                15,
+                15,
+                15,
+                15,
+                15,
                 15,
                 15,
                 15,
