@@ -1,8 +1,8 @@
 Feature: View personal highscore
-  As a logged in user
+  As a app user
   I want to see my highscore
 
-  Scenario: View personal highscore works fine
+  Scenario: View personal highscore as a user works fine
     Given I press "Einloggen"
     And I enter "Hugo" into input field number 1
     And I enter "lustig" into input field number 2
