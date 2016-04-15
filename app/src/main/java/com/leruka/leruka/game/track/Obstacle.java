@@ -21,6 +21,20 @@ public class Obstacle {
 
     // Methods
     public void draw(Canvas canvas) {
-        //TODO
+        canvas.drawBitmap(image, this.rect.left, this.rect.top, null);
     }
+
+    public boolean isCollide(Rect player_rect) {
+        if (rect.intersect(player_rect)) {
+            return true;
+        }
+        return false;
+    }
+
+    public void move () {
+        //TODO: Bewegung random
+        this.rect.set(5, 5, 5, 5);
+    }
+
+
 }
