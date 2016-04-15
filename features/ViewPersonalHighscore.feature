@@ -1,11 +1,17 @@
 Feature: View personal highscore
+  As a app user
+  I want to see my highscore
 
-  Scenario: View personal highscore works fine
-    Given I am logged in
-    And I press "Persönlicher Highscore"
-    Then I see "Meine Top5"
+  Scenario: View personal highscore as a user works fine
+    Given I press "Einloggen"
+    And I enter "Hugo" into input field number 1
+    And I enter "lustig" into input field number 2
+    And I press "Login"
+    And I see "Hi, hugo"
+    And I press "Persoenlicher Highscore"
+    Then I see "Dein Highscore"
 
   Scenario: View personal highscore fails
-    Given I am not logged in
-    And I don't see "Persönlicher Highscore"
+    Given I see "Willkommen zu LeRuKa"
+    And I don't see "Persoenlicher Highscore"
     Then I should see "Leruka"
