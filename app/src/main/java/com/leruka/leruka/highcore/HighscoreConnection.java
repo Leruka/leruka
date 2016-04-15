@@ -22,10 +22,10 @@ public class HighscoreConnection {
         new PublicScoreGet().execute(PUBLIC_SCORE_URL);
     }
 
-    private static class PublicScoreGet extends HttpGet<Highscore.ResponseGlobalScores> {
+    private static class PublicScoreGet extends HttpGet<Highscore.ResponseScores> {
 
         @Override
-        protected void onPostExecute(Highscore.ResponseGlobalScores response) {
+        protected void onPostExecute(Highscore.ResponseScores response) {
             //TODO currently only a LoginResponse is returned. switch to RegisterResponse!
             if (response != null) {
                 // transform protobuf into score list
@@ -45,9 +45,9 @@ public class HighscoreConnection {
         }
 
         @Override
-        protected Highscore.ResponseGlobalScores CreateResponseObject(InputStream in) {
+        protected Highscore.ResponseScores CreateResponseObject(InputStream in) {
             try {
-                return Highscore.ResponseGlobalScores.parseFrom(in);
+                return Highscore.ResponseScores.parseFrom(in);
             } catch (IOException e) {
                 //TODO
                 e.printStackTrace();
