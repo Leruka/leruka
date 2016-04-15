@@ -34,7 +34,7 @@ public class PublicHighscoreActivity extends LerukaActivity {
 
         this.updateTable();
 
-        // HighscoreConnection.GetPublicScore();
+        HighscoreConnection.GetPublicScore();
     }
 
     public void updateTable() {
