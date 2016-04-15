@@ -25,7 +25,7 @@ public class User {
         return currentUser;
     }
 
-    protected static String getSessionID() {
+    public static String getSessionID() {
         return sessionID;
     }
 

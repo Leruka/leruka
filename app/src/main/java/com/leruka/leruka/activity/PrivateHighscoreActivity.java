@@ -3,7 +3,6 @@ package com.leruka.leruka.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -14,34 +13,36 @@ import com.leruka.leruka.highcore.HighscoreConnection;
 import com.leruka.leruka.highcore.Score;
 import com.leruka.leruka.main.Central;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PublicHighscoreActivity extends LerukaActivity {
+public class PrivateHighscoreActivity extends LerukaActivity {
 
     private static List<Score> scoreList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_public_highscore);
+        setContentView(R.layout.activity_private_highscore);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (PublicHighscoreActivity.scoreList == null) {
-            PublicHighscoreActivity.scoreList = new ArrayList<>(0);
+        if (PrivateHighscoreActivity.scoreList == null) {
+            PrivateHighscoreActivity.scoreList = new ArrayList<>(0);
         }
 
         this.updateTable();
 
-        // HighscoreConnection.GetPublicScore();
+        HighscoreConnection.GetPrivateScore();
+
     }
 
-    public void updateTable() {
+    private void updateTable() {
 
-        TableLayout table = (TableLayout) findViewById(R.id.public_score_table);
-        //table.removeAllViews();
-        table.removeAllViewsInLayout();
+        TableLayout table = (TableLayout) findViewById(R.id.private_score_table);
+        table.removeAllViews();
 
         TableRow row = new TableRow(getApplicationContext());
         TextView text;
@@ -51,37 +52,41 @@ public class PublicHighscoreActivity extends LerukaActivity {
         row.addView(text);
 
         text = new TextView(getApplicationContext());
-        text.setText("Name");
+        text.setText("Score");
         row.addView(text);
 
         text = new TextView(getApplicationContext());
-        text.setText("Score");
+        text.setText("Date");
         row.addView(text);
 
         table.addView(row);
 
-        for(Score s : PublicHighscoreActivity.scoreList) {
+        DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
+        for(Score s : PrivateHighscoreActivity.scoreList) {
             TableRow r = new TableRow(getApplicationContext());
-            TextView t1 = new TextView(getApplicationContext());
-            TextView t2 = new TextView(getApplicationContext());
-            TextView t3 = new TextView(getApplicationContext());
 
-            t1.setText(Long.toString(s.getRank()));
-            t2.setText(s.getName());
-            t3.setText(Long.toString(s.getScore()));
+            TextView t = new TextView(getApplicationContext());
+            t.setText(Long.toString(s.getRank()));
+            r.addView(t);
 
-            r.addView(t1);
-            r.addView(t2);
-            r.addView(t3);
+            t = new TextView(getApplicationContext());
+            t.setText(Long.toString(s.getScore()));
+            r.addView(t);
+
+            t = new TextView(getApplicationContext());
+            t.setText(dateFormat.format(s.getDate()));
+            r.addView(t);
+
             table.addView(r);
         }
+
     }
 
     public static void fillScores(List<Score> scoreList) {
-        PublicHighscoreActivity.scoreList = scoreList;
+        PrivateHighscoreActivity.scoreList = scoreList;
         Activity a = Central.getCurrentActivity();
-        if (a.getClass().equals(PublicHighscoreActivity.class)) {
-            ((PublicHighscoreActivity) a).updateTable();
+        if (a.getClass().equals(PrivateHighscoreActivity.class)) {
+            ((PrivateHighscoreActivity) a).updateTable();
         }
     }
 

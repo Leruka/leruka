@@ -1994,6 +1994,11 @@ public final class Highscore {
      * <code>optional uint64 score = 3;</code>
      */
     long getScore();
+
+    /**
+     * <code>optional uint64 timestamp = 4;</code>
+     */
+    long getTimestamp();
   }
   /**
    * Protobuf type {@code leruka.Score}
@@ -2010,6 +2015,7 @@ public final class Highscore {
       userName_ = "";
       rank_ = 0L;
       score_ = 0L;
+      timestamp_ = 0L;
     }
 
     @Override
@@ -2050,6 +2056,11 @@ public final class Highscore {
             case 24: {
 
               score_ = input.readUInt64();
+              break;
+            }
+            case 32: {
+
+              timestamp_ = input.readUInt64();
               break;
             }
           }
@@ -2128,6 +2139,15 @@ public final class Highscore {
       return score_;
     }
 
+    public static final int TIMESTAMP_FIELD_NUMBER = 4;
+    private long timestamp_;
+    /**
+     * <code>optional uint64 timestamp = 4;</code>
+     */
+    public long getTimestamp() {
+      return timestamp_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2149,6 +2169,9 @@ public final class Highscore {
       if (score_ != 0L) {
         output.writeUInt64(3, score_);
       }
+      if (timestamp_ != 0L) {
+        output.writeUInt64(4, timestamp_);
+      }
     }
 
     public int getSerializedSize() {
@@ -2166,6 +2189,10 @@ public final class Highscore {
       if (score_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(3, score_);
+      }
+      if (timestamp_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, timestamp_);
       }
       memoizedSize = size;
       return size;
@@ -2284,6 +2311,8 @@ public final class Highscore {
 
         score_ = 0L;
 
+        timestamp_ = 0L;
+
         return this;
       }
 
@@ -2309,6 +2338,7 @@ public final class Highscore {
         result.userName_ = userName_;
         result.rank_ = rank_;
         result.score_ = score_;
+        result.timestamp_ = timestamp_;
         onBuilt();
         return result;
       }
@@ -2333,6 +2363,9 @@ public final class Highscore {
         }
         if (other.getScore() != 0L) {
           setScore(other.getScore());
+        }
+        if (other.getTimestamp() != 0L) {
+          setTimestamp(other.getTimestamp());
         }
         onChanged();
         return this;
@@ -2480,6 +2513,32 @@ public final class Highscore {
         onChanged();
         return this;
       }
+
+      private long timestamp_ ;
+      /**
+       * <code>optional uint64 timestamp = 4;</code>
+       */
+      public long getTimestamp() {
+        return timestamp_;
+      }
+      /**
+       * <code>optional uint64 timestamp = 4;</code>
+       */
+      public Builder setTimestamp(long value) {
+        
+        timestamp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 timestamp = 4;</code>
+       */
+      public Builder clearTimestamp() {
+        
+        timestamp_ = 0L;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -2572,9 +2631,10 @@ public final class Highscore {
       "\002 \001(\004\022\016\n\006toRank\030\003 \001(\004\";\n\023RequestPrivateS" +
       "core\022\021\n\tsessionID\030\001 \001(\t\022\021\n\tlevelName\030\002 \001" +
       "(\t\"B\n\016ResponseScores\022\021\n\tlevelName\030\001 \001(\t\022" +
-      "\035\n\006scores\030\002 \003(\0132\r.leruka.Score\"6\n\005Score\022" +
+      "\035\n\006scores\030\002 \003(\0132\r.leruka.Score\"I\n\005Score\022" +
       "\020\n\010userName\030\001 \001(\t\022\014\n\004rank\030\002 \001(\004\022\r\n\005score" +
-      "\030\003 \001(\004B\025\n\023com.leruka.protobufb\006proto3"
+      "\030\003 \001(\004\022\021\n\ttimestamp\030\004 \001(\004B\025\n\023com.leruka." +
+      "protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2611,7 +2671,7 @@ public final class Highscore {
     internal_static_leruka_Score_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_Score_descriptor,
-        new String[] { "UserName", "Rank", "Score", });
+        new String[] { "UserName", "Rank", "Score", "Timestamp", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
