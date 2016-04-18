@@ -26,4 +26,7 @@
     <string name="passwordRepeat">Passwort wiederholen</string>
     <string name="register">Registrieren</string>
     <string name="title_activity_test_gesture">Leruka: Gesten Test</string>
+    <string name="title_activity_change_settings">Change_settings</string>
+    <string name="title_activity_change_displayname">ChangeDisplaynameActivity</string>
+    <string name="title_activity_change_password">ChangePasswordActivity</string>
 </resources>

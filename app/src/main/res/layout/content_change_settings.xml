@@ -4,49 +4,48 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <TextView
-        android:layout_width="97dp"
-        android:layout_height="wrap_content"
-        android:text="Einstellungen"
-        android:id="@+id/textView3"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05"
-        android:layout_marginTop="26dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <Button
         android:layout_width="328dp"
         android:layout_height="wrap_content"
         android:text="Passwort ändern"
-        android:id="@+id/button12"
+        android:id="@+id/changePassword"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.05"
-        android:layout_above="@+id/button13"
+        android:layout_above="@+id/changeDisplayname"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="63dp" />
+        android:layout_marginBottom="63dp"
+        android:onClick="onChangePassword"/>
 
     <Button
         android:layout_width="328dp"
         android:layout_height="wrap_content"
         android:text="Anzeige Namen ändern"
-        android:id="@+id/button13"
+        android:id="@+id/changeDisplayname"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.05"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onChangeUsername"/>
 
     <Button
         android:layout_width="315dp"
         android:layout_height="wrap_content"
         android:text="Zurück"
-        android:id="@+id/button14"
+        android:id="@+id/settingsBack"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.05"
         android:layout_marginTop="66dp"
-        android:layout_below="@+id/button13"
-        android:layout_alignLeft="@+id/button13"
-        android:layout_alignStart="@+id/button13"
-        android:layout_alignRight="@+id/button13"
-        android:layout_alignEnd="@+id/button13" />
+        android:layout_below="@+id/changeDisplayname"
+        android:layout_alignLeft="@+id/changeDisplayname"
+        android:layout_alignStart="@+id/changeDisplayname"
+        android:layout_alignRight="@+id/changeDisplayname"
+        android:layout_alignEnd="@+id/changeDisplayname"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ChangeSettings"></RelativeLayout>
 </RelativeLayout>
