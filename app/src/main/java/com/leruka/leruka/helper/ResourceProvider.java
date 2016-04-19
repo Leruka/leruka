@@ -50,5 +50,40 @@ public class ResourceProvider {
         return img;
     }
 
+    public static Bitmap loadImageWithWidth(int id, int targetWidth) {
+        // load height of the image
+        BitmapFactory.decodeResource(Central.getResources(), id, dimensionConfig);
+        int sourceHeight = dimensionConfig.outHeight;
+        int sourceWidth = dimensionConfig.outWidth;
+
+        // get sample size: save memory by not loading the full image and than scaling down
+        int inSampleSize = 1;
+        if (sourceWidth > targetWidth) {
+            final int halfWidth = sourceWidth / 2;
+            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
+            // height and width larger than the requested height and width.
+            while ((halfWidth / inSampleSize) > targetWidth)
+                inSampleSize *= 2;
+        }
+
+        // load the real image
+        BitmapFactory.Options ops = new BitmapFactory.Options();
+        ops.inSampleSize = inSampleSize;
+        Bitmap img = BitmapFactory.decodeResource(Central.getResources(), id, ops)
+                .copy(Bitmap.Config.ARGB_8888, true);
+
+        img.setDensity(Bitmap.DENSITY_NONE);
+
+        // scale the image
+        if (img.getWidth() != targetWidth) {
+            return Bitmap.createScaledBitmap(
+                    img,
+                    targetWidth,
+                    (int)(((double)sourceHeight) / ((double)sourceWidth) * ((double)targetWidth)),
+                    true);
+        }
+        return img;
+    }
+
 
 }
