@@ -9,7 +9,7 @@ import android.graphics.Rect;
 import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;
 import com.leruka.leruka.helper.Measure;
-import com.leruka.leruka.helper.ResourceProvider;
+import com.leruka.leruka.res.ResourceProvider;
 import com.leruka.leruka.main.Central;
 
 /**
@@ -36,7 +36,9 @@ public class Player {
     // Constructor
     public Player(int groundLevel) {
         // Load image first -> get dimensions
-        this.animation = createRunAnimation(Measure.ph(40));
+        this.animationWalk = createRunAnimation(Measure.ph(40));
+        this.animationDuck = createDuckAnimation(Measure.ph(27)); //TODO better height...
+        this.animation = this.animationWalk;
         // position and dimension
         this.groundLevel = groundLevel;
         this.rect = new Rect();
@@ -61,14 +63,14 @@ public class Player {
     }
 
     protected void duck() {
-        /*if (!this.isDucking) {
-            // switch img
-            int oldHeight = this.img.getHeight();
-            this.img = this.imgDuck;
-            if (this.isJumping) // different behavior when jumping
-                this.rect.bottom -= oldHeight - this.img.getHeight();
-            else
-                this.rect.top += oldHeight - this.img.getHeight();
+        if (!this.isDucking) {
+            // switch animation
+            this.animationDuck.reset();
+            int oldHeight = this.animation.getHeight();
+            this.animation = this.animationDuck;
+            // different behavior when jumping
+            if (this.isJumping) { this.rect.bottom -= oldHeight - this.animation.getHeight(); }
+            else { this.rect.top += oldHeight - this.animation.getHeight(); }
             // Set state
             this.duckTimer = this.duckTimerDefault;
             this.isDucking = true;
@@ -76,7 +78,7 @@ public class Player {
         else {
             // reset timer > duck longer
             this.duckTimer = this.duckTimerDefault;
-        }*/
+        }
     }
 
     protected void collide() {
@@ -109,16 +111,7 @@ public class Player {
             this.duckTimer--;
             if (this.duckTimer <= 0) {
                 // switch img
-                /*Bitmap[] bitmaps = new Bitmap[] {
-                        ResourceProvider.loadImageWithHeight(R.drawable.rolle1, 100),
-                        ResourceProvider.loadImageWithHeight(R.drawable.rolle2, 100),
-                        ResourceProvider.loadImageWithHeight(R.drawable.rolle3, 100),
-                        ResourceProvider.loadImageWithHeight(R.drawable.rolle4, 100),
-                        ResourceProvider.loadImageWithHeight(R.drawable.rolle5, 100),
-                        ResourceProvider.loadImageWithHeight(R.drawable.rolle6, 100)
-
-                };*/
-                ResourceProvider.loadImageWithHeight(R.drawable.rolle3, 100);
+                ResourceProvider.loadImageByHeight(R.drawable.rolle3, 100);
 
                 int oldHeight = this.animation.getHeight();
                 this.animation = this.animationWalk;
@@ -134,18 +127,12 @@ public class Player {
     public static Animation createRunAnimation(int height) {
         // Create Bitmap
         Bitmap[] bitmaps = new Bitmap[] {
-                ResourceProvider.loadImageWithHeight(R.drawable.run1, height),
-                ResourceProvider.loadImageWithHeight(R.drawable.run2, height),
-                ResourceProvider.loadImageWithHeight(R.drawable.run3, height),
-                ResourceProvider.loadImageWithHeight(R.drawable.run4, height),
-                ResourceProvider.loadImageWithHeight(R.drawable.run5, height),
-                ResourceProvider.loadImageWithHeight(R.drawable.run6, height),
-                ResourceProvider.loadImageWithHeight(R.drawable.rolle1, 200),
-                ResourceProvider.loadImageWithHeight(R.drawable.rolle2, 200),
-                ResourceProvider.loadImageWithHeight(R.drawable.rolle3, 200),
-                ResourceProvider.loadImageWithHeight(R.drawable.rolle4, 200),
-                ResourceProvider.loadImageWithHeight(R.drawable.rolle5, 200),
-                ResourceProvider.loadImageWithHeight(R.drawable.rolle6, 200)
+                ResourceProvider.loadImageByHeight(R.drawable.run1, height),
+                ResourceProvider.loadImageByHeight(R.drawable.run2, height),
+                ResourceProvider.loadImageByHeight(R.drawable.run3, height),
+                ResourceProvider.loadImageByHeight(R.drawable.run4, height),
+                ResourceProvider.loadImageByHeight(R.drawable.run5, height),
+                ResourceProvider.loadImageByHeight(R.drawable.run6, height),
         };
         // Set timing
         int[] repeats = new int[] {
@@ -154,7 +141,23 @@ public class Player {
                 15,
                 15,
                 15,
-                15,
+                15
+        };
+        return new Animation(bitmaps, repeats);
+    }
+
+    public static Animation createDuckAnimation(int height) {
+        // Create Bitmap
+        Bitmap[] bitmaps = new Bitmap[]{
+                ResourceProvider.loadImageByHeight(R.drawable.rolle1, height),
+                ResourceProvider.loadImageByHeight(R.drawable.rolle2, height),
+                ResourceProvider.loadImageByHeight(R.drawable.rolle3, height),
+                ResourceProvider.loadImageByHeight(R.drawable.rolle4, height),
+                ResourceProvider.loadImageByHeight(R.drawable.rolle5, height),
+                ResourceProvider.loadImageByHeight(R.drawable.rolle6, height)
+        };
+        // Set timing
+        int[] repeats = new int[] {
                 15,
                 15,
                 15,

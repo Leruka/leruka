@@ -7,7 +7,7 @@ import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.draw.Background;
 import com.leruka.leruka.game.track.Track;
 import com.leruka.leruka.helper.Measure;
-import com.leruka.leruka.helper.ResourceProvider;
+import com.leruka.leruka.res.ResourceProvider;
 import com.leruka.leruka.main.Central;
 
 /**
@@ -23,7 +23,7 @@ public class TestStage {
         // Create Player
         Player p = new Player(groundLevel);
 
-        Bitmap backgroundImage = ResourceProvider.loadImageWithHeight(R.drawable.test_bg0,
+        Bitmap backgroundImage = ResourceProvider.loadImageByHeight(R.drawable.test_bg0,
                 Central.getDisplayHeight());
         Background background = new Background(backgroundImage);
         return new Track(background, p);
