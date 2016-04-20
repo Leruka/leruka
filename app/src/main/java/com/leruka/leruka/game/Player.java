@@ -38,6 +38,7 @@ public class Player {
         // Load image first -> get dimensions
         this.animationWalk = createRunAnimation(Measure.ph(40));
         this.animationDuck = createDuckAnimation(Measure.ph(27)); //TODO better height...
+        this.animationJump = createJumpAnimation(Measure.ph(40));
         this.animation = this.animationWalk;
         // position and dimension
         this.groundLevel = groundLevel;
@@ -59,6 +60,9 @@ public class Player {
         if (!this.isJumping) {
             this.velocityY = jumpVelocity;
             this.isJumping = true;
+
+            // switch animation
+            this.animation = this.animationJump;
         }
     }
 
@@ -101,6 +105,9 @@ public class Player {
             if (this.rect.bottom + velocityY >= this.groundLevel) {
                 this.rect.offsetTo(this.rect.left, this.groundLevel - this.rect.height());
                 this.isJumping = false;
+                if(!this.isDucking) {
+                    this.animation = this.animationWalk;
+                }
             }
             else {
                 this.rect.offset(0, (int) velocityY);
@@ -111,8 +118,6 @@ public class Player {
             this.duckTimer--;
             if (this.duckTimer <= 0) {
                 // switch img
-                ResourceProvider.loadImageByHeight(R.drawable.rolle3, 100);
-
                 int oldHeight = this.animation.getHeight();
                 this.animation = this.animationWalk;
                 this.rect.top += oldHeight - this.animation.getHeight();
@@ -168,5 +173,20 @@ public class Player {
         return new Animation(bitmaps, repeats);
     }
 
+
+    public static Animation createJumpAnimation(int height) {
+
+        // Create Bitmap
+        Bitmap[] bitmaps = new Bitmap[]{
+                ResourceProvider.loadImageByHeight(R.drawable.sprung, height)
+        };
+
+        // Set timing
+        int[] repeats = new int[] {
+                15
+        };
+
+        return new Animation(bitmaps, repeats);
+    }
 
 }
