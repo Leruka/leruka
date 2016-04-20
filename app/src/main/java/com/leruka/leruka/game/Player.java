@@ -60,9 +60,15 @@ public class Player {
         if (!this.isJumping) {
             this.velocityY = jumpVelocity;
             this.isJumping = true;
-
+            int oldHeight = this.animation.getHeight();
             // switch animation
             this.animation = this.animationJump;
+
+            // fix y pos
+            this.rect.top += oldHeight - this.animation.getHeight();
+
+            // stop ducking, if so
+            if (this.isDucking) { this.isDucking = false; }
         }
     }
 
