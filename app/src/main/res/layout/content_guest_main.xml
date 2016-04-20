@@ -1,81 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_guest_main" tools:context="com.leruka.leruka.activity.GuestMainActivity">
+    tools:showIn="@layout/activity_guest_main"
+    tools:context="com.leruka.leruka.activity.GuestMainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/welcomeMessage" />
+        android:padding="16dp"
+        android:stretchColumns="1">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Spiel starten"
-        android:id="@+id/btnSpielStarten"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="64dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onSpielStarten"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/welcomeMessage" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Einloggen"
-        android:id="@+id/btnEinloggen"
-        android:layout_below="@+id/btnSpielStarten"
-        android:layout_alignLeft="@+id/btnSpielStarten"
-        android:layout_alignStart="@+id/btnSpielStarten"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onLogin" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Spiel starten"
+            android:id="@+id/btnSpielStarten"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="64dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="onSpielStarten"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registrieren"
-        android:id="@+id/btnRegistrieren"
-        android:layout_below="@+id/btnEinloggen"
-        android:layout_alignLeft="@+id/btnEinloggen"
-        android:layout_alignStart="@+id/btnEinloggen"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onRegister" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Einloggen"
+            android:id="@+id/btnEinloggen"
+            android:layout_below="@+id/btnSpielStarten"
+            android:layout_alignLeft="@+id/btnSpielStarten"
+            android:layout_alignStart="@+id/btnSpielStarten"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="onLogin" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Öffentlicher Higscore"
-        android:id="@+id/btnPublicHighscore"
-        android:layout_below="@+id/btnRegistrieren"
-        android:layout_alignLeft="@+id/btnRegistrieren"
-        android:layout_alignStart="@+id/btnRegistrieren"
-        android:layout_alignRight="@+id/btnRegistrieren"
-        android:layout_alignEnd="@+id/btnRegistrieren"
-        android:onClick="onPublicScore"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registrieren"
+            android:id="@+id/btnRegistrieren"
+            android:layout_below="@+id/btnEinloggen"
+            android:layout_alignLeft="@+id/btnEinloggen"
+            android:layout_alignStart="@+id/btnEinloggen"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="onRegister" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/instruction"
-        android:id="@+id/buttonAnleitung"
-        android:layout_below="@+id/btnPublicHighscore"
-        android:layout_alignLeft="@+id/btnPublicHighscore"
-        android:layout_alignStart="@+id/btnPublicHighscore"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onAnleitung" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Öffentlicher Higscore"
+            android:id="@+id/btnPublicHighscore"
+            android:layout_below="@+id/btnRegistrieren"
+            android:layout_alignLeft="@+id/btnRegistrieren"
+            android:layout_alignStart="@+id/btnRegistrieren"
+            android:layout_alignRight="@+id/btnRegistrieren"
+            android:layout_alignEnd="@+id/btnRegistrieren"
+            android:onClick="onPublicScore"/>
 
-</RelativeLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/instruction"
+            android:id="@+id/buttonAnleitung"
+            android:layout_below="@+id/btnPublicHighscore"
+            android:layout_alignLeft="@+id/btnPublicHighscore"
+            android:layout_alignStart="@+id/btnPublicHighscore"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="onAnleitung" />
+
+
+    </TableLayout>
+</ScrollView>
