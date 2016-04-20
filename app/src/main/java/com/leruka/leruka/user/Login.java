@@ -42,7 +42,6 @@ public class Login {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     // Methods
