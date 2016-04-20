@@ -78,7 +78,7 @@ public class Login {
         // Check for success
         if (!response.getSuccess()) {
             // could not register
-            Message.showErrorMessage(response.getErrorCode(0));
+            Message.showErrorMessage(response.getErrorCode(0).name());
             return; //TODO weitere Fehlerbehandlung
         }
 

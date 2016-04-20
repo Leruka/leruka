@@ -15,7 +15,7 @@ public final class Highscore {
     /**
      * <code>optional string levelName = 1;</code>
      */
-    String getLevelName();
+    java.lang.String getLevelName();
     /**
      * <code>optional string levelName = 1;</code>
      */
@@ -49,7 +49,7 @@ public final class Highscore {
       toRank_ = 0L;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -74,7 +74,7 @@ public final class Highscore {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               levelName_ = s;
               break;
@@ -103,29 +103,29 @@ public final class Highscore {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Highscore.internal_static_leruka_RequestGlobalScores_descriptor;
+      return com.leruka.protobuf.Highscore.internal_static_leruka_RequestGlobalScores_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Highscore.internal_static_leruka_RequestGlobalScores_fieldAccessorTable
+      return com.leruka.protobuf.Highscore.internal_static_leruka_RequestGlobalScores_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestGlobalScores.class, Builder.class);
+              com.leruka.protobuf.Highscore.RequestGlobalScores.class, com.leruka.protobuf.Highscore.RequestGlobalScores.Builder.class);
     }
 
     public static final int LEVELNAME_FIELD_NUMBER = 1;
-    private volatile Object levelName_;
+    private volatile java.lang.Object levelName_;
     /**
      * <code>optional string levelName = 1;</code>
      */
-    public String getLevelName() {
-      Object ref = levelName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getLevelName() {
+      java.lang.Object ref = levelName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         levelName_ = s;
         return s;
       }
@@ -135,11 +135,11 @@ public final class Highscore {
      */
     public com.google.protobuf.ByteString
         getLevelNameBytes() {
-      Object ref = levelName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = levelName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         levelName_ = b;
         return b;
       } else {
@@ -209,53 +209,53 @@ public final class Highscore {
     }
 
     private static final long serialVersionUID = 0L;
-    public static RequestGlobalScores parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static RequestGlobalScores parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static RequestGlobalScores parseFrom(byte[] data)
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static RequestGlobalScores parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static RequestGlobalScores parseFrom(java.io.InputStream input)
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static RequestGlobalScores parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static RequestGlobalScores parseDelimitedFrom(java.io.InputStream input)
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static RequestGlobalScores parseDelimitedFrom(
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static RequestGlobalScores parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static RequestGlobalScores parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -266,7 +266,7 @@ public final class Highscore {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(RequestGlobalScores prototype) {
+    public static Builder newBuilder(com.leruka.protobuf.Highscore.RequestGlobalScores prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -274,9 +274,9 @@ public final class Highscore {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -286,17 +286,17 @@ public final class Highscore {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:leruka.RequestGlobalScores)
-        RequestGlobalScoresOrBuilder {
+        com.leruka.protobuf.Highscore.RequestGlobalScoresOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Highscore.internal_static_leruka_RequestGlobalScores_descriptor;
+        return com.leruka.protobuf.Highscore.internal_static_leruka_RequestGlobalScores_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Highscore.internal_static_leruka_RequestGlobalScores_fieldAccessorTable
+        return com.leruka.protobuf.Highscore.internal_static_leruka_RequestGlobalScores_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                RequestGlobalScores.class, Builder.class);
+                com.leruka.protobuf.Highscore.RequestGlobalScores.class, com.leruka.protobuf.Highscore.RequestGlobalScores.Builder.class);
       }
 
       // Construct using com.leruka.protobuf.Highscore.RequestGlobalScores.newBuilder()
@@ -305,7 +305,7 @@ public final class Highscore {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -326,23 +326,23 @@ public final class Highscore {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Highscore.internal_static_leruka_RequestGlobalScores_descriptor;
+        return com.leruka.protobuf.Highscore.internal_static_leruka_RequestGlobalScores_descriptor;
       }
 
-      public RequestGlobalScores getDefaultInstanceForType() {
-        return RequestGlobalScores.getDefaultInstance();
+      public com.leruka.protobuf.Highscore.RequestGlobalScores getDefaultInstanceForType() {
+        return com.leruka.protobuf.Highscore.RequestGlobalScores.getDefaultInstance();
       }
 
-      public RequestGlobalScores build() {
-        RequestGlobalScores result = buildPartial();
+      public com.leruka.protobuf.Highscore.RequestGlobalScores build() {
+        com.leruka.protobuf.Highscore.RequestGlobalScores result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public RequestGlobalScores buildPartial() {
-        RequestGlobalScores result = new RequestGlobalScores(this);
+      public com.leruka.protobuf.Highscore.RequestGlobalScores buildPartial() {
+        com.leruka.protobuf.Highscore.RequestGlobalScores result = new com.leruka.protobuf.Highscore.RequestGlobalScores(this);
         result.levelName_ = levelName_;
         result.fromRank_ = fromRank_;
         result.toRank_ = toRank_;
@@ -351,16 +351,16 @@ public final class Highscore {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof RequestGlobalScores) {
-          return mergeFrom((RequestGlobalScores)other);
+        if (other instanceof com.leruka.protobuf.Highscore.RequestGlobalScores) {
+          return mergeFrom((com.leruka.protobuf.Highscore.RequestGlobalScores)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(RequestGlobalScores other) {
-        if (other == RequestGlobalScores.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.leruka.protobuf.Highscore.RequestGlobalScores other) {
+        if (other == com.leruka.protobuf.Highscore.RequestGlobalScores.getDefaultInstance()) return this;
         if (!other.getLevelName().isEmpty()) {
           levelName_ = other.levelName_;
           onChanged();
@@ -383,11 +383,11 @@ public final class Highscore {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        RequestGlobalScores parsedMessage = null;
+        com.leruka.protobuf.Highscore.RequestGlobalScores parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (RequestGlobalScores) e.getUnfinishedMessage();
+          parsedMessage = (com.leruka.protobuf.Highscore.RequestGlobalScores) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -397,20 +397,20 @@ public final class Highscore {
         return this;
       }
 
-      private Object levelName_ = "";
+      private java.lang.Object levelName_ = "";
       /**
        * <code>optional string levelName = 1;</code>
        */
-      public String getLevelName() {
-        Object ref = levelName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getLevelName() {
+        java.lang.Object ref = levelName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           levelName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -418,11 +418,11 @@ public final class Highscore {
        */
       public com.google.protobuf.ByteString
           getLevelNameBytes() {
-        Object ref = levelName_;
+        java.lang.Object ref = levelName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           levelName_ = b;
           return b;
         } else {
@@ -433,7 +433,7 @@ public final class Highscore {
        * <code>optional string levelName = 1;</code>
        */
       public Builder setLevelName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -532,12 +532,12 @@ public final class Highscore {
     }
 
     // @@protoc_insertion_point(class_scope:leruka.RequestGlobalScores)
-    private static final RequestGlobalScores DEFAULT_INSTANCE;
+    private static final com.leruka.protobuf.Highscore.RequestGlobalScores DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new RequestGlobalScores();
+      DEFAULT_INSTANCE = new com.leruka.protobuf.Highscore.RequestGlobalScores();
     }
 
-    public static RequestGlobalScores getDefaultInstance() {
+    public static com.leruka.protobuf.Highscore.RequestGlobalScores getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -564,12 +564,12 @@ public final class Highscore {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<RequestGlobalScores> getParserForType() {
       return PARSER;
     }
 
-    public RequestGlobalScores getDefaultInstanceForType() {
+    public com.leruka.protobuf.Highscore.RequestGlobalScores getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -582,7 +582,7 @@ public final class Highscore {
     /**
      * <code>optional string sessionID = 1;</code>
      */
-    String getSessionID();
+    java.lang.String getSessionID();
     /**
      * <code>optional string sessionID = 1;</code>
      */
@@ -592,7 +592,7 @@ public final class Highscore {
     /**
      * <code>optional string levelName = 2;</code>
      */
-    String getLevelName();
+    java.lang.String getLevelName();
     /**
      * <code>optional string levelName = 2;</code>
      */
@@ -615,7 +615,7 @@ public final class Highscore {
       levelName_ = "";
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -640,13 +640,13 @@ public final class Highscore {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               sessionID_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               levelName_ = s;
               break;
@@ -665,29 +665,29 @@ public final class Highscore {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Highscore.internal_static_leruka_RequestPrivateScore_descriptor;
+      return com.leruka.protobuf.Highscore.internal_static_leruka_RequestPrivateScore_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Highscore.internal_static_leruka_RequestPrivateScore_fieldAccessorTable
+      return com.leruka.protobuf.Highscore.internal_static_leruka_RequestPrivateScore_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              RequestPrivateScore.class, Builder.class);
+              com.leruka.protobuf.Highscore.RequestPrivateScore.class, com.leruka.protobuf.Highscore.RequestPrivateScore.Builder.class);
     }
 
     public static final int SESSIONID_FIELD_NUMBER = 1;
-    private volatile Object sessionID_;
+    private volatile java.lang.Object sessionID_;
     /**
      * <code>optional string sessionID = 1;</code>
      */
-    public String getSessionID() {
-      Object ref = sessionID_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getSessionID() {
+      java.lang.Object ref = sessionID_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         sessionID_ = s;
         return s;
       }
@@ -697,11 +697,11 @@ public final class Highscore {
      */
     public com.google.protobuf.ByteString
         getSessionIDBytes() {
-      Object ref = sessionID_;
-      if (ref instanceof String) {
+      java.lang.Object ref = sessionID_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         sessionID_ = b;
         return b;
       } else {
@@ -710,18 +710,18 @@ public final class Highscore {
     }
 
     public static final int LEVELNAME_FIELD_NUMBER = 2;
-    private volatile Object levelName_;
+    private volatile java.lang.Object levelName_;
     /**
      * <code>optional string levelName = 2;</code>
      */
-    public String getLevelName() {
-      Object ref = levelName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getLevelName() {
+      java.lang.Object ref = levelName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         levelName_ = s;
         return s;
       }
@@ -731,11 +731,11 @@ public final class Highscore {
      */
     public com.google.protobuf.ByteString
         getLevelNameBytes() {
-      Object ref = levelName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = levelName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         levelName_ = b;
         return b;
       } else {
@@ -779,53 +779,53 @@ public final class Highscore {
     }
 
     private static final long serialVersionUID = 0L;
-    public static RequestPrivateScore parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static RequestPrivateScore parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static RequestPrivateScore parseFrom(byte[] data)
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static RequestPrivateScore parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static RequestPrivateScore parseFrom(java.io.InputStream input)
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static RequestPrivateScore parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static RequestPrivateScore parseDelimitedFrom(java.io.InputStream input)
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static RequestPrivateScore parseDelimitedFrom(
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static RequestPrivateScore parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static RequestPrivateScore parseFrom(
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -836,7 +836,7 @@ public final class Highscore {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(RequestPrivateScore prototype) {
+    public static Builder newBuilder(com.leruka.protobuf.Highscore.RequestPrivateScore prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -844,9 +844,9 @@ public final class Highscore {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -856,17 +856,17 @@ public final class Highscore {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:leruka.RequestPrivateScore)
-        RequestPrivateScoreOrBuilder {
+        com.leruka.protobuf.Highscore.RequestPrivateScoreOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Highscore.internal_static_leruka_RequestPrivateScore_descriptor;
+        return com.leruka.protobuf.Highscore.internal_static_leruka_RequestPrivateScore_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Highscore.internal_static_leruka_RequestPrivateScore_fieldAccessorTable
+        return com.leruka.protobuf.Highscore.internal_static_leruka_RequestPrivateScore_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                RequestPrivateScore.class, Builder.class);
+                com.leruka.protobuf.Highscore.RequestPrivateScore.class, com.leruka.protobuf.Highscore.RequestPrivateScore.Builder.class);
       }
 
       // Construct using com.leruka.protobuf.Highscore.RequestPrivateScore.newBuilder()
@@ -875,7 +875,7 @@ public final class Highscore {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -894,23 +894,23 @@ public final class Highscore {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Highscore.internal_static_leruka_RequestPrivateScore_descriptor;
+        return com.leruka.protobuf.Highscore.internal_static_leruka_RequestPrivateScore_descriptor;
       }
 
-      public RequestPrivateScore getDefaultInstanceForType() {
-        return RequestPrivateScore.getDefaultInstance();
+      public com.leruka.protobuf.Highscore.RequestPrivateScore getDefaultInstanceForType() {
+        return com.leruka.protobuf.Highscore.RequestPrivateScore.getDefaultInstance();
       }
 
-      public RequestPrivateScore build() {
-        RequestPrivateScore result = buildPartial();
+      public com.leruka.protobuf.Highscore.RequestPrivateScore build() {
+        com.leruka.protobuf.Highscore.RequestPrivateScore result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public RequestPrivateScore buildPartial() {
-        RequestPrivateScore result = new RequestPrivateScore(this);
+      public com.leruka.protobuf.Highscore.RequestPrivateScore buildPartial() {
+        com.leruka.protobuf.Highscore.RequestPrivateScore result = new com.leruka.protobuf.Highscore.RequestPrivateScore(this);
         result.sessionID_ = sessionID_;
         result.levelName_ = levelName_;
         onBuilt();
@@ -918,16 +918,16 @@ public final class Highscore {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof RequestPrivateScore) {
-          return mergeFrom((RequestPrivateScore)other);
+        if (other instanceof com.leruka.protobuf.Highscore.RequestPrivateScore) {
+          return mergeFrom((com.leruka.protobuf.Highscore.RequestPrivateScore)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(RequestPrivateScore other) {
-        if (other == RequestPrivateScore.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.leruka.protobuf.Highscore.RequestPrivateScore other) {
+        if (other == com.leruka.protobuf.Highscore.RequestPrivateScore.getDefaultInstance()) return this;
         if (!other.getSessionID().isEmpty()) {
           sessionID_ = other.sessionID_;
           onChanged();
@@ -948,11 +948,11 @@ public final class Highscore {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        RequestPrivateScore parsedMessage = null;
+        com.leruka.protobuf.Highscore.RequestPrivateScore parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (RequestPrivateScore) e.getUnfinishedMessage();
+          parsedMessage = (com.leruka.protobuf.Highscore.RequestPrivateScore) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -962,20 +962,20 @@ public final class Highscore {
         return this;
       }
 
-      private Object sessionID_ = "";
+      private java.lang.Object sessionID_ = "";
       /**
        * <code>optional string sessionID = 1;</code>
        */
-      public String getSessionID() {
-        Object ref = sessionID_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getSessionID() {
+        java.lang.Object ref = sessionID_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           sessionID_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -983,11 +983,11 @@ public final class Highscore {
        */
       public com.google.protobuf.ByteString
           getSessionIDBytes() {
-        Object ref = sessionID_;
+        java.lang.Object ref = sessionID_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           sessionID_ = b;
           return b;
         } else {
@@ -998,7 +998,7 @@ public final class Highscore {
        * <code>optional string sessionID = 1;</code>
        */
       public Builder setSessionID(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1031,20 +1031,20 @@ public final class Highscore {
         return this;
       }
 
-      private Object levelName_ = "";
+      private java.lang.Object levelName_ = "";
       /**
        * <code>optional string levelName = 2;</code>
        */
-      public String getLevelName() {
-        Object ref = levelName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getLevelName() {
+        java.lang.Object ref = levelName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           levelName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1052,11 +1052,11 @@ public final class Highscore {
        */
       public com.google.protobuf.ByteString
           getLevelNameBytes() {
-        Object ref = levelName_;
+        java.lang.Object ref = levelName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           levelName_ = b;
           return b;
         } else {
@@ -1067,7 +1067,7 @@ public final class Highscore {
        * <code>optional string levelName = 2;</code>
        */
       public Builder setLevelName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1114,12 +1114,12 @@ public final class Highscore {
     }
 
     // @@protoc_insertion_point(class_scope:leruka.RequestPrivateScore)
-    private static final RequestPrivateScore DEFAULT_INSTANCE;
+    private static final com.leruka.protobuf.Highscore.RequestPrivateScore DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new RequestPrivateScore();
+      DEFAULT_INSTANCE = new com.leruka.protobuf.Highscore.RequestPrivateScore();
     }
 
-    public static RequestPrivateScore getDefaultInstance() {
+    public static com.leruka.protobuf.Highscore.RequestPrivateScore getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1146,12 +1146,12 @@ public final class Highscore {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<RequestPrivateScore> getParserForType() {
       return PARSER;
     }
 
-    public RequestPrivateScore getDefaultInstanceForType() {
+    public com.leruka.protobuf.Highscore.RequestPrivateScore getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1162,38 +1162,65 @@ public final class Highscore {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string levelName = 1;</code>
+     * <code>optional bool success = 1;</code>
      */
-    String getLevelName();
+    boolean getSuccess();
+
     /**
-     * <code>optional string levelName = 1;</code>
+     * <code>optional string levelName = 2;</code>
+     */
+    java.lang.String getLevelName();
+    /**
+     * <code>optional string levelName = 2;</code>
      */
     com.google.protobuf.ByteString
         getLevelNameBytes();
 
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
-    java.util.List<Score>
+    java.util.List<com.leruka.protobuf.Highscore.Score> 
         getScoresList();
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
-    Score getScores(int index);
+    com.leruka.protobuf.Highscore.Score getScores(int index);
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
     int getScoresCount();
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
-    java.util.List<? extends ScoreOrBuilder>
+    java.util.List<? extends com.leruka.protobuf.Highscore.ScoreOrBuilder> 
         getScoresOrBuilderList();
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
-    ScoreOrBuilder getScoresOrBuilder(
-            int index);
+    com.leruka.protobuf.Highscore.ScoreOrBuilder getScoresOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList();
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    int getErrorCodeCount();
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index);
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    java.util.List<java.lang.Integer>
+    getErrorCodeValueList();
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    int getErrorCodeValue(int index);
   }
   /**
    * Protobuf type {@code leruka.ResponseScores}
@@ -1207,11 +1234,13 @@ public final class Highscore {
       super(builder);
     }
     private ResponseScores() {
+      success_ = false;
       levelName_ = "";
       scores_ = java.util.Collections.emptyList();
+      errorCode_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -1235,18 +1264,46 @@ public final class Highscore {
               }
               break;
             }
-            case 10: {
-              String s = input.readStringRequireUtf8();
+            case 8: {
+
+              success_ = input.readBool();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
 
               levelName_ = s;
               break;
             }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                scores_ = new java.util.ArrayList<Score>();
-                mutable_bitField0_ |= 0x00000002;
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                scores_ = new java.util.ArrayList<com.leruka.protobuf.Highscore.Score>();
+                mutable_bitField0_ |= 0x00000004;
               }
-              scores_.add(input.readMessage(Score.parser(), extensionRegistry));
+              scores_.add(input.readMessage(com.leruka.protobuf.Highscore.Score.parser(), extensionRegistry));
+              break;
+            }
+            case 32: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                errorCode_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              errorCode_.add(rawValue);
+              break;
+            }
+            case 34: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                  errorCode_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000008;
+                }
+                errorCode_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
               break;
             }
           }
@@ -1258,52 +1315,64 @@ public final class Highscore {
             new com.google.protobuf.InvalidProtocolBufferException(
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           scores_ = java.util.Collections.unmodifiableList(scores_);
+        }
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          errorCode_ = java.util.Collections.unmodifiableList(errorCode_);
         }
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Highscore.internal_static_leruka_ResponseScores_descriptor;
+      return com.leruka.protobuf.Highscore.internal_static_leruka_ResponseScores_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Highscore.internal_static_leruka_ResponseScores_fieldAccessorTable
+      return com.leruka.protobuf.Highscore.internal_static_leruka_ResponseScores_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ResponseScores.class, Builder.class);
+              com.leruka.protobuf.Highscore.ResponseScores.class, com.leruka.protobuf.Highscore.ResponseScores.Builder.class);
     }
 
     private int bitField0_;
-    public static final int LEVELNAME_FIELD_NUMBER = 1;
-    private volatile Object levelName_;
+    public static final int SUCCESS_FIELD_NUMBER = 1;
+    private boolean success_;
     /**
-     * <code>optional string levelName = 1;</code>
+     * <code>optional bool success = 1;</code>
      */
-    public String getLevelName() {
-      Object ref = levelName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public boolean getSuccess() {
+      return success_;
+    }
+
+    public static final int LEVELNAME_FIELD_NUMBER = 2;
+    private volatile java.lang.Object levelName_;
+    /**
+     * <code>optional string levelName = 2;</code>
+     */
+    public java.lang.String getLevelName() {
+      java.lang.Object ref = levelName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         levelName_ = s;
         return s;
       }
     }
     /**
-     * <code>optional string levelName = 1;</code>
+     * <code>optional string levelName = 2;</code>
      */
     public com.google.protobuf.ByteString
         getLevelNameBytes() {
-      Object ref = levelName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = levelName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         levelName_ = b;
         return b;
       } else {
@@ -1311,40 +1380,85 @@ public final class Highscore {
       }
     }
 
-    public static final int SCORES_FIELD_NUMBER = 2;
-    private java.util.List<Score> scores_;
+    public static final int SCORES_FIELD_NUMBER = 3;
+    private java.util.List<com.leruka.protobuf.Highscore.Score> scores_;
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
-    public java.util.List<Score> getScoresList() {
+    public java.util.List<com.leruka.protobuf.Highscore.Score> getScoresList() {
       return scores_;
     }
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
-    public java.util.List<? extends ScoreOrBuilder>
+    public java.util.List<? extends com.leruka.protobuf.Highscore.ScoreOrBuilder> 
         getScoresOrBuilderList() {
       return scores_;
     }
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
     public int getScoresCount() {
       return scores_.size();
     }
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
-    public Score getScores(int index) {
+    public com.leruka.protobuf.Highscore.Score getScores(int index) {
       return scores_.get(index);
     }
     /**
-     * <code>repeated .leruka.Score scores = 2;</code>
+     * <code>repeated .leruka.Score scores = 3;</code>
      */
-    public ScoreOrBuilder getScoresOrBuilder(
+    public com.leruka.protobuf.Highscore.ScoreOrBuilder getScoresOrBuilder(
         int index) {
       return scores_.get(index);
     }
+
+    public static final int ERRORCODE_FIELD_NUMBER = 4;
+    private java.util.List<java.lang.Integer> errorCode_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode> errorCode_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>() {
+              public com.leruka.protobuf.ErrorCodes.ErrorCode convert(java.lang.Integer from) {
+                com.leruka.protobuf.ErrorCodes.ErrorCode result = com.leruka.protobuf.ErrorCodes.ErrorCode.valueOf(from);
+                return result == null ? com.leruka.protobuf.ErrorCodes.ErrorCode.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    public int getErrorCodeCount() {
+      return errorCode_.size();
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+      return errorCode_converter_.convert(errorCode_.get(index));
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    public java.util.List<java.lang.Integer>
+    getErrorCodeValueList() {
+      return errorCode_;
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     */
+    public int getErrorCodeValue(int index) {
+      return errorCode_.get(index);
+    }
+    private int errorCodeMemoizedSerializedSize;
 
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1358,11 +1472,22 @@ public final class Highscore {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      getSerializedSize();
+      if (success_ != false) {
+        output.writeBool(1, success_);
+      }
       if (!getLevelNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 1, levelName_);
+        com.google.protobuf.GeneratedMessage.writeString(output, 2, levelName_);
       }
       for (int i = 0; i < scores_.size(); i++) {
-        output.writeMessage(2, scores_.get(i));
+        output.writeMessage(3, scores_.get(i));
+      }
+      if (getErrorCodeList().size() > 0) {
+        output.writeRawVarint32(34);
+        output.writeRawVarint32(errorCodeMemoizedSerializedSize);
+      }
+      for (int i = 0; i < errorCode_.size(); i++) {
+        output.writeEnumNoTag(errorCode_.get(i));
       }
     }
 
@@ -1371,65 +1496,81 @@ public final class Highscore {
       if (size != -1) return size;
 
       size = 0;
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, success_);
+      }
       if (!getLevelNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, levelName_);
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, levelName_);
       }
       for (int i = 0; i < scores_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, scores_.get(i));
+          .computeMessageSize(3, scores_.get(i));
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < errorCode_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(errorCode_.get(i));
+        }
+        size += dataSize;
+        if (!getErrorCodeList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeRawVarint32Size(dataSize);
+        }errorCodeMemoizedSerializedSize = dataSize;
       }
       memoizedSize = size;
       return size;
     }
 
     private static final long serialVersionUID = 0L;
-    public static ResponseScores parseFrom(
+    public static com.leruka.protobuf.Highscore.ResponseScores parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ResponseScores parseFrom(
+    public static com.leruka.protobuf.Highscore.ResponseScores parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ResponseScores parseFrom(byte[] data)
+    public static com.leruka.protobuf.Highscore.ResponseScores parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ResponseScores parseFrom(
+    public static com.leruka.protobuf.Highscore.ResponseScores parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ResponseScores parseFrom(java.io.InputStream input)
+    public static com.leruka.protobuf.Highscore.ResponseScores parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static ResponseScores parseFrom(
+    public static com.leruka.protobuf.Highscore.ResponseScores parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static ResponseScores parseDelimitedFrom(java.io.InputStream input)
+    public static com.leruka.protobuf.Highscore.ResponseScores parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static ResponseScores parseDelimitedFrom(
+    public static com.leruka.protobuf.Highscore.ResponseScores parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static ResponseScores parseFrom(
+    public static com.leruka.protobuf.Highscore.ResponseScores parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static ResponseScores parseFrom(
+    public static com.leruka.protobuf.Highscore.ResponseScores parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1440,7 +1581,7 @@ public final class Highscore {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ResponseScores prototype) {
+    public static Builder newBuilder(com.leruka.protobuf.Highscore.ResponseScores prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1448,9 +1589,9 @@ public final class Highscore {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1460,17 +1601,17 @@ public final class Highscore {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:leruka.ResponseScores)
-        ResponseScoresOrBuilder {
+        com.leruka.protobuf.Highscore.ResponseScoresOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Highscore.internal_static_leruka_ResponseScores_descriptor;
+        return com.leruka.protobuf.Highscore.internal_static_leruka_ResponseScores_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Highscore.internal_static_leruka_ResponseScores_fieldAccessorTable
+        return com.leruka.protobuf.Highscore.internal_static_leruka_ResponseScores_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ResponseScores.class, Builder.class);
+                com.leruka.protobuf.Highscore.ResponseScores.class, com.leruka.protobuf.Highscore.ResponseScores.Builder.class);
       }
 
       // Construct using com.leruka.protobuf.Highscore.ResponseScores.newBuilder()
@@ -1479,7 +1620,7 @@ public final class Highscore {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1490,64 +1631,77 @@ public final class Highscore {
       }
       public Builder clear() {
         super.clear();
+        success_ = false;
+
         levelName_ = "";
 
         if (scoresBuilder_ == null) {
           scores_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           scoresBuilder_.clear();
         }
+        errorCode_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Highscore.internal_static_leruka_ResponseScores_descriptor;
+        return com.leruka.protobuf.Highscore.internal_static_leruka_ResponseScores_descriptor;
       }
 
-      public ResponseScores getDefaultInstanceForType() {
-        return ResponseScores.getDefaultInstance();
+      public com.leruka.protobuf.Highscore.ResponseScores getDefaultInstanceForType() {
+        return com.leruka.protobuf.Highscore.ResponseScores.getDefaultInstance();
       }
 
-      public ResponseScores build() {
-        ResponseScores result = buildPartial();
+      public com.leruka.protobuf.Highscore.ResponseScores build() {
+        com.leruka.protobuf.Highscore.ResponseScores result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public ResponseScores buildPartial() {
-        ResponseScores result = new ResponseScores(this);
+      public com.leruka.protobuf.Highscore.ResponseScores buildPartial() {
+        com.leruka.protobuf.Highscore.ResponseScores result = new com.leruka.protobuf.Highscore.ResponseScores(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
+        result.success_ = success_;
         result.levelName_ = levelName_;
         if (scoresBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
             scores_ = java.util.Collections.unmodifiableList(scores_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.scores_ = scores_;
         } else {
           result.scores_ = scoresBuilder_.build();
         }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          errorCode_ = java.util.Collections.unmodifiableList(errorCode_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.errorCode_ = errorCode_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ResponseScores) {
-          return mergeFrom((ResponseScores)other);
+        if (other instanceof com.leruka.protobuf.Highscore.ResponseScores) {
+          return mergeFrom((com.leruka.protobuf.Highscore.ResponseScores)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ResponseScores other) {
-        if (other == ResponseScores.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.leruka.protobuf.Highscore.ResponseScores other) {
+        if (other == com.leruka.protobuf.Highscore.ResponseScores.getDefaultInstance()) return this;
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
+        }
         if (!other.getLevelName().isEmpty()) {
           levelName_ = other.levelName_;
           onChanged();
@@ -1556,7 +1710,7 @@ public final class Highscore {
           if (!other.scores_.isEmpty()) {
             if (scores_.isEmpty()) {
               scores_ = other.scores_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureScoresIsMutable();
               scores_.addAll(other.scores_);
@@ -1569,7 +1723,7 @@ public final class Highscore {
               scoresBuilder_.dispose();
               scoresBuilder_ = null;
               scores_ = other.scores_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000004);
               scoresBuilder_ = 
                 com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
                    getScoresFieldBuilder() : null;
@@ -1577,6 +1731,16 @@ public final class Highscore {
               scoresBuilder_.addAllMessages(other.scores_);
             }
           }
+        }
+        if (!other.errorCode_.isEmpty()) {
+          if (errorCode_.isEmpty()) {
+            errorCode_ = other.errorCode_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureErrorCodeIsMutable();
+            errorCode_.addAll(other.errorCode_);
+          }
+          onChanged();
         }
         onChanged();
         return this;
@@ -1590,11 +1754,11 @@ public final class Highscore {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ResponseScores parsedMessage = null;
+        com.leruka.protobuf.Highscore.ResponseScores parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ResponseScores) e.getUnfinishedMessage();
+          parsedMessage = (com.leruka.protobuf.Highscore.ResponseScores) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1605,32 +1769,58 @@ public final class Highscore {
       }
       private int bitField0_;
 
-      private Object levelName_ = "";
+      private boolean success_ ;
       /**
-       * <code>optional string levelName = 1;</code>
+       * <code>optional bool success = 1;</code>
        */
-      public String getLevelName() {
-        Object ref = levelName_;
-        if (!(ref instanceof String)) {
+      public boolean getSuccess() {
+        return success_;
+      }
+      /**
+       * <code>optional bool success = 1;</code>
+       */
+      public Builder setSuccess(boolean value) {
+        
+        success_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool success = 1;</code>
+       */
+      public Builder clearSuccess() {
+        
+        success_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object levelName_ = "";
+      /**
+       * <code>optional string levelName = 2;</code>
+       */
+      public java.lang.String getLevelName() {
+        java.lang.Object ref = levelName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           levelName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string levelName = 1;</code>
+       * <code>optional string levelName = 2;</code>
        */
       public com.google.protobuf.ByteString
           getLevelNameBytes() {
-        Object ref = levelName_;
+        java.lang.Object ref = levelName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           levelName_ = b;
           return b;
         } else {
@@ -1638,10 +1828,10 @@ public final class Highscore {
         }
       }
       /**
-       * <code>optional string levelName = 1;</code>
+       * <code>optional string levelName = 2;</code>
        */
       public Builder setLevelName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1651,7 +1841,7 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>optional string levelName = 1;</code>
+       * <code>optional string levelName = 2;</code>
        */
       public Builder clearLevelName() {
         
@@ -1660,7 +1850,7 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>optional string levelName = 1;</code>
+       * <code>optional string levelName = 2;</code>
        */
       public Builder setLevelNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1674,22 +1864,22 @@ public final class Highscore {
         return this;
       }
 
-      private java.util.List<Score> scores_ =
+      private java.util.List<com.leruka.protobuf.Highscore.Score> scores_ =
         java.util.Collections.emptyList();
       private void ensureScoresIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          scores_ = new java.util.ArrayList<Score>(scores_);
-          bitField0_ |= 0x00000002;
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          scores_ = new java.util.ArrayList<com.leruka.protobuf.Highscore.Score>(scores_);
+          bitField0_ |= 0x00000004;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilder<
-          Score, Score.Builder, ScoreOrBuilder> scoresBuilder_;
+          com.leruka.protobuf.Highscore.Score, com.leruka.protobuf.Highscore.Score.Builder, com.leruka.protobuf.Highscore.ScoreOrBuilder> scoresBuilder_;
 
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
-      public java.util.List<Score> getScoresList() {
+      public java.util.List<com.leruka.protobuf.Highscore.Score> getScoresList() {
         if (scoresBuilder_ == null) {
           return java.util.Collections.unmodifiableList(scores_);
         } else {
@@ -1697,7 +1887,7 @@ public final class Highscore {
         }
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
       public int getScoresCount() {
         if (scoresBuilder_ == null) {
@@ -1707,9 +1897,9 @@ public final class Highscore {
         }
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
-      public Score getScores(int index) {
+      public com.leruka.protobuf.Highscore.Score getScores(int index) {
         if (scoresBuilder_ == null) {
           return scores_.get(index);
         } else {
@@ -1717,10 +1907,10 @@ public final class Highscore {
         }
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
       public Builder setScores(
-          int index, Score value) {
+          int index, com.leruka.protobuf.Highscore.Score value) {
         if (scoresBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1734,10 +1924,10 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
       public Builder setScores(
-          int index, Score.Builder builderForValue) {
+          int index, com.leruka.protobuf.Highscore.Score.Builder builderForValue) {
         if (scoresBuilder_ == null) {
           ensureScoresIsMutable();
           scores_.set(index, builderForValue.build());
@@ -1748,9 +1938,9 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
-      public Builder addScores(Score value) {
+      public Builder addScores(com.leruka.protobuf.Highscore.Score value) {
         if (scoresBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1764,10 +1954,10 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
       public Builder addScores(
-          int index, Score value) {
+          int index, com.leruka.protobuf.Highscore.Score value) {
         if (scoresBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1781,10 +1971,10 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
       public Builder addScores(
-          Score.Builder builderForValue) {
+          com.leruka.protobuf.Highscore.Score.Builder builderForValue) {
         if (scoresBuilder_ == null) {
           ensureScoresIsMutable();
           scores_.add(builderForValue.build());
@@ -1795,10 +1985,10 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
       public Builder addScores(
-          int index, Score.Builder builderForValue) {
+          int index, com.leruka.protobuf.Highscore.Score.Builder builderForValue) {
         if (scoresBuilder_ == null) {
           ensureScoresIsMutable();
           scores_.add(index, builderForValue.build());
@@ -1809,10 +1999,10 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
       public Builder addAllScores(
-          Iterable<? extends Score> values) {
+          java.lang.Iterable<? extends com.leruka.protobuf.Highscore.Score> values) {
         if (scoresBuilder_ == null) {
           ensureScoresIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -1824,12 +2014,12 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
       public Builder clearScores() {
         if (scoresBuilder_ == null) {
           scores_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           scoresBuilder_.clear();
@@ -1837,7 +2027,7 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
       public Builder removeScores(int index) {
         if (scoresBuilder_ == null) {
@@ -1850,16 +2040,16 @@ public final class Highscore {
         return this;
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
-      public Score.Builder getScoresBuilder(
+      public com.leruka.protobuf.Highscore.Score.Builder getScoresBuilder(
           int index) {
         return getScoresFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
-      public ScoreOrBuilder getScoresOrBuilder(
+      public com.leruka.protobuf.Highscore.ScoreOrBuilder getScoresOrBuilder(
           int index) {
         if (scoresBuilder_ == null) {
           return scores_.get(index);  } else {
@@ -1867,9 +2057,9 @@ public final class Highscore {
         }
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
-      public java.util.List<? extends ScoreOrBuilder>
+      public java.util.List<? extends com.leruka.protobuf.Highscore.ScoreOrBuilder> 
            getScoresOrBuilderList() {
         if (scoresBuilder_ != null) {
           return scoresBuilder_.getMessageOrBuilderList();
@@ -1878,40 +2068,158 @@ public final class Highscore {
         }
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
-      public Score.Builder addScoresBuilder() {
+      public com.leruka.protobuf.Highscore.Score.Builder addScoresBuilder() {
         return getScoresFieldBuilder().addBuilder(
-            Score.getDefaultInstance());
+            com.leruka.protobuf.Highscore.Score.getDefaultInstance());
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
-      public Score.Builder addScoresBuilder(
+      public com.leruka.protobuf.Highscore.Score.Builder addScoresBuilder(
           int index) {
         return getScoresFieldBuilder().addBuilder(
-            index, Score.getDefaultInstance());
+            index, com.leruka.protobuf.Highscore.Score.getDefaultInstance());
       }
       /**
-       * <code>repeated .leruka.Score scores = 2;</code>
+       * <code>repeated .leruka.Score scores = 3;</code>
        */
-      public java.util.List<Score.Builder>
+      public java.util.List<com.leruka.protobuf.Highscore.Score.Builder> 
            getScoresBuilderList() {
         return getScoresFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilder<
-          Score, Score.Builder, ScoreOrBuilder>
+          com.leruka.protobuf.Highscore.Score, com.leruka.protobuf.Highscore.Score.Builder, com.leruka.protobuf.Highscore.ScoreOrBuilder> 
           getScoresFieldBuilder() {
         if (scoresBuilder_ == null) {
           scoresBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              Score, Score.Builder, ScoreOrBuilder>(
+              com.leruka.protobuf.Highscore.Score, com.leruka.protobuf.Highscore.Score.Builder, com.leruka.protobuf.Highscore.ScoreOrBuilder>(
                   scores_,
-                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
           scores_ = null;
         }
         return scoresBuilder_;
+      }
+
+      private java.util.List<java.lang.Integer> errorCode_ =
+        java.util.Collections.emptyList();
+      private void ensureErrorCodeIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          errorCode_ = new java.util.ArrayList<java.lang.Integer>(errorCode_);
+          bitField0_ |= 0x00000008;
+        }
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public int getErrorCodeCount() {
+        return errorCode_.size();
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+        return errorCode_converter_.convert(errorCode_.get(index));
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public Builder setErrorCode(
+          int index, com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorCodeIsMutable();
+        errorCode_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public Builder addErrorCode(com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorCodeIsMutable();
+        errorCode_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public Builder addAllErrorCode(
+          java.lang.Iterable<? extends com.leruka.protobuf.ErrorCodes.ErrorCode> values) {
+        ensureErrorCodeIsMutable();
+        for (com.leruka.protobuf.ErrorCodes.ErrorCode value : values) {
+          errorCode_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public Builder clearErrorCode() {
+        errorCode_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public java.util.List<java.lang.Integer>
+      getErrorCodeValueList() {
+        return java.util.Collections.unmodifiableList(errorCode_);
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public int getErrorCodeValue(int index) {
+        return errorCode_.get(index);
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public Builder setErrorCodeValue(
+          int index, int value) {
+        ensureErrorCodeIsMutable();
+        errorCode_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public Builder addErrorCodeValue(int value) {
+        ensureErrorCodeIsMutable();
+        errorCode_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       */
+      public Builder addAllErrorCodeValue(
+          java.lang.Iterable<java.lang.Integer> values) {
+        ensureErrorCodeIsMutable();
+        for (int value : values) {
+          errorCode_.add(value);
+        }
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1928,12 +2236,12 @@ public final class Highscore {
     }
 
     // @@protoc_insertion_point(class_scope:leruka.ResponseScores)
-    private static final ResponseScores DEFAULT_INSTANCE;
+    private static final com.leruka.protobuf.Highscore.ResponseScores DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ResponseScores();
+      DEFAULT_INSTANCE = new com.leruka.protobuf.Highscore.ResponseScores();
     }
 
-    public static ResponseScores getDefaultInstance() {
+    public static com.leruka.protobuf.Highscore.ResponseScores getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1960,12 +2268,12 @@ public final class Highscore {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<ResponseScores> getParserForType() {
       return PARSER;
     }
 
-    public ResponseScores getDefaultInstanceForType() {
+    public com.leruka.protobuf.Highscore.ResponseScores getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1978,7 +2286,7 @@ public final class Highscore {
     /**
      * <code>optional string userName = 1;</code>
      */
-    String getUserName();
+    java.lang.String getUserName();
     /**
      * <code>optional string userName = 1;</code>
      */
@@ -2018,7 +2326,7 @@ public final class Highscore {
       timestamp_ = 0L;
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -2043,7 +2351,7 @@ public final class Highscore {
               break;
             }
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               userName_ = s;
               break;
@@ -2077,29 +2385,29 @@ public final class Highscore {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Highscore.internal_static_leruka_Score_descriptor;
+      return com.leruka.protobuf.Highscore.internal_static_leruka_Score_descriptor;
     }
 
-    protected FieldAccessorTable
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Highscore.internal_static_leruka_Score_fieldAccessorTable
+      return com.leruka.protobuf.Highscore.internal_static_leruka_Score_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Score.class, Builder.class);
+              com.leruka.protobuf.Highscore.Score.class, com.leruka.protobuf.Highscore.Score.Builder.class);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 1;
-    private volatile Object userName_;
+    private volatile java.lang.Object userName_;
     /**
      * <code>optional string userName = 1;</code>
      */
-    public String getUserName() {
-      Object ref = userName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         userName_ = s;
         return s;
       }
@@ -2109,11 +2417,11 @@ public final class Highscore {
      */
     public com.google.protobuf.ByteString
         getUserNameBytes() {
-      Object ref = userName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         userName_ = b;
         return b;
       } else {
@@ -2199,53 +2507,53 @@ public final class Highscore {
     }
 
     private static final long serialVersionUID = 0L;
-    public static Score parseFrom(
+    public static com.leruka.protobuf.Highscore.Score parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Score parseFrom(
+    public static com.leruka.protobuf.Highscore.Score parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Score parseFrom(byte[] data)
+    public static com.leruka.protobuf.Highscore.Score parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Score parseFrom(
+    public static com.leruka.protobuf.Highscore.Score parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Score parseFrom(java.io.InputStream input)
+    public static com.leruka.protobuf.Highscore.Score parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Score parseFrom(
+    public static com.leruka.protobuf.Highscore.Score parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static Score parseDelimitedFrom(java.io.InputStream input)
+    public static com.leruka.protobuf.Highscore.Score parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static Score parseDelimitedFrom(
+    public static com.leruka.protobuf.Highscore.Score parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static Score parseFrom(
+    public static com.leruka.protobuf.Highscore.Score parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static Score parseFrom(
+    public static com.leruka.protobuf.Highscore.Score parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2256,7 +2564,7 @@ public final class Highscore {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Score prototype) {
+    public static Builder newBuilder(com.leruka.protobuf.Highscore.Score prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2264,9 +2572,9 @@ public final class Highscore {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2276,17 +2584,17 @@ public final class Highscore {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:leruka.Score)
-        ScoreOrBuilder {
+        com.leruka.protobuf.Highscore.ScoreOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Highscore.internal_static_leruka_Score_descriptor;
+        return com.leruka.protobuf.Highscore.internal_static_leruka_Score_descriptor;
       }
 
-      protected FieldAccessorTable
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Highscore.internal_static_leruka_Score_fieldAccessorTable
+        return com.leruka.protobuf.Highscore.internal_static_leruka_Score_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Score.class, Builder.class);
+                com.leruka.protobuf.Highscore.Score.class, com.leruka.protobuf.Highscore.Score.Builder.class);
       }
 
       // Construct using com.leruka.protobuf.Highscore.Score.newBuilder()
@@ -2295,7 +2603,7 @@ public final class Highscore {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2318,23 +2626,23 @@ public final class Highscore {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Highscore.internal_static_leruka_Score_descriptor;
+        return com.leruka.protobuf.Highscore.internal_static_leruka_Score_descriptor;
       }
 
-      public Score getDefaultInstanceForType() {
-        return Score.getDefaultInstance();
+      public com.leruka.protobuf.Highscore.Score getDefaultInstanceForType() {
+        return com.leruka.protobuf.Highscore.Score.getDefaultInstance();
       }
 
-      public Score build() {
-        Score result = buildPartial();
+      public com.leruka.protobuf.Highscore.Score build() {
+        com.leruka.protobuf.Highscore.Score result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Score buildPartial() {
-        Score result = new Score(this);
+      public com.leruka.protobuf.Highscore.Score buildPartial() {
+        com.leruka.protobuf.Highscore.Score result = new com.leruka.protobuf.Highscore.Score(this);
         result.userName_ = userName_;
         result.rank_ = rank_;
         result.score_ = score_;
@@ -2344,16 +2652,16 @@ public final class Highscore {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Score) {
-          return mergeFrom((Score)other);
+        if (other instanceof com.leruka.protobuf.Highscore.Score) {
+          return mergeFrom((com.leruka.protobuf.Highscore.Score)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Score other) {
-        if (other == Score.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.leruka.protobuf.Highscore.Score other) {
+        if (other == com.leruka.protobuf.Highscore.Score.getDefaultInstance()) return this;
         if (!other.getUserName().isEmpty()) {
           userName_ = other.userName_;
           onChanged();
@@ -2379,11 +2687,11 @@ public final class Highscore {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Score parsedMessage = null;
+        com.leruka.protobuf.Highscore.Score parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Score) e.getUnfinishedMessage();
+          parsedMessage = (com.leruka.protobuf.Highscore.Score) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2393,20 +2701,20 @@ public final class Highscore {
         return this;
       }
 
-      private Object userName_ = "";
+      private java.lang.Object userName_ = "";
       /**
        * <code>optional string userName = 1;</code>
        */
-      public String getUserName() {
-        Object ref = userName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           userName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2414,11 +2722,11 @@ public final class Highscore {
        */
       public com.google.protobuf.ByteString
           getUserNameBytes() {
-        Object ref = userName_;
+        java.lang.Object ref = userName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           userName_ = b;
           return b;
         } else {
@@ -2429,7 +2737,7 @@ public final class Highscore {
        * <code>optional string userName = 1;</code>
        */
       public Builder setUserName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2554,12 +2862,12 @@ public final class Highscore {
     }
 
     // @@protoc_insertion_point(class_scope:leruka.Score)
-    private static final Score DEFAULT_INSTANCE;
+    private static final com.leruka.protobuf.Highscore.Score DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Score();
+      DEFAULT_INSTANCE = new com.leruka.protobuf.Highscore.Score();
     }
 
-    public static Score getDefaultInstance() {
+    public static com.leruka.protobuf.Highscore.Score getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2586,12 +2894,12 @@ public final class Highscore {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<Score> getParserForType() {
       return PARSER;
     }
 
-    public Score getDefaultInstanceForType() {
+    public com.leruka.protobuf.Highscore.Score getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2625,16 +2933,18 @@ public final class Highscore {
   private static com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\017highscore.proto\022\006leruka\"J\n\023RequestGlob" +
-      "alScores\022\021\n\tlevelName\030\001 \001(\t\022\020\n\010fromRank\030" +
-      "\002 \001(\004\022\016\n\006toRank\030\003 \001(\004\";\n\023RequestPrivateS" +
-      "core\022\021\n\tsessionID\030\001 \001(\t\022\021\n\tlevelName\030\002 \001" +
-      "(\t\"B\n\016ResponseScores\022\021\n\tlevelName\030\001 \001(\t\022" +
-      "\035\n\006scores\030\002 \003(\0132\r.leruka.Score\"I\n\005Score\022" +
-      "\020\n\010userName\030\001 \001(\t\022\014\n\004rank\030\002 \001(\004\022\r\n\005score" +
-      "\030\003 \001(\004\022\021\n\ttimestamp\030\004 \001(\004B\025\n\023com.leruka." +
-      "protobufb\006proto3"
+    java.lang.String[] descriptorData = {
+      "\n\017highscore.proto\022\006leruka\032\020errorCodes.pr" +
+      "oto\"J\n\023RequestGlobalScores\022\021\n\tlevelName\030" +
+      "\001 \001(\t\022\020\n\010fromRank\030\002 \001(\004\022\016\n\006toRank\030\003 \001(\004\"" +
+      ";\n\023RequestPrivateScore\022\021\n\tsessionID\030\001 \001(" +
+      "\t\022\021\n\tlevelName\030\002 \001(\t\"y\n\016ResponseScores\022\017" +
+      "\n\007success\030\001 \001(\010\022\021\n\tlevelName\030\002 \001(\t\022\035\n\006sc" +
+      "ores\030\003 \003(\0132\r.leruka.Score\022$\n\terrorCode\030\004" +
+      " \003(\0162\021.leruka.ErrorCode\"I\n\005Score\022\020\n\010user" +
+      "Name\030\001 \001(\t\022\014\n\004rank\030\002 \001(\004\022\r\n\005score\030\003 \001(\004\022" +
+      "\021\n\ttimestamp\030\004 \001(\004B\025\n\023com.leruka.protobu",
+      "fb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2647,31 +2957,33 @@ public final class Highscore {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.leruka.protobuf.ErrorCodes.getDescriptor(),
         }, assigner);
     internal_static_leruka_RequestGlobalScores_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_leruka_RequestGlobalScores_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_RequestGlobalScores_descriptor,
-        new String[] { "LevelName", "FromRank", "ToRank", });
+        new java.lang.String[] { "LevelName", "FromRank", "ToRank", });
     internal_static_leruka_RequestPrivateScore_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_leruka_RequestPrivateScore_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_RequestPrivateScore_descriptor,
-        new String[] { "SessionID", "LevelName", });
+        new java.lang.String[] { "SessionID", "LevelName", });
     internal_static_leruka_ResponseScores_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_leruka_ResponseScores_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_ResponseScores_descriptor,
-        new String[] { "LevelName", "Scores", });
+        new java.lang.String[] { "Success", "LevelName", "Scores", "ErrorCode", });
     internal_static_leruka_Score_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_leruka_Score_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_Score_descriptor,
-        new String[] { "UserName", "Rank", "Score", "Timestamp", });
+        new java.lang.String[] { "UserName", "Rank", "Score", "Timestamp", });
+    com.leruka.protobuf.ErrorCodes.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

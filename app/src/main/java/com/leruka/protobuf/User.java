@@ -1208,17 +1208,26 @@ public final class User {
         getSessionIDBytes();
 
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    java.util.List<java.lang.Integer> getErrorCodeList();
+    java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList();
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
     int getErrorCodeCount();
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    int getErrorCode(int index);
+    com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index);
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    java.util.List<java.lang.Integer>
+    getErrorCodeValueList();
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    int getErrorCodeValue(int index);
   }
   /**
    * Protobuf type {@code leruka.ResponseLogin}
@@ -1277,24 +1286,26 @@ public final class User {
               break;
             }
             case 24: {
+              int rawValue = input.readEnum();
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 errorCode_ = new java.util.ArrayList<java.lang.Integer>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              errorCode_.add(input.readUInt32());
+              errorCode_.add(rawValue);
               break;
             }
             case 26: {
               int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-                errorCode_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  errorCode_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                errorCode_.add(rawValue);
               }
-              while (input.getBytesUntilLimit() > 0) {
-                errorCode_.add(input.readUInt32());
-              }
-              input.popLimit(limit);
+              input.popLimit(oldLimit);
               break;
             }
           }
@@ -1370,26 +1381,48 @@ public final class User {
 
     public static final int ERRORCODE_FIELD_NUMBER = 3;
     private java.util.List<java.lang.Integer> errorCode_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode> errorCode_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>() {
+              public com.leruka.protobuf.ErrorCodes.ErrorCode convert(java.lang.Integer from) {
+                com.leruka.protobuf.ErrorCodes.ErrorCode result = com.leruka.protobuf.ErrorCodes.ErrorCode.valueOf(from);
+                return result == null ? com.leruka.protobuf.ErrorCodes.ErrorCode.UNRECOGNIZED : result;
+              }
+            };
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public java.util.List<java.lang.Integer>
-        getErrorCodeList() {
-      return errorCode_;
+    public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
     }
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
     public int getErrorCodeCount() {
       return errorCode_.size();
     }
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public int getErrorCode(int index) {
+    public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+      return errorCode_converter_.convert(errorCode_.get(index));
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    public java.util.List<java.lang.Integer>
+    getErrorCodeValueList() {
+      return errorCode_;
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    public int getErrorCodeValue(int index) {
       return errorCode_.get(index);
     }
-    private int errorCodeMemoizedSerializedSize = -1;
+    private int errorCodeMemoizedSerializedSize;
 
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1415,7 +1448,7 @@ public final class User {
         output.writeRawVarint32(errorCodeMemoizedSerializedSize);
       }
       for (int i = 0; i < errorCode_.size(); i++) {
-        output.writeUInt32NoTag(errorCode_.get(i));
+        output.writeEnumNoTag(errorCode_.get(i));
       }
     }
 
@@ -1435,15 +1468,13 @@ public final class User {
         int dataSize = 0;
         for (int i = 0; i < errorCode_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(errorCode_.get(i));
+            .computeEnumSizeNoTag(errorCode_.get(i));
         }
         size += dataSize;
-        if (!getErrorCodeList().isEmpty()) {
-          size += 1;
+        if (!getErrorCodeList().isEmpty()) {  size += 1;
           size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        errorCodeMemoizedSerializedSize = dataSize;
+            .computeRawVarint32Size(dataSize);
+        }errorCodeMemoizedSerializedSize = dataSize;
       }
       memoizedSize = size;
       return size;
@@ -1752,36 +1783,96 @@ public final class User {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> errorCode_ = java.util.Collections.emptyList();
+      private java.util.List<java.lang.Integer> errorCode_ =
+        java.util.Collections.emptyList();
       private void ensureErrorCodeIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           errorCode_ = new java.util.ArrayList<java.lang.Integer>(errorCode_);
           bitField0_ |= 0x00000004;
-         }
+        }
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public java.util.List<java.lang.Integer>
-          getErrorCodeList() {
-        return java.util.Collections.unmodifiableList(errorCode_);
+      public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
       public int getErrorCodeCount() {
         return errorCode_.size();
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public int getErrorCode(int index) {
+      public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+        return errorCode_converter_.convert(errorCode_.get(index));
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder setErrorCode(
+          int index, com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorCodeIsMutable();
+        errorCode_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder addErrorCode(com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorCodeIsMutable();
+        errorCode_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder addAllErrorCode(
+          java.lang.Iterable<? extends com.leruka.protobuf.ErrorCodes.ErrorCode> values) {
+        ensureErrorCodeIsMutable();
+        for (com.leruka.protobuf.ErrorCodes.ErrorCode value : values) {
+          errorCode_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder clearErrorCode() {
+        errorCode_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public java.util.List<java.lang.Integer>
+      getErrorCodeValueList() {
+        return java.util.Collections.unmodifiableList(errorCode_);
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public int getErrorCodeValue(int index) {
         return errorCode_.get(index);
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public Builder setErrorCode(
+      public Builder setErrorCodeValue(
           int index, int value) {
         ensureErrorCodeIsMutable();
         errorCode_.set(index, value);
@@ -1789,31 +1880,23 @@ public final class User {
         return this;
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public Builder addErrorCode(int value) {
+      public Builder addErrorCodeValue(int value) {
         ensureErrorCodeIsMutable();
         errorCode_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public Builder addAllErrorCode(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+      public Builder addAllErrorCodeValue(
+          java.lang.Iterable<java.lang.Integer> values) {
         ensureErrorCodeIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, errorCode_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
-       */
-      public Builder clearErrorCode() {
-        errorCode_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        for (int value : values) {
+          errorCode_.add(value);
+        }
         onChanged();
         return this;
       }
@@ -1898,17 +1981,26 @@ public final class User {
     com.leruka.protobuf.User.ResponseLoginOrBuilder getLoginOrBuilder();
 
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    java.util.List<java.lang.Integer> getErrorCodeList();
+    java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList();
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
     int getErrorCodeCount();
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    int getErrorCode(int index);
+    com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index);
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    java.util.List<java.lang.Integer>
+    getErrorCodeValueList();
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    int getErrorCodeValue(int index);
   }
   /**
    * Protobuf type {@code leruka.ResponseRegister}
@@ -1973,24 +2065,26 @@ public final class User {
               break;
             }
             case 24: {
+              int rawValue = input.readEnum();
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 errorCode_ = new java.util.ArrayList<java.lang.Integer>();
                 mutable_bitField0_ |= 0x00000004;
               }
-              errorCode_.add(input.readUInt32());
+              errorCode_.add(rawValue);
               break;
             }
             case 26: {
               int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-                errorCode_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  errorCode_ = new java.util.ArrayList<java.lang.Integer>();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                errorCode_.add(rawValue);
               }
-              while (input.getBytesUntilLimit() > 0) {
-                errorCode_.add(input.readUInt32());
-              }
-              input.popLimit(limit);
+              input.popLimit(oldLimit);
               break;
             }
           }
@@ -2053,26 +2147,48 @@ public final class User {
 
     public static final int ERRORCODE_FIELD_NUMBER = 3;
     private java.util.List<java.lang.Integer> errorCode_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode> errorCode_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>() {
+              public com.leruka.protobuf.ErrorCodes.ErrorCode convert(java.lang.Integer from) {
+                com.leruka.protobuf.ErrorCodes.ErrorCode result = com.leruka.protobuf.ErrorCodes.ErrorCode.valueOf(from);
+                return result == null ? com.leruka.protobuf.ErrorCodes.ErrorCode.UNRECOGNIZED : result;
+              }
+            };
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public java.util.List<java.lang.Integer>
-        getErrorCodeList() {
-      return errorCode_;
+    public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
     }
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
     public int getErrorCodeCount() {
       return errorCode_.size();
     }
     /**
-     * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public int getErrorCode(int index) {
+    public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+      return errorCode_converter_.convert(errorCode_.get(index));
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    public java.util.List<java.lang.Integer>
+    getErrorCodeValueList() {
+      return errorCode_;
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    public int getErrorCodeValue(int index) {
       return errorCode_.get(index);
     }
-    private int errorCodeMemoizedSerializedSize = -1;
+    private int errorCodeMemoizedSerializedSize;
 
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2098,7 +2214,7 @@ public final class User {
         output.writeRawVarint32(errorCodeMemoizedSerializedSize);
       }
       for (int i = 0; i < errorCode_.size(); i++) {
-        output.writeUInt32NoTag(errorCode_.get(i));
+        output.writeEnumNoTag(errorCode_.get(i));
       }
     }
 
@@ -2119,15 +2235,13 @@ public final class User {
         int dataSize = 0;
         for (int i = 0; i < errorCode_.size(); i++) {
           dataSize += com.google.protobuf.CodedOutputStream
-            .computeUInt32SizeNoTag(errorCode_.get(i));
+            .computeEnumSizeNoTag(errorCode_.get(i));
         }
         size += dataSize;
-        if (!getErrorCodeList().isEmpty()) {
-          size += 1;
+        if (!getErrorCodeList().isEmpty()) {  size += 1;
           size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        errorCodeMemoizedSerializedSize = dataSize;
+            .computeRawVarint32Size(dataSize);
+        }errorCodeMemoizedSerializedSize = dataSize;
       }
       memoizedSize = size;
       return size;
@@ -2491,36 +2605,96 @@ public final class User {
         return loginBuilder_;
       }
 
-      private java.util.List<java.lang.Integer> errorCode_ = java.util.Collections.emptyList();
+      private java.util.List<java.lang.Integer> errorCode_ =
+        java.util.Collections.emptyList();
       private void ensureErrorCodeIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           errorCode_ = new java.util.ArrayList<java.lang.Integer>(errorCode_);
           bitField0_ |= 0x00000004;
-         }
+        }
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public java.util.List<java.lang.Integer>
-          getErrorCodeList() {
-        return java.util.Collections.unmodifiableList(errorCode_);
+      public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
       public int getErrorCodeCount() {
         return errorCode_.size();
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public int getErrorCode(int index) {
+      public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+        return errorCode_converter_.convert(errorCode_.get(index));
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder setErrorCode(
+          int index, com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorCodeIsMutable();
+        errorCode_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder addErrorCode(com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorCodeIsMutable();
+        errorCode_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder addAllErrorCode(
+          java.lang.Iterable<? extends com.leruka.protobuf.ErrorCodes.ErrorCode> values) {
+        ensureErrorCodeIsMutable();
+        for (com.leruka.protobuf.ErrorCodes.ErrorCode value : values) {
+          errorCode_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder clearErrorCode() {
+        errorCode_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public java.util.List<java.lang.Integer>
+      getErrorCodeValueList() {
+        return java.util.Collections.unmodifiableList(errorCode_);
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public int getErrorCodeValue(int index) {
         return errorCode_.get(index);
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public Builder setErrorCode(
+      public Builder setErrorCodeValue(
           int index, int value) {
         ensureErrorCodeIsMutable();
         errorCode_.set(index, value);
@@ -2528,31 +2702,23 @@ public final class User {
         return this;
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public Builder addErrorCode(int value) {
+      public Builder addErrorCodeValue(int value) {
         ensureErrorCodeIsMutable();
         errorCode_.add(value);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public Builder addAllErrorCode(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
+      public Builder addAllErrorCodeValue(
+          java.lang.Iterable<java.lang.Integer> values) {
         ensureErrorCodeIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, errorCode_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated uint32 errorCode = 3 [packed = true];</code>
-       */
-      public Builder clearErrorCode() {
-        errorCode_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        for (int value : values) {
+          errorCode_.add(value);
+        }
         onChanged();
         return this;
       }
@@ -2643,15 +2809,16 @@ public final class User {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nuser.proto\022\006leruka\".\n\014RequestLogin\022\014\n\004" +
-      "name\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"1\n\017RequestR" +
-      "egister\022\014\n\004name\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"" +
-      "J\n\rResponseLogin\022\017\n\007success\030\001 \001(\010\022\021\n\tses" +
-      "sionID\030\002 \001(\t\022\025\n\terrorCode\030\003 \003(\rB\002\020\001\"`\n\020R" +
-      "esponseRegister\022\017\n\007success\030\001 \001(\010\022$\n\005logi" +
-      "n\030\002 \001(\0132\025.leruka.ResponseLogin\022\025\n\terrorC" +
-      "ode\030\003 \003(\rB\002\020\001B\025\n\023com.leruka.protobufb\006pr" +
-      "oto3"
+      "\n\nuser.proto\022\006leruka\032\020errorCodes.proto\"." +
+      "\n\014RequestLogin\022\014\n\004name\030\001 \001(\t\022\020\n\010password" +
+      "\030\002 \001(\t\"1\n\017RequestRegister\022\014\n\004name\030\001 \001(\t\022" +
+      "\020\n\010password\030\002 \001(\t\"Y\n\rResponseLogin\022\017\n\007su" +
+      "ccess\030\001 \001(\010\022\021\n\tsessionID\030\002 \001(\t\022$\n\terrorC" +
+      "ode\030\003 \003(\0162\021.leruka.ErrorCode\"o\n\020Response" +
+      "Register\022\017\n\007success\030\001 \001(\010\022$\n\005login\030\002 \001(\013" +
+      "2\025.leruka.ResponseLogin\022$\n\terrorCode\030\003 \003" +
+      "(\0162\021.leruka.ErrorCodeB\025\n\023com.leruka.prot" +
+      "obufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2664,6 +2831,7 @@ public final class User {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.leruka.protobuf.ErrorCodes.getDescriptor(),
         }, assigner);
     internal_static_leruka_RequestLogin_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2689,6 +2857,7 @@ public final class User {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_ResponseRegister_descriptor,
         new java.lang.String[] { "Success", "Login", "ErrorCode", });
+    com.leruka.protobuf.ErrorCodes.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
