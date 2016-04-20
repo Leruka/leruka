@@ -34,33 +34,37 @@ public final class ErrorCodes {
      */
     REGISTER_NAME_USED(2, 201),
     /**
-     * <code>REGISTER_NAME_INVALID = 202;</code>
-     */
-    REGISTER_NAME_INVALID(3, 202),
-    /**
-     * <code>REGISTER_PASS_INVALID = 203;</code>
-     */
-    REGISTER_PASS_INVALID(4, 203),
-    /**
      * <code>LOGIN_NAME_UNKNOWN = 301;</code>
      *
      * <pre>
      * Login
      * </pre>
      */
-    LOGIN_NAME_UNKNOWN(5, 301),
+    LOGIN_NAME_UNKNOWN(3, 301),
     /**
-     * <code>LOGIN_PASS_INVALID = 302;</code>
+     * <code>LOGIN_PASS_WRONG = 302;</code>
      */
-    LOGIN_PASS_INVALID(6, 302),
+    LOGIN_PASS_WRONG(4, 302),
     /**
-     * <code>DB_UNKNOWN_ERROR = 401;</code>
+     * <code>USER_NAME_INVALID = 401;</code>
+     *
+     * <pre>
+     * User
+     * </pre>
+     */
+    USER_NAME_INVALID(5, 401),
+    /**
+     * <code>USER_PASS_INVALID = 402;</code>
+     */
+    USER_PASS_INVALID(6, 402),
+    /**
+     * <code>DB_UNKNOWN_ERROR = 501;</code>
      *
      * <pre>
      * Database
      * </pre>
      */
-    DB_UNKNOWN_ERROR(7, 401),
+    DB_UNKNOWN_ERROR(7, 501),
     UNRECOGNIZED(-1, -1),
     ;
 
@@ -85,14 +89,6 @@ public final class ErrorCodes {
      */
     public static final int REGISTER_NAME_USED_VALUE = 201;
     /**
-     * <code>REGISTER_NAME_INVALID = 202;</code>
-     */
-    public static final int REGISTER_NAME_INVALID_VALUE = 202;
-    /**
-     * <code>REGISTER_PASS_INVALID = 203;</code>
-     */
-    public static final int REGISTER_PASS_INVALID_VALUE = 203;
-    /**
      * <code>LOGIN_NAME_UNKNOWN = 301;</code>
      *
      * <pre>
@@ -101,17 +97,29 @@ public final class ErrorCodes {
      */
     public static final int LOGIN_NAME_UNKNOWN_VALUE = 301;
     /**
-     * <code>LOGIN_PASS_INVALID = 302;</code>
+     * <code>LOGIN_PASS_WRONG = 302;</code>
      */
-    public static final int LOGIN_PASS_INVALID_VALUE = 302;
+    public static final int LOGIN_PASS_WRONG_VALUE = 302;
     /**
-     * <code>DB_UNKNOWN_ERROR = 401;</code>
+     * <code>USER_NAME_INVALID = 401;</code>
+     *
+     * <pre>
+     * User
+     * </pre>
+     */
+    public static final int USER_NAME_INVALID_VALUE = 401;
+    /**
+     * <code>USER_PASS_INVALID = 402;</code>
+     */
+    public static final int USER_PASS_INVALID_VALUE = 402;
+    /**
+     * <code>DB_UNKNOWN_ERROR = 501;</code>
      *
      * <pre>
      * Database
      * </pre>
      */
-    public static final int DB_UNKNOWN_ERROR_VALUE = 401;
+    public static final int DB_UNKNOWN_ERROR_VALUE = 501;
 
 
     public final int getNumber() {
@@ -127,11 +135,11 @@ public final class ErrorCodes {
         case 0: return UNKNOWN;
         case 101: return REQUEST_WRONG_CONTENT_TYPE;
         case 201: return REGISTER_NAME_USED;
-        case 202: return REGISTER_NAME_INVALID;
-        case 203: return REGISTER_PASS_INVALID;
         case 301: return LOGIN_NAME_UNKNOWN;
-        case 302: return LOGIN_PASS_INVALID;
-        case 401: return DB_UNKNOWN_ERROR;
+        case 302: return LOGIN_PASS_WRONG;
+        case 401: return USER_NAME_INVALID;
+        case 402: return USER_PASS_INVALID;
+        case 501: return DB_UNKNOWN_ERROR;
         default: return null;
       }
     }
@@ -195,13 +203,13 @@ public final class ErrorCodes {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020errorCodes.proto\022\006leruka*\322\001\n\tErrorCode" +
+      "\n\020errorCodes.proto\022\006leruka*\310\001\n\tErrorCode" +
       "\022\013\n\007UNKNOWN\020\000\022\036\n\032REQUEST_WRONG_CONTENT_T" +
-      "YPE\020e\022\027\n\022REGISTER_NAME_USED\020\311\001\022\032\n\025REGIST" +
-      "ER_NAME_INVALID\020\312\001\022\032\n\025REGISTER_PASS_INVA" +
-      "LID\020\313\001\022\027\n\022LOGIN_NAME_UNKNOWN\020\255\002\022\027\n\022LOGIN" +
-      "_PASS_INVALID\020\256\002\022\025\n\020DB_UNKNOWN_ERROR\020\221\003B" +
-      "\025\n\023com.leruka.protobufb\006proto3"
+      "YPE\020e\022\027\n\022REGISTER_NAME_USED\020\311\001\022\027\n\022LOGIN_" +
+      "NAME_UNKNOWN\020\255\002\022\025\n\020LOGIN_PASS_WRONG\020\256\002\022\026" +
+      "\n\021USER_NAME_INVALID\020\221\003\022\026\n\021USER_PASS_INVA" +
+      "LID\020\222\003\022\025\n\020DB_UNKNOWN_ERROR\020\365\003B\025\n\023com.ler" +
+      "uka.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
