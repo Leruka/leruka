@@ -5,52 +5,41 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Anzeige Namen ändern"
-        android:id="@+id/textView8"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Anzeige Name"
-        android:id="@+id/textView9"
-        android:layout_below="@+id/textView8"
+        android:id="@+id/displayname"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="106dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="53dp" />
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/textView9"
-        android:layout_alignLeft="@+id/textView9"
-        android:layout_alignStart="@+id/textView9"
-        android:layout_alignRight="@+id/textView8"
-        android:layout_alignEnd="@+id/textView8" />
+        android:id="@+id/edit_displayname"
+        android:layout_below="@+id/displayname"
+        android:layout_alignLeft="@+id/displayname"
+        android:layout_alignStart="@+id/displayname" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Zurück"
-        android:id="@+id/button17"
+        android:id="@+id/button_back_displayname"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4"
+        android:layout_alignLeft="@+id/edit_displayname"
+        android:layout_alignStart="@+id/edit_displayname"
         android:layout_marginBottom="62dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Speichern"
-        android:id="@+id/button18"
-        android:layout_alignBottom="@+id/button17"
+        android:id="@+id/button_save_displayname"
+        android:layout_alignBottom="@+id/button_back_displayname"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="47dp"

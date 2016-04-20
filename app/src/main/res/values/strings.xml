@@ -29,4 +29,7 @@
     <string name="title_activity_change_settings">Change_settings</string>
     <string name="title_activity_change_displayname">ChangeDisplaynameActivity</string>
     <string name="title_activity_change_password">ChangePasswordActivity</string>
+    <string name="oldPassword">Altes Passwort</string>
+    <string name="newPassword">Neues Passwort</string>
+    <string name="newPasswordRepeat">Neues Passwort wiederholen</string>
 </resources>

@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.leruka.leruka.R;
 
-public class ChangeDisplaynameActivity extends AppCompatActivity {
+public class ChangeDisplaynameActivity extends LerukaActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +18,7 @@ public class ChangeDisplaynameActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        setTitle("Anzeigenamen ändern");
     }
 
 }
