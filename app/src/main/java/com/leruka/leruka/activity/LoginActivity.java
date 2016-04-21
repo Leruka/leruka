@@ -107,7 +107,7 @@ public class LoginActivity extends LerukaActivity {
 
         // Show all error codes
         for (ErrorCodes.ErrorCode code : login.getErrorCodeList()) {
-            Message.showErrorMessage(code.name());
+            Message.showErrorMessage(com.leruka.leruka.net.ErrorCodes.getReadableError(code));
         }
     }
 
