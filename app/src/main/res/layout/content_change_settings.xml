@@ -14,39 +14,25 @@
         android:text="Passwort ändern"
         android:id="@+id/changePassword"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05"
-        android:layout_above="@+id/changeDisplayname"
-        android:layout_marginBottom="63dp"
         android:onClick="onChangePassword"
-        android:layout_alignRight="@+id/changeDisplayname"
-        android:layout_alignEnd="@+id/changeDisplayname"
-        android:layout_alignLeft="@+id/changeDisplayname"
-        android:layout_alignStart="@+id/changeDisplayname" />
+        android:layout_marginTop="118dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="328dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anzeige Namen ändern"
         android:id="@+id/changeDisplayname"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05"
+        android:onClick="onChangeUsername"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onChangeUsername"/>
-
-    <Button
-        android:layout_width="315dp"
-        android:layout_height="wrap_content"
-        android:text="Zurück"
-        android:id="@+id/settingsBack"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05"
-        android:layout_marginTop="66dp"
-        android:layout_below="@+id/changeDisplayname"
-        android:layout_alignLeft="@+id/changeDisplayname"
-        android:layout_alignStart="@+id/changeDisplayname"
-        android:layout_alignRight="@+id/changeDisplayname"
-        android:layout_alignEnd="@+id/changeDisplayname"
-        />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp" />
 
 </RelativeLayout>

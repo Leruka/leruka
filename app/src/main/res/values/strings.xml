@@ -32,4 +32,5 @@
     <string name="oldPassword">Altes Passwort</string>
     <string name="newPassword">Neues Passwort</string>
     <string name="newPasswordRepeat">Neues Passwort wiederholen</string>
+    <string name="newDisplayname">Neuer Anzeigename</string>
 </resources>

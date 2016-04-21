@@ -53,21 +53,6 @@
             android:label="@string/title_activity_game_instruction"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.TestGestureActivity"
-            android:label="@string/title_activity_test_gesture"
-            android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.GameMainActivity"
-            android:label="GAME"
-            android:screenOrientation="landscape"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activity.ChangeSettingsActivity"
             android:label="@string/title_activity_change_settings"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -82,6 +67,22 @@
             android:label="@string/title_activity_change_password"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
+        <activity
+            android:name=".activity.TestGestureActivity"
+            android:label="@string/title_activity_test_gesture"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.GameMainActivity"
+            android:label="GAME"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

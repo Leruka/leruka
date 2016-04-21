@@ -52,4 +52,5 @@ public class UserMainActivity extends LerukaActivity {
         Intent intent = new Intent(this, ChangeSettingsActivity.class);
         startActivity(intent);
     }
+
 }
