@@ -1,5 +1,6 @@
 package com.leruka.leruka.activity;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +10,14 @@ import android.widget.EditText;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.helper.Message;
+import com.leruka.leruka.main.Central;
 import com.leruka.leruka.user.LUser;
 import com.leruka.leruka.user.Login;
 import com.leruka.leruka.user.LoginResult;
 import com.leruka.protobuf.ErrorCodes;
 import com.leruka.protobuf.User;
+
+import java.lang.annotation.Retention;
 
 public class LoginActivity extends LerukaActivity {
 
@@ -46,6 +50,7 @@ public class LoginActivity extends LerukaActivity {
         this.progressDialog.dismiss();
     }
 
+
     public void onLogin(View view) {
 
         // Get username and password
@@ -65,35 +70,44 @@ public class LoginActivity extends LerukaActivity {
         }
     }
 
-    public void onReceiveLogin(User.ResponseLogin login) {
+    private void goToMainActivity() {
+        // Go to the main menu
+        Intent intent = new Intent(this, UserMainActivity.class);
+        startActivity(intent);
+    }
 
-        // Hide the spinner
-        this.hideProgressDialog();
+    // Static
 
+    public static void processResponse(User.ResponseLogin login) {
         // Check for success
         if (login != null && login.getSuccess() && login.getSessionID() != null) {
-            this.receiveSuccessLogin(login);
+            LoginActivity.receiveSuccessLogin(login);
         }
         else {
-            this.receiveFailedLogin(login);
+            LoginActivity.receiveFailedLogin(login);
         }
     }
 
-    private void receiveSuccessLogin(User.ResponseLogin login) {
-
+    private static void receiveSuccessLogin(User.ResponseLogin login) {
         // Show a success message
         Message.showMessage("Login war erfolgreich");
 
         // Set the session ID
         LUser.setSessionID(login.getSessionID());
 
-        // Go to the main menu
-        Intent intent = new Intent(this, UserMainActivity.class);
-        startActivity(intent);
-
+        // If still in this activity, change it
+        Activity currentActivity = Central.getCurrentActivity();
+        if (currentActivity.getClass().equals(LoginActivity.class)) {
+            ((LoginActivity) currentActivity).goToMainActivity();
+        }
     }
 
-    private void receiveFailedLogin(User.ResponseLogin login) {
+    private static void receiveFailedLogin(User.ResponseLogin login) {
+        // If still in this activity, hide the spinner
+        Activity currentActivity = Central.getCurrentActivity();
+        if (currentActivity.getClass().equals(LoginActivity.class)) {
+            ((LoginActivity) currentActivity).hideProgressDialog();
+        }
 
         // Check for null
         if (login == null) {
@@ -101,14 +115,17 @@ public class LoginActivity extends LerukaActivity {
             return;
         }
 
+        // Check, if an error code has been send
         if (login.getErrorCodeCount() < 1) {
             Message.showErrorMessage("Login fehlgeschlagen, bitte versuche es später erneut.");
+            return;
         }
 
         // Show all error codes
         for (ErrorCodes.ErrorCode code : login.getErrorCodeList()) {
             Message.showErrorMessage(com.leruka.leruka.net.ErrorCodes.getReadableError(code));
         }
+
     }
 
 

@@ -17,10 +17,19 @@ public class UserMainActivity extends LerukaActivity {
         setContentView(R.layout.activity_user_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        this.refreshText();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Refresh the text
+        this.refreshText();
+    }
+
+    private void refreshText() {
         ((TextView) findViewById(R.id.textWelcome))
-                .setText("Hi, " + LUser.getCurrentUser().getUserName());
-
+                .setText(String.format(getString(R.string.user_greeting), LUser.getCurrentUser().getUserName()));
     }
 
     public void onLogout(View view) {

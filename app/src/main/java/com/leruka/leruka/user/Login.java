@@ -67,25 +67,6 @@ public class Login {
         new LoginPost().execute(postObject);
     }
 
-    public static void receiveLoginOrRegister(User.ResponseLogin response) {
-
-        // Give response to activity
-        Activity currentActivity = Central.getCurrentActivity();
-        if (currentActivity.getClass().equals(RegisterActivity.class)) {
-            ((RegisterActivity) currentActivity).hideProgressDialog();
-        } else if (currentActivity.getClass().equals(LoginActivity.class)) {
-            ((LoginActivity) currentActivity).onReceiveLogin(response);
-            return;
-        }
-
-        Message.showMessage("Successfully logged in!");
-    }
-
-    public static void receiveLogin(User.ResponseLogin response) {
-        receiveLoginOrRegister(response);
-    }
-
-
     private static class LoginPost extends HttpPost<User.ResponseLogin> {
 
         @Override
@@ -100,7 +81,7 @@ public class Login {
 
         @Override
         protected void onPostExecute(User.ResponseLogin response) {
-            receiveLogin(response);
+            LoginActivity.processResponse(response);
         }
     }
 
