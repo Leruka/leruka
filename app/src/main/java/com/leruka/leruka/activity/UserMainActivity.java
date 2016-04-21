@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.leruka.leruka.R;
-import com.leruka.leruka.user.User;
+import com.leruka.leruka.user.LUser;
 
 public class UserMainActivity extends LerukaActivity {
 
@@ -19,7 +19,7 @@ public class UserMainActivity extends LerukaActivity {
         setSupportActionBar(toolbar);
 
         ((TextView) findViewById(R.id.textWelcome))
-                .setText("Hi, " + User.getCurrentUser().getUserName());
+                .setText("Hi, " + LUser.getCurrentUser().getUserName());
 
     }
 

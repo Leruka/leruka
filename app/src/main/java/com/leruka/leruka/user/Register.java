@@ -1,6 +1,5 @@
 package com.leruka.leruka.user;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.leruka.leruka.activity.RegisterActivity;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
@@ -32,8 +31,8 @@ public class Register {
             return;
         }
 
-        com.leruka.leruka.user.User user =
-                new com.leruka.leruka.user.User(name, com.leruka.leruka.user.User.sha256(pass1));
+        LUser user =
+                new LUser(name, LUser.sha256(pass1));
 
         try {
             sendRegister(user);
@@ -42,7 +41,7 @@ public class Register {
         }
     }
 
-    private static void sendRegister(com.leruka.leruka.user.User user) throws IOException {
+    private static void sendRegister(LUser user) throws IOException {
         PostObject postObject = new PostObject(
                 new URL(REGISTER_URL),
                 ContentType.protobuf,
@@ -56,7 +55,7 @@ public class Register {
         new RegisterPost().execute(postObject);
 
         // Save the user
-        com.leruka.leruka.user.User.setCurrentUser(user);
+        LUser.setCurrentUser(user);
     }
 
     public static void receiveRegister(User.ResponseRegister response) {

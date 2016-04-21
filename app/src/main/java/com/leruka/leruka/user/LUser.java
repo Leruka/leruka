@@ -8,11 +8,11 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Created by leif on 09.11.15.
  */
-public class User {
+public class LUser {
 
     // Static
     // Attributes
-    private static User currentUser;
+    private static LUser currentUser;
     private static String sessionID;
     private static boolean isCurrentValid;
 
@@ -21,7 +21,7 @@ public class User {
     private static final int PASS_LENGHTH = 64;
 
     // Methods
-    public static User getCurrentUser() {
+    public static LUser getCurrentUser() {
         return currentUser;
     }
 
@@ -30,11 +30,11 @@ public class User {
     }
 
     public static void setSessionID(String sessionID) {
-        User.sessionID = sessionID;
+        LUser.sessionID = sessionID;
     }
 
-    public static void setCurrentUser(User currentUser) {
-        User.currentUser = currentUser;
+    public static void setCurrentUser(LUser currentUser) {
+        LUser.currentUser = currentUser;
     }
 
     public static boolean hasValidUser() {
@@ -51,7 +51,7 @@ public class User {
      * @param user The user to perform the test on
      * @return true, if its valid, else false
      */
-    public static boolean isValid(User user) {
+    public static boolean isValid(LUser user) {
         // Check for null
         if (user == null) return false;
         String name = user.getUserName();
@@ -74,7 +74,7 @@ public class User {
     private String userName;
     private String passwordHash;
 
-    public User(String userName, String passwordHash) {
+    public LUser(String userName, String passwordHash) {
         this.userName = (userName == null) ? "" : userName;
         this.passwordHash = (passwordHash == null) ? "" : passwordHash;
     }

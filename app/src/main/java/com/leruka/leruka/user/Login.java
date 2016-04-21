@@ -1,9 +1,7 @@
 package com.leruka.leruka.user;
 
 import android.app.Activity;
-import android.util.Log;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.activity.LoginActivity;
 import com.leruka.leruka.activity.RegisterActivity;
@@ -26,27 +24,36 @@ public class Login {
     // Attributes
     private static final String LOGIN_URL = "http://78.46.212.166:8080/leruka/login"; //TODO get from res
 
-    public static void login(String userName, String userPass) {
-        // update User
-        com.leruka.leruka.user.User user = new com.leruka.leruka.user.User(userName,  com.leruka.leruka.user.User.sha256(userPass));
-        com.leruka.leruka.user.User.setCurrentUser(user);
+    public static LoginResult login(String userName, String userPass) {
 
-        // validate
-        if (!com.leruka.leruka.user.User.isValid()) {
-
+        // Check for null / ws
+        if (userName == null || userName.isEmpty()) {
+            return new LoginResult(false, "Bitte gib ein Benutzer an");
+        }
+        else if (userPass == null || userPass.isEmpty()) {
+            return new LoginResult(false, "Bitte gib ein Passwort an");
         }
 
+        // update User
+        LUser user = new LUser(userName,  LUser.sha256(userPass));
+        LUser.setCurrentUser(user);
 
+        // Send the request
         try {
             sendLogin(user);
         } catch (IOException e) {
-            e.printStackTrace();
+            return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
+                    "werden. Bite überprüfe deine Internetverbindung.");
         }
 
+        // When the request has been send, return success
+        return new LoginResult(true, null);
     }
 
+
+
     // Methods
-    protected static void sendLogin(com.leruka.leruka.user.User user) throws IOException {
+    protected static void sendLogin(LUser user) throws IOException {
         PostObject postObject = new PostObject(
                 new URL(LOGIN_URL),
                 ContentType.protobuf,
@@ -61,50 +68,17 @@ public class Login {
     }
 
     public static void receiveLoginOrRegister(User.ResponseLogin response) {
-        // hide spinner
+
+        // Give response to activity
         Activity currentActivity = Central.getCurrentActivity();
         if (currentActivity.getClass().equals(RegisterActivity.class)) {
             ((RegisterActivity) currentActivity).hideProgressDialog();
         } else if (currentActivity.getClass().equals(LoginActivity.class)) {
-            ((LoginActivity) currentActivity).hideProgressDialog();
-        }
-
-        // Check for null
-        if (response == null) {
-            Message.showErrorMessage(0);
+            ((LoginActivity) currentActivity).onReceiveLogin(response);
             return;
         }
 
-        // Check for success
-        if (!response.getSuccess()) {
-            // could not register
-            Message.showErrorMessage(response.getErrorCode(0).name());
-            return; //TODO weitere Fehlerbehandlung
-        }
-
-        // Get sessionID
-        String sessionID = response.getSessionID();
-        if (sessionID == null || sessionID.isEmpty()) {
-            // could not receive a session ID
-            Message.showErrorMessage(0);
-            return;
-        }
-
-        // Save the session ID
-        com.leruka.leruka.user.User.setSessionID(sessionID);
-        // Show Result
-        if (currentActivity.getClass().equals(RegisterActivity.class)) {
-            // The activity has not changed. Proceed to main menu
-            ((RegisterActivity) currentActivity).onReceiveRegister();
-        } else if (currentActivity.getClass().equals(LoginActivity.class)) {
-            // The activity has not changed. Proceed to main menu
-            ((LoginActivity) currentActivity).onReceiveLogin();
-        } else if (currentActivity.getClass().equals(GuestMainActivity.class)) {
-            // TODO
-        }
-        else {
-            Message.showMessage("Successfully logged in!");
-        }
+        Message.showMessage("Successfully logged in!");
     }
 
     public static void receiveLogin(User.ResponseLogin response) {

@@ -12,7 +12,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.user.Register;
-import com.leruka.leruka.user.User;
+import com.leruka.leruka.user.LUser;
 
 public class RegisterActivity extends LerukaActivity {
 
@@ -88,7 +88,7 @@ public class RegisterActivity extends LerukaActivity {
                         }
                     });
             this.setTitle("Erfolg");
-            this.setMessage("Dein Account " + User.getCurrentUser().getUserName()
+            this.setMessage("Dein Account " + LUser.getCurrentUser().getUserName()
                     + " wurde erfolgereich erstellt");
         }
 

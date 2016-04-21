@@ -6,7 +6,7 @@ import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpGet;
 import com.leruka.leruka.net.HttpPost;
 import com.leruka.leruka.net.PostObject;
-import com.leruka.leruka.user.User;
+import com.leruka.leruka.user.LUser;
 import com.leruka.protobuf.Highscore;
 
 import java.io.IOException;
@@ -14,7 +14,6 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class HighscoreConnection {
     public static void GetPrivateScore() {
         // Create the request object
         Highscore.RequestPrivateScore requestObject = Highscore.RequestPrivateScore.newBuilder()
-                .setSessionID(User.getSessionID()).build();
+                .setSessionID(LUser.getSessionID()).build();
 
         // Create Post Object
         try {
@@ -91,7 +90,7 @@ public class HighscoreConnection {
                 List<Score> scores = new ArrayList<>(response.getScoresCount());
                 for (Highscore.Score s : response.getScoresList()) {
                     scores.add(new Score(
-                            User.getCurrentUser().getUserName(),
+                            LUser.getCurrentUser().getUserName(),
                             s.getScore(),
                             s.getRank(),
                             new Date(s.getTimestamp())
