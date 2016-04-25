@@ -111,7 +111,7 @@ public class Player {
             this.duckTimer--;
             if (this.duckTimer <= 0) {
                 // switch img
-                ResourceProvider.loadImageByHeight(R.drawable.rolle3, 100);
+                
 
                 int oldHeight = this.animation.getHeight();
                 this.animation = this.animationWalk;
