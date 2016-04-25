@@ -74,9 +74,9 @@ public class ResourceProvider {
         if (bitmap.getHeight() != targetHeight) {
             return Bitmap.createScaledBitmap(
                     bitmap,
-                    (int) targetHeight,
                     (int) (((double)bitmap.getWidth()) / ((double)bitmap.getHeight())
                             * (targetHeight)),
+                    (int) targetHeight,
                     true);
         }
         return bitmap;
