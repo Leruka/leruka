@@ -90,7 +90,7 @@ public class User {
     public static String sha256(String input) {
         if (input == null) input = "";
         try {
-            MessageDigest mDigest = MessageDigest.getInstance("SHA256");
+            MessageDigest mDigest = MessageDigest.getInstance("SHA-256");
             byte[] result = mDigest.digest(input.getBytes()); // may throw null pointer
             StringBuilder sb = new StringBuilder();
             for (byte aResult : result) {
@@ -98,6 +98,7 @@ public class User {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
+            Message.showErrorMessage("Failed hashing your Password. Cannot log in");
             // won't happen
         } catch (NullPointerException e) {
             Message.showErrorMessage("Failed hashing your Password. Cannot log in");
