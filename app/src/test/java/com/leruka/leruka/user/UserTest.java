@@ -7,12 +7,12 @@ import static org.junit.Assert.*;
 
 public class UserTest {
 
-    private User user;
+    private LUser user;
     private static String HASH_TEST = "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08";
 
     @Before
     public void setUp() throws Exception {
-        this.user = new User(
+        this.user = new LUser(
                 "test",
                 HASH_TEST
         );
@@ -20,41 +20,41 @@ public class UserTest {
 
     @Test
     public void testCreation() {
-        this.user = new User("test2", HASH_TEST);
+        this.user = new LUser("test2", HASH_TEST);
         assertEquals("test2", this.user.getUserName());
         assertEquals(HASH_TEST, this.user.getPasswordHash());
     }
 
     @Test
     public void testSessionID() {
-        User.setSessionID("test");
-        assertEquals("test", User.getSessionID());
+        LUser.setSessionID("test");
+        assertEquals("test", LUser.getSessionID());
     }
 
     @Test
     public void testSetCurrentUser() {
-        User user2 = new User("Testuser", HASH_TEST);
-        user.setCurrentUser(user2);
-        assertEquals(user.getCurrentUser(), user2);
+        LUser user2 = new LUser("Testuser", HASH_TEST);
+        LUser.setCurrentUser(user2);
+        assertEquals(LUser.getCurrentUser(), user2);
     }
 
     @Test
     public void testUpdateValid() {
         boolean valid = true;
-        user.updateValid(valid);
-        assertTrue(user.hasValidUser());
+        LUser.updateValid(valid);
+        assertTrue(LUser.hasValidUser());
     }
 
     @Test
     public void testIsValid() {
-        assertTrue(user.isValid(user));
-        assertTrue(user.isValid());
-        User user2 = null;
-        assertFalse(user2.isValid(user2));
-        User user3 = new User("hallodudadudadudadu", HASH_TEST);
-        assertFalse(user3.isValid(user3));
-        User user4 = new User("test4", "test");
-        assertFalse(user4.isValid(user4));
+        assertTrue(LUser.isValid(user));
+        assertTrue(LUser.isValid());
+        LUser user2 = null;
+        assertFalse(LUser.isValid(user2));
+        LUser user3 = new LUser("hallodudadudadudadu", HASH_TEST);
+        assertFalse(LUser.isValid(user3));
+        LUser user4 = new LUser("test4", "test");
+        assertFalse(LUser.isValid(user4));
     }
 
     @Test

@@ -21,10 +21,10 @@ public class LoginTest {
     public void testLogin() {
         String name = "hugo";
         String pw = "lustig";
-        User user = new User(name, pw);
+        LUser user = new LUser(name, pw);
 
-        login.login(name, pw);
-        assertEquals(user, user.getCurrentUser());
+        Login.login(name, pw);
+        assertEquals(user, LUser.getCurrentUser());
 
     }
 
