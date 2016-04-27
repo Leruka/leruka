@@ -1,4 +1,6 @@
 # leruka
+[![Quality Gate](http://sonarqube.it.dh-karlsruhe.de/api/badges/gate?key=leruka)](http://sonarqube.it.dh-karlsruhe.de/overview?id=leruka)
+
 Here we will create our jump'n'run game! It is a project by Kassandra, Ruth and Leif, part of our course "Software Engineering" at the DHBW Karlsruhe.
 
 This repository is only for the Android stuff, you will not find serverside related material around here.
