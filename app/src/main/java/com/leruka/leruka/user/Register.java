@@ -1,6 +1,5 @@
 package com.leruka.leruka.user;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.leruka.leruka.activity.RegisterActivity;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
@@ -22,27 +21,32 @@ public class Register {
     // Attributes
     private static final String REGISTER_URL = "http://78.46.212.166:8080/leruka/register"; //TODO get from res
 
-
     // Methods
-    public static void register(String name, String pass1, String pass2) {
+    public static LoginResult register(String name, String pass1, String pass2) {
 
-        if (!isValid(name, pass1, pass2)) {
-            Message.showErrorMessage("Bitte überprüfe deine Eingebe"); //TODO anzeigen, wo der Fehler ist
-            ((RegisterActivity) Central.getCurrentActivity()).hideProgressDialog();
-            return;
+        // Check, if its valid
+        String valid = isValid(name, pass1, pass2);
+        if (valid != null) {
+            return new LoginResult(false, valid);
         }
 
-        com.leruka.leruka.user.User user =
-                new com.leruka.leruka.user.User(name, com.leruka.leruka.user.User.sha256(pass1));
+        // Create and update the user
+        LUser user = new LUser(name, LUser.sha256(pass1));
+        LUser.setCurrentUser(user);
 
+        // Send register
         try {
             sendRegister(user);
         } catch (IOException e) {
-            e.printStackTrace();
+            return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
+                    "werden. Bite überprüfe deine Internetverbindung.");
         }
+
+        // When the request has been send, return success
+        return new LoginResult(true, null);
     }
 
-    private static void sendRegister(com.leruka.leruka.user.User user) throws IOException {
+    private static void sendRegister(LUser user) throws IOException {
         PostObject postObject = new PostObject(
                 new URL(REGISTER_URL),
                 ContentType.protobuf,
@@ -54,23 +58,37 @@ public class Register {
 
         // Send register request
         new RegisterPost().execute(postObject);
-
-        // Save the user
-        com.leruka.leruka.user.User.setCurrentUser(user);
     }
 
-    public static void receiveRegister(User.ResponseRegister response) {
-        //TODO check successful register
-
-        Login.receiveLoginOrRegister(response.getLogin());
-    }
-
-    private static boolean isValid(String name, String pass1, String pass2) {
+    private static String isValid(String name, String pass1, String pass2) {
         // check for null
-        if (name == null || pass1 == null) return false;
-        if (name.length() < 1 || name.length() > 16) return false;
-        if (pass1.length() < 5) return false;
-        return (pass2.equals(pass1));
+        if (name == null || name.isEmpty()) { return "Bitte gib einen Namen ein"; }
+        if (pass1 == null || pass1.isEmpty()) { return "Bitte gib eine Passwort ein"; }
+        // Check length
+        if (name.length() > 16) { return "Dieser Name ist zu lang"; }
+        if (pass1.length() < 4) { return "Dein Passwort muss mindestens vier Zeichen haben"; }
+        // Check equal
+        if (!pass1.equals(pass2)) { return "Die Passwörter stimmen nicht überein"; }
+        // null for valid
+        return null;
+    }
+
+    private static class RegisterPost extends HttpPost<User.ResponseRegister> {
+
+        @Override
+        protected User.ResponseRegister CreateResponseObject(InputStream in) {
+            try {
+                return User.ResponseRegister.parseFrom(in);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(User.ResponseRegister response) {
+            RegisterActivity.processResponse(response);
+        }
     }
 
     private static byte[] getRegisterBytes(String name, String pass) {
@@ -80,30 +98,5 @@ public class Register {
                 .build();
         return proto.toByteArray();
     }
-
-    private static class RegisterPost extends HttpPost<User.ResponseLogin> {
-
-        @Override
-        protected void onPostExecute(User.ResponseLogin response) {
-            //TODO currently only a LoginResponse is returned. switch to RegisterResponse!
-            if (response != null) {
-                Login.receiveLoginOrRegister(response);
-            }
-            else {
-                //TODO
-            }
-        }
-
-        @Override
-        protected User.ResponseLogin CreateResponseObject(InputStream in) {
-            try {
-                return User.ResponseLogin.parseFrom(in);
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-    }
-
 
 }

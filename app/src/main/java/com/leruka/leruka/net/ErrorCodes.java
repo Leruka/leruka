@@ -16,5 +16,25 @@ public class ErrorCodes {
     // Database
     public static final int DB_UNKNOWN_ERROR = 301;
 
+    public static String getReadableError(com.leruka.protobuf.ErrorCodes.ErrorCode code) {
+        switch (code) {
+            case LOGIN_NAME_UNKNOWN:
+                return "Der Nickmane ist nicht vergeben";
+            case LOGIN_PASS_WRONG:
+                return "Das Passwort ist falsch";
+            case USER_NAME_INVALID:
+                return "Der Nickname ist ungültig";
+            case USER_PASS_INVALID:
+                return "Das Passwort ist ungültig";
+            case REGISTER_NAME_USED:
+                return "Der Nickname wird bereits verwendet";
+            case REQUEST_WRONG_CONTENT_TYPE:
+                return "Es ist ein Fehler bei der Kommunikation aufgetreten (" + code.name() + ")";
+            case DB_UNKNOWN_ERROR:
+                return "Es ist ein Serverfehler aufgetreten";
+            default:
+                return "Es ist ein unbekannter Fehler aufgetreten (" + code.name() + ")";
+        }
+    }
 
 }
