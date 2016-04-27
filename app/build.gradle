@@ -1,5 +1,24 @@
 apply plugin: 'com.android.application'
 
+sonarqube {
+    properties {
+        property "sonar.projectName", "Leruka"
+        property "sonar.version", "2.0"
+
+        property "sonar.sources", "./src/main/java/com/leruka/leruka"
+        property "sonar.tests", "./src/test/java"
+
+        property "sonar.java.binaries", "./build/intermediates/classes/debug"
+        property "sonar.junit.reportsPath", "./build/test-results/debug"
+
+        property "sonar.java.libraries", "./libs"
+
+        property "sonar.verbose", "false"
+
+        property "sonar.exclusions", "./src/main/java/com/leruka/protobuf/User.java"
+    }
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
