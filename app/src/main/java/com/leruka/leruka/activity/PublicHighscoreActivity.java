@@ -17,30 +17,20 @@ import com.leruka.leruka.main.Central;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PublicHighscoreActivity extends LerukaActivity {
-
-    private static List<Score> scoreList;
+public class PublicHighscoreActivity extends HighscoreActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        // First, make the layout  available to allow refreshing it
         setContentView(R.layout.activity_public_highscore);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        if (PublicHighscoreActivity.scoreList == null) {
-            PublicHighscoreActivity.scoreList = new ArrayList<>(0);
-        }
-
-        this.updateTable();
-
+        super.onCreate(savedInstanceState);
         HighscoreConnection.GetPublicScore();
     }
 
     public void updateTable() {
 
         TableLayout table = (TableLayout) findViewById(R.id.public_score_table);
-        //table.removeAllViews();
+        if (table == null) return;
         table.removeAllViewsInLayout();
 
         TableRow row = new TableRow(getApplicationContext());
@@ -60,7 +50,7 @@ public class PublicHighscoreActivity extends LerukaActivity {
 
         table.addView(row);
 
-        for(Score s : PublicHighscoreActivity.scoreList) {
+        for(Score s : this.getScoreList()) {
             TableRow r = new TableRow(getApplicationContext());
             TextView t1 = new TextView(getApplicationContext());
             TextView t2 = new TextView(getApplicationContext());
@@ -78,10 +68,9 @@ public class PublicHighscoreActivity extends LerukaActivity {
     }
 
     public static void fillScores(List<Score> scoreList) {
-        PublicHighscoreActivity.scoreList = scoreList;
         Activity a = Central.getCurrentActivity();
         if (a.getClass().equals(PublicHighscoreActivity.class)) {
-            ((PublicHighscoreActivity) a).updateTable();
+            ((PublicHighscoreActivity) a).updateScores(scoreList);
         }
     }
 
