@@ -124,7 +124,7 @@ public final class ErrorCodes {
 
     public final int getNumber() {
       if (index == -1) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
             "Can't get the number of an unknown enum value.");
       }
       return value;
@@ -166,7 +166,7 @@ public final class ErrorCodes {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.leruka.protobuf.ErrorCodes.getDescriptor().getEnumTypes().get(0);
+      return ErrorCodes.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final ErrorCode[] VALUES = values();
@@ -174,7 +174,7 @@ public final class ErrorCodes {
     public static ErrorCode valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
+        throw new IllegalArgumentException(
           "EnumValueDescriptor is not for this type.");
       }
       if (desc.getIndex() == -1) {
@@ -202,7 +202,7 @@ public final class ErrorCodes {
   private static com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\020errorCodes.proto\022\006leruka*\310\001\n\tErrorCode" +
       "\022\013\n\007UNKNOWN\020\000\022\036\n\032REQUEST_WRONG_CONTENT_T" +
       "YPE\020e\022\027\n\022REGISTER_NAME_USED\020\311\001\022\027\n\022LOGIN_" +
