@@ -18,30 +18,20 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrivateHighscoreActivity extends LerukaActivity {
-
-    private static List<Score> scoreList;
+public class PrivateHighscoreActivity extends HighscoreActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        // First, make the layout available to allow refreshing it
         setContentView(R.layout.activity_private_highscore);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        if (PrivateHighscoreActivity.scoreList == null) {
-            PrivateHighscoreActivity.scoreList = new ArrayList<>(0);
-        }
-
-        this.updateTable();
-
+        super.onCreate(savedInstanceState);
         HighscoreConnection.GetPrivateScore();
-
     }
 
-    private void updateTable() {
+    public void updateTable() {
 
         TableLayout table = (TableLayout) findViewById(R.id.private_score_table);
+        if (table == null) return;
         table.removeAllViews();
 
         TableRow row = new TableRow(getApplicationContext());
@@ -62,7 +52,8 @@ public class PrivateHighscoreActivity extends LerukaActivity {
         table.addView(row);
 
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
-        for(Score s : PrivateHighscoreActivity.scoreList) {
+        for(Score s : this.getScoreList()) {
+            //TODO somewhere check for valid response (null in fields)
             TableRow r = new TableRow(getApplicationContext());
 
             TextView t = new TextView(getApplicationContext());
@@ -83,10 +74,9 @@ public class PrivateHighscoreActivity extends LerukaActivity {
     }
 
     public static void fillScores(List<Score> scoreList) {
-        PrivateHighscoreActivity.scoreList = scoreList;
         Activity a = Central.getCurrentActivity();
         if (a.getClass().equals(PrivateHighscoreActivity.class)) {
-            ((PrivateHighscoreActivity) a).updateTable();
+            ((PrivateHighscoreActivity) a).updateScores(scoreList);
         }
     }
 

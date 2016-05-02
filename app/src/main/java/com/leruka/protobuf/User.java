@@ -15,7 +15,7 @@ public final class User {
     /**
      * <code>optional string name = 1;</code>
      */
-    java.lang.String getName();
+    String getName();
     /**
      * <code>optional string name = 1;</code>
      */
@@ -25,7 +25,7 @@ public final class User {
     /**
      * <code>optional string password = 2;</code>
      */
-    java.lang.String getPassword();
+    String getPassword();
     /**
      * <code>optional string password = 2;</code>
      */
@@ -52,7 +52,7 @@ public final class User {
       password_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -77,13 +77,13 @@ public final class User {
               break;
             }
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+              String s = input.readStringRequireUtf8();
 
               name_ = s;
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+              String s = input.readStringRequireUtf8();
 
               password_ = s;
               break;
@@ -102,29 +102,29 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.leruka.protobuf.User.internal_static_leruka_RequestLogin_descriptor;
+      return User.internal_static_leruka_RequestLogin_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.leruka.protobuf.User.internal_static_leruka_RequestLogin_fieldAccessorTable
+      return User.internal_static_leruka_RequestLogin_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.leruka.protobuf.User.RequestLogin.class, com.leruka.protobuf.User.RequestLogin.Builder.class);
+              RequestLogin.class, Builder.class);
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    private volatile Object name_;
     /**
      * <code>optional string name = 1;</code>
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getName() {
+      Object ref = name_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         name_ = s;
         return s;
       }
@@ -134,11 +134,11 @@ public final class User {
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
+      Object ref = name_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         name_ = b;
         return b;
       } else {
@@ -147,18 +147,18 @@ public final class User {
     }
 
     public static final int PASSWORD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object password_;
+    private volatile Object password_;
     /**
      * <code>optional string password = 2;</code>
      */
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getPassword() {
+      Object ref = password_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         password_ = s;
         return s;
       }
@@ -168,11 +168,11 @@ public final class User {
      */
     public com.google.protobuf.ByteString
         getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
+      Object ref = password_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         password_ = b;
         return b;
       } else {
@@ -216,53 +216,53 @@ public final class User {
     }
 
     private static final long serialVersionUID = 0L;
-    public static com.leruka.protobuf.User.RequestLogin parseFrom(
+    public static RequestLogin parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.leruka.protobuf.User.RequestLogin parseFrom(
+    public static RequestLogin parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.RequestLogin parseFrom(byte[] data)
+    public static RequestLogin parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.leruka.protobuf.User.RequestLogin parseFrom(
+    public static RequestLogin parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.RequestLogin parseFrom(java.io.InputStream input)
+    public static RequestLogin parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.leruka.protobuf.User.RequestLogin parseFrom(
+    public static RequestLogin parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.RequestLogin parseDelimitedFrom(java.io.InputStream input)
+    public static RequestLogin parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.leruka.protobuf.User.RequestLogin parseDelimitedFrom(
+    public static RequestLogin parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.RequestLogin parseFrom(
+    public static RequestLogin parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.leruka.protobuf.User.RequestLogin parseFrom(
+    public static RequestLogin parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -273,7 +273,7 @@ public final class User {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.leruka.protobuf.User.RequestLogin prototype) {
+    public static Builder newBuilder(RequestLogin prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -281,9 +281,9 @@ public final class User {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -297,17 +297,17 @@ public final class User {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:leruka.RequestLogin)
-        com.leruka.protobuf.User.RequestLoginOrBuilder {
+        RequestLoginOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.leruka.protobuf.User.internal_static_leruka_RequestLogin_descriptor;
+        return User.internal_static_leruka_RequestLogin_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.leruka.protobuf.User.internal_static_leruka_RequestLogin_fieldAccessorTable
+        return User.internal_static_leruka_RequestLogin_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.leruka.protobuf.User.RequestLogin.class, com.leruka.protobuf.User.RequestLogin.Builder.class);
+                RequestLogin.class, Builder.class);
       }
 
       // Construct using com.leruka.protobuf.User.RequestLogin.newBuilder()
@@ -316,7 +316,7 @@ public final class User {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -335,23 +335,23 @@ public final class User {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.leruka.protobuf.User.internal_static_leruka_RequestLogin_descriptor;
+        return User.internal_static_leruka_RequestLogin_descriptor;
       }
 
-      public com.leruka.protobuf.User.RequestLogin getDefaultInstanceForType() {
-        return com.leruka.protobuf.User.RequestLogin.getDefaultInstance();
+      public RequestLogin getDefaultInstanceForType() {
+        return RequestLogin.getDefaultInstance();
       }
 
-      public com.leruka.protobuf.User.RequestLogin build() {
-        com.leruka.protobuf.User.RequestLogin result = buildPartial();
+      public RequestLogin build() {
+        RequestLogin result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.leruka.protobuf.User.RequestLogin buildPartial() {
-        com.leruka.protobuf.User.RequestLogin result = new com.leruka.protobuf.User.RequestLogin(this);
+      public RequestLogin buildPartial() {
+        RequestLogin result = new RequestLogin(this);
         result.name_ = name_;
         result.password_ = password_;
         onBuilt();
@@ -359,16 +359,16 @@ public final class User {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.leruka.protobuf.User.RequestLogin) {
-          return mergeFrom((com.leruka.protobuf.User.RequestLogin)other);
+        if (other instanceof RequestLogin) {
+          return mergeFrom((RequestLogin)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.leruka.protobuf.User.RequestLogin other) {
-        if (other == com.leruka.protobuf.User.RequestLogin.getDefaultInstance()) return this;
+      public Builder mergeFrom(RequestLogin other) {
+        if (other == RequestLogin.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -389,11 +389,11 @@ public final class User {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.leruka.protobuf.User.RequestLogin parsedMessage = null;
+        RequestLogin parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.leruka.protobuf.User.RequestLogin) e.getUnfinishedMessage();
+          parsedMessage = (RequestLogin) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -403,20 +403,20 @@ public final class User {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getName() {
+        Object ref = name_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           name_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -424,11 +424,11 @@ public final class User {
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
-        java.lang.Object ref = name_;
+        Object ref = name_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           name_ = b;
           return b;
         } else {
@@ -439,7 +439,7 @@ public final class User {
        * <code>optional string name = 1;</code>
        */
       public Builder setName(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -472,20 +472,20 @@ public final class User {
         return this;
       }
 
-      private java.lang.Object password_ = "";
+      private Object password_ = "";
       /**
        * <code>optional string password = 2;</code>
        */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getPassword() {
+        Object ref = password_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           password_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -493,11 +493,11 @@ public final class User {
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
-        java.lang.Object ref = password_;
+        Object ref = password_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           password_ = b;
           return b;
         } else {
@@ -508,7 +508,7 @@ public final class User {
        * <code>optional string password = 2;</code>
        */
       public Builder setPassword(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -555,12 +555,12 @@ public final class User {
     }
 
     // @@protoc_insertion_point(class_scope:leruka.RequestLogin)
-    private static final com.leruka.protobuf.User.RequestLogin DEFAULT_INSTANCE;
+    private static final RequestLogin DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.leruka.protobuf.User.RequestLogin();
+      DEFAULT_INSTANCE = new RequestLogin();
     }
 
-    public static com.leruka.protobuf.User.RequestLogin getDefaultInstance() {
+    public static RequestLogin getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -587,12 +587,12 @@ public final class User {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RequestLogin> getParserForType() {
       return PARSER;
     }
 
-    public com.leruka.protobuf.User.RequestLogin getDefaultInstanceForType() {
+    public RequestLogin getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -605,7 +605,7 @@ public final class User {
     /**
      * <code>optional string name = 1;</code>
      */
-    java.lang.String getName();
+    String getName();
     /**
      * <code>optional string name = 1;</code>
      */
@@ -615,7 +615,7 @@ public final class User {
     /**
      * <code>optional string password = 2;</code>
      */
-    java.lang.String getPassword();
+    String getPassword();
     /**
      * <code>optional string password = 2;</code>
      */
@@ -642,7 +642,7 @@ public final class User {
       password_ = "";
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -667,13 +667,13 @@ public final class User {
               break;
             }
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+              String s = input.readStringRequireUtf8();
 
               name_ = s;
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+              String s = input.readStringRequireUtf8();
 
               password_ = s;
               break;
@@ -692,29 +692,29 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.leruka.protobuf.User.internal_static_leruka_RequestRegister_descriptor;
+      return User.internal_static_leruka_RequestRegister_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.leruka.protobuf.User.internal_static_leruka_RequestRegister_fieldAccessorTable
+      return User.internal_static_leruka_RequestRegister_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.leruka.protobuf.User.RequestRegister.class, com.leruka.protobuf.User.RequestRegister.Builder.class);
+              RequestRegister.class, Builder.class);
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    private volatile Object name_;
     /**
      * <code>optional string name = 1;</code>
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getName() {
+      Object ref = name_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         name_ = s;
         return s;
       }
@@ -724,11 +724,11 @@ public final class User {
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
+      Object ref = name_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         name_ = b;
         return b;
       } else {
@@ -737,18 +737,18 @@ public final class User {
     }
 
     public static final int PASSWORD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object password_;
+    private volatile Object password_;
     /**
      * <code>optional string password = 2;</code>
      */
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getPassword() {
+      Object ref = password_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         password_ = s;
         return s;
       }
@@ -758,11 +758,11 @@ public final class User {
      */
     public com.google.protobuf.ByteString
         getPasswordBytes() {
-      java.lang.Object ref = password_;
-      if (ref instanceof java.lang.String) {
+      Object ref = password_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         password_ = b;
         return b;
       } else {
@@ -806,53 +806,53 @@ public final class User {
     }
 
     private static final long serialVersionUID = 0L;
-    public static com.leruka.protobuf.User.RequestRegister parseFrom(
+    public static RequestRegister parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.leruka.protobuf.User.RequestRegister parseFrom(
+    public static RequestRegister parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.RequestRegister parseFrom(byte[] data)
+    public static RequestRegister parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.leruka.protobuf.User.RequestRegister parseFrom(
+    public static RequestRegister parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.RequestRegister parseFrom(java.io.InputStream input)
+    public static RequestRegister parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.leruka.protobuf.User.RequestRegister parseFrom(
+    public static RequestRegister parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.RequestRegister parseDelimitedFrom(java.io.InputStream input)
+    public static RequestRegister parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.leruka.protobuf.User.RequestRegister parseDelimitedFrom(
+    public static RequestRegister parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.RequestRegister parseFrom(
+    public static RequestRegister parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.leruka.protobuf.User.RequestRegister parseFrom(
+    public static RequestRegister parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -863,7 +863,7 @@ public final class User {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.leruka.protobuf.User.RequestRegister prototype) {
+    public static Builder newBuilder(RequestRegister prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -871,9 +871,9 @@ public final class User {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -887,17 +887,17 @@ public final class User {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:leruka.RequestRegister)
-        com.leruka.protobuf.User.RequestRegisterOrBuilder {
+        RequestRegisterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.leruka.protobuf.User.internal_static_leruka_RequestRegister_descriptor;
+        return User.internal_static_leruka_RequestRegister_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.leruka.protobuf.User.internal_static_leruka_RequestRegister_fieldAccessorTable
+        return User.internal_static_leruka_RequestRegister_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.leruka.protobuf.User.RequestRegister.class, com.leruka.protobuf.User.RequestRegister.Builder.class);
+                RequestRegister.class, Builder.class);
       }
 
       // Construct using com.leruka.protobuf.User.RequestRegister.newBuilder()
@@ -906,7 +906,7 @@ public final class User {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -925,23 +925,23 @@ public final class User {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.leruka.protobuf.User.internal_static_leruka_RequestRegister_descriptor;
+        return User.internal_static_leruka_RequestRegister_descriptor;
       }
 
-      public com.leruka.protobuf.User.RequestRegister getDefaultInstanceForType() {
-        return com.leruka.protobuf.User.RequestRegister.getDefaultInstance();
+      public RequestRegister getDefaultInstanceForType() {
+        return RequestRegister.getDefaultInstance();
       }
 
-      public com.leruka.protobuf.User.RequestRegister build() {
-        com.leruka.protobuf.User.RequestRegister result = buildPartial();
+      public RequestRegister build() {
+        RequestRegister result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.leruka.protobuf.User.RequestRegister buildPartial() {
-        com.leruka.protobuf.User.RequestRegister result = new com.leruka.protobuf.User.RequestRegister(this);
+      public RequestRegister buildPartial() {
+        RequestRegister result = new RequestRegister(this);
         result.name_ = name_;
         result.password_ = password_;
         onBuilt();
@@ -949,16 +949,16 @@ public final class User {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.leruka.protobuf.User.RequestRegister) {
-          return mergeFrom((com.leruka.protobuf.User.RequestRegister)other);
+        if (other instanceof RequestRegister) {
+          return mergeFrom((RequestRegister)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.leruka.protobuf.User.RequestRegister other) {
-        if (other == com.leruka.protobuf.User.RequestRegister.getDefaultInstance()) return this;
+      public Builder mergeFrom(RequestRegister other) {
+        if (other == RequestRegister.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
           onChanged();
@@ -979,11 +979,11 @@ public final class User {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.leruka.protobuf.User.RequestRegister parsedMessage = null;
+        RequestRegister parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.leruka.protobuf.User.RequestRegister) e.getUnfinishedMessage();
+          parsedMessage = (RequestRegister) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -993,20 +993,20 @@ public final class User {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private Object name_ = "";
       /**
        * <code>optional string name = 1;</code>
        */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getName() {
+        Object ref = name_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           name_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1014,11 +1014,11 @@ public final class User {
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
-        java.lang.Object ref = name_;
+        Object ref = name_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           name_ = b;
           return b;
         } else {
@@ -1029,7 +1029,7 @@ public final class User {
        * <code>optional string name = 1;</code>
        */
       public Builder setName(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1062,20 +1062,20 @@ public final class User {
         return this;
       }
 
-      private java.lang.Object password_ = "";
+      private Object password_ = "";
       /**
        * <code>optional string password = 2;</code>
        */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getPassword() {
+        Object ref = password_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           password_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1083,11 +1083,11 @@ public final class User {
        */
       public com.google.protobuf.ByteString
           getPasswordBytes() {
-        java.lang.Object ref = password_;
+        Object ref = password_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           password_ = b;
           return b;
         } else {
@@ -1098,7 +1098,7 @@ public final class User {
        * <code>optional string password = 2;</code>
        */
       public Builder setPassword(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1145,12 +1145,12 @@ public final class User {
     }
 
     // @@protoc_insertion_point(class_scope:leruka.RequestRegister)
-    private static final com.leruka.protobuf.User.RequestRegister DEFAULT_INSTANCE;
+    private static final RequestRegister DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.leruka.protobuf.User.RequestRegister();
+      DEFAULT_INSTANCE = new RequestRegister();
     }
 
-    public static com.leruka.protobuf.User.RequestRegister getDefaultInstance() {
+    public static RequestRegister getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1177,12 +1177,12 @@ public final class User {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RequestRegister> getParserForType() {
       return PARSER;
     }
 
-    public com.leruka.protobuf.User.RequestRegister getDefaultInstanceForType() {
+    public RequestRegister getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1200,7 +1200,7 @@ public final class User {
     /**
      * <code>optional string sessionID = 2;</code>
      */
-    java.lang.String getSessionID();
+    String getSessionID();
     /**
      * <code>optional string sessionID = 2;</code>
      */
@@ -1210,7 +1210,7 @@ public final class User {
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList();
+    java.util.List<ErrorCodes.ErrorCode> getErrorCodeList();
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
@@ -1218,11 +1218,11 @@ public final class User {
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index);
+    ErrorCodes.ErrorCode getErrorCode(int index);
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    java.util.List<java.lang.Integer>
+    java.util.List<Integer>
     getErrorCodeValueList();
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
@@ -1250,7 +1250,7 @@ public final class User {
       errorCode_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -1280,7 +1280,7 @@ public final class User {
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
+              String s = input.readStringRequireUtf8();
 
               sessionID_ = s;
               break;
@@ -1288,7 +1288,7 @@ public final class User {
             case 24: {
               int rawValue = input.readEnum();
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                errorCode_ = new java.util.ArrayList<java.lang.Integer>();
+                errorCode_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000004;
               }
               errorCode_.add(rawValue);
@@ -1300,7 +1300,7 @@ public final class User {
               while(input.getBytesUntilLimit() > 0) {
                 int rawValue = input.readEnum();
                 if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                  errorCode_ = new java.util.ArrayList<java.lang.Integer>();
+                  errorCode_ = new java.util.ArrayList<Integer>();
                   mutable_bitField0_ |= 0x00000004;
                 }
                 errorCode_.add(rawValue);
@@ -1325,14 +1325,14 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.leruka.protobuf.User.internal_static_leruka_ResponseLogin_descriptor;
+      return User.internal_static_leruka_ResponseLogin_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.leruka.protobuf.User.internal_static_leruka_ResponseLogin_fieldAccessorTable
+      return User.internal_static_leruka_ResponseLogin_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.leruka.protobuf.User.ResponseLogin.class, com.leruka.protobuf.User.ResponseLogin.Builder.class);
+              ResponseLogin.class, Builder.class);
     }
 
     private int bitField0_;
@@ -1346,18 +1346,18 @@ public final class User {
     }
 
     public static final int SESSIONID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object sessionID_;
+    private volatile Object sessionID_;
     /**
      * <code>optional string sessionID = 2;</code>
      */
-    public java.lang.String getSessionID() {
-      java.lang.Object ref = sessionID_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    public String getSessionID() {
+      Object ref = sessionID_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         sessionID_ = s;
         return s;
       }
@@ -1367,11 +1367,11 @@ public final class User {
      */
     public com.google.protobuf.ByteString
         getSessionIDBytes() {
-      java.lang.Object ref = sessionID_;
-      if (ref instanceof java.lang.String) {
+      Object ref = sessionID_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         sessionID_ = b;
         return b;
       } else {
@@ -1380,22 +1380,22 @@ public final class User {
     }
 
     public static final int ERRORCODE_FIELD_NUMBER = 3;
-    private java.util.List<java.lang.Integer> errorCode_;
+    private java.util.List<Integer> errorCode_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
-        java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode> errorCode_converter_ =
+        Integer, ErrorCodes.ErrorCode> errorCode_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
-                java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>() {
-              public com.leruka.protobuf.ErrorCodes.ErrorCode convert(java.lang.Integer from) {
-                com.leruka.protobuf.ErrorCodes.ErrorCode result = com.leruka.protobuf.ErrorCodes.ErrorCode.valueOf(from);
-                return result == null ? com.leruka.protobuf.ErrorCodes.ErrorCode.UNRECOGNIZED : result;
+                Integer, ErrorCodes.ErrorCode>() {
+              public ErrorCodes.ErrorCode convert(Integer from) {
+                ErrorCodes.ErrorCode result = ErrorCodes.ErrorCode.valueOf(from);
+                return result == null ? ErrorCodes.ErrorCode.UNRECOGNIZED : result;
               }
             };
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+    public java.util.List<ErrorCodes.ErrorCode> getErrorCodeList() {
       return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
+          Integer, ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
     }
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
@@ -1406,13 +1406,13 @@ public final class User {
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+    public ErrorCodes.ErrorCode getErrorCode(int index) {
       return errorCode_converter_.convert(errorCode_.get(index));
     }
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public java.util.List<java.lang.Integer>
+    public java.util.List<Integer>
     getErrorCodeValueList() {
       return errorCode_;
     }
@@ -1481,53 +1481,53 @@ public final class User {
     }
 
     private static final long serialVersionUID = 0L;
-    public static com.leruka.protobuf.User.ResponseLogin parseFrom(
+    public static ResponseLogin parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.leruka.protobuf.User.ResponseLogin parseFrom(
+    public static ResponseLogin parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.ResponseLogin parseFrom(byte[] data)
+    public static ResponseLogin parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.leruka.protobuf.User.ResponseLogin parseFrom(
+    public static ResponseLogin parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.ResponseLogin parseFrom(java.io.InputStream input)
+    public static ResponseLogin parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.leruka.protobuf.User.ResponseLogin parseFrom(
+    public static ResponseLogin parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.ResponseLogin parseDelimitedFrom(java.io.InputStream input)
+    public static ResponseLogin parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.leruka.protobuf.User.ResponseLogin parseDelimitedFrom(
+    public static ResponseLogin parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.ResponseLogin parseFrom(
+    public static ResponseLogin parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.leruka.protobuf.User.ResponseLogin parseFrom(
+    public static ResponseLogin parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1538,7 +1538,7 @@ public final class User {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.leruka.protobuf.User.ResponseLogin prototype) {
+    public static Builder newBuilder(ResponseLogin prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -1546,9 +1546,9 @@ public final class User {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1562,17 +1562,17 @@ public final class User {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:leruka.ResponseLogin)
-        com.leruka.protobuf.User.ResponseLoginOrBuilder {
+        ResponseLoginOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.leruka.protobuf.User.internal_static_leruka_ResponseLogin_descriptor;
+        return User.internal_static_leruka_ResponseLogin_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.leruka.protobuf.User.internal_static_leruka_ResponseLogin_fieldAccessorTable
+        return User.internal_static_leruka_ResponseLogin_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.leruka.protobuf.User.ResponseLogin.class, com.leruka.protobuf.User.ResponseLogin.Builder.class);
+                ResponseLogin.class, Builder.class);
       }
 
       // Construct using com.leruka.protobuf.User.ResponseLogin.newBuilder()
@@ -1581,7 +1581,7 @@ public final class User {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1602,23 +1602,23 @@ public final class User {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.leruka.protobuf.User.internal_static_leruka_ResponseLogin_descriptor;
+        return User.internal_static_leruka_ResponseLogin_descriptor;
       }
 
-      public com.leruka.protobuf.User.ResponseLogin getDefaultInstanceForType() {
-        return com.leruka.protobuf.User.ResponseLogin.getDefaultInstance();
+      public ResponseLogin getDefaultInstanceForType() {
+        return ResponseLogin.getDefaultInstance();
       }
 
-      public com.leruka.protobuf.User.ResponseLogin build() {
-        com.leruka.protobuf.User.ResponseLogin result = buildPartial();
+      public ResponseLogin build() {
+        ResponseLogin result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.leruka.protobuf.User.ResponseLogin buildPartial() {
-        com.leruka.protobuf.User.ResponseLogin result = new com.leruka.protobuf.User.ResponseLogin(this);
+      public ResponseLogin buildPartial() {
+        ResponseLogin result = new ResponseLogin(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.success_ = success_;
@@ -1634,16 +1634,16 @@ public final class User {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.leruka.protobuf.User.ResponseLogin) {
-          return mergeFrom((com.leruka.protobuf.User.ResponseLogin)other);
+        if (other instanceof ResponseLogin) {
+          return mergeFrom((ResponseLogin)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.leruka.protobuf.User.ResponseLogin other) {
-        if (other == com.leruka.protobuf.User.ResponseLogin.getDefaultInstance()) return this;
+      public Builder mergeFrom(ResponseLogin other) {
+        if (other == ResponseLogin.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -1673,11 +1673,11 @@ public final class User {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.leruka.protobuf.User.ResponseLogin parsedMessage = null;
+        ResponseLogin parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.leruka.protobuf.User.ResponseLogin) e.getUnfinishedMessage();
+          parsedMessage = (ResponseLogin) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1714,20 +1714,20 @@ public final class User {
         return this;
       }
 
-      private java.lang.Object sessionID_ = "";
+      private Object sessionID_ = "";
       /**
        * <code>optional string sessionID = 2;</code>
        */
-      public java.lang.String getSessionID() {
-        java.lang.Object ref = sessionID_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getSessionID() {
+        Object ref = sessionID_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           sessionID_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1735,11 +1735,11 @@ public final class User {
        */
       public com.google.protobuf.ByteString
           getSessionIDBytes() {
-        java.lang.Object ref = sessionID_;
+        Object ref = sessionID_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           sessionID_ = b;
           return b;
         } else {
@@ -1750,7 +1750,7 @@ public final class User {
        * <code>optional string sessionID = 2;</code>
        */
       public Builder setSessionID(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1783,20 +1783,20 @@ public final class User {
         return this;
       }
 
-      private java.util.List<java.lang.Integer> errorCode_ =
+      private java.util.List<Integer> errorCode_ =
         java.util.Collections.emptyList();
       private void ensureErrorCodeIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          errorCode_ = new java.util.ArrayList<java.lang.Integer>(errorCode_);
+          errorCode_ = new java.util.ArrayList<Integer>(errorCode_);
           bitField0_ |= 0x00000004;
         }
       }
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+      public java.util.List<ErrorCodes.ErrorCode> getErrorCodeList() {
         return new com.google.protobuf.Internal.ListAdapter<
-            java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
+            Integer, ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
       }
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
@@ -1807,14 +1807,14 @@ public final class User {
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+      public ErrorCodes.ErrorCode getErrorCode(int index) {
         return errorCode_converter_.convert(errorCode_.get(index));
       }
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
       public Builder setErrorCode(
-          int index, com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+          int index, ErrorCodes.ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -1826,7 +1826,7 @@ public final class User {
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public Builder addErrorCode(com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+      public Builder addErrorCode(ErrorCodes.ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -1839,9 +1839,9 @@ public final class User {
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
       public Builder addAllErrorCode(
-          java.lang.Iterable<? extends com.leruka.protobuf.ErrorCodes.ErrorCode> values) {
+          Iterable<? extends ErrorCodes.ErrorCode> values) {
         ensureErrorCodeIsMutable();
-        for (com.leruka.protobuf.ErrorCodes.ErrorCode value : values) {
+        for (ErrorCodes.ErrorCode value : values) {
           errorCode_.add(value.getNumber());
         }
         onChanged();
@@ -1859,7 +1859,7 @@ public final class User {
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<Integer>
       getErrorCodeValueList() {
         return java.util.Collections.unmodifiableList(errorCode_);
       }
@@ -1892,7 +1892,7 @@ public final class User {
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
       public Builder addAllErrorCodeValue(
-          java.lang.Iterable<java.lang.Integer> values) {
+          Iterable<Integer> values) {
         ensureErrorCodeIsMutable();
         for (int value : values) {
           errorCode_.add(value);
@@ -1915,12 +1915,12 @@ public final class User {
     }
 
     // @@protoc_insertion_point(class_scope:leruka.ResponseLogin)
-    private static final com.leruka.protobuf.User.ResponseLogin DEFAULT_INSTANCE;
+    private static final ResponseLogin DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.leruka.protobuf.User.ResponseLogin();
+      DEFAULT_INSTANCE = new ResponseLogin();
     }
 
-    public static com.leruka.protobuf.User.ResponseLogin getDefaultInstance() {
+    public static ResponseLogin getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1947,12 +1947,12 @@ public final class User {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<ResponseLogin> getParserForType() {
       return PARSER;
     }
 
-    public com.leruka.protobuf.User.ResponseLogin getDefaultInstanceForType() {
+    public ResponseLogin getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1974,16 +1974,16 @@ public final class User {
     /**
      * <code>optional .leruka.ResponseLogin login = 2;</code>
      */
-    com.leruka.protobuf.User.ResponseLogin getLogin();
+    ResponseLogin getLogin();
     /**
      * <code>optional .leruka.ResponseLogin login = 2;</code>
      */
-    com.leruka.protobuf.User.ResponseLoginOrBuilder getLoginOrBuilder();
+    ResponseLoginOrBuilder getLoginOrBuilder();
 
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList();
+    java.util.List<ErrorCodes.ErrorCode> getErrorCodeList();
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
@@ -1991,11 +1991,11 @@ public final class User {
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index);
+    ErrorCodes.ErrorCode getErrorCode(int index);
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    java.util.List<java.lang.Integer>
+    java.util.List<Integer>
     getErrorCodeValueList();
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
@@ -2022,7 +2022,7 @@ public final class User {
       errorCode_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
@@ -2052,11 +2052,11 @@ public final class User {
               break;
             }
             case 18: {
-              com.leruka.protobuf.User.ResponseLogin.Builder subBuilder = null;
+              ResponseLogin.Builder subBuilder = null;
               if (login_ != null) {
                 subBuilder = login_.toBuilder();
               }
-              login_ = input.readMessage(com.leruka.protobuf.User.ResponseLogin.parser(), extensionRegistry);
+              login_ = input.readMessage(ResponseLogin.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(login_);
                 login_ = subBuilder.buildPartial();
@@ -2067,7 +2067,7 @@ public final class User {
             case 24: {
               int rawValue = input.readEnum();
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                errorCode_ = new java.util.ArrayList<java.lang.Integer>();
+                errorCode_ = new java.util.ArrayList<Integer>();
                 mutable_bitField0_ |= 0x00000004;
               }
               errorCode_.add(rawValue);
@@ -2079,7 +2079,7 @@ public final class User {
               while(input.getBytesUntilLimit() > 0) {
                 int rawValue = input.readEnum();
                 if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                  errorCode_ = new java.util.ArrayList<java.lang.Integer>();
+                  errorCode_ = new java.util.ArrayList<Integer>();
                   mutable_bitField0_ |= 0x00000004;
                 }
                 errorCode_.add(rawValue);
@@ -2104,14 +2104,14 @@ public final class User {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.leruka.protobuf.User.internal_static_leruka_ResponseRegister_descriptor;
+      return User.internal_static_leruka_ResponseRegister_descriptor;
     }
 
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.leruka.protobuf.User.internal_static_leruka_ResponseRegister_fieldAccessorTable
+      return User.internal_static_leruka_ResponseRegister_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.leruka.protobuf.User.ResponseRegister.class, com.leruka.protobuf.User.ResponseRegister.Builder.class);
+              ResponseRegister.class, Builder.class);
     }
 
     private int bitField0_;
@@ -2125,7 +2125,7 @@ public final class User {
     }
 
     public static final int LOGIN_FIELD_NUMBER = 2;
-    private com.leruka.protobuf.User.ResponseLogin login_;
+    private ResponseLogin login_;
     /**
      * <code>optional .leruka.ResponseLogin login = 2;</code>
      */
@@ -2135,33 +2135,33 @@ public final class User {
     /**
      * <code>optional .leruka.ResponseLogin login = 2;</code>
      */
-    public com.leruka.protobuf.User.ResponseLogin getLogin() {
-      return login_ == null ? com.leruka.protobuf.User.ResponseLogin.getDefaultInstance() : login_;
+    public ResponseLogin getLogin() {
+      return login_ == null ? ResponseLogin.getDefaultInstance() : login_;
     }
     /**
      * <code>optional .leruka.ResponseLogin login = 2;</code>
      */
-    public com.leruka.protobuf.User.ResponseLoginOrBuilder getLoginOrBuilder() {
+    public ResponseLoginOrBuilder getLoginOrBuilder() {
       return getLogin();
     }
 
     public static final int ERRORCODE_FIELD_NUMBER = 3;
-    private java.util.List<java.lang.Integer> errorCode_;
+    private java.util.List<Integer> errorCode_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
-        java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode> errorCode_converter_ =
+        Integer, ErrorCodes.ErrorCode> errorCode_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
-                java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>() {
-              public com.leruka.protobuf.ErrorCodes.ErrorCode convert(java.lang.Integer from) {
-                com.leruka.protobuf.ErrorCodes.ErrorCode result = com.leruka.protobuf.ErrorCodes.ErrorCode.valueOf(from);
-                return result == null ? com.leruka.protobuf.ErrorCodes.ErrorCode.UNRECOGNIZED : result;
+                Integer, ErrorCodes.ErrorCode>() {
+              public ErrorCodes.ErrorCode convert(Integer from) {
+                ErrorCodes.ErrorCode result = ErrorCodes.ErrorCode.valueOf(from);
+                return result == null ? ErrorCodes.ErrorCode.UNRECOGNIZED : result;
               }
             };
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+    public java.util.List<ErrorCodes.ErrorCode> getErrorCodeList() {
       return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
+          Integer, ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
     }
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
@@ -2172,13 +2172,13 @@ public final class User {
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+    public ErrorCodes.ErrorCode getErrorCode(int index) {
       return errorCode_converter_.convert(errorCode_.get(index));
     }
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
      */
-    public java.util.List<java.lang.Integer>
+    public java.util.List<Integer>
     getErrorCodeValueList() {
       return errorCode_;
     }
@@ -2248,53 +2248,53 @@ public final class User {
     }
 
     private static final long serialVersionUID = 0L;
-    public static com.leruka.protobuf.User.ResponseRegister parseFrom(
+    public static ResponseRegister parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.leruka.protobuf.User.ResponseRegister parseFrom(
+    public static ResponseRegister parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.ResponseRegister parseFrom(byte[] data)
+    public static ResponseRegister parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.leruka.protobuf.User.ResponseRegister parseFrom(
+    public static ResponseRegister parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.ResponseRegister parseFrom(java.io.InputStream input)
+    public static ResponseRegister parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.leruka.protobuf.User.ResponseRegister parseFrom(
+    public static ResponseRegister parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.ResponseRegister parseDelimitedFrom(java.io.InputStream input)
+    public static ResponseRegister parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.leruka.protobuf.User.ResponseRegister parseDelimitedFrom(
+    public static ResponseRegister parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.leruka.protobuf.User.ResponseRegister parseFrom(
+    public static ResponseRegister parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.leruka.protobuf.User.ResponseRegister parseFrom(
+    public static ResponseRegister parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2305,7 +2305,7 @@ public final class User {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.leruka.protobuf.User.ResponseRegister prototype) {
+    public static Builder newBuilder(ResponseRegister prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -2313,9 +2313,9 @@ public final class User {
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2329,17 +2329,17 @@ public final class User {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:leruka.ResponseRegister)
-        com.leruka.protobuf.User.ResponseRegisterOrBuilder {
+        ResponseRegisterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.leruka.protobuf.User.internal_static_leruka_ResponseRegister_descriptor;
+        return User.internal_static_leruka_ResponseRegister_descriptor;
       }
 
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.leruka.protobuf.User.internal_static_leruka_ResponseRegister_fieldAccessorTable
+        return User.internal_static_leruka_ResponseRegister_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.leruka.protobuf.User.ResponseRegister.class, com.leruka.protobuf.User.ResponseRegister.Builder.class);
+                ResponseRegister.class, Builder.class);
       }
 
       // Construct using com.leruka.protobuf.User.ResponseRegister.newBuilder()
@@ -2348,7 +2348,7 @@ public final class User {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2373,23 +2373,23 @@ public final class User {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.leruka.protobuf.User.internal_static_leruka_ResponseRegister_descriptor;
+        return User.internal_static_leruka_ResponseRegister_descriptor;
       }
 
-      public com.leruka.protobuf.User.ResponseRegister getDefaultInstanceForType() {
-        return com.leruka.protobuf.User.ResponseRegister.getDefaultInstance();
+      public ResponseRegister getDefaultInstanceForType() {
+        return ResponseRegister.getDefaultInstance();
       }
 
-      public com.leruka.protobuf.User.ResponseRegister build() {
-        com.leruka.protobuf.User.ResponseRegister result = buildPartial();
+      public ResponseRegister build() {
+        ResponseRegister result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.leruka.protobuf.User.ResponseRegister buildPartial() {
-        com.leruka.protobuf.User.ResponseRegister result = new com.leruka.protobuf.User.ResponseRegister(this);
+      public ResponseRegister buildPartial() {
+        ResponseRegister result = new ResponseRegister(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         result.success_ = success_;
@@ -2409,16 +2409,16 @@ public final class User {
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.leruka.protobuf.User.ResponseRegister) {
-          return mergeFrom((com.leruka.protobuf.User.ResponseRegister)other);
+        if (other instanceof ResponseRegister) {
+          return mergeFrom((ResponseRegister)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.leruka.protobuf.User.ResponseRegister other) {
-        if (other == com.leruka.protobuf.User.ResponseRegister.getDefaultInstance()) return this;
+      public Builder mergeFrom(ResponseRegister other) {
+        if (other == ResponseRegister.getDefaultInstance()) return this;
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
@@ -2447,11 +2447,11 @@ public final class User {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.leruka.protobuf.User.ResponseRegister parsedMessage = null;
+        ResponseRegister parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.leruka.protobuf.User.ResponseRegister) e.getUnfinishedMessage();
+          parsedMessage = (ResponseRegister) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2488,9 +2488,9 @@ public final class User {
         return this;
       }
 
-      private com.leruka.protobuf.User.ResponseLogin login_ = null;
+      private ResponseLogin login_ = null;
       private com.google.protobuf.SingleFieldBuilder<
-          com.leruka.protobuf.User.ResponseLogin, com.leruka.protobuf.User.ResponseLogin.Builder, com.leruka.protobuf.User.ResponseLoginOrBuilder> loginBuilder_;
+          ResponseLogin, ResponseLogin.Builder, ResponseLoginOrBuilder> loginBuilder_;
       /**
        * <code>optional .leruka.ResponseLogin login = 2;</code>
        */
@@ -2500,9 +2500,9 @@ public final class User {
       /**
        * <code>optional .leruka.ResponseLogin login = 2;</code>
        */
-      public com.leruka.protobuf.User.ResponseLogin getLogin() {
+      public ResponseLogin getLogin() {
         if (loginBuilder_ == null) {
-          return login_ == null ? com.leruka.protobuf.User.ResponseLogin.getDefaultInstance() : login_;
+          return login_ == null ? ResponseLogin.getDefaultInstance() : login_;
         } else {
           return loginBuilder_.getMessage();
         }
@@ -2510,7 +2510,7 @@ public final class User {
       /**
        * <code>optional .leruka.ResponseLogin login = 2;</code>
        */
-      public Builder setLogin(com.leruka.protobuf.User.ResponseLogin value) {
+      public Builder setLogin(ResponseLogin value) {
         if (loginBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2527,7 +2527,7 @@ public final class User {
        * <code>optional .leruka.ResponseLogin login = 2;</code>
        */
       public Builder setLogin(
-          com.leruka.protobuf.User.ResponseLogin.Builder builderForValue) {
+          ResponseLogin.Builder builderForValue) {
         if (loginBuilder_ == null) {
           login_ = builderForValue.build();
           onChanged();
@@ -2540,11 +2540,11 @@ public final class User {
       /**
        * <code>optional .leruka.ResponseLogin login = 2;</code>
        */
-      public Builder mergeLogin(com.leruka.protobuf.User.ResponseLogin value) {
+      public Builder mergeLogin(ResponseLogin value) {
         if (loginBuilder_ == null) {
           if (login_ != null) {
             login_ =
-              com.leruka.protobuf.User.ResponseLogin.newBuilder(login_).mergeFrom(value).buildPartial();
+              ResponseLogin.newBuilder(login_).mergeFrom(value).buildPartial();
           } else {
             login_ = value;
           }
@@ -2572,7 +2572,7 @@ public final class User {
       /**
        * <code>optional .leruka.ResponseLogin login = 2;</code>
        */
-      public com.leruka.protobuf.User.ResponseLogin.Builder getLoginBuilder() {
+      public ResponseLogin.Builder getLoginBuilder() {
         
         onChanged();
         return getLoginFieldBuilder().getBuilder();
@@ -2580,23 +2580,23 @@ public final class User {
       /**
        * <code>optional .leruka.ResponseLogin login = 2;</code>
        */
-      public com.leruka.protobuf.User.ResponseLoginOrBuilder getLoginOrBuilder() {
+      public ResponseLoginOrBuilder getLoginOrBuilder() {
         if (loginBuilder_ != null) {
           return loginBuilder_.getMessageOrBuilder();
         } else {
           return login_ == null ?
-              com.leruka.protobuf.User.ResponseLogin.getDefaultInstance() : login_;
+              ResponseLogin.getDefaultInstance() : login_;
         }
       }
       /**
        * <code>optional .leruka.ResponseLogin login = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.leruka.protobuf.User.ResponseLogin, com.leruka.protobuf.User.ResponseLogin.Builder, com.leruka.protobuf.User.ResponseLoginOrBuilder> 
+          ResponseLogin, ResponseLogin.Builder, ResponseLoginOrBuilder>
           getLoginFieldBuilder() {
         if (loginBuilder_ == null) {
           loginBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.leruka.protobuf.User.ResponseLogin, com.leruka.protobuf.User.ResponseLogin.Builder, com.leruka.protobuf.User.ResponseLoginOrBuilder>(
+              ResponseLogin, ResponseLogin.Builder, ResponseLoginOrBuilder>(
                   getLogin(),
                   getParentForChildren(),
                   isClean());
@@ -2605,20 +2605,20 @@ public final class User {
         return loginBuilder_;
       }
 
-      private java.util.List<java.lang.Integer> errorCode_ =
+      private java.util.List<Integer> errorCode_ =
         java.util.Collections.emptyList();
       private void ensureErrorCodeIsMutable() {
         if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          errorCode_ = new java.util.ArrayList<java.lang.Integer>(errorCode_);
+          errorCode_ = new java.util.ArrayList<Integer>(errorCode_);
           bitField0_ |= 0x00000004;
         }
       }
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public java.util.List<com.leruka.protobuf.ErrorCodes.ErrorCode> getErrorCodeList() {
+      public java.util.List<ErrorCodes.ErrorCode> getErrorCodeList() {
         return new com.google.protobuf.Internal.ListAdapter<
-            java.lang.Integer, com.leruka.protobuf.ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
+            Integer, ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
       }
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
@@ -2629,14 +2629,14 @@ public final class User {
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public com.leruka.protobuf.ErrorCodes.ErrorCode getErrorCode(int index) {
+      public ErrorCodes.ErrorCode getErrorCode(int index) {
         return errorCode_converter_.convert(errorCode_.get(index));
       }
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
       public Builder setErrorCode(
-          int index, com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+          int index, ErrorCodes.ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2648,7 +2648,7 @@ public final class User {
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public Builder addErrorCode(com.leruka.protobuf.ErrorCodes.ErrorCode value) {
+      public Builder addErrorCode(ErrorCodes.ErrorCode value) {
         if (value == null) {
           throw new NullPointerException();
         }
@@ -2661,9 +2661,9 @@ public final class User {
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
       public Builder addAllErrorCode(
-          java.lang.Iterable<? extends com.leruka.protobuf.ErrorCodes.ErrorCode> values) {
+          Iterable<? extends ErrorCodes.ErrorCode> values) {
         ensureErrorCodeIsMutable();
-        for (com.leruka.protobuf.ErrorCodes.ErrorCode value : values) {
+        for (ErrorCodes.ErrorCode value : values) {
           errorCode_.add(value.getNumber());
         }
         onChanged();
@@ -2681,7 +2681,7 @@ public final class User {
       /**
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
-      public java.util.List<java.lang.Integer>
+      public java.util.List<Integer>
       getErrorCodeValueList() {
         return java.util.Collections.unmodifiableList(errorCode_);
       }
@@ -2714,7 +2714,7 @@ public final class User {
        * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
        */
       public Builder addAllErrorCodeValue(
-          java.lang.Iterable<java.lang.Integer> values) {
+          Iterable<Integer> values) {
         ensureErrorCodeIsMutable();
         for (int value : values) {
           errorCode_.add(value);
@@ -2737,12 +2737,12 @@ public final class User {
     }
 
     // @@protoc_insertion_point(class_scope:leruka.ResponseRegister)
-    private static final com.leruka.protobuf.User.ResponseRegister DEFAULT_INSTANCE;
+    private static final ResponseRegister DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.leruka.protobuf.User.ResponseRegister();
+      DEFAULT_INSTANCE = new ResponseRegister();
     }
 
-    public static com.leruka.protobuf.User.ResponseRegister getDefaultInstance() {
+    public static ResponseRegister getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2769,12 +2769,12 @@ public final class User {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<ResponseRegister> getParserForType() {
       return PARSER;
     }
 
-    public com.leruka.protobuf.User.ResponseRegister getDefaultInstanceForType() {
+    public ResponseRegister getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2808,7 +2808,7 @@ public final class User {
   private static com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\nuser.proto\022\006leruka\032\020errorCodes.proto\"." +
       "\n\014RequestLogin\022\014\n\004name\030\001 \001(\t\022\020\n\010password" +
       "\030\002 \001(\t\"1\n\017RequestRegister\022\014\n\004name\030\001 \001(\t\022" +
@@ -2831,33 +2831,33 @@ public final class User {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.leruka.protobuf.ErrorCodes.getDescriptor(),
+          ErrorCodes.getDescriptor(),
         }, assigner);
     internal_static_leruka_RequestLogin_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_leruka_RequestLogin_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_RequestLogin_descriptor,
-        new java.lang.String[] { "Name", "Password", });
+        new String[] { "Name", "Password", });
     internal_static_leruka_RequestRegister_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_leruka_RequestRegister_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_RequestRegister_descriptor,
-        new java.lang.String[] { "Name", "Password", });
+        new String[] { "Name", "Password", });
     internal_static_leruka_ResponseLogin_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_leruka_ResponseLogin_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_ResponseLogin_descriptor,
-        new java.lang.String[] { "Success", "SessionID", "ErrorCode", });
+        new String[] { "Success", "SessionID", "ErrorCode", });
     internal_static_leruka_ResponseRegister_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_leruka_ResponseRegister_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_ResponseRegister_descriptor,
-        new java.lang.String[] { "Success", "Login", "ErrorCode", });
-    com.leruka.protobuf.ErrorCodes.getDescriptor();
+        new String[] { "Success", "Login", "ErrorCode", });
+    ErrorCodes.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
