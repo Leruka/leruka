@@ -46,4 +46,18 @@ public class Obstacle {
     public boolean isOutOfView() {
         return this.rect.right < 0;
     }
+
+    public boolean isCollide(Rect player_rect) {
+        if (rect.intersect(player_rect)) {
+            return true;
+        }
+        return false;
+    }
+
+    public void move () {
+        //TODO: Bewegung random
+        this.rect.set(5, 5, 5, 5);
+    }
+
+
 }
