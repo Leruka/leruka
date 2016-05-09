@@ -8,7 +8,9 @@ import android.view.SurfaceHolder;
 import com.leruka.leruka.game.process.DrawProcess;
 import com.leruka.leruka.game.process.MainProcess;
 import com.leruka.leruka.game.track.Track;
+import com.leruka.leruka.game.track.creator.Stage1;
 import com.leruka.leruka.game.track.creator.TestStage;
+import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.input.Gesture;
 import com.leruka.leruka.main.Central;
 
@@ -46,7 +48,7 @@ public class Game {
         // init draw process
         DrawProcess.init();
         // Create Track
-        track = TestStage.createTrack();
+        track = new Stage1(new Player(Central.getDisplayHeight() - Measure.ph(5)));
         // Get player
         player = track.getPlayer();
     }

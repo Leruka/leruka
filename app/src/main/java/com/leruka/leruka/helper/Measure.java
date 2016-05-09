@@ -12,8 +12,8 @@ public class Measure {
      * @param percent the percentage of height you want
      * @return pixels in int
      */
-    public static int ph(int percent) {
-        return (int) (Central.getDisplayHeight() * ((double) percent / 100d));
+    public static int ph(double percent) {
+        return (int) (Central.getDisplayHeight() * (percent / 100d));
     }
 
     /**
@@ -21,7 +21,7 @@ public class Measure {
      * @param percent the percentage of width you want
      * @return pixels in int
      */
-    public static int pw(int percent) {
-        return (int) (Central.getDisplayWidth() * ((double) percent / 100d));
+    public static int pw(double percent) {
+        return (int) (Central.getDisplayWidth() * (percent / 100d));
     }
 }

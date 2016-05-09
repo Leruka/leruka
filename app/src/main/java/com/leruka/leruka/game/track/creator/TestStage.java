@@ -26,7 +26,8 @@ public class TestStage {
         Bitmap backgroundImage = ResourceProvider.loadImageByHeight(R.drawable.test_bg0,
                 Central.getDisplayHeight());
         Background background = new Background(backgroundImage);
-        return new Track(background, p);
+        return null;
+        //return new Track(background, p);
 
     }
 
