@@ -108,6 +108,18 @@
         android:layout_alignParentStart="true"
         android:onClick="onChangeSettings"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level bewerten"
+            android:id="@+id/btnRateLevel"
+            android:layout_below="@+id/buttonAnleitung"
+            android:layout_alignRight="@+id/buttonAnleitung"
+            android:layout_alignEnd="@+id/buttonAnleitung"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onRateLevels"/>
+
     </TableLayout>
     </ScrollView>
 </RelativeLayout>
