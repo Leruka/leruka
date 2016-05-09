@@ -1194,7 +1194,6 @@ public final class Highscore {
      */
     java.util.List<? extends ScoreOrBuilder>
         getScoresOrBuilderList();
-
     /**
      * <code>repeated .leruka.Score scores = 3;</code>
      */
@@ -1205,23 +1204,19 @@ public final class Highscore {
      * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
      */
     java.util.List<ErrorCodes.ErrorCode> getErrorCodeList();
-
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
      */
     int getErrorCodeCount();
-
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
      */
     ErrorCodes.ErrorCode getErrorCode(int index);
-
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
      */
     java.util.List<Integer>
     getErrorCodeValueList();
-
     /**
      * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
      */
@@ -2292,7 +2287,6 @@ public final class Highscore {
      * <code>optional string userName = 1;</code>
      */
     String getUserName();
-
     /**
      * <code>optional string userName = 1;</code>
      */
@@ -2314,7 +2308,6 @@ public final class Highscore {
      */
     long getTimestamp();
   }
-
   /**
    * Protobuf type {@code leruka.Score}
    */

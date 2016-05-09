@@ -26,13 +26,25 @@ public final class ErrorCodes {
      */
     REQUEST_WRONG_CONTENT_TYPE(1, 101),
     /**
+     * <code>REQUEST_CANNOT_PARSE_INPUT = 102;</code>
+     */
+    REQUEST_CANNOT_PARSE_INPUT(2, 102),
+    /**
+     * <code>REQUEST_SESSION_ID_INVALID = 103;</code>
+     */
+    REQUEST_SESSION_ID_INVALID(3, 103),
+    /**
+     * <code>REQUEST_SESSION_EXPIRED = 104;</code>
+     */
+    REQUEST_SESSION_EXPIRED(4, 104),
+    /**
      * <code>REGISTER_NAME_USED = 201;</code>
      *
      * <pre>
      * Register
      * </pre>
      */
-    REGISTER_NAME_USED(2, 201),
+    REGISTER_NAME_USED(5, 201),
     /**
      * <code>LOGIN_NAME_UNKNOWN = 301;</code>
      *
@@ -40,11 +52,11 @@ public final class ErrorCodes {
      * Login
      * </pre>
      */
-    LOGIN_NAME_UNKNOWN(3, 301),
+    LOGIN_NAME_UNKNOWN(6, 301),
     /**
      * <code>LOGIN_PASS_WRONG = 302;</code>
      */
-    LOGIN_PASS_WRONG(4, 302),
+    LOGIN_PASS_WRONG(7, 302),
     /**
      * <code>USER_NAME_INVALID = 401;</code>
      *
@@ -52,11 +64,11 @@ public final class ErrorCodes {
      * User
      * </pre>
      */
-    USER_NAME_INVALID(5, 401),
+    USER_NAME_INVALID(8, 401),
     /**
      * <code>USER_PASS_INVALID = 402;</code>
      */
-    USER_PASS_INVALID(6, 402),
+    USER_PASS_INVALID(9, 402),
     /**
      * <code>DB_UNKNOWN_ERROR = 501;</code>
      *
@@ -64,7 +76,7 @@ public final class ErrorCodes {
      * Database
      * </pre>
      */
-    DB_UNKNOWN_ERROR(7, 501),
+    DB_UNKNOWN_ERROR(10, 501),
     UNRECOGNIZED(-1, -1),
     ;
 
@@ -80,6 +92,18 @@ public final class ErrorCodes {
      * </pre>
      */
     public static final int REQUEST_WRONG_CONTENT_TYPE_VALUE = 101;
+    /**
+     * <code>REQUEST_CANNOT_PARSE_INPUT = 102;</code>
+     */
+    public static final int REQUEST_CANNOT_PARSE_INPUT_VALUE = 102;
+    /**
+     * <code>REQUEST_SESSION_ID_INVALID = 103;</code>
+     */
+    public static final int REQUEST_SESSION_ID_INVALID_VALUE = 103;
+    /**
+     * <code>REQUEST_SESSION_EXPIRED = 104;</code>
+     */
+    public static final int REQUEST_SESSION_EXPIRED_VALUE = 104;
     /**
      * <code>REGISTER_NAME_USED = 201;</code>
      *
@@ -134,6 +158,9 @@ public final class ErrorCodes {
       switch (value) {
         case 0: return UNKNOWN;
         case 101: return REQUEST_WRONG_CONTENT_TYPE;
+        case 102: return REQUEST_CANNOT_PARSE_INPUT;
+        case 103: return REQUEST_SESSION_ID_INVALID;
+        case 104: return REQUEST_SESSION_EXPIRED;
         case 201: return REGISTER_NAME_USED;
         case 301: return LOGIN_NAME_UNKNOWN;
         case 302: return LOGIN_PASS_WRONG;
@@ -203,13 +230,15 @@ public final class ErrorCodes {
       descriptor;
   static {
     String[] descriptorData = {
-      "\n\020errorCodes.proto\022\006leruka*\310\001\n\tErrorCode" +
+      "\n\020errorCodes.proto\022\006leruka*\245\002\n\tErrorCode" +
       "\022\013\n\007UNKNOWN\020\000\022\036\n\032REQUEST_WRONG_CONTENT_T" +
-      "YPE\020e\022\027\n\022REGISTER_NAME_USED\020\311\001\022\027\n\022LOGIN_" +
-      "NAME_UNKNOWN\020\255\002\022\025\n\020LOGIN_PASS_WRONG\020\256\002\022\026" +
-      "\n\021USER_NAME_INVALID\020\221\003\022\026\n\021USER_PASS_INVA" +
-      "LID\020\222\003\022\025\n\020DB_UNKNOWN_ERROR\020\365\003B\025\n\023com.ler" +
-      "uka.protobufb\006proto3"
+      "YPE\020e\022\036\n\032REQUEST_CANNOT_PARSE_INPUT\020f\022\036\n" +
+      "\032REQUEST_SESSION_ID_INVALID\020g\022\033\n\027REQUEST" +
+      "_SESSION_EXPIRED\020h\022\027\n\022REGISTER_NAME_USED" +
+      "\020\311\001\022\027\n\022LOGIN_NAME_UNKNOWN\020\255\002\022\025\n\020LOGIN_PA" +
+      "SS_WRONG\020\256\002\022\026\n\021USER_NAME_INVALID\020\221\003\022\026\n\021U" +
+      "SER_PASS_INVALID\020\222\003\022\025\n\020DB_UNKNOWN_ERROR\020" +
+      "\365\003B\025\n\023com.leruka.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
