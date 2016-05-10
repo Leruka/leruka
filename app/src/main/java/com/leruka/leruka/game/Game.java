@@ -7,6 +7,7 @@ import com.leruka.leruka.game.process.DrawProcess;
 import com.leruka.leruka.game.process.MainProcess;
 import com.leruka.leruka.game.track.Track;
 import com.leruka.leruka.game.track.stage.Stage1;
+import com.leruka.leruka.game.track.stage.Stage2;
 import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.input.Gesture;
 import com.leruka.leruka.main.Central;
@@ -33,21 +34,19 @@ public class Game {
         surfaceHandler = new SurfaceHandler();
     }
 
-    //region CONTROL FLOW
-
     /**
      * Sets everything this class has to to up ready for running.
      * It is not necessary to init each time you want to start a new track, just update the track.
      */
-    public static void init() {
+    private static void init() {
         // init main process
         MainProcess.init();
         // init draw process
         DrawProcess.init();
+        // Create Player
+        player = new Player(Central.getDisplayHeight() - Measure.ph(5));
         // Create Track
-        track = new Stage1(new Player(Central.getDisplayHeight() - Measure.ph(5)));
-        // Get player
-        player = track.getPlayer();
+        track = createTrack(1);
     }
 
     /**
@@ -62,7 +61,7 @@ public class Game {
      * Triggers to start the game. Should be used as a result from starting the game activity.
      * @param surfaceHolder The surfaceHolder on which the game will be rendered. Must not be null
      */
-    public static void startFromView(SurfaceHolder surfaceHolder) {
+    private static void startFromView(SurfaceHolder surfaceHolder) {
         init();
         Game.surfaceHolder = surfaceHolder;
         start();
@@ -76,9 +75,7 @@ public class Game {
         MainProcess.end();
         DrawProcess.end();
     }
-    //endregion
 
-    //region PROCESS ACTIONS
 
     /**
      * This method will cause the game to be rendered one time to the surface holder.
@@ -99,9 +96,7 @@ public class Game {
         //TODO Animationen aktualisieren
         //TODO Punktestand merken
     }
-    //endregion
 
-    //region ACTION HANDLERS
 
     /**
      * This method will process a given gesture: Up > player jump, Down > player duck.
@@ -126,6 +121,15 @@ public class Game {
         return surfaceHandler;
     }
 
+    private static Track createTrack(int number) {
+        if (number == 1) {
+            return new Stage1(player);
+        }
+        else {
+            return new Stage2(player);
+        }
+    }
+
     /**
      * This class is used to wait for the Surface (Activity) to be ready and start the game when so.
      */
@@ -142,5 +146,4 @@ public class Game {
         @Override
         public void surfaceDestroyed(SurfaceHolder holder) {}
     }
-    //endregion
 }
