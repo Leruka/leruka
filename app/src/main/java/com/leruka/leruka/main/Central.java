@@ -6,17 +6,22 @@ import android.graphics.Point;
 import android.os.Build;
 import android.util.DisplayMetrics;
 
+import com.leruka.leruka.helper.Measure;
+
 /**
  * This Class is a central place to temporary store data and settings.
  */
 public class Central {
 
-    //region ATTRIBUTES
+    // ATTRIBUTES
 
     /** Determines, if the app should run for developers: This will enable debug messages */
     public static final boolean isDev = true;
     /** The time that should be between each tick. Adjusting later on may cause problems! */
     public static final int targetTickNanos = (int) 1e+7; // 1/10 s
+
+    private static final double groundLevelPercentage = 5.0;
+
 
     /** A resources object from an activity: This can be used to load bitmaps or other resources */
     private static Resources resources;
@@ -26,10 +31,16 @@ public class Central {
     private static int displayWidth;
     /** The height of the device screen. NOT always the height of the available space */
     private static int displayHeight;
+    /** The amount of pixels that an obstacle should move when it gets updated */
+    private static int obstacleSpeed;
 
-    //endregion
 
-    //region GETTER
+
+    // GETTER
+
+    public static int getGroundLevel() {
+        return Measure.ph(Central.groundLevelPercentage);
+    }
 
     public static Activity getCurrentActivity() {
         return currentActivity;
@@ -47,9 +58,11 @@ public class Central {
         return displayHeight;
     }
 
-    //endregion
+    public static int getObstacleSpeed() {
+        return obstacleSpeed;
+    }
 
-    //region SETTER
+    // SETTER
 
     public static void setCurrentActivity(Activity currentActivity) {
         // On first time: get the display metrics
@@ -82,6 +95,8 @@ public class Central {
         Central.resources = resources;
     }
 
-    //endregion
+    public static void setObstacleSpeed(int obstacleSpeed) {
+        Central.obstacleSpeed = obstacleSpeed;
+    }
 
 }

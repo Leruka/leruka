@@ -4,6 +4,9 @@ import android.graphics.Canvas;
 
 import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.draw.Background;
+import com.leruka.leruka.game.track.obstacle.Obstacle;
+import com.leruka.leruka.game.track.obstacle.QueuedObstacle;
+import com.leruka.leruka.main.Central;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -21,16 +24,21 @@ public abstract class Track {
     private List<Obstacle> obstacles;
     private Queue<QueuedObstacle> queuedObstacles;
     private int position;
+    private int speed;
 
     public Track(Player player) {
-        this.background = this.createBackground();
+        // Settings from constructor
         this.player = player;
+
+        // Init
         this.position = 0;
         this.obstacles = new ArrayList<>();
         this.queuedObstacles = new LinkedList<>();
 
-        // Queue the first obstacle
+        // Abstract settings
+        this.background = this.createBackground();
         this.queuedObstacles.add(this.createObstacle());
+        Central.setObstacleSpeed(this.getObstacleSpeed());
     }
 
     // Methods
@@ -89,5 +97,7 @@ public abstract class Track {
     protected abstract Background createBackground();
 
     protected abstract QueuedObstacle createObstacle();
+
+    protected abstract int getObstacleSpeed();
 
 }

@@ -1,4 +1,4 @@
-package com.leruka.leruka.game.track;
+package com.leruka.leruka.game.track.obstacle;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -6,26 +6,25 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 
+import com.leruka.leruka.game.draw.Background;
 import com.leruka.leruka.helper.Measure;
+import com.leruka.leruka.main.Central;
 
 /**
  * Created by leif on 09.11.15.
  */
-public class Obstacle {
+public abstract class Obstacle {
 
     // Attributes
-    private Rect rect;
+    protected Rect rect;
     private Bitmap image;
 
-    private int step;
 
     // Constructor
-    public Obstacle(Rect rect, Bitmap image) {
-        this.rect = rect;
-        this.image = image;
-
-        this.step = -Measure.pw(.6);
-        if (this.step > -1) { this.step = -1; }
+    public Obstacle() {
+        // set settings by implementing class
+        this.rect = this.createRect(Central.getDisplayWidth(), Central.getDisplayHeight());
+        this.image = this.loadImage();
     }
 
     // Methods
@@ -40,7 +39,7 @@ public class Obstacle {
 
     public void update() {
         // move
-        this.rect.offset(this.step,0);
+        this.rect.offset(Central.getObstacleSpeed(), 0);
     }
 
     public boolean isOutOfView() {
@@ -54,10 +53,9 @@ public class Obstacle {
         return false;
     }
 
-    public void move () {
-        //TODO: Bewegung random
-        this.rect.set(5, 5, 5, 5);
-    }
 
+    protected abstract Rect createRect(int availableWidth, int availableHeight);
+
+    protected abstract Bitmap loadImage();
 
 }
