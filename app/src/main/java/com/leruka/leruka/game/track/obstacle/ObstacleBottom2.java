@@ -8,11 +8,11 @@ import com.leruka.leruka.res.ResourceProvider;
 /**
  * Created by leifb on 09.05.16.
  */
-public class ObstacleBottom1 extends ObstacleBottom {
+public class ObstacleBottom2 extends ObstacleBottom {
 
     @Override
     protected Bitmap loadImage() {
-        return ResourceProvider.loadImageByHeight(R.drawable.hindernissunten1, this.rect.height());
+        return ResourceProvider.loadImageByHeight(R.drawable.hindernissuntern2, this.rect.height());
     }
 
     @Override
@@ -22,6 +22,6 @@ public class ObstacleBottom1 extends ObstacleBottom {
 
     @Override
     protected double getRatio() {
-        return 700 / 628;
+        return 636 / 560;
     }
 }

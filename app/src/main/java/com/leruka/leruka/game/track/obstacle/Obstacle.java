@@ -58,4 +58,6 @@ public abstract class Obstacle {
 
     protected abstract Bitmap loadImage();
 
+
+
 }

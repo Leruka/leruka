@@ -6,12 +6,13 @@ import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.draw.Background;
 import com.leruka.leruka.game.track.obstacle.Obstacle;
 import com.leruka.leruka.game.track.obstacle.QueuedObstacle;
+import com.leruka.leruka.helper.DynamicArrayList;
 import com.leruka.leruka.main.Central;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Random;
 
 /**
  * Created by leif on 09.11.15.
@@ -26,14 +27,17 @@ public abstract class Track {
     private int position;
     private int speed;
 
+    protected Random random;
+
     public Track(Player player) {
         // Settings from constructor
         this.player = player;
 
         // Init
         this.position = 0;
-        this.obstacles = new ArrayList<>();
+        this.obstacles = new DynamicArrayList<>();
         this.queuedObstacles = new LinkedList<>();
+        this.random = new Random();
 
         // Abstract settings
         this.background = this.createBackground();
