@@ -24,7 +24,7 @@ public class ResourceProvider {
     }
 
     public static Bitmap loadImageByHeight(int id, int targetHeight) {
-        System.gc();
+
         // Check for cache
         ResourceDescription desc = new ResourceDescription(id, targetHeight);
         if (cache.hasImageByHeight(desc))
