@@ -1,5 +1,7 @@
 package com.leruka.leruka.game.process;
 
+import android.util.Log;
+
 import com.leruka.leruka.game.Game;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
@@ -71,7 +73,6 @@ public class MainProcess {
          */
         @Override
         public void run() {
-            System.out.println("MAIN");
             // init time tracking & co
             long start;
             long targetNanoTime = Central.targetTickNanos;
@@ -85,6 +86,8 @@ public class MainProcess {
                     long sleep = (targetNanoTime - (System.nanoTime() - start)) / 1000000;
                     if (sleep > 0)
                     Thread.sleep(sleep);
+                    else
+                        Log.w("leruka", "Main Thread took too long: " + sleep);
                 }
             } catch (InterruptedException e) {
                 // This should not happen

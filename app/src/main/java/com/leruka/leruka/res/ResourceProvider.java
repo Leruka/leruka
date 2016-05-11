@@ -3,6 +3,7 @@ package com.leruka.leruka.res;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
+import android.provider.Settings;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;
@@ -14,15 +15,22 @@ import com.leruka.leruka.main.Central;
 public class ResourceProvider {
 
     private static BitmapFactory.Options dimensionConfig;
+    private static ResourceCache cache;
 
     static {
         dimensionConfig = new BitmapFactory.Options();
         dimensionConfig.inJustDecodeBounds = true;
+        cache = new ResourceCache();
     }
 
     public static Bitmap loadImageByHeight(int id, int targetHeight) {
+        System.gc();
+        // Check for cache
+        ResourceDescription desc = new ResourceDescription(id, targetHeight);
+        if (cache.hasImageByHeight(desc))
+            return cache.getImageByHeight(desc);
 
-        // load height of the image
+        // load size of the image
         Point source =  ResourceProvider.loadDimensions(id);
 
         // get sample size: save memory by not loading the full image and than scaling down
@@ -32,12 +40,23 @@ public class ResourceProvider {
         Bitmap img = ResourceProvider.loadSampledBitmap(id, sampleSize);
 
         // scale the image
-        return ResourceProvider.scaleBitmapToHeight(img, targetHeight);
+        img = ResourceProvider.scaleBitmapToHeight(img, targetHeight);
+
+        // Cache it
+        cache.addImageByHeight(desc, img);
+
+        // Return it
+        return img;
     }
 
     public static Bitmap loadImageByWidth(int id, int targetWidth) {
 
-        // load height of the image
+        // Check for cache
+        ResourceDescription desc = new ResourceDescription(id, targetWidth);
+        if (cache.hasImageByWidth(desc))
+            return cache.getImageByWidth(desc);
+
+        // load size of the image
         Point source =  ResourceProvider.loadDimensions(id);
 
         // get sample size: save memory by not loading the full image and than scaling down
@@ -47,7 +66,13 @@ public class ResourceProvider {
         Bitmap img = ResourceProvider.loadSampledBitmap(id, sampleSize);
 
         // scale the image
-        return ResourceProvider.scaleBitmapToWidth(img, targetWidth);
+        img = ResourceProvider.scaleBitmapToWidth(img, targetWidth);
+
+        // Cache it
+        cache.addImageByWidth(desc, img);
+
+        // Return it
+        return img;
     }
 
     public static Animation loadAnimation(Iterable<Integer> ids) {
