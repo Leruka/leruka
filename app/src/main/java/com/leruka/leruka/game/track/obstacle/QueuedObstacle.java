@@ -1,4 +1,6 @@
-package com.leruka.leruka.game.track;
+package com.leruka.leruka.game.track.obstacle;
+
+import com.leruka.leruka.game.track.obstacle.Obstacle;
 
 /**
  * Created by leifb on 04.05.16.
