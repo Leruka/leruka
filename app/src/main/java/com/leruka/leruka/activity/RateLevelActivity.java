@@ -18,7 +18,7 @@ public class RateLevelActivity extends LerukaActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        setTitle("Bewerten Sie das Level.");
+        //setTitle("Bewerten Sie das Level.");
 
     }
 

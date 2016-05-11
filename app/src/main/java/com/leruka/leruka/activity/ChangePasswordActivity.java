@@ -9,7 +9,7 @@ import android.view.View;
 
 import com.leruka.leruka.R;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+public class ChangePasswordActivity extends LerukaActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/instruction"
-        android:id="@+id/buttonAnleitung"
+        android:id="@+id/btnAnleitung"
         android:layout_below="@+id/btnPublicHighscore"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -94,28 +94,21 @@
         android:onClick="onAnleitung" />
 
     <Button
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Einstellungen"
         android:id="@+id/btnEinstellungen"
-        android:layout_below="@+id/buttonAnleitung"
-        android:layout_alignRight="@+id/buttonAnleitung"
-        android:layout_alignEnd="@+id/buttonAnleitung"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:onClick="onChangeSettings"/>
+        android:onClick="onChangeSettings"
+        />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Level bewerten"
-            android:id="@+id/btnRateLevel"
-            android:layout_below="@+id/buttonAnleitung"
-            android:layout_alignRight="@+id/buttonAnleitung"
-            android:layout_alignEnd="@+id/buttonAnleitung"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:onClick="onRateLevels"/>
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Level bewerten"
+        android:id="@+id/btnRateLevels"
+        android:onClick="onRateLevels"/>
 
     </TableLayout>
 </ScrollView>

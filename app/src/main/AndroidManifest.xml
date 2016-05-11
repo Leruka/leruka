@@ -64,5 +64,21 @@
             android:label="GAME"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="landscape" />
+        <activity
+            android:name=".activity.ChangeSettingsActivity"
+            android:label="@string/title_activity_change_settings"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activity.RateLevelActivity"
+            android:label="@string/title_activity_rate_level"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activity.ChangeDisplaynameActivity"
+            android:label="@string/title_activity_change_displayname"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:label="@string/title_activity_change_password"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 </manifest>

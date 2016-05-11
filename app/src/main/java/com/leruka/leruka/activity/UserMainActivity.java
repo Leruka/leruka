@@ -67,4 +67,5 @@ public class UserMainActivity extends LerukaActivity {
         startActivity(intent);
     }
 
+
 }
