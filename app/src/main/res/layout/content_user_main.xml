@@ -57,7 +57,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Persoenlicher Highscore"
+        android:text="Persönlicher Highscore"
         android:id="@+id/btnPrivateHighscore"
         android:layout_below="@+id/btnAusloggen"
         android:layout_alignParentLeft="true"
@@ -71,7 +71,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Oeffentlicher Highscore"
+        android:text="Öffentlicher Highscore"
         android:id="@+id/btnPublicHighscore"
         android:layout_below="@+id/btnPrivateHighscore"
         android:layout_alignParentRight="true"
@@ -102,6 +102,20 @@
         android:layout_alignRight="@+id/buttonAnleitung"
         android:layout_alignEnd="@+id/buttonAnleitung"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onChangeSettings"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level bewerten"
+            android:id="@+id/btnRateLevel"
+            android:layout_below="@+id/buttonAnleitung"
+            android:layout_alignRight="@+id/buttonAnleitung"
+            android:layout_alignEnd="@+id/buttonAnleitung"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="onRateLevels"/>
+
     </TableLayout>
 </ScrollView>
