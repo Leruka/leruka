@@ -38,6 +38,7 @@ public class Player {
         // Load image first -> get dimensions
         this.animationWalk = createRunAnimation(Measure.ph(40));
         this.animationDuck = createDuckAnimation(Measure.ph(27)); //TODO better height...
+        this.animationJump = createJumpAnimation(Measure.ph(40));
         this.animation = this.animationWalk;
         // position and dimension
         this.groundLevel = groundLevel;
@@ -59,6 +60,15 @@ public class Player {
         if (!this.isJumping) {
             this.velocityY = jumpVelocity;
             this.isJumping = true;
+            int oldHeight = this.animation.getHeight();
+            // switch animation
+            this.animation = this.animationJump;
+
+            // fix y pos
+            this.rect.top += oldHeight - this.animation.getHeight();
+
+            // stop ducking, if so
+            if (this.isDucking) { this.isDucking = false; }
         }
     }
 
@@ -101,6 +111,9 @@ public class Player {
             if (this.rect.bottom + velocityY >= this.groundLevel) {
                 this.rect.offsetTo(this.rect.left, this.groundLevel - this.rect.height());
                 this.isJumping = false;
+                if(!this.isDucking) {
+                    this.animation = this.animationWalk;
+                }
             }
             else {
                 this.rect.offset(0, (int) velocityY);
@@ -111,7 +124,7 @@ public class Player {
             this.duckTimer--;
             if (this.duckTimer <= 0) {
                 // switch img
-                
+
 
                 int oldHeight = this.animation.getHeight();
                 this.animation = this.animationWalk;
