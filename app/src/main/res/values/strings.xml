@@ -35,4 +35,5 @@
     <string name="newDisplayname">Neuer Anzeigename</string>
     <string name="title_activity_rate_level">RateLevelActivity</string>
     <string name="user_greeting">"Hi, %1$s"</string>
+    <string name="title_activity_game_over_menu">GameOverMenuActivity</string>
 </resources>
