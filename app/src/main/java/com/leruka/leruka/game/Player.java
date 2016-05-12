@@ -55,6 +55,11 @@ public class Player {
         this.isDucking = false;
     }
 
+    private Animation createJumpAnimation(int ph) {
+
+        return null;
+    }
+
     // Methods
     protected void jump() {
         if (!this.isJumping) {
