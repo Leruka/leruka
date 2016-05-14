@@ -55,9 +55,17 @@ public class Player {
         this.isDucking = false;
     }
 
-    private Animation createJumpAnimation(int ph) {
+    private Animation createJumpAnimation(int height) {
 
-        return null;
+        Bitmap[] bitmaps = new Bitmap[]{
+                ResourceProvider.loadImageByHeight(R.drawable.sprung, height)
+        };
+
+        int[] repeats = new int[]{
+                15
+        };
+
+        return new Animation(bitmaps, repeats);
     }
 
     // Methods
