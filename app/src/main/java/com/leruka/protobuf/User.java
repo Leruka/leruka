@@ -1231,6 +1231,7 @@ public final class User {
    */
   public  static final class RequestChangeSettings extends
       com.google.protobuf.GeneratedMessage implements
+
       // @@protoc_insertion_point(message_implements:leruka.RequestChangeSettings)
       RequestChangeSettingsOrBuilder {
     // Use RequestChangeSettings.newBuilder() to construct.
