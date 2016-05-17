@@ -21,4 +21,8 @@ public class ChangePasswordActivity extends LerukaActivity {
         setTitle("Passwort ändern");
     }
 
+    public void onSave() {
+
+    }
+
 }
