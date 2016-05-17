@@ -9,18 +9,25 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.user.ChangeSettings;
 import com.leruka.leruka.user.LUser;
+import com.leruka.leruka.user.LoginResult;
 import com.leruka.protobuf.ErrorCodes;
 import com.leruka.protobuf.User;
 
 public class ChangeSettingsActivity extends LerukaActivity {
 
     ProgressDialog progressDialog;
+
+    private EditText inputName;
+    private EditText inputPassCurrent;
+    private EditText inputPass1;
+    private EditText inputPass2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +36,63 @@ public class ChangeSettingsActivity extends LerukaActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        this.inputName = (EditText) findViewById(R.id.inputNewName);
+        this.inputPassCurrent = (EditText) findViewById(R.id.inputCurrentPassword);
+        this.inputPass1 = (EditText) findViewById(R.id.inputNewPassword);
+        this.inputPass2 = (EditText) findViewById(R.id.inputNewPasswordRepeat);
+
+
+        // init loading animation
+        this.progressDialog = new ProgressDialog(this);
+        this.progressDialog.setTitle("Änderungen übernehmen");
+        this.progressDialog.setMessage("Deine Eingaben werden überprüft...");
+
         setTitle("Einstellungen");
     }
 
-    public void onChangePassword(View view) {
-        Intent intent = new Intent(this, ChangePasswordActivity.class);
-        startActivity(intent);
+    private void changePassword(String newPass1, String newPass2) {
+        LoginResult result = ChangeSettings.password(newPass1, newPass2);
+
+        // If request has bot been send, show error
+        if (!result.isSuccess()) {
+            Message.showErrorMessage(result.getMessage());
+        }
+        else {
+            this.showProgressDialog();
+        }
     }
 
-    public void onChangeUsername(View view) {
-        Intent intent = new Intent(this, ChangeDisplaynameActivity.class);
-        startActivity(intent);
+    private void changeUsername(String newName) {
+        LoginResult result = ChangeSettings.name(newName);
+
+        // If request has bot been send, show error
+        if (!result.isSuccess()) {
+            Message.showErrorMessage(result.getMessage());
+        }
+        else {
+            this.showProgressDialog();
+        }
+    }
+
+    private void changeBoth(String newName, String newPass1, String newPass2) {
+
+    }
+
+    public void onSave(View view) {
+        //TODO check current password
+
+        // Gather data
+        String pw1 = this.inputPass1.getText().toString();
+        String pw2 = this.inputPass2.getText().toString();
+        String name = this.inputName.getText().toString();
+
+        if (!name.isEmpty()) {
+            changeUsername(name);
+        }
+
+        if (!pw1.isEmpty() || !pw2.isEmpty()) {
+            changePassword(pw1, pw2);
+        }
     }
 
     public static void processResponse(User.ResponseChangeSettings changeSettings) {
@@ -52,14 +105,20 @@ public class ChangeSettingsActivity extends LerukaActivity {
         }
     }
 
+    private void goToMainActivity() {
+        // Go to the main menu
+        Intent intent = new Intent(this, UserMainActivity.class);
+        startActivity(intent);
+    }
+
     private static void receiveSuccessChangeSettings(User.ResponseChangeSettings changeSettings) {
         // Show a success message
-        Message.showMessage("Einstellungen wurden erfolgreich verändert");
+        Message.showMessage("Änderungen erfolgreich");
 
         // If still in this activity, change it
         Activity currentActivity = Central.getCurrentActivity();
         if (currentActivity.getClass().equals(ChangeSettingsActivity.class)) {
-            ChangeSettingsActivity activity = ((ChangeSettingsActivity) currentActivity);
+            ((ChangeSettingsActivity) currentActivity).goToMainActivity();
         }
     }
 
@@ -70,22 +129,24 @@ public class ChangeSettingsActivity extends LerukaActivity {
             ((ChangeSettingsActivity) currentActivity).hideProgressDialog();
         }
 
-        // Check for null
         if (changeSettings == null) {
             Message.showErrorMessage("Es gab ein unbekanntes Problem bei der Kommunikation mit dem Server");
             return;
         }
 
-        // Check, if an error code has been send
         if (changeSettings.getErrorCodeCount() < 1) {
-            Message.showErrorMessage("Einstellungen ändern fehlgeschlagen, bitte versuche es später erneut.");
+            Message.showErrorMessage("Änderungen fehlgeschlagen, bitte versuche es später erneut");
             return;
         }
 
-        // Show all error codes
-        for (ErrorCodes.ErrorCode code : changeSettings.getErrorCodeList()) {
-            Message.showErrorMessage(com.leruka.leruka.net.ErrorCodes.getReadableError(code));
+        for (ErrorCodes.ErrorCode c : changeSettings.getErrorCodeList()) {
+            Message.showErrorMessage(com.leruka.leruka.net.ErrorCodes.getReadableError(c));
         }
+    }
+
+    // Spinner
+    public void showProgressDialog() {
+        this.progressDialog.show();
     }
 
     public void hideProgressDialog() {

@@ -19,26 +19,15 @@ public class ChangeSettings {
     // Attributes
     private static final String CHANGESETTINGS_URL = "http://78.46.212.166:8080/leruka/changesettings";
 
-    public static LoginResult changeSettings(String username, String pw1, String pw2) {
-
+    public static LoginResult name(String newName) {
         // Check, if its validName
-        String validName = isValidName(username);
+        String validName = isValidName(newName);
         if (validName != null) {
             return new LoginResult(false, validName);
         }
 
-        // Check, if its validPass
-        String validPass = isValidPass(pw1, pw2);
-        if (validPass != null) {
-            return new LoginResult(false, validPass);
-        }
-
-        // get current User
-        LUser user = LUser.getCurrentUser();
-
-        // Send the request
         try {
-            sendChangeSettings(user);
+            sendChangeSettings(new LUser(newName, null));
         } catch (IOException e) {
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
@@ -49,6 +38,52 @@ public class ChangeSettings {
 
     }
 
+    public static LoginResult password(String pw1, String pw2) {
+
+        // Check, if its validPass
+        String validPass = isValidPass(pw1, pw2);
+        if (validPass != null) {
+            return new LoginResult(false, validPass);
+        }
+
+        // Send the request
+        try {
+            sendChangeSettings(new LUser(null, LUser.sha256(pw1)));
+        } catch (IOException e) {
+            return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
+                    "werden. Bite überprüfe deine Internetverbindung.");
+        }
+
+        // When the request has been send, return success
+        return new LoginResult(true, null);
+
+    }
+
+    public static LoginResult both(String newName, String newPass1, String newPass2) {
+        // Check, if its validName
+        String validName = isValidName(newName);
+        if (validName != null) {
+            return new LoginResult(false, validName);
+        }
+
+        // Check, if its validPass
+        String validPass = isValidPass(newPass1, newPass2);
+        if (validPass != null) {
+            return new LoginResult(false, validPass);
+        }
+
+        // Send the request
+        try {
+            sendChangeSettings(new LUser(newName, LUser.sha256(newPass1)));
+        } catch (IOException e) {
+            return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
+                    "werden. Bite überprüfe deine Internetverbindung.");
+        }
+
+        // When the request has been send, return success
+        return new LoginResult(true, null);
+    }
+
 
     private static void sendChangeSettings(LUser user) throws IOException{
 
@@ -56,7 +91,7 @@ public class ChangeSettings {
                 new URL(CHANGESETTINGS_URL),
                 ContentType.protobuf,
                 getChangeSettingsBytes(
-                        user.getSessionID(),
+                        LUser.getSessionID(),
                         user.getUserName(),
                         user.getPasswordHash()
                 )
@@ -86,12 +121,17 @@ public class ChangeSettings {
     }
 
     private static byte[] getChangeSettingsBytes(String sessionID, String username, String pass) {
-        User.RequestChangeSettings proto = User.RequestChangeSettings.newBuilder()
-                .setSessionID(sessionID)
-                .setName(username)
-                .setPassword(pass)
-                .build();
-        return proto.toByteArray();
+        User.RequestChangeSettings.Builder proto = User.RequestChangeSettings.newBuilder()
+                .setSessionID(sessionID);
+
+        if (username != null) {
+            proto.setName(username);
+        }
+        if (pass != null) {
+            proto.setPassword(pass);
+        }
+
+        return proto.build().toByteArray();
     }
 
     private static String isValidName(String name) {
