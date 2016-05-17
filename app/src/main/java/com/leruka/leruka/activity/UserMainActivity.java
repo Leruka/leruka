@@ -33,6 +33,7 @@ public class UserMainActivity extends LerukaActivity {
     }
 
     public void onLogout(View view) {
+        LUser.logout();
         Intent intent = new Intent(this, GuestMainActivity.class);
         startActivity(intent);
     }

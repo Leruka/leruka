@@ -19,15 +19,20 @@ public class ChangeSettings {
     // Attributes
     private static final String CHANGESETTINGS_URL = "http://78.46.212.166:8080/leruka/changesettings";
 
-    public static LoginResult name(String newName) {
+    public static LoginResult name(String newName, String oldPass) {
         // Check, if its validName
         String validName = isValidName(newName);
         if (validName != null) {
             return new LoginResult(false, validName);
         }
 
+        // Check old Pass
+        if (oldPass == null ||  oldPass.isEmpty()) {
+            return new LoginResult(false, "Bitte gib dein aktuelles Passwort an");
+        }
+
         try {
-            sendChangeSettings(new LUser(newName, null));
+            sendChangeSettings(new LUser(newName, null), LUser.sha256(oldPass));
         } catch (IOException e) {
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
@@ -38,7 +43,7 @@ public class ChangeSettings {
 
     }
 
-    public static LoginResult password(String pw1, String pw2) {
+    public static LoginResult password(String pw1, String pw2, String oldPass) {
 
         // Check, if its validPass
         String validPass = isValidPass(pw1, pw2);
@@ -46,9 +51,14 @@ public class ChangeSettings {
             return new LoginResult(false, validPass);
         }
 
+        // Check old Pass
+        if (oldPass == null ||  oldPass.isEmpty()) {
+            return new LoginResult(false, "Bitte gib dein aktuelles Passwort an");
+        }
+
         // Send the request
         try {
-            sendChangeSettings(new LUser(null, LUser.sha256(pw1)));
+            sendChangeSettings(new LUser(null, LUser.sha256(pw1)), LUser.sha256(oldPass));
         } catch (IOException e) {
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
@@ -59,7 +69,7 @@ public class ChangeSettings {
 
     }
 
-    public static LoginResult both(String newName, String newPass1, String newPass2) {
+    public static LoginResult both(String newName, String newPass1, String newPass2, String oldPass) {
         // Check, if its validName
         String validName = isValidName(newName);
         if (validName != null) {
@@ -72,9 +82,14 @@ public class ChangeSettings {
             return new LoginResult(false, validPass);
         }
 
+        // Check old Pass
+        if (oldPass == null ||  oldPass.isEmpty()) {
+            return new LoginResult(false, "Bitte gib dein aktuelles Passwort an");
+        }
+
         // Send the request
         try {
-            sendChangeSettings(new LUser(newName, LUser.sha256(newPass1)));
+            sendChangeSettings(new LUser(newName, LUser.sha256(newPass1)), LUser.sha256(oldPass));
         } catch (IOException e) {
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
@@ -85,7 +100,7 @@ public class ChangeSettings {
     }
 
 
-    private static void sendChangeSettings(LUser user) throws IOException{
+    private static void sendChangeSettings(LUser user, String oldPass) throws IOException {
 
         PostObject postObject = new PostObject(
                 new URL(CHANGESETTINGS_URL),
@@ -93,7 +108,8 @@ public class ChangeSettings {
                 getChangeSettingsBytes(
                         LUser.getSessionID(),
                         user.getUserName(),
-                        user.getPasswordHash()
+                        user.getPasswordHash(),
+                        oldPass
                 )
         );
 
@@ -120,15 +136,16 @@ public class ChangeSettings {
 
     }
 
-    private static byte[] getChangeSettingsBytes(String sessionID, String username, String pass) {
+    private static byte[] getChangeSettingsBytes(String sessionID, String username, String pass, String oldPass) {
         User.RequestChangeSettings.Builder proto = User.RequestChangeSettings.newBuilder()
-                .setSessionID(sessionID);
+                .setSessionID(sessionID)
+                .setOldPassword(oldPass);
 
         if (username != null) {
-            proto.setName(username);
+            proto.setNewName(username);
         }
         if (pass != null) {
-            proto.setPassword(pass);
+            proto.setNewPassword(pass);
         }
 
         return proto.build().toByteArray();
@@ -146,7 +163,7 @@ public class ChangeSettings {
     private static String isValidPass(String pw1, String pw2) {
         // check for null
         if (pw1 == null || pw1.isEmpty()) {
-            return "Bitte gib eine Passwort ein";
+            return "Bitte gib ein Passwort ein";
         }
         // Check length
         if (pw1.length() < 4) {

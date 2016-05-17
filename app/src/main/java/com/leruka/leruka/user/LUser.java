@@ -106,5 +106,11 @@ public class LUser {
         return null;
     }
 
+    public static void logout() {
+        currentUser = null;
+        sessionID = null;
+        updateValid(false);
+    }
+
 }
 

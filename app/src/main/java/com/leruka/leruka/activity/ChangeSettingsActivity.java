@@ -35,23 +35,28 @@ public class ChangeSettingsActivity extends LerukaActivity {
         setContentView(R.layout.activity_change_settings);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("Einstellungen");
 
         this.inputName = (EditText) findViewById(R.id.inputNewName);
         this.inputPassCurrent = (EditText) findViewById(R.id.inputCurrentPassword);
         this.inputPass1 = (EditText) findViewById(R.id.inputNewPassword);
         this.inputPass2 = (EditText) findViewById(R.id.inputNewPasswordRepeat);
 
+        // Fill in nick
+        this.inputName.setText(LUser.getCurrentUser().getUserName());
 
         // init loading animation
         this.progressDialog = new ProgressDialog(this);
         this.progressDialog.setTitle("Änderungen übernehmen");
         this.progressDialog.setMessage("Deine Eingaben werden überprüft...");
 
-        setTitle("Einstellungen");
+        // Loose focus
+        this.inputName.clearFocus();
     }
 
-    private void changePassword(String newPass1, String newPass2) {
-        LoginResult result = ChangeSettings.password(newPass1, newPass2);
+    private void changePassword(String newPass1, String newPass2, String oldPass) {
+
+        LoginResult result = ChangeSettings.password(newPass1, newPass2, oldPass);
 
         // If request has bot been send, show error
         if (!result.isSuccess()) {
@@ -62,8 +67,8 @@ public class ChangeSettingsActivity extends LerukaActivity {
         }
     }
 
-    private void changeUsername(String newName) {
-        LoginResult result = ChangeSettings.name(newName);
+    private void changeUsername(String newName, String oldPass) {
+        LoginResult result = ChangeSettings.name(newName, oldPass);
 
         // If request has bot been send, show error
         if (!result.isSuccess()) {
@@ -74,25 +79,51 @@ public class ChangeSettingsActivity extends LerukaActivity {
         }
     }
 
-    private void changeBoth(String newName, String newPass1, String newPass2) {
+    private void changeBoth(String newName, String newPass1, String newPass2, String oldPass) {
+        LoginResult result = ChangeSettings.both(newName, newPass1, newPass2, oldPass);
 
+        // If request has not been send, show error
+        if (!result.isSuccess()) {
+            Message.showErrorMessage(result.getMessage());
+        }
+        else {
+            this.showProgressDialog();
+        }
     }
 
     public void onSave(View view) {
-        //TODO check current password
 
         // Gather data
+        String pwOld = this.inputPassCurrent.getText().toString();
         String pw1 = this.inputPass1.getText().toString();
         String pw2 = this.inputPass2.getText().toString();
         String name = this.inputName.getText().toString();
 
-        if (!name.isEmpty()) {
-            changeUsername(name);
-        }
+        // find out what to change
+        boolean changeName = !name.isEmpty() && !LUser.getCurrentUser().getUserName().equals(name);
+        boolean changePass = !pw1.isEmpty() || !pw2.isEmpty();
 
-        if (!pw1.isEmpty() || !pw2.isEmpty()) {
-            changePassword(pw1, pw2);
+        // Change both
+        if (changeName && changePass) {
+            changeBoth(name, pw1, pw2, pwOld);
         }
+        // Change name
+        else if (changeName) {
+            changeUsername(name, pwOld);
+        }
+        // Change pass
+        else if (changePass) {
+            changePassword(pw1, pw2, pwOld);
+        }
+        // Nothing to change
+        else {
+            Message.showMessage("Keine Änderungen");
+            this.goToMainActivity();
+        }
+    }
+
+    public void onCancel(View view) {
+        this.goToMainActivity();
     }
 
     public static void processResponse(User.ResponseChangeSettings changeSettings) {
@@ -111,6 +142,14 @@ public class ChangeSettingsActivity extends LerukaActivity {
         startActivity(intent);
     }
 
+    private void logout() {
+        LUser.logout();
+        // Go to the login screen
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+
+    }
+
     private static void receiveSuccessChangeSettings(User.ResponseChangeSettings changeSettings) {
         // Show a success message
         Message.showMessage("Änderungen erfolgreich");
@@ -118,7 +157,7 @@ public class ChangeSettingsActivity extends LerukaActivity {
         // If still in this activity, change it
         Activity currentActivity = Central.getCurrentActivity();
         if (currentActivity.getClass().equals(ChangeSettingsActivity.class)) {
-            ((ChangeSettingsActivity) currentActivity).goToMainActivity();
+            ((ChangeSettingsActivity) currentActivity).logout();
         }
     }
 

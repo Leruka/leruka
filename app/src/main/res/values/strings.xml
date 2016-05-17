@@ -32,13 +32,12 @@
     <string name="currentPassword">Aktuelles Passwort</string>
     <string name="newPassword">Neues Passwort</string>
     <string name="newPasswordRepeat">Neues Passwort wiederholen</string>
-    <string name="newDisplayname">Neuer Anzeigename</string>
     <string name="title_activity_rate_level">RateLevelActivity</string>
     <string name="user_greeting">"Hi, %1$s"</string>
     <string name="title_activity_game_over_menu">GameOverMenuActivity</string>
     <string name="text_confirm_password">Bestätige dein aktuelles Passwort, um Änderungen vorzunehmen:</string>
     <string name="text_change_pass">Passwort ändern:</string>
-    <string name="text_change_name">Name ändern:</string>
+    <string name="text_your_name">Dein Name:</string>
     <string name="save">Speichern</string>
     <string name="cancel">Abbrechen</string>
 </resources>
