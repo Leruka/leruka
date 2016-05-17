@@ -125,7 +125,7 @@ public class RegisterActivity extends LerukaActivity {
 
         // Check, if an error code has been send
         if (register.getErrorCodeCount() < 1) {
-            Message.showErrorMessage("Registrierung fehlgeschlagen, bitte versuche es später erneut.");
+            Message.showErrorMessage("Registrierung fehlgeschlagen, bitte versuche es später erneut");
             return;
         }
 
