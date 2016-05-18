@@ -2,6 +2,7 @@ package com.leruka.leruka.activity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.highcore.Score;
@@ -12,12 +13,14 @@ import java.util.List;
 public abstract class HighscoreActivity extends LerukaActivity {
 
     private List<Score> scoreList;
+    protected LayoutInflater inflater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        this.inflater = LayoutInflater.from(getApplicationContext());
 
         if (this.scoreList == null) {
             this.setScoreList(new ArrayList<Score>(0));

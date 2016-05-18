@@ -37,15 +37,15 @@ public class PrivateHighscoreActivity extends HighscoreActivity {
         TableRow row = new TableRow(getApplicationContext());
         TextView text;
         // Add Heading
-        text = new TextView(getApplicationContext());
+        text = (TextView) this.inflater.inflate(R.layout.fragment_public_score_head, null);
         text.setText("Rank");
         row.addView(text);
 
-        text = new TextView(getApplicationContext());
+        text = (TextView) this.inflater.inflate(R.layout.fragment_public_score_head, null);
         text.setText("Score");
         row.addView(text);
 
-        text = new TextView(getApplicationContext());
+        text = (TextView) this.inflater.inflate(R.layout.fragment_public_score_head, null);
         text.setText("Date");
         row.addView(text);
 
@@ -53,18 +53,17 @@ public class PrivateHighscoreActivity extends HighscoreActivity {
 
         DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
         for(Score s : this.getScoreList()) {
-            //TODO somewhere check for valid response (null in fields)
             TableRow r = new TableRow(getApplicationContext());
 
-            TextView t = new TextView(getApplicationContext());
+            TextView t = (TextView) this.inflater.inflate(R.layout.fragment_public_score_item, null);
             t.setText(Long.toString(s.getRank()));
             r.addView(t);
 
-            t = new TextView(getApplicationContext());
+            t = (TextView) this.inflater.inflate(R.layout.fragment_public_score_item, null);
             t.setText(Long.toString(s.getScore()));
             r.addView(t);
 
-            t = new TextView(getApplicationContext());
+            t = (TextView) this.inflater.inflate(R.layout.fragment_public_score_item, null);
             t.setText(dateFormat.format(s.getDate()));
             r.addView(t);
 

@@ -6,33 +6,10 @@
     android:id="@+id/private_score_table"
     android:stretchColumns="0,1,2"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     style="@style/AppTheme">
-
-    <TableRow>
-        <TextView
-            android:text="feld01" />
-        <TextView
-            android:text="feld1222" />
-        <TextView
-            android:text="feld1222" />
-    </TableRow>
-
-    <TableRow>
-        <TextView
-            android:text="feld1" />
-        <TextView
-            android:text="feld2" />
-        <TextView
-            android:text="feld3" />
-    </TableRow>
-
-    <TableRow>
-        <TextView
-            android:text="feld1" />
-        <TextView
-            android:text="feld2" />
-        <TextView
-            android:text="feld3" />
-    </TableRow>
 
 </TableLayout>

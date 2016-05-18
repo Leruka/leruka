@@ -1,8 +1,12 @@
 package com.leruka.leruka.activity;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TableLayout;
@@ -18,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PublicHighscoreActivity extends HighscoreActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +41,15 @@ public class PublicHighscoreActivity extends HighscoreActivity {
         TableRow row = new TableRow(getApplicationContext());
         TextView text;
         // Add Heading
-        text = new TextView(getApplicationContext());
+        text = (TextView) this.inflater.inflate(R.layout.fragment_public_score_head, null);
         text.setText("Rank");
         row.addView(text);
 
-        text = new TextView(getApplicationContext());
+        text = (TextView) this.inflater.inflate(R.layout.fragment_public_score_head, null);
         text.setText("Name");
         row.addView(text);
 
-        text = new TextView(getApplicationContext());
+        text = (TextView) this.inflater.inflate(R.layout.fragment_public_score_head, null);
         text.setText("Score");
         row.addView(text);
 
@@ -52,17 +57,19 @@ public class PublicHighscoreActivity extends HighscoreActivity {
 
         for(Score s : this.getScoreList()) {
             TableRow r = new TableRow(getApplicationContext());
-            TextView t1 = new TextView(getApplicationContext());
-            TextView t2 = new TextView(getApplicationContext());
-            TextView t3 = new TextView(getApplicationContext());
 
-            t1.setText(Long.toString(s.getRank()));
-            t2.setText(s.getName());
-            t3.setText(Long.toString(s.getScore()));
+            TextView t = (TextView) this.inflater.inflate(R.layout.fragment_public_score_item, null);
+            t.setText(Long.toString(s.getRank()));
+            r.addView(t);
 
-            r.addView(t1);
-            r.addView(t2);
-            r.addView(t3);
+            t = (TextView) this.inflater.inflate(R.layout.fragment_public_score_item, null);
+            t.setText(s.getName());
+            r.addView(t);
+
+            t = (TextView) this.inflater.inflate(R.layout.fragment_public_score_item, null);
+            t.setText(Long.toString(s.getScore()));
+            r.addView(t);
+
             table.addView(r);
         }
     }
