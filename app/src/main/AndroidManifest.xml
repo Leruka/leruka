@@ -55,11 +55,6 @@
             android:name=".activity.TestGestureActivity"
             android:label="@string/title_activity_test_gesture"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".activity.GameMainActivity"
@@ -75,17 +70,14 @@
             android:label="@string/title_activity_rate_level"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.ChangeDisplaynameActivity"
-            android:label="@string/title_activity_change_displayname"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".activity.ChangePasswordActivity"
-            android:label="@string/title_activity_change_password"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".activity.GameOverMenuActivity"
             android:label="@string/title_activity_game_over_menu"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
