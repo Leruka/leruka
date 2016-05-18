@@ -26,6 +26,8 @@ public class Game {
     private static SurfaceHolder surfaceHolder;
     /** The SurfaceHandler, which is triggered when the activity is ready to start */
     private static SurfaceHandler surfaceHandler;
+    /** Counter for points*/
+    private static int counter;
 
     /**
      * Creates the default surface handler
@@ -95,6 +97,7 @@ public class Game {
         //TODO Kollision prüfen
         //TODO Animationen aktualisieren
         //TODO Punktestand merken
+        increaseCounter();
     }
 
 
@@ -128,6 +131,14 @@ public class Game {
         else {
             return new Stage2(player);
         }
+    }
+
+    public static String getCounter() {
+        return Integer.toString(counter / 100);
+    }
+
+    public static void increaseCounter() {
+        Game.counter++;
     }
 
     /**

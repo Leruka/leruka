@@ -1,8 +1,8 @@
 package com.leruka.leruka.game.track;
 
 import android.graphics.Canvas;
-import android.graphics.Rect;
 
+import com.leruka.leruka.game.Game;
 import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.draw.Background;
 import com.leruka.leruka.game.track.obstacle.Obstacle;
@@ -27,6 +27,7 @@ public abstract class Track {
     private Queue<QueuedObstacle> queuedObstacles;
     private int position;
     private int speed;
+    private Paint p;
 
     protected Random random;
 
@@ -44,6 +45,11 @@ public abstract class Track {
         this.background = this.createBackground();
         this.queuedObstacles.add(this.createObstacle());
         Central.setObstacleSpeed(this.getObstacleSpeed());
+
+        p = new Paint();
+        p.setColor(Color.RED);
+        p.setStyle(Paint.Style.FILL);
+        p.setTextSize(40f);
     }
 
     // Methods
@@ -52,6 +58,12 @@ public abstract class Track {
         this.background.draw(canvas);
         this.player.draw(canvas);
         this.drawObstacles(canvas);
+        this.drawCounter(canvas);
+    }
+
+    private void drawCounter(Canvas canvas) {
+        canvas.drawText(Game.getCounter(),Central.getDisplayWidth() - 200,100,p);
+
     }
 
     private void drawObstacles(Canvas canvas) {
