@@ -42,15 +42,15 @@ public class PublicHighscoreActivity extends HighscoreActivity {
         TextView text;
         // Add Heading
         text = (TextView) this.inflater.inflate(R.layout.fragment_public_score_head, null);
-        text.setText("Rank");
+        text.setText(getResources().getString(R.string.rank));
         row.addView(text);
 
         text = (TextView) this.inflater.inflate(R.layout.fragment_public_score_head, null);
-        text.setText("Name");
+        text.setText(getResources().getString(R.string.name));
         row.addView(text);
 
         text = (TextView) this.inflater.inflate(R.layout.fragment_public_score_head, null);
-        text.setText("Score");
+        text.setText(getResources().getString(R.string.score));
         row.addView(text);
 
         table.addView(row);

@@ -42,4 +42,8 @@
     <string name="cancel">Abbrechen</string>
     <string name="start_game">Spiel starten</string>
     <string name="public_highscore">Öffentlicher Higscore</string>
+    <string name="rank">Rang</string>
+    <string name="name">Name</string>
+    <string name="score">Punkte</string>
+    <string name="date">Datum</string>
 </resources>
