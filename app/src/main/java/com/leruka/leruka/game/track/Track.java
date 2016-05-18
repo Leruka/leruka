@@ -1,6 +1,9 @@
 package com.leruka.leruka.game.track;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 
 import com.leruka.leruka.game.Game;
 import com.leruka.leruka.game.Player;
