@@ -97,7 +97,7 @@ public class Game {
         //TODO Kollision prüfen
         //TODO Animationen aktualisieren
         //TODO Punktestand merken
-        increaseCounter(counter);
+        increaseCounter();
     }
 
 
@@ -133,12 +133,12 @@ public class Game {
         }
     }
 
-    public static int getCounter() {
-        return counter;
+    public static String getCounter() {
+        return Integer.toString(counter / 100);
     }
 
-    public static void increaseCounter(int counter) {
-        Game.counter = counter + 1;
+    public static void increaseCounter() {
+        Game.counter++;
     }
 
     /**
