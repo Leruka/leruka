@@ -31,6 +31,11 @@ public final class Rating {
      */
     com.google.protobuf.ByteString
         getLevelNameBytes();
+
+    /**
+     * <code>optional double rating = 3;</code>
+     */
+    double getRating();
   }
   /**
    * Protobuf type {@code leruka.RequestRateLevel}
@@ -46,6 +51,7 @@ public final class Rating {
     private RequestRateLevel() {
       sessionID_ = "";
       levelName_ = "";
+      rating_ = 0D;
     }
 
     @Override
@@ -82,6 +88,11 @@ public final class Rating {
               String s = input.readStringRequireUtf8();
 
               levelName_ = s;
+              break;
+            }
+            case 25: {
+
+              rating_ = input.readDouble();
               break;
             }
           }
@@ -176,6 +187,15 @@ public final class Rating {
       }
     }
 
+    public static final int RATING_FIELD_NUMBER = 3;
+    private double rating_;
+    /**
+     * <code>optional double rating = 3;</code>
+     */
+    public double getRating() {
+      return rating_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -194,6 +214,9 @@ public final class Rating {
       if (!getLevelNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessage.writeString(output, 2, levelName_);
       }
+      if (rating_ != 0D) {
+        output.writeDouble(3, rating_);
+      }
     }
 
     public int getSerializedSize() {
@@ -206,6 +229,10 @@ public final class Rating {
       }
       if (!getLevelNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(2, levelName_);
+      }
+      if (rating_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, rating_);
       }
       memoizedSize = size;
       return size;
@@ -322,6 +349,8 @@ public final class Rating {
 
         levelName_ = "";
 
+        rating_ = 0D;
+
         return this;
       }
 
@@ -346,6 +375,7 @@ public final class Rating {
         RequestRateLevel result = new RequestRateLevel(this);
         result.sessionID_ = sessionID_;
         result.levelName_ = levelName_;
+        result.rating_ = rating_;
         onBuilt();
         return result;
       }
@@ -368,6 +398,9 @@ public final class Rating {
         if (!other.getLevelName().isEmpty()) {
           levelName_ = other.levelName_;
           onChanged();
+        }
+        if (other.getRating() != 0D) {
+          setRating(other.getRating());
         }
         onChanged();
         return this;
@@ -532,6 +565,32 @@ public final class Rating {
         onChanged();
         return this;
       }
+
+      private double rating_ ;
+      /**
+       * <code>optional double rating = 3;</code>
+       */
+      public double getRating() {
+        return rating_;
+      }
+      /**
+       * <code>optional double rating = 3;</code>
+       */
+      public Builder setRating(double value) {
+        
+        rating_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double rating = 3;</code>
+       */
+      public Builder clearRating() {
+        
+        rating_ = 0D;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -600,6 +659,19 @@ public final class Rating {
     boolean getSuccess();
 
     /**
+     * <code>repeated double rating = 2;</code>
+     */
+    java.util.List<Double> getRatingList();
+    /**
+     * <code>repeated double rating = 2;</code>
+     */
+    int getRatingCount();
+    /**
+     * <code>repeated double rating = 2;</code>
+     */
+    double getRating(int index);
+
+    /**
      * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
      */
     java.util.List<ErrorCodes.ErrorCode> getErrorCodeList();
@@ -634,6 +706,7 @@ public final class Rating {
     }
     private ResponseRateLevel() {
       success_ = false;
+      rating_ = java.util.Collections.emptyList();
       errorCode_ = java.util.Collections.emptyList();
     }
 
@@ -666,11 +739,32 @@ public final class Rating {
               success_ = input.readBool();
               break;
             }
+            case 17: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                rating_ = new java.util.ArrayList<Double>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              rating_.add(input.readDouble());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
+                rating_ = new java.util.ArrayList<Double>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                rating_.add(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            }
             case 32: {
               int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 errorCode_ = new java.util.ArrayList<Integer>();
-                mutable_bitField0_ |= 0x00000002;
+                mutable_bitField0_ |= 0x00000004;
               }
               errorCode_.add(rawValue);
               break;
@@ -680,9 +774,9 @@ public final class Rating {
               int oldLimit = input.pushLimit(length);
               while(input.getBytesUntilLimit() > 0) {
                 int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                   errorCode_ = new java.util.ArrayList<Integer>();
-                  mutable_bitField0_ |= 0x00000002;
+                  mutable_bitField0_ |= 0x00000004;
                 }
                 errorCode_.add(rawValue);
               }
@@ -699,6 +793,9 @@ public final class Rating {
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          rating_ = java.util.Collections.unmodifiableList(rating_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           errorCode_ = java.util.Collections.unmodifiableList(errorCode_);
         }
         makeExtensionsImmutable();
@@ -725,6 +822,29 @@ public final class Rating {
     public boolean getSuccess() {
       return success_;
     }
+
+    public static final int RATING_FIELD_NUMBER = 2;
+    private java.util.List<Double> rating_;
+    /**
+     * <code>repeated double rating = 2;</code>
+     */
+    public java.util.List<Double>
+        getRatingList() {
+      return rating_;
+    }
+    /**
+     * <code>repeated double rating = 2;</code>
+     */
+    public int getRatingCount() {
+      return rating_.size();
+    }
+    /**
+     * <code>repeated double rating = 2;</code>
+     */
+    public double getRating(int index) {
+      return rating_.get(index);
+    }
+    private int ratingMemoizedSerializedSize = -1;
 
     public static final int ERRORCODE_FIELD_NUMBER = 4;
     private java.util.List<Integer> errorCode_;
@@ -787,6 +907,13 @@ public final class Rating {
       if (success_ != false) {
         output.writeBool(1, success_);
       }
+      if (getRatingList().size() > 0) {
+        output.writeRawVarint32(18);
+        output.writeRawVarint32(ratingMemoizedSerializedSize);
+      }
+      for (int i = 0; i < rating_.size(); i++) {
+        output.writeDoubleNoTag(rating_.get(i));
+      }
       if (getErrorCodeList().size() > 0) {
         output.writeRawVarint32(34);
         output.writeRawVarint32(errorCodeMemoizedSerializedSize);
@@ -804,6 +931,17 @@ public final class Rating {
       if (success_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, success_);
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getRatingList().size();
+        size += dataSize;
+        if (!getRatingList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        ratingMemoizedSerializedSize = dataSize;
       }
       {
         int dataSize = 0;
@@ -930,8 +1068,10 @@ public final class Rating {
         super.clear();
         success_ = false;
 
-        errorCode_ = java.util.Collections.emptyList();
+        rating_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
+        errorCode_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -958,8 +1098,13 @@ public final class Rating {
         int to_bitField0_ = 0;
         result.success_ = success_;
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          errorCode_ = java.util.Collections.unmodifiableList(errorCode_);
+          rating_ = java.util.Collections.unmodifiableList(rating_);
           bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.rating_ = rating_;
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          errorCode_ = java.util.Collections.unmodifiableList(errorCode_);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.errorCode_ = errorCode_;
         result.bitField0_ = to_bitField0_;
@@ -981,10 +1126,20 @@ public final class Rating {
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
+        if (!other.rating_.isEmpty()) {
+          if (rating_.isEmpty()) {
+            rating_ = other.rating_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureRatingIsMutable();
+            rating_.addAll(other.rating_);
+          }
+          onChanged();
+        }
         if (!other.errorCode_.isEmpty()) {
           if (errorCode_.isEmpty()) {
             errorCode_ = other.errorCode_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureErrorCodeIsMutable();
             errorCode_.addAll(other.errorCode_);
@@ -1044,12 +1199,78 @@ public final class Rating {
         return this;
       }
 
+      private java.util.List<Double> rating_ = java.util.Collections.emptyList();
+      private void ensureRatingIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          rating_ = new java.util.ArrayList<Double>(rating_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated double rating = 2;</code>
+       */
+      public java.util.List<Double>
+          getRatingList() {
+        return java.util.Collections.unmodifiableList(rating_);
+      }
+      /**
+       * <code>repeated double rating = 2;</code>
+       */
+      public int getRatingCount() {
+        return rating_.size();
+      }
+      /**
+       * <code>repeated double rating = 2;</code>
+       */
+      public double getRating(int index) {
+        return rating_.get(index);
+      }
+      /**
+       * <code>repeated double rating = 2;</code>
+       */
+      public Builder setRating(
+          int index, double value) {
+        ensureRatingIsMutable();
+        rating_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double rating = 2;</code>
+       */
+      public Builder addRating(double value) {
+        ensureRatingIsMutable();
+        rating_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double rating = 2;</code>
+       */
+      public Builder addAllRating(
+          Iterable<? extends Double> values) {
+        ensureRatingIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, rating_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double rating = 2;</code>
+       */
+      public Builder clearRating() {
+        rating_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+
       private java.util.List<Integer> errorCode_ =
         java.util.Collections.emptyList();
       private void ensureErrorCodeIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
           errorCode_ = new java.util.ArrayList<Integer>(errorCode_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
         }
       }
       /**
@@ -1113,7 +1334,7 @@ public final class Rating {
        */
       public Builder clearErrorCode() {
         errorCode_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1239,11 +1460,11 @@ public final class Rating {
   static {
     String[] descriptorData = {
       "\n\014rating.proto\022\006leruka\032\020errorCodes.proto" +
-      "\"8\n\020RequestRateLevel\022\021\n\tsessionID\030\001 \001(\t\022" +
-      "\021\n\tlevelName\030\002 \001(\t\"J\n\021ResponseRateLevel\022" +
-      "\017\n\007success\030\001 \001(\010\022$\n\terrorCode\030\004 \003(\0162\021.le" +
-      "ruka.ErrorCodeB\025\n\023com.leruka.protobufb\006p" +
-      "roto3"
+      "\"H\n\020RequestRateLevel\022\021\n\tsessionID\030\001 \001(\t\022" +
+      "\021\n\tlevelName\030\002 \001(\t\022\016\n\006rating\030\003 \001(\001\"Z\n\021Re" +
+      "sponseRateLevel\022\017\n\007success\030\001 \001(\010\022\016\n\006rati" +
+      "ng\030\002 \003(\001\022$\n\terrorCode\030\004 \003(\0162\021.leruka.Err" +
+      "orCodeB\025\n\023com.leruka.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1263,13 +1484,13 @@ public final class Rating {
     internal_static_leruka_RequestRateLevel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_RequestRateLevel_descriptor,
-        new String[] { "SessionID", "LevelName", });
+        new String[] { "SessionID", "LevelName", "Rating", });
     internal_static_leruka_ResponseRateLevel_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_leruka_ResponseRateLevel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_ResponseRateLevel_descriptor,
-        new String[] { "Success", "ErrorCode", });
+        new String[] { "Success", "Rating", "ErrorCode", });
     ErrorCodes.getDescriptor();
   }
 
