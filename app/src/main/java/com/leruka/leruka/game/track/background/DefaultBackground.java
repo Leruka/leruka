@@ -20,7 +20,7 @@ public abstract class DefaultBackground extends Track{
 
     @Override
     protected Background createBackground() {
-        Bitmap backgroundImage = ResourceProvider.loadImageByHeight(R.drawable.hintergrund,
+        Bitmap backgroundImage = ResourceProvider.loadImageByHeight(R.drawable.hintergrund2,
                 Central.getDisplayHeight());
         return new Background(backgroundImage);
     }

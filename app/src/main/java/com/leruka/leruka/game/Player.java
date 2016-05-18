@@ -8,6 +8,7 @@ import android.graphics.Rect;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;
+import com.leruka.leruka.game.track.obstacle.Obstacle;
 import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.res.ResourceProvider;
 import com.leruka.leruka.main.Central;
@@ -25,6 +26,7 @@ public class Player {
     private float jumpVelocity;
     private boolean isJumping;
     private boolean isDucking;
+    private boolean isColliding;
     private int duckTimer;
     private int duckTimerDefault = 100;
 
@@ -49,10 +51,11 @@ public class Player {
         this.rect.top = this.rect.bottom - this.animation.getHeight();
         this.velocityY = 0;
         this.jumpVelocity = Central.getDisplayHeight() / -30;
-        this.pixelGravity = jumpVelocity / -25;
+        this.pixelGravity = jumpVelocity / -40;
         // state
         this.isJumping = false;
         this.isDucking = false;
+        this.isColliding = false;
     }
 
     private Animation createJumpAnimation(int height) {
@@ -104,21 +107,32 @@ public class Player {
         }
     }
 
-    protected void collide() {
+    public void setCollide(boolean collide) {
         //TODO
+        this.isColliding = collide;
+    }
+
+    public Rect getHitbox() {
+        return this.rect;
     }
 
     public void draw(Canvas canvas) {
         canvas.drawBitmap(this.animation.currentFrame(), this.rect.left, this.rect.top, null);
         // draw rect
-        Paint p = new Paint();
-        p.setColor(Color.RED);
-        p.setStyle(Paint.Style.STROKE);
-        canvas.drawRect(this.rect, p);
+        if (this.isColliding) {
+            Paint p = new Paint();
+            p.setColor(Color.RED);
+            p.setStyle(Paint.Style.STROKE);
+            canvas.drawRect(this.rect, p);
+        }
     }
 
     public void update() {
+
+        // Update animation
         this.animation.update();
+
+        // Update jumping
         if (this.isJumping) {
             // test, if the new position will be on the ground
             if (this.rect.bottom + velocityY >= this.groundLevel) {
@@ -133,6 +147,8 @@ public class Player {
             }
             this.velocityY += pixelGravity;
         }
+
+        // Update ducking
         if (this.isDucking) {
             this.duckTimer--;
             if (this.duckTimer <= 0) {

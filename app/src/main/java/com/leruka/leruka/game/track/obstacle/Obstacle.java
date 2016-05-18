@@ -18,6 +18,7 @@ public abstract class Obstacle {
     // Attributes
     protected Rect rect;
     private Bitmap image;
+    private boolean isColliding;
 
 
     // Constructor
@@ -31,10 +32,12 @@ public abstract class Obstacle {
     public void draw(Canvas canvas) {
         canvas.drawBitmap(this.image, this.rect.left, this.rect.top, null);
         // draw rect
-        Paint p = new Paint();
-        p.setColor(Color.BLUE);
-        p.setStyle(Paint.Style.STROKE);
-        canvas.drawRect(this.rect, p);
+        if (this.isColliding) {
+            Paint p = new Paint();
+            p.setColor(Color.BLUE);
+            p.setStyle(Paint.Style.STROKE);
+            canvas.drawRect(this.rect, p);
+        }
     }
 
     public void update() {
@@ -46,12 +49,11 @@ public abstract class Obstacle {
         return this.rect.right < 0;
     }
 
-    public boolean isCollide(Rect player_rect) {
-        if (rect.intersect(player_rect)) {
-            return true;
-        }
-        return false;
+    public boolean intersects(Rect rect) {
+        this.isColliding = Rect.intersects(this.rect, rect);
+        return this.isColliding;
     }
+
 
 
     protected abstract Rect createRect(int availableWidth, int availableHeight);

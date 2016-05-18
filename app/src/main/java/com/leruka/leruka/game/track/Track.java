@@ -1,6 +1,7 @@
 package com.leruka.leruka.game.track;
 
 import android.graphics.Canvas;
+import android.graphics.Rect;
 
 import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.draw.Background;
@@ -64,6 +65,17 @@ public abstract class Track {
         this.player.update();
         this.updateQueuedObstacles();
         this.updateObstacles();
+
+        // Check for collision
+        boolean collide = false;
+        Rect hitbox = this.player.getHitbox();
+        for (Obstacle o : this.obstacles) {
+            if (o.intersects(hitbox)) {
+                collide = true;
+                break;
+            }
+        }
+        this.player.setCollide(collide);
     }
 
     private void updateQueuedObstacles() {
