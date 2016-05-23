@@ -2,6 +2,7 @@ package com.leruka.leruka.user;
 
 import android.app.Activity;
 
+import com.leruka.leruka.R;
 import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.activity.LoginActivity;
 import com.leruka.leruka.activity.RegisterActivity;
@@ -22,7 +23,7 @@ import java.net.URL;
 public class Login {
 
     // Attributes
-    private static final String LOGIN_URL = "http://78.46.212.166:8080/leruka/login"; //TODO get from res
+    private static final String LOGIN_URL = Central.getCurrentActivity().getResources().getString(R.string.login_url);
 
     public static LoginResult login(String userName, String userPass) {
 

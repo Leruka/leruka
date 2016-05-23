@@ -1,7 +1,9 @@
 package com.leruka.leruka.user;
 
+import com.leruka.leruka.R;
 import com.leruka.leruka.activity.ChangeSettingsActivity;
 import com.leruka.leruka.activity.RegisterActivity;
+import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpPost;
 import com.leruka.leruka.net.PostObject;
@@ -17,7 +19,7 @@ import java.net.URL;
 public class ChangeSettings {
 
     // Attributes
-    private static final String CHANGESETTINGS_URL = "http://78.46.212.166:8080/leruka/changesettings";
+    private static final String CHANGESETTINGS_URL = Central.getCurrentActivity().getResources().getString(R.string.changesetting_url);
 
     public static LoginResult name(String newName, String oldPass) {
         // Check, if its validName

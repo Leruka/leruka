@@ -1,7 +1,9 @@
 package com.leruka.leruka.user;
 
+import com.leruka.leruka.R;
 import com.leruka.leruka.activity.RateLevelActivity;
 import com.leruka.leruka.helper.Message;
+import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpPost;
 import com.leruka.leruka.net.PostObject;
