@@ -49,6 +49,7 @@
     <string name="date">Datum</string>
     <string name="changesetting_url">http://78.46.212.166:8080/leruka/changesettings</string>
     <string name="login_url">http://78.46.212.166:8080/leruka/login</string>
-    <string name="ratelevel_url">http://78.46.212.166:8080/leruka/ratelevel</string>
+    <string name="ratelevel_url">http://78.46.212.166:8080/leruka/rate</string>
+    <string name="getrating_url">http://78.46.212.166:8080/leruka/getrating</string>
     <string name="register_url">http://78.46.212.166:8080/leruka/register</string>
 </resources>
