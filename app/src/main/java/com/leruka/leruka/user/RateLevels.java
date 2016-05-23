@@ -20,8 +20,8 @@ import java.net.URL;
 public class RateLevels {
 
     // Attributes
-    private static final String RATELEVEL_URL = "http://78.46.212.166:8080/leruka/rate";
-    private static final String GET_RATING_URL = "http://78.46.212.166:8080/leruka/getrating";
+    private static final String RATELEVEL_URL = Central.getCurrentActivity().getResources().getString(R.string.ratelevel_url);
+    private static final String GET_RATING_URL = Central.getCurrentActivity().getResources().getString(R.string.getrating_url);
 
     public static LoginResult rateLevel(int rating, int levelID) {
 
