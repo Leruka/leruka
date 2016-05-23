@@ -8,6 +8,440 @@ public final class Rating {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
+  public interface LevelRatingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:leruka.LevelRating)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional uint32 levelID = 1;</code>
+     */
+    int getLevelID();
+
+    /**
+     * <code>optional uint32 rating = 2;</code>
+     */
+    int getRating();
+  }
+  /**
+   * Protobuf type {@code leruka.LevelRating}
+   */
+  public  static final class LevelRating extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:leruka.LevelRating)
+      LevelRatingOrBuilder {
+    // Use LevelRating.newBuilder() to construct.
+    private LevelRating(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private LevelRating() {
+      levelID_ = 0;
+      rating_ = 0;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private LevelRating(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              levelID_ = input.readUInt32();
+              break;
+            }
+            case 16: {
+
+              rating_ = input.readUInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Rating.internal_static_leruka_LevelRating_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Rating.internal_static_leruka_LevelRating_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              LevelRating.class, Builder.class);
+    }
+
+    public static final int LEVELID_FIELD_NUMBER = 1;
+    private int levelID_;
+    /**
+     * <code>optional uint32 levelID = 1;</code>
+     */
+    public int getLevelID() {
+      return levelID_;
+    }
+
+    public static final int RATING_FIELD_NUMBER = 2;
+    private int rating_;
+    /**
+     * <code>optional uint32 rating = 2;</code>
+     */
+    public int getRating() {
+      return rating_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (levelID_ != 0) {
+        output.writeUInt32(1, levelID_);
+      }
+      if (rating_ != 0) {
+        output.writeUInt32(2, rating_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (levelID_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, levelID_);
+      }
+      if (rating_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, rating_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static LevelRating parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static LevelRating parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static LevelRating parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static LevelRating parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static LevelRating parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static LevelRating parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static LevelRating parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static LevelRating parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static LevelRating parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static LevelRating parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(LevelRating prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code leruka.LevelRating}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:leruka.LevelRating)
+        LevelRatingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Rating.internal_static_leruka_LevelRating_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Rating.internal_static_leruka_LevelRating_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                LevelRating.class, Builder.class);
+      }
+
+      // Construct using com.leruka.protobuf.Rating.LevelRating.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        levelID_ = 0;
+
+        rating_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Rating.internal_static_leruka_LevelRating_descriptor;
+      }
+
+      public LevelRating getDefaultInstanceForType() {
+        return LevelRating.getDefaultInstance();
+      }
+
+      public LevelRating build() {
+        LevelRating result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public LevelRating buildPartial() {
+        LevelRating result = new LevelRating(this);
+        result.levelID_ = levelID_;
+        result.rating_ = rating_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof LevelRating) {
+          return mergeFrom((LevelRating)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(LevelRating other) {
+        if (other == LevelRating.getDefaultInstance()) return this;
+        if (other.getLevelID() != 0) {
+          setLevelID(other.getLevelID());
+        }
+        if (other.getRating() != 0) {
+          setRating(other.getRating());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        LevelRating parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (LevelRating) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int levelID_ ;
+      /**
+       * <code>optional uint32 levelID = 1;</code>
+       */
+      public int getLevelID() {
+        return levelID_;
+      }
+      /**
+       * <code>optional uint32 levelID = 1;</code>
+       */
+      public Builder setLevelID(int value) {
+        
+        levelID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 levelID = 1;</code>
+       */
+      public Builder clearLevelID() {
+        
+        levelID_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int rating_ ;
+      /**
+       * <code>optional uint32 rating = 2;</code>
+       */
+      public int getRating() {
+        return rating_;
+      }
+      /**
+       * <code>optional uint32 rating = 2;</code>
+       */
+      public Builder setRating(int value) {
+        
+        rating_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 rating = 2;</code>
+       */
+      public Builder clearRating() {
+        
+        rating_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:leruka.LevelRating)
+    }
+
+    // @@protoc_insertion_point(class_scope:leruka.LevelRating)
+    private static final LevelRating DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new LevelRating();
+    }
+
+    public static LevelRating getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LevelRating>
+        PARSER = new com.google.protobuf.AbstractParser<LevelRating>() {
+      public LevelRating parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new LevelRating(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<LevelRating> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<LevelRating> getParserForType() {
+      return PARSER;
+    }
+
+    public LevelRating getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface RequestRateLevelOrBuilder extends
       // @@protoc_insertion_point(interface_extends:leruka.RequestRateLevel)
       com.google.protobuf.MessageOrBuilder {
@@ -23,19 +457,17 @@ public final class Rating {
         getSessionIDBytes();
 
     /**
-     * <code>optional string levelName = 2;</code>
+     * <code>optional .leruka.LevelRating rating = 2;</code>
      */
-    String getLevelName();
+    boolean hasRating();
     /**
-     * <code>optional string levelName = 2;</code>
+     * <code>optional .leruka.LevelRating rating = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getLevelNameBytes();
-
+    LevelRating getRating();
     /**
-     * <code>optional double rating = 3;</code>
+     * <code>optional .leruka.LevelRating rating = 2;</code>
      */
-    double getRating();
+    LevelRatingOrBuilder getRatingOrBuilder();
   }
   /**
    * Protobuf type {@code leruka.RequestRateLevel}
@@ -50,8 +482,6 @@ public final class Rating {
     }
     private RequestRateLevel() {
       sessionID_ = "";
-      levelName_ = "";
-      rating_ = 0D;
     }
 
     @Override
@@ -85,14 +515,16 @@ public final class Rating {
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              LevelRating.Builder subBuilder = null;
+              if (rating_ != null) {
+                subBuilder = rating_.toBuilder();
+              }
+              rating_ = input.readMessage(LevelRating.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(rating_);
+                rating_ = subBuilder.buildPartial();
+              }
 
-              levelName_ = s;
-              break;
-            }
-            case 25: {
-
-              rating_ = input.readDouble();
               break;
             }
           }
@@ -153,47 +585,25 @@ public final class Rating {
       }
     }
 
-    public static final int LEVELNAME_FIELD_NUMBER = 2;
-    private volatile Object levelName_;
+    public static final int RATING_FIELD_NUMBER = 2;
+    private LevelRating rating_;
     /**
-     * <code>optional string levelName = 2;</code>
+     * <code>optional .leruka.LevelRating rating = 2;</code>
      */
-    public String getLevelName() {
-      Object ref = levelName_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        levelName_ = s;
-        return s;
-      }
+    public boolean hasRating() {
+      return rating_ != null;
     }
     /**
-     * <code>optional string levelName = 2;</code>
+     * <code>optional .leruka.LevelRating rating = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getLevelNameBytes() {
-      Object ref = levelName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        levelName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public LevelRating getRating() {
+      return rating_ == null ? LevelRating.getDefaultInstance() : rating_;
     }
-
-    public static final int RATING_FIELD_NUMBER = 3;
-    private double rating_;
     /**
-     * <code>optional double rating = 3;</code>
+     * <code>optional .leruka.LevelRating rating = 2;</code>
      */
-    public double getRating() {
-      return rating_;
+    public LevelRatingOrBuilder getRatingOrBuilder() {
+      return getRating();
     }
 
     private byte memoizedIsInitialized = -1;
@@ -211,11 +621,8 @@ public final class Rating {
       if (!getSessionIDBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessage.writeString(output, 1, sessionID_);
       }
-      if (!getLevelNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessage.writeString(output, 2, levelName_);
-      }
-      if (rating_ != 0D) {
-        output.writeDouble(3, rating_);
+      if (rating_ != null) {
+        output.writeMessage(2, getRating());
       }
     }
 
@@ -227,12 +634,9 @@ public final class Rating {
       if (!getSessionIDBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessage.computeStringSize(1, sessionID_);
       }
-      if (!getLevelNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessage.computeStringSize(2, levelName_);
-      }
-      if (rating_ != 0D) {
+      if (rating_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeDoubleSize(3, rating_);
+          .computeMessageSize(2, getRating());
       }
       memoizedSize = size;
       return size;
@@ -347,10 +751,12 @@ public final class Rating {
         super.clear();
         sessionID_ = "";
 
-        levelName_ = "";
-
-        rating_ = 0D;
-
+        if (ratingBuilder_ == null) {
+          rating_ = null;
+        } else {
+          rating_ = null;
+          ratingBuilder_ = null;
+        }
         return this;
       }
 
@@ -374,8 +780,11 @@ public final class Rating {
       public RequestRateLevel buildPartial() {
         RequestRateLevel result = new RequestRateLevel(this);
         result.sessionID_ = sessionID_;
-        result.levelName_ = levelName_;
-        result.rating_ = rating_;
+        if (ratingBuilder_ == null) {
+          result.rating_ = rating_;
+        } else {
+          result.rating_ = ratingBuilder_.build();
+        }
         onBuilt();
         return result;
       }
@@ -395,12 +804,8 @@ public final class Rating {
           sessionID_ = other.sessionID_;
           onChanged();
         }
-        if (!other.getLevelName().isEmpty()) {
-          levelName_ = other.levelName_;
-          onChanged();
-        }
-        if (other.getRating() != 0D) {
-          setRating(other.getRating());
+        if (other.hasRating()) {
+          mergeRating(other.getRating());
         }
         onChanged();
         return this;
@@ -497,99 +902,121 @@ public final class Rating {
         return this;
       }
 
-      private Object levelName_ = "";
+      private LevelRating rating_ = null;
+      private com.google.protobuf.SingleFieldBuilder<
+          LevelRating, LevelRating.Builder, LevelRatingOrBuilder> ratingBuilder_;
       /**
-       * <code>optional string levelName = 2;</code>
+       * <code>optional .leruka.LevelRating rating = 2;</code>
        */
-      public String getLevelName() {
-        Object ref = levelName_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          levelName_ = s;
-          return s;
+      public boolean hasRating() {
+        return ratingBuilder_ != null || rating_ != null;
+      }
+      /**
+       * <code>optional .leruka.LevelRating rating = 2;</code>
+       */
+      public LevelRating getRating() {
+        if (ratingBuilder_ == null) {
+          return rating_ == null ? LevelRating.getDefaultInstance() : rating_;
         } else {
-          return (String) ref;
+          return ratingBuilder_.getMessage();
         }
       }
       /**
-       * <code>optional string levelName = 2;</code>
+       * <code>optional .leruka.LevelRating rating = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getLevelNameBytes() {
-        Object ref = levelName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          levelName_ = b;
-          return b;
+      public Builder setRating(LevelRating value) {
+        if (ratingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          rating_ = value;
+          onChanged();
         } else {
-          return (com.google.protobuf.ByteString) ref;
+          ratingBuilder_.setMessage(value);
         }
-      }
-      /**
-       * <code>optional string levelName = 2;</code>
-       */
-      public Builder setLevelName(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        levelName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string levelName = 2;</code>
-       */
-      public Builder clearLevelName() {
-        
-        levelName_ = getDefaultInstance().getLevelName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string levelName = 2;</code>
-       */
-      public Builder setLevelNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        levelName_ = value;
-        onChanged();
-        return this;
-      }
 
-      private double rating_ ;
-      /**
-       * <code>optional double rating = 3;</code>
-       */
-      public double getRating() {
-        return rating_;
-      }
-      /**
-       * <code>optional double rating = 3;</code>
-       */
-      public Builder setRating(double value) {
-        
-        rating_ = value;
-        onChanged();
         return this;
       }
       /**
-       * <code>optional double rating = 3;</code>
+       * <code>optional .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder setRating(
+          LevelRating.Builder builderForValue) {
+        if (ratingBuilder_ == null) {
+          rating_ = builderForValue.build();
+          onChanged();
+        } else {
+          ratingBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder mergeRating(LevelRating value) {
+        if (ratingBuilder_ == null) {
+          if (rating_ != null) {
+            rating_ =
+              LevelRating.newBuilder(rating_).mergeFrom(value).buildPartial();
+          } else {
+            rating_ = value;
+          }
+          onChanged();
+        } else {
+          ratingBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .leruka.LevelRating rating = 2;</code>
        */
       public Builder clearRating() {
-        
-        rating_ = 0D;
-        onChanged();
+        if (ratingBuilder_ == null) {
+          rating_ = null;
+          onChanged();
+        } else {
+          rating_ = null;
+          ratingBuilder_ = null;
+        }
+
         return this;
+      }
+      /**
+       * <code>optional .leruka.LevelRating rating = 2;</code>
+       */
+      public LevelRating.Builder getRatingBuilder() {
+        
+        onChanged();
+        return getRatingFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .leruka.LevelRating rating = 2;</code>
+       */
+      public LevelRatingOrBuilder getRatingOrBuilder() {
+        if (ratingBuilder_ != null) {
+          return ratingBuilder_.getMessageOrBuilder();
+        } else {
+          return rating_ == null ?
+              LevelRating.getDefaultInstance() : rating_;
+        }
+      }
+      /**
+       * <code>optional .leruka.LevelRating rating = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          LevelRating, LevelRating.Builder, LevelRatingOrBuilder>
+          getRatingFieldBuilder() {
+        if (ratingBuilder_ == null) {
+          ratingBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              LevelRating, LevelRating.Builder, LevelRatingOrBuilder>(
+                  getRating(),
+                  getParentForChildren(),
+                  isClean());
+          rating_ = null;
+        }
+        return ratingBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -659,37 +1086,24 @@ public final class Rating {
     boolean getSuccess();
 
     /**
-     * <code>repeated double rating = 2;</code>
-     */
-    java.util.List<Double> getRatingList();
-    /**
-     * <code>repeated double rating = 2;</code>
-     */
-    int getRatingCount();
-    /**
-     * <code>repeated double rating = 2;</code>
-     */
-    double getRating(int index);
-
-    /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     java.util.List<ErrorCodes.ErrorCode> getErrorCodeList();
     /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     int getErrorCodeCount();
     /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     ErrorCodes.ErrorCode getErrorCode(int index);
     /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     java.util.List<Integer>
     getErrorCodeValueList();
     /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     int getErrorCodeValue(int index);
   }
@@ -706,7 +1120,6 @@ public final class Rating {
     }
     private ResponseRateLevel() {
       success_ = false;
-      rating_ = java.util.Collections.emptyList();
       errorCode_ = java.util.Collections.emptyList();
     }
 
@@ -739,44 +1152,23 @@ public final class Rating {
               success_ = input.readBool();
               break;
             }
-            case 17: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                rating_ = new java.util.ArrayList<Double>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              rating_.add(input.readDouble());
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
-                rating_ = new java.util.ArrayList<Double>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                rating_.add(input.readDouble());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 32: {
+            case 16: {
               int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                 errorCode_ = new java.util.ArrayList<Integer>();
-                mutable_bitField0_ |= 0x00000004;
+                mutable_bitField0_ |= 0x00000002;
               }
               errorCode_.add(rawValue);
               break;
             }
-            case 34: {
+            case 18: {
               int length = input.readRawVarint32();
               int oldLimit = input.pushLimit(length);
               while(input.getBytesUntilLimit() > 0) {
                 int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                   errorCode_ = new java.util.ArrayList<Integer>();
-                  mutable_bitField0_ |= 0x00000004;
+                  mutable_bitField0_ |= 0x00000002;
                 }
                 errorCode_.add(rawValue);
               }
@@ -793,9 +1185,6 @@ public final class Rating {
                 e.getMessage()).setUnfinishedMessage(this));
       } finally {
         if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          rating_ = java.util.Collections.unmodifiableList(rating_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
           errorCode_ = java.util.Collections.unmodifiableList(errorCode_);
         }
         makeExtensionsImmutable();
@@ -823,30 +1212,7 @@ public final class Rating {
       return success_;
     }
 
-    public static final int RATING_FIELD_NUMBER = 2;
-    private java.util.List<Double> rating_;
-    /**
-     * <code>repeated double rating = 2;</code>
-     */
-    public java.util.List<Double>
-        getRatingList() {
-      return rating_;
-    }
-    /**
-     * <code>repeated double rating = 2;</code>
-     */
-    public int getRatingCount() {
-      return rating_.size();
-    }
-    /**
-     * <code>repeated double rating = 2;</code>
-     */
-    public double getRating(int index) {
-      return rating_.get(index);
-    }
-    private int ratingMemoizedSerializedSize = -1;
-
-    public static final int ERRORCODE_FIELD_NUMBER = 4;
+    public static final int ERRORCODE_FIELD_NUMBER = 2;
     private java.util.List<Integer> errorCode_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         Integer, ErrorCodes.ErrorCode> errorCode_converter_ =
@@ -858,33 +1224,33 @@ public final class Rating {
               }
             };
     /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     public java.util.List<ErrorCodes.ErrorCode> getErrorCodeList() {
       return new com.google.protobuf.Internal.ListAdapter<
           Integer, ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
     }
     /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     public int getErrorCodeCount() {
       return errorCode_.size();
     }
     /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     public ErrorCodes.ErrorCode getErrorCode(int index) {
       return errorCode_converter_.convert(errorCode_.get(index));
     }
     /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     public java.util.List<Integer>
     getErrorCodeValueList() {
       return errorCode_;
     }
     /**
-     * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+     * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
      */
     public int getErrorCodeValue(int index) {
       return errorCode_.get(index);
@@ -907,15 +1273,8 @@ public final class Rating {
       if (success_ != false) {
         output.writeBool(1, success_);
       }
-      if (getRatingList().size() > 0) {
-        output.writeRawVarint32(18);
-        output.writeRawVarint32(ratingMemoizedSerializedSize);
-      }
-      for (int i = 0; i < rating_.size(); i++) {
-        output.writeDoubleNoTag(rating_.get(i));
-      }
       if (getErrorCodeList().size() > 0) {
-        output.writeRawVarint32(34);
+        output.writeRawVarint32(18);
         output.writeRawVarint32(errorCodeMemoizedSerializedSize);
       }
       for (int i = 0; i < errorCode_.size(); i++) {
@@ -931,17 +1290,6 @@ public final class Rating {
       if (success_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, success_);
-      }
-      {
-        int dataSize = 0;
-        dataSize = 8 * getRatingList().size();
-        size += dataSize;
-        if (!getRatingList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        ratingMemoizedSerializedSize = dataSize;
       }
       {
         int dataSize = 0;
@@ -1068,10 +1416,8 @@ public final class Rating {
         super.clear();
         success_ = false;
 
-        rating_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
         errorCode_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1098,13 +1444,8 @@ public final class Rating {
         int to_bitField0_ = 0;
         result.success_ = success_;
         if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          rating_ = java.util.Collections.unmodifiableList(rating_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.rating_ = rating_;
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
           errorCode_ = java.util.Collections.unmodifiableList(errorCode_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.errorCode_ = errorCode_;
         result.bitField0_ = to_bitField0_;
@@ -1126,20 +1467,10 @@ public final class Rating {
         if (other.getSuccess() != false) {
           setSuccess(other.getSuccess());
         }
-        if (!other.rating_.isEmpty()) {
-          if (rating_.isEmpty()) {
-            rating_ = other.rating_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureRatingIsMutable();
-            rating_.addAll(other.rating_);
-          }
-          onChanged();
-        }
         if (!other.errorCode_.isEmpty()) {
           if (errorCode_.isEmpty()) {
             errorCode_ = other.errorCode_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureErrorCodeIsMutable();
             errorCode_.addAll(other.errorCode_);
@@ -1199,101 +1530,35 @@ public final class Rating {
         return this;
       }
 
-      private java.util.List<Double> rating_ = java.util.Collections.emptyList();
-      private void ensureRatingIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          rating_ = new java.util.ArrayList<Double>(rating_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-      /**
-       * <code>repeated double rating = 2;</code>
-       */
-      public java.util.List<Double>
-          getRatingList() {
-        return java.util.Collections.unmodifiableList(rating_);
-      }
-      /**
-       * <code>repeated double rating = 2;</code>
-       */
-      public int getRatingCount() {
-        return rating_.size();
-      }
-      /**
-       * <code>repeated double rating = 2;</code>
-       */
-      public double getRating(int index) {
-        return rating_.get(index);
-      }
-      /**
-       * <code>repeated double rating = 2;</code>
-       */
-      public Builder setRating(
-          int index, double value) {
-        ensureRatingIsMutable();
-        rating_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated double rating = 2;</code>
-       */
-      public Builder addRating(double value) {
-        ensureRatingIsMutable();
-        rating_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated double rating = 2;</code>
-       */
-      public Builder addAllRating(
-          Iterable<? extends Double> values) {
-        ensureRatingIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, rating_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated double rating = 2;</code>
-       */
-      public Builder clearRating() {
-        rating_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-
       private java.util.List<Integer> errorCode_ =
         java.util.Collections.emptyList();
       private void ensureErrorCodeIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
           errorCode_ = new java.util.ArrayList<Integer>(errorCode_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000002;
         }
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public java.util.List<ErrorCodes.ErrorCode> getErrorCodeList() {
         return new com.google.protobuf.Internal.ListAdapter<
             Integer, ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public int getErrorCodeCount() {
         return errorCode_.size();
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public ErrorCodes.ErrorCode getErrorCode(int index) {
         return errorCode_converter_.convert(errorCode_.get(index));
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public Builder setErrorCode(
           int index, ErrorCodes.ErrorCode value) {
@@ -1306,7 +1571,7 @@ public final class Rating {
         return this;
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public Builder addErrorCode(ErrorCodes.ErrorCode value) {
         if (value == null) {
@@ -1318,7 +1583,7 @@ public final class Rating {
         return this;
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public Builder addAllErrorCode(
           Iterable<? extends ErrorCodes.ErrorCode> values) {
@@ -1330,29 +1595,29 @@ public final class Rating {
         return this;
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public Builder clearErrorCode() {
         errorCode_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public java.util.List<Integer>
       getErrorCodeValueList() {
         return java.util.Collections.unmodifiableList(errorCode_);
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public int getErrorCodeValue(int index) {
         return errorCode_.get(index);
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public Builder setErrorCodeValue(
           int index, int value) {
@@ -1362,7 +1627,7 @@ public final class Rating {
         return this;
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public Builder addErrorCodeValue(int value) {
         ensureErrorCodeIsMutable();
@@ -1371,7 +1636,7 @@ public final class Rating {
         return this;
       }
       /**
-       * <code>repeated .leruka.ErrorCode errorCode = 4;</code>
+       * <code>repeated .leruka.ErrorCode errorCode = 2;</code>
        */
       public Builder addAllErrorCodeValue(
           Iterable<Integer> values) {
@@ -1440,6 +1705,1484 @@ public final class Rating {
 
   }
 
+  public interface RequestGetRatingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:leruka.RequestGetRating)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated uint32 levelID = 1;</code>
+     */
+    java.util.List<Integer> getLevelIDList();
+    /**
+     * <code>repeated uint32 levelID = 1;</code>
+     */
+    int getLevelIDCount();
+    /**
+     * <code>repeated uint32 levelID = 1;</code>
+     */
+    int getLevelID(int index);
+  }
+  /**
+   * Protobuf type {@code leruka.RequestGetRating}
+   */
+  public  static final class RequestGetRating extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:leruka.RequestGetRating)
+      RequestGetRatingOrBuilder {
+    // Use RequestGetRating.newBuilder() to construct.
+    private RequestGetRating(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private RequestGetRating() {
+      levelID_ = java.util.Collections.emptyList();
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private RequestGetRating(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                levelID_ = new java.util.ArrayList<Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              levelID_.add(input.readUInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                levelID_ = new java.util.ArrayList<Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                levelID_.add(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          levelID_ = java.util.Collections.unmodifiableList(levelID_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Rating.internal_static_leruka_RequestGetRating_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Rating.internal_static_leruka_RequestGetRating_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              RequestGetRating.class, Builder.class);
+    }
+
+    public static final int LEVELID_FIELD_NUMBER = 1;
+    private java.util.List<Integer> levelID_;
+    /**
+     * <code>repeated uint32 levelID = 1;</code>
+     */
+    public java.util.List<Integer>
+        getLevelIDList() {
+      return levelID_;
+    }
+    /**
+     * <code>repeated uint32 levelID = 1;</code>
+     */
+    public int getLevelIDCount() {
+      return levelID_.size();
+    }
+    /**
+     * <code>repeated uint32 levelID = 1;</code>
+     */
+    public int getLevelID(int index) {
+      return levelID_.get(index);
+    }
+    private int levelIDMemoizedSerializedSize = -1;
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (getLevelIDList().size() > 0) {
+        output.writeRawVarint32(10);
+        output.writeRawVarint32(levelIDMemoizedSerializedSize);
+      }
+      for (int i = 0; i < levelID_.size(); i++) {
+        output.writeUInt32NoTag(levelID_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < levelID_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeUInt32SizeNoTag(levelID_.get(i));
+        }
+        size += dataSize;
+        if (!getLevelIDList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        levelIDMemoizedSerializedSize = dataSize;
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static RequestGetRating parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RequestGetRating parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RequestGetRating parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RequestGetRating parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RequestGetRating parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static RequestGetRating parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static RequestGetRating parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static RequestGetRating parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static RequestGetRating parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static RequestGetRating parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(RequestGetRating prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code leruka.RequestGetRating}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:leruka.RequestGetRating)
+        RequestGetRatingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Rating.internal_static_leruka_RequestGetRating_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Rating.internal_static_leruka_RequestGetRating_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                RequestGetRating.class, Builder.class);
+      }
+
+      // Construct using com.leruka.protobuf.Rating.RequestGetRating.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        levelID_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Rating.internal_static_leruka_RequestGetRating_descriptor;
+      }
+
+      public RequestGetRating getDefaultInstanceForType() {
+        return RequestGetRating.getDefaultInstance();
+      }
+
+      public RequestGetRating build() {
+        RequestGetRating result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public RequestGetRating buildPartial() {
+        RequestGetRating result = new RequestGetRating(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          levelID_ = java.util.Collections.unmodifiableList(levelID_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.levelID_ = levelID_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof RequestGetRating) {
+          return mergeFrom((RequestGetRating)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(RequestGetRating other) {
+        if (other == RequestGetRating.getDefaultInstance()) return this;
+        if (!other.levelID_.isEmpty()) {
+          if (levelID_.isEmpty()) {
+            levelID_ = other.levelID_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureLevelIDIsMutable();
+            levelID_.addAll(other.levelID_);
+          }
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        RequestGetRating parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (RequestGetRating) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<Integer> levelID_ = java.util.Collections.emptyList();
+      private void ensureLevelIDIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          levelID_ = new java.util.ArrayList<Integer>(levelID_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated uint32 levelID = 1;</code>
+       */
+      public java.util.List<Integer>
+          getLevelIDList() {
+        return java.util.Collections.unmodifiableList(levelID_);
+      }
+      /**
+       * <code>repeated uint32 levelID = 1;</code>
+       */
+      public int getLevelIDCount() {
+        return levelID_.size();
+      }
+      /**
+       * <code>repeated uint32 levelID = 1;</code>
+       */
+      public int getLevelID(int index) {
+        return levelID_.get(index);
+      }
+      /**
+       * <code>repeated uint32 levelID = 1;</code>
+       */
+      public Builder setLevelID(
+          int index, int value) {
+        ensureLevelIDIsMutable();
+        levelID_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint32 levelID = 1;</code>
+       */
+      public Builder addLevelID(int value) {
+        ensureLevelIDIsMutable();
+        levelID_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint32 levelID = 1;</code>
+       */
+      public Builder addAllLevelID(
+          Iterable<? extends Integer> values) {
+        ensureLevelIDIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, levelID_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated uint32 levelID = 1;</code>
+       */
+      public Builder clearLevelID() {
+        levelID_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:leruka.RequestGetRating)
+    }
+
+    // @@protoc_insertion_point(class_scope:leruka.RequestGetRating)
+    private static final RequestGetRating DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new RequestGetRating();
+    }
+
+    public static RequestGetRating getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RequestGetRating>
+        PARSER = new com.google.protobuf.AbstractParser<RequestGetRating>() {
+      public RequestGetRating parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new RequestGetRating(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<RequestGetRating> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<RequestGetRating> getParserForType() {
+      return PARSER;
+    }
+
+    public RequestGetRating getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ResponseGetRatingOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:leruka.ResponseGetRating)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional bool success = 1;</code>
+     */
+    boolean getSuccess();
+
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    java.util.List<LevelRating>
+        getRatingList();
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    LevelRating getRating(int index);
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    int getRatingCount();
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    java.util.List<? extends LevelRatingOrBuilder>
+        getRatingOrBuilderList();
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    LevelRatingOrBuilder getRatingOrBuilder(
+            int index);
+
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    java.util.List<ErrorCodes.ErrorCode> getErrorCodeList();
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    int getErrorCodeCount();
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    ErrorCodes.ErrorCode getErrorCode(int index);
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    java.util.List<Integer>
+    getErrorCodeValueList();
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    int getErrorCodeValue(int index);
+  }
+  /**
+   * Protobuf type {@code leruka.ResponseGetRating}
+   */
+  public  static final class ResponseGetRating extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:leruka.ResponseGetRating)
+      ResponseGetRatingOrBuilder {
+    // Use ResponseGetRating.newBuilder() to construct.
+    private ResponseGetRating(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private ResponseGetRating() {
+      success_ = false;
+      rating_ = java.util.Collections.emptyList();
+      errorCode_ = java.util.Collections.emptyList();
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private ResponseGetRating(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              success_ = input.readBool();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                rating_ = new java.util.ArrayList<LevelRating>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              rating_.add(input.readMessage(LevelRating.parser(), extensionRegistry));
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                errorCode_ = new java.util.ArrayList<Integer>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              errorCode_.add(rawValue);
+              break;
+            }
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int rawValue = input.readEnum();
+                if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                  errorCode_ = new java.util.ArrayList<Integer>();
+                  mutable_bitField0_ |= 0x00000004;
+                }
+                errorCode_.add(rawValue);
+              }
+              input.popLimit(oldLimit);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          rating_ = java.util.Collections.unmodifiableList(rating_);
+        }
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          errorCode_ = java.util.Collections.unmodifiableList(errorCode_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Rating.internal_static_leruka_ResponseGetRating_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Rating.internal_static_leruka_ResponseGetRating_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              ResponseGetRating.class, Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int SUCCESS_FIELD_NUMBER = 1;
+    private boolean success_;
+    /**
+     * <code>optional bool success = 1;</code>
+     */
+    public boolean getSuccess() {
+      return success_;
+    }
+
+    public static final int RATING_FIELD_NUMBER = 2;
+    private java.util.List<LevelRating> rating_;
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    public java.util.List<LevelRating> getRatingList() {
+      return rating_;
+    }
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    public java.util.List<? extends LevelRatingOrBuilder>
+        getRatingOrBuilderList() {
+      return rating_;
+    }
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    public int getRatingCount() {
+      return rating_.size();
+    }
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    public LevelRating getRating(int index) {
+      return rating_.get(index);
+    }
+    /**
+     * <code>repeated .leruka.LevelRating rating = 2;</code>
+     */
+    public LevelRatingOrBuilder getRatingOrBuilder(
+        int index) {
+      return rating_.get(index);
+    }
+
+    public static final int ERRORCODE_FIELD_NUMBER = 3;
+    private java.util.List<Integer> errorCode_;
+    private static final com.google.protobuf.Internal.ListAdapter.Converter<
+        Integer, ErrorCodes.ErrorCode> errorCode_converter_ =
+            new com.google.protobuf.Internal.ListAdapter.Converter<
+                Integer, ErrorCodes.ErrorCode>() {
+              public ErrorCodes.ErrorCode convert(Integer from) {
+                ErrorCodes.ErrorCode result = ErrorCodes.ErrorCode.valueOf(from);
+                return result == null ? ErrorCodes.ErrorCode.UNRECOGNIZED : result;
+              }
+            };
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    public java.util.List<ErrorCodes.ErrorCode> getErrorCodeList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          Integer, ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    public int getErrorCodeCount() {
+      return errorCode_.size();
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    public ErrorCodes.ErrorCode getErrorCode(int index) {
+      return errorCode_converter_.convert(errorCode_.get(index));
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    public java.util.List<Integer>
+    getErrorCodeValueList() {
+      return errorCode_;
+    }
+    /**
+     * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+     */
+    public int getErrorCodeValue(int index) {
+      return errorCode_.get(index);
+    }
+    private int errorCodeMemoizedSerializedSize;
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (success_ != false) {
+        output.writeBool(1, success_);
+      }
+      for (int i = 0; i < rating_.size(); i++) {
+        output.writeMessage(2, rating_.get(i));
+      }
+      if (getErrorCodeList().size() > 0) {
+        output.writeRawVarint32(26);
+        output.writeRawVarint32(errorCodeMemoizedSerializedSize);
+      }
+      for (int i = 0; i < errorCode_.size(); i++) {
+        output.writeEnumNoTag(errorCode_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (success_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, success_);
+      }
+      for (int i = 0; i < rating_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, rating_.get(i));
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < errorCode_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeEnumSizeNoTag(errorCode_.get(i));
+        }
+        size += dataSize;
+        if (!getErrorCodeList().isEmpty()) {  size += 1;
+          size += com.google.protobuf.CodedOutputStream
+            .computeRawVarint32Size(dataSize);
+        }errorCodeMemoizedSerializedSize = dataSize;
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static ResponseGetRating parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ResponseGetRating parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ResponseGetRating parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static ResponseGetRating parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static ResponseGetRating parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static ResponseGetRating parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static ResponseGetRating parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static ResponseGetRating parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static ResponseGetRating parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static ResponseGetRating parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(ResponseGetRating prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code leruka.ResponseGetRating}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:leruka.ResponseGetRating)
+        ResponseGetRatingOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Rating.internal_static_leruka_ResponseGetRating_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Rating.internal_static_leruka_ResponseGetRating_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                ResponseGetRating.class, Builder.class);
+      }
+
+      // Construct using com.leruka.protobuf.Rating.ResponseGetRating.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getRatingFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        success_ = false;
+
+        if (ratingBuilder_ == null) {
+          rating_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          ratingBuilder_.clear();
+        }
+        errorCode_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Rating.internal_static_leruka_ResponseGetRating_descriptor;
+      }
+
+      public ResponseGetRating getDefaultInstanceForType() {
+        return ResponseGetRating.getDefaultInstance();
+      }
+
+      public ResponseGetRating build() {
+        ResponseGetRating result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public ResponseGetRating buildPartial() {
+        ResponseGetRating result = new ResponseGetRating(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.success_ = success_;
+        if (ratingBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            rating_ = java.util.Collections.unmodifiableList(rating_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.rating_ = rating_;
+        } else {
+          result.rating_ = ratingBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          errorCode_ = java.util.Collections.unmodifiableList(errorCode_);
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.errorCode_ = errorCode_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof ResponseGetRating) {
+          return mergeFrom((ResponseGetRating)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(ResponseGetRating other) {
+        if (other == ResponseGetRating.getDefaultInstance()) return this;
+        if (other.getSuccess() != false) {
+          setSuccess(other.getSuccess());
+        }
+        if (ratingBuilder_ == null) {
+          if (!other.rating_.isEmpty()) {
+            if (rating_.isEmpty()) {
+              rating_ = other.rating_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureRatingIsMutable();
+              rating_.addAll(other.rating_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rating_.isEmpty()) {
+            if (ratingBuilder_.isEmpty()) {
+              ratingBuilder_.dispose();
+              ratingBuilder_ = null;
+              rating_ = other.rating_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              ratingBuilder_ = 
+                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                   getRatingFieldBuilder() : null;
+            } else {
+              ratingBuilder_.addAllMessages(other.rating_);
+            }
+          }
+        }
+        if (!other.errorCode_.isEmpty()) {
+          if (errorCode_.isEmpty()) {
+            errorCode_ = other.errorCode_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureErrorCodeIsMutable();
+            errorCode_.addAll(other.errorCode_);
+          }
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        ResponseGetRating parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (ResponseGetRating) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private boolean success_ ;
+      /**
+       * <code>optional bool success = 1;</code>
+       */
+      public boolean getSuccess() {
+        return success_;
+      }
+      /**
+       * <code>optional bool success = 1;</code>
+       */
+      public Builder setSuccess(boolean value) {
+        
+        success_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool success = 1;</code>
+       */
+      public Builder clearSuccess() {
+        
+        success_ = false;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<LevelRating> rating_ =
+        java.util.Collections.emptyList();
+      private void ensureRatingIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          rating_ = new java.util.ArrayList<LevelRating>(rating_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilder<
+          LevelRating, LevelRating.Builder, LevelRatingOrBuilder> ratingBuilder_;
+
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public java.util.List<LevelRating> getRatingList() {
+        if (ratingBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rating_);
+        } else {
+          return ratingBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public int getRatingCount() {
+        if (ratingBuilder_ == null) {
+          return rating_.size();
+        } else {
+          return ratingBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public LevelRating getRating(int index) {
+        if (ratingBuilder_ == null) {
+          return rating_.get(index);
+        } else {
+          return ratingBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder setRating(
+          int index, LevelRating value) {
+        if (ratingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRatingIsMutable();
+          rating_.set(index, value);
+          onChanged();
+        } else {
+          ratingBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder setRating(
+          int index, LevelRating.Builder builderForValue) {
+        if (ratingBuilder_ == null) {
+          ensureRatingIsMutable();
+          rating_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          ratingBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder addRating(LevelRating value) {
+        if (ratingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRatingIsMutable();
+          rating_.add(value);
+          onChanged();
+        } else {
+          ratingBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder addRating(
+          int index, LevelRating value) {
+        if (ratingBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRatingIsMutable();
+          rating_.add(index, value);
+          onChanged();
+        } else {
+          ratingBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder addRating(
+          LevelRating.Builder builderForValue) {
+        if (ratingBuilder_ == null) {
+          ensureRatingIsMutable();
+          rating_.add(builderForValue.build());
+          onChanged();
+        } else {
+          ratingBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder addRating(
+          int index, LevelRating.Builder builderForValue) {
+        if (ratingBuilder_ == null) {
+          ensureRatingIsMutable();
+          rating_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          ratingBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder addAllRating(
+          Iterable<? extends LevelRating> values) {
+        if (ratingBuilder_ == null) {
+          ensureRatingIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, rating_);
+          onChanged();
+        } else {
+          ratingBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder clearRating() {
+        if (ratingBuilder_ == null) {
+          rating_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          ratingBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public Builder removeRating(int index) {
+        if (ratingBuilder_ == null) {
+          ensureRatingIsMutable();
+          rating_.remove(index);
+          onChanged();
+        } else {
+          ratingBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public LevelRating.Builder getRatingBuilder(
+          int index) {
+        return getRatingFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public LevelRatingOrBuilder getRatingOrBuilder(
+          int index) {
+        if (ratingBuilder_ == null) {
+          return rating_.get(index);  } else {
+          return ratingBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public java.util.List<? extends LevelRatingOrBuilder>
+           getRatingOrBuilderList() {
+        if (ratingBuilder_ != null) {
+          return ratingBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rating_);
+        }
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public LevelRating.Builder addRatingBuilder() {
+        return getRatingFieldBuilder().addBuilder(
+            LevelRating.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public LevelRating.Builder addRatingBuilder(
+          int index) {
+        return getRatingFieldBuilder().addBuilder(
+            index, LevelRating.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .leruka.LevelRating rating = 2;</code>
+       */
+      public java.util.List<LevelRating.Builder>
+           getRatingBuilderList() {
+        return getRatingFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilder<
+          LevelRating, LevelRating.Builder, LevelRatingOrBuilder>
+          getRatingFieldBuilder() {
+        if (ratingBuilder_ == null) {
+          ratingBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              LevelRating, LevelRating.Builder, LevelRatingOrBuilder>(
+                  rating_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          rating_ = null;
+        }
+        return ratingBuilder_;
+      }
+
+      private java.util.List<Integer> errorCode_ =
+        java.util.Collections.emptyList();
+      private void ensureErrorCodeIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          errorCode_ = new java.util.ArrayList<Integer>(errorCode_);
+          bitField0_ |= 0x00000004;
+        }
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public java.util.List<ErrorCodes.ErrorCode> getErrorCodeList() {
+        return new com.google.protobuf.Internal.ListAdapter<
+            Integer, ErrorCodes.ErrorCode>(errorCode_, errorCode_converter_);
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public int getErrorCodeCount() {
+        return errorCode_.size();
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public ErrorCodes.ErrorCode getErrorCode(int index) {
+        return errorCode_converter_.convert(errorCode_.get(index));
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder setErrorCode(
+          int index, ErrorCodes.ErrorCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorCodeIsMutable();
+        errorCode_.set(index, value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder addErrorCode(ErrorCodes.ErrorCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorCodeIsMutable();
+        errorCode_.add(value.getNumber());
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder addAllErrorCode(
+          Iterable<? extends ErrorCodes.ErrorCode> values) {
+        ensureErrorCodeIsMutable();
+        for (ErrorCodes.ErrorCode value : values) {
+          errorCode_.add(value.getNumber());
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder clearErrorCode() {
+        errorCode_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public java.util.List<Integer>
+      getErrorCodeValueList() {
+        return java.util.Collections.unmodifiableList(errorCode_);
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public int getErrorCodeValue(int index) {
+        return errorCode_.get(index);
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder setErrorCodeValue(
+          int index, int value) {
+        ensureErrorCodeIsMutable();
+        errorCode_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder addErrorCodeValue(int value) {
+        ensureErrorCodeIsMutable();
+        errorCode_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated .leruka.ErrorCode errorCode = 3;</code>
+       */
+      public Builder addAllErrorCodeValue(
+          Iterable<Integer> values) {
+        ensureErrorCodeIsMutable();
+        for (int value : values) {
+          errorCode_.add(value);
+        }
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:leruka.ResponseGetRating)
+    }
+
+    // @@protoc_insertion_point(class_scope:leruka.ResponseGetRating)
+    private static final ResponseGetRating DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new ResponseGetRating();
+    }
+
+    public static ResponseGetRating getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ResponseGetRating>
+        PARSER = new com.google.protobuf.AbstractParser<ResponseGetRating>() {
+      public ResponseGetRating parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new ResponseGetRating(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<ResponseGetRating> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<ResponseGetRating> getParserForType() {
+      return PARSER;
+    }
+
+    public ResponseGetRating getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_leruka_LevelRating_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_leruka_LevelRating_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
     internal_static_leruka_RequestRateLevel_descriptor;
   private static
@@ -1450,6 +3193,16 @@ public final class Rating {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_leruka_ResponseRateLevel_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_leruka_RequestGetRating_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_leruka_RequestGetRating_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_leruka_ResponseGetRating_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_leruka_ResponseGetRating_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -1460,11 +3213,16 @@ public final class Rating {
   static {
     String[] descriptorData = {
       "\n\014rating.proto\022\006leruka\032\020errorCodes.proto" +
-      "\"H\n\020RequestRateLevel\022\021\n\tsessionID\030\001 \001(\t\022" +
-      "\021\n\tlevelName\030\002 \001(\t\022\016\n\006rating\030\003 \001(\001\"Z\n\021Re" +
-      "sponseRateLevel\022\017\n\007success\030\001 \001(\010\022\016\n\006rati" +
-      "ng\030\002 \003(\001\022$\n\terrorCode\030\004 \003(\0162\021.leruka.Err" +
-      "orCodeB\025\n\023com.leruka.protobufb\006proto3"
+      "\".\n\013LevelRating\022\017\n\007levelID\030\001 \001(\r\022\016\n\006rati" +
+      "ng\030\002 \001(\r\"J\n\020RequestRateLevel\022\021\n\tsessionI" +
+      "D\030\001 \001(\t\022#\n\006rating\030\002 \001(\0132\023.leruka.LevelRa" +
+      "ting\"J\n\021ResponseRateLevel\022\017\n\007success\030\001 \001" +
+      "(\010\022$\n\terrorCode\030\002 \003(\0162\021.leruka.ErrorCode" +
+      "\"#\n\020RequestGetRating\022\017\n\007levelID\030\001 \003(\r\"o\n" +
+      "\021ResponseGetRating\022\017\n\007success\030\001 \001(\010\022#\n\006r" +
+      "ating\030\002 \003(\0132\023.leruka.LevelRating\022$\n\terro" +
+      "rCode\030\003 \003(\0162\021.leruka.ErrorCodeB\025\n\023com.le",
+      "ruka.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1479,17 +3237,35 @@ public final class Rating {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           ErrorCodes.getDescriptor(),
         }, assigner);
-    internal_static_leruka_RequestRateLevel_descriptor =
+    internal_static_leruka_LevelRating_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_leruka_LevelRating_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_leruka_LevelRating_descriptor,
+        new String[] { "LevelID", "Rating", });
+    internal_static_leruka_RequestRateLevel_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_leruka_RequestRateLevel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_RequestRateLevel_descriptor,
-        new String[] { "SessionID", "LevelName", "Rating", });
+        new String[] { "SessionID", "Rating", });
     internal_static_leruka_ResponseRateLevel_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_leruka_ResponseRateLevel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_ResponseRateLevel_descriptor,
+        new String[] { "Success", "ErrorCode", });
+    internal_static_leruka_RequestGetRating_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_leruka_RequestGetRating_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_leruka_RequestGetRating_descriptor,
+        new String[] { "LevelID", });
+    internal_static_leruka_ResponseGetRating_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_leruka_ResponseGetRating_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_leruka_ResponseGetRating_descriptor,
         new String[] { "Success", "Rating", "ErrorCode", });
     ErrorCodes.getDescriptor();
   }

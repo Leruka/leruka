@@ -8,10 +8,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.RatingBar;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
+import com.leruka.leruka.user.LoginResult;
 import com.leruka.leruka.user.RateLevels;
 import com.leruka.protobuf.ErrorCodes;
 import com.leruka.protobuf.Rating;
@@ -19,7 +21,7 @@ import com.leruka.protobuf.User;
 
 public class RateLevelActivity extends LerukaActivity {
 
-    ProgressDialog progressDialog;
+    RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,37 +30,40 @@ public class RateLevelActivity extends LerukaActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        this.ratingBar = (RatingBar) findViewById(R.id.ratingBar);
+
         //setTitle("Bewerten Sie das Level.");
 
+    }
+
+    public void onRate(View view) {
+        int rating = (int) (2 * this.ratingBar.getRating());
+        LoginResult result = RateLevels.rateLevel(rating, 1);
+        if (!result.isSuccess()) {
+            Message.showErrorMessage(result.getMessage());
+        }
+    }
+
+    public void onFetch(View view) {
+        RateLevels.getRating(1);
     }
 
     public static void processResponse(Rating.ResponseRateLevel rateLevel) {
         // Check for success
         if (rateLevel != null && rateLevel.getSuccess()) {
-            RateLevelActivity.receiveSuccessRateLevel(rateLevel);
+            RateLevelActivity.receiveSuccessRateLevel();
         }
         else {
             RateLevelActivity.receiveFailedRateLevel(rateLevel);
         }
     }
 
-    private static void receiveSuccessRateLevel(Rating.ResponseRateLevel rateLevel) {
+    private static void receiveSuccessRateLevel() {
         // Show a success message
         Message.showMessage("Du hast das Level erfolgreich bewertet!");
-
-        // If still in this activity, change it
-        Activity currentActivity = Central.getCurrentActivity();
-        if (currentActivity.getClass().equals(RateLevelActivity.class)) {
-            RateLevelActivity activity = ((RateLevelActivity) currentActivity);
-        }
     }
 
     private static void receiveFailedRateLevel(Rating.ResponseRateLevel rateLevel) {
-        // If still in this activity, hide the spinner
-        Activity currentActivity = Central.getCurrentActivity();
-        if (currentActivity.getClass().equals(RateLevelActivity.class)) {
-            ((RateLevelActivity) currentActivity).hideProgressDialog();
-        }
 
         // Check for null
         if (rateLevel == null) {
@@ -76,10 +81,6 @@ public class RateLevelActivity extends LerukaActivity {
         for (ErrorCodes.ErrorCode code : rateLevel.getErrorCodeList()) {
             Message.showErrorMessage(com.leruka.leruka.net.ErrorCodes.getReadableError(code));
         }
-    }
-
-    public void hideProgressDialog() {
-        this.progressDialog.dismiss();
     }
 
 }

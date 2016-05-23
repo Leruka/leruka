@@ -23,9 +23,20 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Speichern"
+        android:text="Bewerten"
         android:id="@+id/btnSave"
         android:layout_below="@+id/ratingBar"
         android:layout_alignRight="@+id/ratingBar"
-        android:layout_alignEnd="@+id/ratingBar" />
+        android:layout_alignEnd="@+id/ratingBar"
+        android:onClick="onRate"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bewertung abrufen"
+        android:id="@+id/btnGetRating"
+        android:layout_below="@+id/btnSave"
+        android:layout_alignRight="@+id/ratingBar"
+        android:layout_alignEnd="@+id/ratingBar"
+        android:onClick="onFetch"/>
 </RelativeLayout>
