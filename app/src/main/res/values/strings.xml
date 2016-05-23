@@ -47,4 +47,8 @@
     <string name="name">Name</string>
     <string name="score">Punkte</string>
     <string name="date">Datum</string>
+    <string name="changesetting_url">http://78.46.212.166:8080/leruka/changesettings</string>
+    <string name="login_url">http://78.46.212.166:8080/leruka/login</string>
+    <string name="ratelevel_url">http://78.46.212.166:8080/leruka/ratelevel</string>
+    <string name="register_url">http://78.46.212.166:8080/leruka/register</string>
 </resources>

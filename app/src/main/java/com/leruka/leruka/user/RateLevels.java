@@ -1,6 +1,8 @@
 package com.leruka.leruka.user;
 
+import com.leruka.leruka.R;
 import com.leruka.leruka.activity.RateLevelActivity;
+import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpPost;
 import com.leruka.leruka.net.PostObject;
@@ -16,7 +18,7 @@ import java.net.URL;
 public class RateLevels {
 
     // Attributes
-    private static final String RATELEVEL_URL = "http://78.46.212.166:8080/leruka/ratelevel";
+    private static final String RATELEVEL_URL = Central.getCurrentActivity().getResources().getString(R.string.ratelevel_url);
     private static double rate;
     private static String levelName;
 

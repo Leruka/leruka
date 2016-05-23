@@ -1,5 +1,6 @@
 package com.leruka.leruka.user;
 
+import com.leruka.leruka.R;
 import com.leruka.leruka.activity.RegisterActivity;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
@@ -19,7 +20,7 @@ import java.net.URL;
 public class Register {
 
     // Attributes
-    private static final String REGISTER_URL = "http://78.46.212.166:8080/leruka/register"; //TODO get from res
+    private static final String REGISTER_URL = Central.getCurrentActivity().getResources().getString(R.string.register_url); //TODO get from res
 
     // Methods
     public static LoginResult register(String name, String pass1, String pass2) {
