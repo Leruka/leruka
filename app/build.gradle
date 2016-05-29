@@ -1,8 +1,20 @@
 apply plugin: 'com.android.application'
+apply plugin: 'jacoco-android'
+
+jacoco {
+    toolVersion = "0.7.5.201505241946"
+}
+
+jacocoAndroidUnitTestReport {
+    csv.enabled false
+    html.enabled true
+    xml.enabled true
+}
 
 sonarqube {
     properties {
         property "sonar.projectName", "Leruka"
+        property "sonar.projectVersion", "1.0"
         property "sonar.version", "2.0"
 
         property "sonar.sources", "./src/main/java/com/leruka/leruka"
@@ -10,6 +22,7 @@ sonarqube {
 
         property "sonar.java.binaries", "./build/intermediates/classes/debug"
         property "sonar.junit.reportsPath", "./build/test-results/debug"
+        property "sonar.jacoco.reportPath", "./build/jacoco/testDebugUnitTest.exec"
 
         property "sonar.java.libraries", "./libs"
 
@@ -31,7 +44,11 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
         release {
+            testCoverageEnabled false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
