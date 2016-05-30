@@ -1,21 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--
-
-    Defines the sizes of images and their hitboxes in the game
-
-    <integer-array name="...">
-        <item>image height % scaled to display height</item>
-        <item>image ratio (height * ratio / 100 = width)</item>
-        <item>hitbox height % scaled to display height</item>
-        <item>hitbox ratio</item>
-        <item>image delta x % scaled to image size</item>
-        <item>image delta y % scaled to image size</item>
-    </integer-array>
-
-    all sizes a in percentage to the scree
-    -->
-
     <!-- Hitbox player run -->
     <integer name="box_player_run_height">36</integer>
     <integer name="box_player_run_ratio">50</integer>
