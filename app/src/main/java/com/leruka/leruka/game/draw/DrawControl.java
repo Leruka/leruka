@@ -9,7 +9,7 @@ import android.widget.ImageView;
 public class DrawControl {
 
     public static void initDrawConnection(SurfaceView surfaceView) {
-
+        //TODO
     }
 
 }

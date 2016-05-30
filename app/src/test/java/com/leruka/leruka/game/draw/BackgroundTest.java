@@ -32,6 +32,6 @@ public class BackgroundTest {
 
     @Test
     public void testDraw() throws Exception {
-
+        //TODO
     }
 }

@@ -14,6 +14,7 @@ public class LoginTest {
 
     @Before
     public void setUp() throws Exception {
+        //Empty setup because there is no need for a set up
     }
 
     @Test

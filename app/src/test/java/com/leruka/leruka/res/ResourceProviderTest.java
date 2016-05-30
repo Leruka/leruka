@@ -25,11 +25,11 @@ public class ResourceProviderTest {
 
     @Test
     public void testLoadImageByWidth() throws Exception {
-
+        //TODO
     }
 
     @Test
     public void testLoadAnimation() throws Exception {
-
+        //TODO
     }
 }

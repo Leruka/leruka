@@ -48,7 +48,7 @@ public class TestGestureActivity extends LerukaActivity implements GestureDetect
 
     @Override
     public void onShowPress(MotionEvent e) {
-
+        //inherited by Gesture Detector no need for it
     }
 
     @Override

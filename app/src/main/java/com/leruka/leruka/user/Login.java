@@ -71,7 +71,7 @@ public class Login {
     private static class LoginPost extends HttpPost<User.ResponseLogin> {
 
         @Override
-        protected User.ResponseLogin CreateResponseObject(InputStream in) {
+        protected User.ResponseLogin createResponseObject(InputStream in) {
             try {
                 return User.ResponseLogin.parseFrom(in);
             } catch (IOException e) {

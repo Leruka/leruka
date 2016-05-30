@@ -77,7 +77,7 @@ public class Register {
     private static class RegisterPost extends HttpPost<User.ResponseRegister> {
 
         @Override
-        protected User.ResponseRegister CreateResponseObject(InputStream in) {
+        protected User.ResponseRegister createResponseObject(InputStream in) {
             try {
                 return User.ResponseRegister.parseFrom(in);
             } catch (IOException e) {

@@ -30,14 +30,14 @@ public class ChangeSettings {
 
         // Check old Pass
         if (oldPass == null ||  oldPass.isEmpty()) {
-            return new LoginResult(false, "Bitte gib dein aktuelles Passwort an");
+            return new LoginResult(false, Central.getCurrentActivity().getResources().getString(R.string.PasswortEingabeAufforderung));
         }
 
         try {
             sendChangeSettings(new LUser(newName, null), LUser.sha256(oldPass));
         } catch (IOException e) {
-            return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
-                    "werden. Bite überprüfe deine Internetverbindung.");
+            return new LoginResult(false, Central.getCurrentActivity().getResources().getString(R.string.VerbindungsfehlerServer
+            ));
         }
 
         // When the request has been send, return success
@@ -55,15 +55,14 @@ public class ChangeSettings {
 
         // Check old Pass
         if (oldPass == null ||  oldPass.isEmpty()) {
-            return new LoginResult(false, "Bitte gib dein aktuelles Passwort an");
+            return new LoginResult(false, Central.getCurrentActivity().getResources().getString(R.string.PasswortEingabeAufforderung));
         }
 
         // Send the request
         try {
             sendChangeSettings(new LUser(null, LUser.sha256(pw1)), LUser.sha256(oldPass));
         } catch (IOException e) {
-            return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
-                    "werden. Bite überprüfe deine Internetverbindung.");
+            return new LoginResult(false, Central.getCurrentActivity().getResources().getString(R.string.VerbindungsfehlerServer));
         }
 
         // When the request has been send, return success
@@ -86,15 +85,14 @@ public class ChangeSettings {
 
         // Check old Pass
         if (oldPass == null ||  oldPass.isEmpty()) {
-            return new LoginResult(false, "Bitte gib dein aktuelles Passwort an");
+            return new LoginResult(false, Central.getCurrentActivity().getResources().getString(R.string.PasswortEingabeAufforderung));
         }
 
         // Send the request
         try {
             sendChangeSettings(new LUser(newName, LUser.sha256(newPass1)), LUser.sha256(oldPass));
         } catch (IOException e) {
-            return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
-                    "werden. Bite überprüfe deine Internetverbindung.");
+            return new LoginResult(false, Central.getCurrentActivity().getResources().getString(R.string.VerbindungsfehlerServer));
         }
 
         // When the request has been send, return success
@@ -122,7 +120,7 @@ public class ChangeSettings {
     private static class ChangeSettingsPost extends HttpPost<User.ResponseChangeSettings> {
 
         @Override
-        protected User.ResponseChangeSettings CreateResponseObject(InputStream in){
+        protected User.ResponseChangeSettings createResponseObject(InputStream in){
             try {
                 return User.ResponseChangeSettings.parseFrom(in);
             } catch (IOException e) {

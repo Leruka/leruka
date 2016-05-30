@@ -3,8 +3,6 @@ package com.leruka.leruka.main;
 import android.app.Activity;
 import android.content.res.Resources;
 
-import com.leruka.leruka.activity.GameInstructionActivity;
-import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.helper.Measure;
 
 import org.junit.Before;

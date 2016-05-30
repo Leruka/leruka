@@ -20,6 +20,11 @@ public class LUser {
     private static final int USERNAME_MAX_LENGTH = 16;
     private static final int PASS_LENGHTH = 64;
 
+    // Instance
+    // Attributes
+    private String userName;
+    private String passwordHash;
+
     // Methods
     public static LUser getCurrentUser() {
         return currentUser;
@@ -69,10 +74,6 @@ public class LUser {
         return isValid(currentUser);
     }
 
-    // Instance
-    // Attributes
-    private String userName;
-    private String passwordHash;
 
     public LUser(String userName, String passwordHash) {
         this.userName = (userName == null) ? "" : userName;

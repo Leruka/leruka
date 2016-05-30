@@ -2,21 +2,10 @@ package com.leruka.leruka.net;
 
 import android.os.AsyncTask;
 
-import com.leruka.leruka.helper.Message;
-import com.leruka.leruka.user.Register;
-import com.leruka.protobuf.User;
-
-import java.io.BufferedReader;
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import de.leifb.objectJson.Json;
 
 /**
  * Created by leif on 11.11.15.
@@ -66,12 +55,12 @@ public abstract class HttpPost<T> extends AsyncTask<PostObject, Integer, T> {
                 in = conn.getInputStream();
             }
 
-            return this.CreateResponseObject(in);
+            return this.createResponseObject(in);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    abstract protected T CreateResponseObject(InputStream in);
+    abstract protected T createResponseObject(InputStream in);
 }

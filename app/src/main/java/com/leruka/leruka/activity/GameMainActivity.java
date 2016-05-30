@@ -1,12 +1,10 @@
 package com.leruka.leruka.activity;
 
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
@@ -102,10 +100,6 @@ public class GameMainActivity extends LerukaActivity {
             return false;
         }
 
-        @Override
-        public void onShowPress(MotionEvent e) {
-
-        }
 
         @Override
         public boolean onSingleTapUp(MotionEvent e) {
@@ -118,8 +112,15 @@ public class GameMainActivity extends LerukaActivity {
         }
 
         @Override
-        public void onLongPress(MotionEvent e) {
+        public void onShowPress(MotionEvent e) {
+            //This method is empty because it needs to be inherited by GestureHandler but there is
+            // no need for her
+        }
 
+        @Override
+        public void onLongPress(MotionEvent e) {
+            //This method is empty because it needs to be inherited by GestureHandler but there is
+            // no need for her
         }
     }
 

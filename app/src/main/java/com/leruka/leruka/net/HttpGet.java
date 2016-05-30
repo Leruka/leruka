@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
 
 /**
  * Created by leif on 13.04.16.
@@ -42,13 +41,13 @@ public abstract class HttpGet<T> extends AsyncTask<String, Integer, T> {
                 return null;
             }
 
-            return this.CreateResponseObject(conn.getInputStream());
+            return this.createResponseObject(conn.getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    abstract protected T CreateResponseObject(InputStream in);
+    abstract protected T createResponseObject(InputStream in);
 
 }

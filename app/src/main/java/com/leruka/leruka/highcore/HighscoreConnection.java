@@ -70,7 +70,7 @@ public class HighscoreConnection {
         }
 
         @Override
-        protected Highscore.ResponseScores CreateResponseObject(InputStream in) {
+        protected Highscore.ResponseScores createResponseObject(InputStream in) {
             try {
                 return Highscore.ResponseScores.parseFrom(in);
             } catch (IOException e) {
@@ -104,7 +104,7 @@ public class HighscoreConnection {
         }
 
         @Override
-        protected Highscore.ResponseScores CreateResponseObject(InputStream in) {
+        protected Highscore.ResponseScores createResponseObject(InputStream in) {
             try {
                 return Highscore.ResponseScores.parseFrom(in);
             } catch (IOException e) {

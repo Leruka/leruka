@@ -20,6 +20,8 @@ public class Hitbox {
     private int height;
     private int width;
 
+    public static Hitbox EMPTY = new Hitbox(0, 0, 0, 0);
+
     public Hitbox(Rect... rects) {
         if (rects.length < 1) {
             throw new InvalidParameterException("i need a rect");
@@ -108,6 +110,6 @@ public class Hitbox {
         this.width = min < max ? max - min : 0;
     }
 
-    public static Hitbox EMPTY = new Hitbox(0, 0, 0, 0);
+
 
 }

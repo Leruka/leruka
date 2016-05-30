@@ -100,7 +100,7 @@ public class RateLevels {
 
     private static class RateLevelPost extends HttpPost<Rating.ResponseRateLevel> {
         @Override
-        protected Rating.ResponseRateLevel CreateResponseObject(InputStream in){
+        protected Rating.ResponseRateLevel createResponseObject(InputStream in){
             try {
                 return Rating.ResponseRateLevel.parseFrom(in);
             } catch (IOException e) {
@@ -117,7 +117,7 @@ public class RateLevels {
 
     private static class GetRatingPost extends HttpPost<Rating.ResponseGetRating> {
         @Override
-        protected Rating.ResponseGetRating CreateResponseObject(InputStream in){
+        protected Rating.ResponseGetRating createResponseObject(InputStream in){
             try {
                 return Rating.ResponseGetRating.parseFrom(in);
             } catch (IOException e) {

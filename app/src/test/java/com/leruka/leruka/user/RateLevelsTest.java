@@ -12,7 +12,7 @@ public class RateLevelsTest {
 
     @Test
     public void testRateLevel() throws Exception {
-
+        //TODO
     }
 
     @Test
