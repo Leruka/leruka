@@ -9,6 +9,9 @@ jacocoAndroidUnitTestReport {
     csv.enabled false
     html.enabled true
     xml.enabled true
+    excludes += ['**/game/track/obstacle/*.*',
+                 '**/*JavascriptBridge.class',
+    ]
 }
 
 sonarqube {
@@ -28,7 +31,21 @@ sonarqube {
 
         property "sonar.verbose", "false"
 
-        property "sonar.exclusions", "./src/main/java/com/leruka/protobuf/User.java"
+        property "sonar.coverage.exclusions",
+                "src/main/java/com/leruka/leruka/game/track/obstacle/*.java," +
+                "src/main/java/com/leruka/leruka/activity/*.java," +
+                "src/main/java/com/leruka/leruka/user/ChangeSettings.java," +
+                "src/main/java/com/leruka/leruka/user/Login.java," +
+                "src/main/java/com/leruka/leruka/user/RateLevels.java," +
+                "src/main/java/com/leruka/leruka/user/Register.java," +
+                "src/main/java/com/leruka/leruka/highcore/HighscoreConnection.java," +
+                "src/main/java/com/leruka/leruka/res/*.java," +
+                "src/main/java/com/leruka/leruka/game/Game.java," +
+                "src/main/java/com/leruka/leruka/game/Player.java," +
+                "src/main/java/com/leruka/leruka/game/Hitbox.java," +
+                "src/main/java/com/leruka/leruka/game/track/Track.java," +
+                "src/main/java/com/leruka/leruka/game/MorphingHitbox.java"
+        property "sonar.exclusions", "./src/main/java/com/leruka/protobuf/*.java"
     }
 }
 

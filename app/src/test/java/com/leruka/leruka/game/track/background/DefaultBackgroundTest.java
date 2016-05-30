@@ -17,7 +17,7 @@ public class DefaultBackgroundTest {
 
     @Before
     public void setUp() throws Exception {
-        Player player = new Player(2);
+        Player player = new Player();
     }
 
     @Test
