@@ -1,6 +1,7 @@
 package com.leruka.leruka.activity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.GestureDetector;
@@ -14,6 +15,7 @@ import com.leruka.leruka.R;
 import com.leruka.leruka.game.Game;
 import com.leruka.leruka.input.Gesture;
 import com.leruka.leruka.main.Central;
+import com.leruka.leruka.sound.Music;
 
 public class GameMainActivity extends LerukaActivity {
 
@@ -36,6 +38,9 @@ public class GameMainActivity extends LerukaActivity {
 
         // Add the gesture detector
         this.gestureDetector = new GestureDetector(this, new GestureHandler());
+
+        //Add background music
+        Music.init(this, R.raw.music, true);
     }
 
     @Override
@@ -50,6 +55,7 @@ public class GameMainActivity extends LerukaActivity {
     public void onBackPressed() {
         //TODO show quit question
         Game.stop();
+        Music.pause();
         // Go to main menu
         //TODO make gotToMain for logged / not logged in
         Intent intent = new Intent(this, GuestMainActivity.class);
