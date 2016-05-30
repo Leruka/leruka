@@ -26,8 +26,9 @@ public class Hitbox {
         }
         this.rects = rects;
         this.paint = new Paint();
-        this.paint.setColor(Color.GREEN);
+        this.paint.setColor(Color.RED);
         this.paint.setStyle(Paint.Style.STROKE);
+        this.paint.setStrokeWidth(2);
     }
 
     public Hitbox(int x, int y, int w, int h) {

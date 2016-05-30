@@ -1,5 +1,9 @@
 package com.leruka.leruka.game;
 
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+
 import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;
 import com.leruka.leruka.game.draw.Image;
@@ -23,6 +27,7 @@ public class Player extends Entity {
     private boolean isColliding;
     private int duckTimer;
     private int duckTimerDefault = 100;
+    private Paint groundPaint;
 
     private Animation animationRun;
     private Animation animationDuck;
@@ -75,6 +80,11 @@ public class Player extends Entity {
         this.isJumping = false;
         this.isDucking = false;
         this.isColliding = false;
+
+        // debug paint
+        this.groundPaint = new Paint();
+        this.groundPaint.setColor(Color.GREEN);
+        this.groundPaint.setStyle(Paint.Style.FILL);
     }
 
 
@@ -129,7 +139,7 @@ public class Player extends Entity {
     private void updateJumping() {
         if (this.isJumping) {
             // test, if the new position will be on the ground
-            if (this.getHitbox().getY() + velocityY >= this.groundLevel) {
+            if (this.getHitbox().getY() + this.getHitbox().getHeight() + velocityY >= this.groundLevel) {
                 this.stopJumping();
             }
             else {
@@ -203,5 +213,16 @@ public class Player extends Entity {
         return new Image(ResourceProvider.loadImageByHeight(R.drawable.sprung, height));
     }
 
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+        if (Central.isDev) {
+            this.drawGroundLine(canvas);
+        }
+    }
+
+    private void drawGroundLine(Canvas canvas) {
+        canvas.drawLine(0, this.groundLevel, 1500, this.groundLevel, this.groundPaint);
+    }
 
 }
