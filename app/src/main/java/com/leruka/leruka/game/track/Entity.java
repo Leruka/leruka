@@ -32,6 +32,14 @@ public class Entity {
         return this.hitbox;
     }
 
+    public Drawable getImage() {
+        return this.image;
+    }
+
+    public Point getImageShift() {
+        return this.imageShift;
+    }
+
     public void draw(Canvas canvas) {
         canvas.drawBitmap(
                 this.image.getImage(),

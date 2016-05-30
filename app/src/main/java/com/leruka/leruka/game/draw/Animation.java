@@ -1,6 +1,7 @@
 package com.leruka.leruka.game.draw;
 
 import android.graphics.Bitmap;
+import android.graphics.Point;
 
 /**
  * Created by leif on 09.11.15.
@@ -35,6 +36,7 @@ public class Animation implements Drawable {
         return this.currentFrame();
     }
 
+    @Override
     public void update() {
         if (currentTime > 0) {
             currentTime--;
@@ -43,6 +45,11 @@ public class Animation implements Drawable {
             if (currentFrame >= totalFrames) currentFrame = 0;
             currentTime = repeats[currentFrame];
         }
+    }
+
+    @Override
+    public Point getSize() {
+        return new Point(this.getWidth(), this.getHeight());
     }
 
     public int getHeight() {

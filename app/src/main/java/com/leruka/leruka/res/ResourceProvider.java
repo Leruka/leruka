@@ -4,17 +4,15 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Point;
-import android.provider.Settings;
 import android.support.annotation.Nullable;
 
-import com.leruka.leruka.R;
 import com.leruka.leruka.game.Hitbox;
 import com.leruka.leruka.game.draw.Animation;
+import com.leruka.leruka.game.draw.Drawable;
+import com.leruka.leruka.game.draw.Image;
+import com.leruka.leruka.game.track.Entity;
 import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.main.Central;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by leifb on 04.12.15.
@@ -116,6 +114,39 @@ public class ResourceProvider {
         Animation animation = new Animation(frames, repeats);
         arr.recycle();
         return animation;
+    }
+
+    public static int loadInt(int resId) {
+        return Central.getResources().getInteger(resId);
+    }
+
+    public static Point loadImageShift(int shiftX, int shiftY, Point imageSize) {
+        return new Point(
+                (int) (ResourceProvider.loadInt(shiftX) / 100.0 * imageSize.x),
+                (int) (ResourceProvider.loadInt(shiftY) / 100.0 * imageSize.y)
+        );
+    }
+
+    public static Entity loadObstacle(
+            int imageId,
+            int imageHeight,
+            int imageShiftX,
+            int imageShiftY,
+            int boxHeight,
+            int boxRatio
+    ) {
+        // Load Hitbox
+        Hitbox hitbox = ResourceProvider.loadHitbox(boxHeight, boxRatio, null);
+
+        // Load image
+        Drawable image = new Image(ResourceProvider.loadImageByHeight(
+                imageId,
+                Measure.phr(imageHeight)));
+
+        // Load image shift
+        Point imageShift = ResourceProvider.loadImageShift(imageShiftX, imageShiftY, image.getSize());
+
+        return new Entity(hitbox, image, imageShift);
     }
 
     // Private

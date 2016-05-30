@@ -59,6 +59,36 @@
     <integer name="image_player_jump_shift_x">-15</integer>
     <integer name="image_player_jump_shift_y">-5</integer>
 
+    <!-- Obstacles -->
+    <!-- Top1 -->
+    <integer name="box_obstacle_top1_height">60</integer>
+    <integer name="box_obstacle_top1_ratio">65</integer>
+    <integer name="image_obstacle_top1_height">65</integer>
+    <integer name="image_obstacle_top1_shift_x">-10</integer>
+    <integer name="image_obstacle_top1_shift_y">5</integer>
+
+    <!-- Top2 -->
+    <integer name="box_obstacle_top2_height">60</integer>
+    <integer name="box_obstacle_top2_ratio">65</integer>
+    <integer name="image_obstacle_top2_height">65</integer>
+    <integer name="image_obstacle_top2_shift_x">-2</integer>
+    <integer name="image_obstacle_top2_shift_y">5</integer>
+
+    <!-- Bottom1 -->
+    <integer name="box_obstacle_bottom1_height">20</integer>
+    <integer name="box_obstacle_bottom1_ratio">90</integer>
+    <integer name="image_obstacle_bottom1_height">25</integer>
+    <integer name="image_obstacle_bottom1_shift_x">-10</integer>
+    <integer name="image_obstacle_bottom1_shift_y">-20</integer>
+
+    <!-- Bottom2 -->
+    <integer name="box_obstacle_bottom2_height">20</integer>
+    <integer name="box_obstacle_bottom2_ratio">90</integer>
+    <integer name="image_obstacle_bottom2_height">26</integer>
+    <integer name="image_obstacle_bottom2_shift_x">-20</integer>
+    <integer name="image_obstacle_bottom2_shift_y">-20</integer>
+
+
     <!-- etc. -->
     <integer name="box_player_left">5</integer>
     <integer name="box_player_bottom">95</integer>

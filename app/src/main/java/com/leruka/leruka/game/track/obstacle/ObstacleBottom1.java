@@ -1,29 +1,27 @@
 package com.leruka.leruka.game.track.obstacle;
 
-import android.graphics.Bitmap;
+import android.graphics.Point;
 
 import com.leruka.leruka.R;
-import com.leruka.leruka.game.draw.Drawable;
-import com.leruka.leruka.game.draw.Image;
+import com.leruka.leruka.main.Central;
 import com.leruka.leruka.res.ResourceProvider;
 
 /**
  * Created by leifb on 09.05.16.
  */
-public class ObstacleBottom1 extends ObstacleBottom {
+public class ObstacleBottom1 extends Obstacle {
 
-    @Override
-    protected Drawable loadImage() {
-        return new Image(ResourceProvider.loadImageByHeight(R.drawable.hindernissunten1, this.hitbox.getHeight()));
-    }
+    public ObstacleBottom1() {
+        super(ResourceProvider.loadObstacle(
+                R.drawable.hindernissunten1,
+                R.integer.image_obstacle_bottom1_height,
+                R.integer.image_obstacle_bottom1_shift_x,
+                R.integer.image_obstacle_bottom1_shift_y,
+                R.integer.box_obstacle_bottom1_height,
+                R.integer.box_obstacle_bottom1_ratio
+        ));
 
-    @Override
-    protected double getHeightPercentage() {
-        return 20;
-    }
-
-    @Override
-    protected double getRatio() {
-        return 700 / 628;
+        // Move image
+        this.moveTo(Central.getDisplayWidth(), Central.getDisplayHeight() - Central.getGroundLevel() - this.hitbox.getHeight());
     }
 }
