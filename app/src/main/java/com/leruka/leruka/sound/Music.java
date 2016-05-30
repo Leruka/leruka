@@ -1,5 +1,6 @@
 package com.leruka.leruka.sound;
 
+import android.content.Context;
 import android.media.MediaPlayer;
 
 import com.leruka.leruka.main.Central;
@@ -13,42 +14,64 @@ public class Music {
     private static boolean isPlaying;
     private static boolean isPaused;
     private static boolean isMuted;
+    private static boolean isInitialized;
 
-    private static MediaPlayer backgroundmusic;
+    private static MediaPlayer musicPlayer;
 
-    //Constructor
-    public Music(MediaPlayer backgroundmusic) {
-        this.backgroundmusic = backgroundmusic;
-        //backgroundmusic = MediaPlayer.create(Central.getCurrentActivity(), R.raw.music);
+    static {
+        isPlaying = false;
+        isPaused = false;
+        isMuted = false;
+        isInitialized = false;
+    }
 
-        backgroundmusic.setLooping(true);
-        play(backgroundmusic);
+    // Hide constructor
+    private Music() { }
+
+    public static void init(Context context, int resourceId, boolean play) {
+        if (Music.isInitialized)
+            Music.musicPlayer.release();
+        else
+            Music.isInitialized = true;
+        Music.musicPlayer = MediaPlayer.create(context, resourceId);
+        Music.updateMute();
+        Music.musicPlayer.setLooping(true);
+        if (play) Music.play();
     }
 
     // Methods
-    public static void play(MediaPlayer sound) {
-        //TODO
-        sound.start();
-
+    public static void play() {
+        if (Music.isInitialized) {
+            Music.musicPlayer.start();
+            Music.isPlaying = true;
+            Music.isPaused = false;
+        }
     }
 
     public static void pause() {
-        //TODO
-        backgroundmusic.release();
-        Central.getCurrentActivity().finish();
+        Music.isPaused = true;
+        Music.isPlaying = false;
+        if (Music.isInitialized)
+            Music.musicPlayer.pause();
     }
 
     public static void stop() {
-        //TODO
-    }
-
-    public static void resume() {
-        //TODO
+        if (Music.isInitialized)
+            Music.musicPlayer.stop();
     }
 
     public static void setMute(boolean isMuted) {
-        //TODO
         Music.isMuted = isMuted;
+        if (Music.isInitialized) {
+            Music.updateMute();
+        }
+    }
+
+    private static void updateMute() {
+        if (Music.isMuted)
+            Music.musicPlayer.setVolume(0,0);
+        else
+            Music.musicPlayer.setVolume(1,1);
     }
 
 

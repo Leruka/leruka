@@ -20,8 +20,6 @@ import com.leruka.leruka.sound.Music;
 public class GameMainActivity extends LerukaActivity {
 
     private GestureDetector gestureDetector;
-    private MediaPlayer backgroundmusic;
-    private Music music;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +40,7 @@ public class GameMainActivity extends LerukaActivity {
         this.gestureDetector = new GestureDetector(this, new GestureHandler());
 
         //Add background music
-        // Add background music
-        backgroundmusic = MediaPlayer.create(GameMainActivity.this, R.raw.music);
-        music = new Music(backgroundmusic);
+        Music.init(this, R.raw.music, true);
     }
 
     @Override
