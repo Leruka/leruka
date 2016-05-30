@@ -1,65 +1,41 @@
 package com.leruka.leruka.game.track.obstacle;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
+import android.graphics.Point;
 
-import com.leruka.leruka.game.draw.Background;
-import com.leruka.leruka.helper.Measure;
+import com.leruka.leruka.game.Hitbox;
+import com.leruka.leruka.game.draw.Drawable;
+import com.leruka.leruka.game.track.Entity;
 import com.leruka.leruka.main.Central;
 
 /**
  * Created by leif on 09.11.15.
  */
-public abstract class Obstacle {
+public class Obstacle extends Entity {
 
-    // Attributes
-    protected Rect rect;
-    private Bitmap image;
-    private boolean isColliding;
-
+    private int width;
 
     // Constructor
-    public Obstacle() {
-        // set settings by implementing class
-        this.rect = this.createRect(Central.getDisplayWidth(), Central.getDisplayHeight());
-        this.image = this.loadImage();
+    public Obstacle(Entity entity) {
+        this(entity.getHitbox(), entity.getImage(), entity.getImageShift());
+    }
+
+    public Obstacle(Hitbox hitbox, Drawable image, Point imageShift) {
+        super(hitbox, image, imageShift);
+        this.hitbox.calcHeight();
+        this.hitbox.calcWidth();
+        this.width = Math.max(image.getSize().x, this.hitbox.getWidth());
     }
 
     // Methods
-    public void draw(Canvas canvas) {
-        canvas.drawBitmap(this.image, this.rect.left, this.rect.top, null);
-        // draw rect
-        if (this.isColliding) {
-            Paint p = new Paint();
-            p.setColor(Color.BLUE);
-            p.setStyle(Paint.Style.STROKE);
-            canvas.drawRect(this.rect, p);
-        }
-    }
 
+    @Override
     public void update() {
-        // move
-        this.rect.offset(Central.getObstacleSpeed(), 0);
+        super.update();
+        // move hitbox
+        this.hitbox.move(Central.getObstacleSpeed(), 0);
     }
 
     public boolean isOutOfView() {
-        return this.rect.right < 0;
+        return this.hitbox.getX() + this.width < 0;
     }
-
-    public boolean intersects(Rect rect) {
-        this.isColliding = Rect.intersects(this.rect, rect);
-        return this.isColliding;
-    }
-
-
-
-    protected abstract Rect createRect(int availableWidth, int availableHeight);
-
-    protected abstract Bitmap loadImage();
-
-
-
 }

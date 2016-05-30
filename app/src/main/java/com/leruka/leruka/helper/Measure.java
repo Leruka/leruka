@@ -1,6 +1,7 @@
 package com.leruka.leruka.helper;
 
 import com.leruka.leruka.main.Central;
+import com.leruka.leruka.res.ResourceProvider;
 
 /**
  * Created by leifb on 04.12.15.
@@ -23,5 +24,13 @@ public class Measure {
      */
     public static int pw(double percent) {
         return (int) (Central.getDisplayWidth() * (percent / 100d));
+    }
+
+    public static int phr(int resId) {
+        return Measure.ph(ResourceProvider.loadInt(resId));
+    }
+
+    public static int pwr(int resId) {
+        return Measure.pw(ResourceProvider.loadInt(resId));
     }
 }

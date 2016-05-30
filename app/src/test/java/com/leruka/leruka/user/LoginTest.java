@@ -14,7 +14,6 @@ public class LoginTest {
 
     @Before
     public void setUp() throws Exception {
-        this.login = new Login();
     }
 
     @Test

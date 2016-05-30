@@ -3,7 +3,6 @@ package com.leruka.leruka.game.track;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 
 import com.leruka.leruka.game.Game;
 import com.leruka.leruka.game.Player;
@@ -30,7 +29,7 @@ public abstract class Track {
     private Queue<QueuedObstacle> queuedObstacles;
     private int position;
     private int speed;
-    private Paint p;
+    private Paint scorePaint;
 
     protected Random random;
 
@@ -49,10 +48,11 @@ public abstract class Track {
         this.queuedObstacles.add(this.createObstacle());
         Central.setObstacleSpeed(this.getObstacleSpeed());
 
-        p = new Paint();
-        p.setColor(Color.RED);
-        p.setStyle(Paint.Style.FILL);
-        p.setTextSize(40f);
+        this.scorePaint = new Paint();
+        this.scorePaint.setColor(Color.RED);
+        this.scorePaint.setStyle(Paint.Style.FILL);
+        this.scorePaint.setAntiAlias(true);
+        this.scorePaint.setTextSize(40f);
     }
 
     // Methods
@@ -65,7 +65,7 @@ public abstract class Track {
     }
 
     private void drawCounter(Canvas canvas) {
-        canvas.drawText(Game.getCounter(),Central.getDisplayWidth() - 200,100,p);
+        canvas.drawText(Game.getCounter(),Central.getDisplayWidth() - 200,100, scorePaint);
 
     }
 
@@ -83,9 +83,8 @@ public abstract class Track {
 
         // Check for collision
         boolean collide = false;
-        Rect hitbox = this.player.getHitbox();
         for (Obstacle o : this.obstacles) {
-            if (o.intersects(hitbox)) {
+            if (o.intersects(player)) {
                 collide = true;
                 break;
             }

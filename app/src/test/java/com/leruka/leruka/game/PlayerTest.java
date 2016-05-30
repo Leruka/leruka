@@ -19,15 +19,15 @@ public class PlayerTest {
 
     @Before
     public void setUp() {
-        this.player = new Player(Central.getDisplayHeight() - Measure.ph(5));
+        this.player = new Player();
     }
 
     @Test
     public void testGetHitbox() {
-        Rect rect1 = player.getHitbox();
+        Hitbox hitbox = player.getHitbox();
         //Rect rect2 = new Rect();
 
-        assertEquals(rect1, player.getHitbox());
+        assertEquals(hitbox, player.getHitbox());
     }
 
 }

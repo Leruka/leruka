@@ -43,16 +43,16 @@ public class Game {
     private static void init() {
         // init main process
         MainProcess.init();
-        // init draw process
+        // init getImage process
         DrawProcess.init();
         // Create Player
-        player = new Player(Central.getDisplayHeight() - Measure.ph(5));
+        player = new Player();
         // Create Track
         track = createTrack(1);
     }
 
     /**
-     * Starts the main and draw threads.
+     * Starts the main and getImage threads.
      */
     public static void start() {
         MainProcess.run();
@@ -70,7 +70,7 @@ public class Game {
     }
 
     /**
-     * Stops the main and draw thread. This will result in the game stopping from running,
+     * Stops the main and getImage thread. This will result in the game stopping from running,
      * nothing more.
      */
     public static void stop() {
