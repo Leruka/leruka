@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+
+    Defines the sizes of images and their hitboxes in the game
+
+    <integer-array name="...">
+        <item>image height % scaled to display height</item>
+        <item>image ratio (height * ratio / 100 = width)</item>
+        <item>hitbox height % scaled to display height</item>
+        <item>hitbox ratio</item>
+        <item>image delta x % scaled to image size</item>
+        <item>image delta y % scaled to image size</item>
+    </integer-array>
+
+    all sizes a in percentage to the scree
+    -->
+
+    <!-- Hitbox player run -->
+    <integer name="box_player_run_height">36</integer>
+    <integer name="box_player_run_ratio">50</integer>
+
+    <!-- Animation player run -->
+    <integer name="animation_player_run_height">40</integer>
+    <integer name="animation_player_run_shift_x">-5</integer>
+    <integer name="animation_player_run_shift_y">-5</integer>
+    <array name="animation_player_run_frames">
+        <item>@drawable/run1</item>
+        <item>@drawable/run2</item>
+        <item>@drawable/run3</item>
+        <item>@drawable/run4</item>
+        <item>@drawable/run5</item>
+        <item>@drawable/run6</item>
+    </array>
+    <integer-array name="animation_player_run_repeats">
+        <item>15</item>
+        <item>15</item>
+        <item>15</item>
+        <item>15</item>
+        <item>15</item>
+        <item>15</item>
+    </integer-array>
+
+    <!-- Hitbox player duck -->
+    <integer name="box_player_duck_height">27</integer>
+    <integer name="box_player_duck_ratio">100</integer>
+
+    <!-- Animation player duck -->
+    <integer name="animation_player_duck_height">27</integer>
+    <integer name="animation_player_duck_shift_x">-5</integer>
+    <integer name="animation_player_duck_shift_y">-5</integer>
+    <array name="animation_player_duck_frames">
+        <item>@drawable/rolle1</item>
+        <item>@drawable/rolle2</item>
+        <item>@drawable/rolle3</item>
+        <item>@drawable/rolle4</item>
+        <item>@drawable/rolle5</item>
+        <item>@drawable/rolle6</item>
+    </array>
+    <integer-array name="animation_player_duck_repeats">
+        <item>15</item>
+        <item>15</item>
+        <item>15</item>
+        <item>15</item>
+        <item>15</item>
+        <item>15</item>
+    </integer-array>
+
+    <!-- Hitbox player jump -->
+    <integer name="box_player_jump_height">36</integer>
+    <integer name="box_player_jump_ratio">50</integer>
+
+    <!-- Image player jump -->
+    <integer name="image_player_jump_height">40</integer>
+    <integer name="image_player_jump_shift_x">-15</integer>
+    <integer name="image_player_jump_shift_y">-5</integer>
+
+    <!-- etc. -->
+    <integer name="box_player_left">5</integer>
+    <integer name="box_player_bottom">95</integer>
+</resources>
