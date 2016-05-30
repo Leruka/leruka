@@ -16,6 +16,7 @@ import com.leruka.leruka.game.Game;
 import com.leruka.leruka.input.Gesture;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.sound.Music;
+import com.leruka.leruka.sound.Sound;
 
 public class GameMainActivity extends LerukaActivity {
 
@@ -40,7 +41,7 @@ public class GameMainActivity extends LerukaActivity {
         this.gestureDetector = new GestureDetector(this, new GestureHandler());
 
         //Add background music
-        Music.init(this, R.raw.music, true);
+        Music.init(this, Sound.Theme, true);
     }
 
     @Override

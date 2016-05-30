@@ -28,12 +28,12 @@ public class Music {
     // Hide constructor
     private Music() { }
 
-    public static void init(Context context, int resourceId, boolean play) {
+    public static void init(Context context, Sound sound, boolean play) {
         if (Music.isInitialized)
             Music.musicPlayer.release();
         else
             Music.isInitialized = true;
-        Music.musicPlayer = MediaPlayer.create(context, resourceId);
+        Music.musicPlayer = MediaPlayer.create(context, sound.getRes());
         Music.updateMute();
         Music.musicPlayer.setLooping(true);
         if (play) Music.play();
