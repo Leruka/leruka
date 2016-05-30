@@ -48,6 +48,7 @@ public class UserTest {
     @Test
     public void testIsValid() {
         assertTrue(LUser.isValid(user));
+        LUser.setCurrentUser(user);
         assertTrue(LUser.isValid());
         LUser user2 = null;
         assertFalse(LUser.isValid(user2));
@@ -64,6 +65,13 @@ public class UserTest {
 
         String input2 = "abc";
         assertEquals("ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad", user.sha256(input2));
+    }
+
+    @Test
+    public void testLogout() {
+        user.logout();
+        assertEquals(null, LUser.getCurrentUser());
+        assertEquals(null, LUser.getSessionID());
     }
 
 }
