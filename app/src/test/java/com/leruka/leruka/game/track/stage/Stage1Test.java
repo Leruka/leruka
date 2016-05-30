@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class Stage1Test {
 
     Stage1 stage1;
-    Player player = new Player(1);
+    Player player = new Player();
 
     @Before
     public void setUp() throws Exception {
