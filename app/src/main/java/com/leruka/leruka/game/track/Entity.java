@@ -67,5 +67,8 @@ public class Entity {
         this.hitbox = hitbox;
     }
 
+    protected void updateImageShift(Point imageShift) {
+        this.imageShift = imageShift;
+    }
 
 }

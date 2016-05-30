@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Hitbox player run -->
-    <integer name="box_player_run_height">36</integer>
-    <integer name="box_player_run_ratio">50</integer>
+    <integer name="box_player_run_height">40</integer>
+    <integer name="box_player_run_ratio">40</integer>
 
     <!-- Animation player run -->
-    <integer name="animation_player_run_height">40</integer>
-    <integer name="animation_player_run_shift_x">-5</integer>
-    <integer name="animation_player_run_shift_y">-5</integer>
+    <integer name="animation_player_run_height">41</integer>
+    <integer name="animation_player_run_shift_x">-2</integer>
+    <integer name="animation_player_run_shift_y">1</integer>
     <array name="animation_player_run_frames">
         <item>@drawable/run1</item>
         <item>@drawable/run2</item>

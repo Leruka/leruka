@@ -3,6 +3,7 @@ package com.leruka.leruka.game;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;
@@ -38,6 +39,10 @@ public class Player extends Entity {
     private final int hitboxDuck;
     private final int hitboxJump;
 
+    private final Point imageShiftRun;
+    private final Point imageShiftDuck;
+    private final Point imageShiftJump;
+
     // Constructor
     public Player() {
 
@@ -71,6 +76,14 @@ public class Player extends Entity {
         this.hitboxJump = 2;
         this.updateHitbox(this.boxes.getHitbox());
 
+        // Load image shifts
+        this.imageShiftRun = new Point(Measure.pw(Central.getResources().getInteger(R.integer.animation_player_run_shift_x)),
+                Measure.ph(Central.getResources().getInteger(R.integer.animation_player_run_shift_y)));
+        this.imageShiftDuck = new Point(Measure.pw(Central.getResources().getInteger(R.integer.animation_player_duck_shift_x)),
+                Measure.ph(Central.getResources().getInteger(R.integer.animation_player_duck_shift_y)));
+        this.imageShiftJump = new Point(Measure.pw(Central.getResources().getInteger(R.integer.image_player_jump_shift_x)),
+                Measure.ph(Central.getResources().getInteger(R.integer.image_player_jump_shift_y)));
+        this.updateImageShift(this.imageShiftRun);
 
         // position and dimension
         this.velocityY = 0;
@@ -100,7 +113,7 @@ public class Player extends Entity {
 
             // Update hitbox and animation
             this.updateHitbox(this.boxes.switchBox(this.hitboxJump, true));
-            this.updateImageAndHitbox();
+            this.updateEntity();
 
         }
     }
@@ -115,7 +128,7 @@ public class Player extends Entity {
             this.animationDuck.reset();
 
             // switch hitbox animation, only stick to bottom, when not jumping
-            this.updateImageAndHitbox();
+            this.updateEntity();
             this.updateHitbox(this.boxes.switchBox(this.hitboxDuck, !this.isJumping));
         }
         else {
@@ -152,7 +165,7 @@ public class Player extends Entity {
     private void stopJumping() {
         // Set state
         this.isJumping = false;
-        this.updateImageAndHitbox();
+        this.updateEntity();
 
         // Move to ground
         Hitbox box = this.getHitbox();
@@ -172,21 +185,24 @@ public class Player extends Entity {
     private void stopDucking() {
         // Set state
         this.isDucking = false;
-        this.updateImageAndHitbox();
+        this.updateEntity();
     }
 
-    private void updateImageAndHitbox() {
+    private void updateEntity() {
         if (this.isDucking) {
             this.updateHitbox(this.boxes.switchBox(this.hitboxDuck, !this.isJumping));
             this.updateImage(this.animationDuck);
+            this.updateImageShift(this.imageShiftDuck);
         }
         else if (this.isJumping) {
             this.updateHitbox(this.boxes.switchBox(this.hitboxJump, true));
             this.updateImage(this.imageJump);
+            this.updateImageShift(this.imageShiftJump);
         }
         else {
             this.updateHitbox(this.boxes.switchBox(this.hitboxRun, true));
             this.updateImage(this.animationRun);
+            this.updateImageShift(this.imageShiftRun);
         }
     }
 

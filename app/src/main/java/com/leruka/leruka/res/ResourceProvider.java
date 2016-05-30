@@ -97,15 +97,15 @@ public class ResourceProvider {
         return new Hitbox(position.x, position.y, width, height);
     }
 
-    public static Animation loadAnimation(int imageArray, int repeatsArray, int targetHeight) {
+    public static Animation loadAnimation(int imageArrayID, int repeatsArrayID, int targetHeight) {
 
         // Get the array of image ids
-        TypedArray arr = Central.getResources().obtainTypedArray(imageArray);
+        TypedArray arr = Central.getResources().obtainTypedArray(imageArrayID);
         int len = arr.length();
         Bitmap[] frames = new Bitmap[len];
 
         // Get the repeats array
-        int[] repeats = Central.getResources().getIntArray(repeatsArray);
+        int[] repeats = Central.getResources().getIntArray(repeatsArrayID);
 
         // load each image
         for (int i = 0; i < len; i++) {
