@@ -42,14 +42,14 @@ public class Background {
 
     /**
      * Draws the background to the canvas at the correct position.
-     * @param canvas The canvas to draw on
+     * @param canvas The canvas to getImage on
      */
     public void draw(Canvas canvas) {
         canvas.drawBitmap(this.image, position, 0, null);
     }
 
     /**
-     * Creates a image long enough to fit two times into the screen and sets it as the image to draw.
+     * Creates a image long enough to fit two times into the screen and sets it as the image to getImage.
      * @param image The image that should be the new background image
      * @param screenWidth the width of your screen (in pixels)
      * @param screenHeight the height of your screen (in pixels)

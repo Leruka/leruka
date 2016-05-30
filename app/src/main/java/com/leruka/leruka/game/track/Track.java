@@ -83,9 +83,8 @@ public abstract class Track {
 
         // Check for collision
         boolean collide = false;
-        Rect hitbox = this.player.getHitbox();
         for (Obstacle o : this.obstacles) {
-            if (o.intersects(hitbox)) {
+            if (o.intersects(player)) {
                 collide = true;
                 break;
             }

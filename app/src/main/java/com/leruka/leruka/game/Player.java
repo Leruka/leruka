@@ -1,14 +1,9 @@
 package com.leruka.leruka.game;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-
 import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;
-import com.leruka.leruka.game.track.obstacle.Obstacle;
+import com.leruka.leruka.game.draw.Image;
+import com.leruka.leruka.game.track.Entity;
 import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.res.ResourceProvider;
 import com.leruka.leruka.main.Central;
@@ -16,12 +11,11 @@ import com.leruka.leruka.main.Central;
 /**
  * Created by leif on 09.11.15.
  */
-public class Player {
+public class Player extends Entity {
 
     // Attributes
     private float pixelGravity;
     private int groundLevel;
-    private Rect rect;
     private float velocityY;
     private float jumpVelocity;
     private boolean isJumping;
@@ -30,25 +24,50 @@ public class Player {
     private int duckTimer;
     private int duckTimerDefault = 100;
 
-    private Animation animation;
-    private Animation animationWalk;
+    private Animation animationRun;
     private Animation animationDuck;
-    private Animation animationJump;
+    private Image imageJump;
+
+    private MorphingHitbox boxes;
+    private final int hitboxRun;
+    private final int hitboxDuck;
+    private final int hitboxJump;
 
     // Constructor
-    public Player(int groundLevel) {
-        // Load image first -> get dimensions
-        this.animationWalk = createRunAnimation(Measure.ph(40));
-        this.animationDuck = createDuckAnimation(Measure.ph(27)); //TODO better height...
-        this.animationJump = createJumpAnimation(Measure.ph(40));
-        this.animation = this.animationWalk;
+    public Player() {
+
+        super(Hitbox.EMPTY, null, null);
+
+        // Load images
+        this.animationRun = createRunAnimation();
+        this.animationDuck = createDuckAnimation();
+        this.imageJump = loadJumpImage();
+        this.updateImage(this.animationRun);
+
+        // Load hitboxes
+        Hitbox run = ResourceProvider.loadHitbox(R.integer.box_player_run_height, R.integer.box_player_run_ratio, null);
+        Hitbox duck = ResourceProvider.loadHitbox(R.integer.box_player_duck_height, R.integer.box_player_duck_ratio, null);
+        Hitbox jump = ResourceProvider.loadHitbox(R.integer.box_player_jump_height, R.integer.box_player_jump_ratio, null);
+        run.calcHeight();
+        jump.calcHeight();
+        duck.calcHeight();
+
+        // move hitboxes
+        this.groundLevel = Measure.ph(Central.getResources().getInteger(R.integer.box_player_bottom));
+        int left = Measure.pw(Central.getResources().getInteger(R.integer.box_player_left));
+        run.moveTo(left, this.groundLevel - run.getHeight());
+        jump.moveTo(left, this.groundLevel - jump.getHeight());
+        duck.moveTo(left, this.groundLevel - duck.getHeight());
+
+        // Create morphing hitbox
+        this.boxes = new MorphingHitbox(run, duck, jump);
+        this.hitboxRun = 0;
+        this.hitboxDuck = 1;
+        this.hitboxJump = 2;
+        this.updateHitbox(this.boxes.getHitbox());
+
+
         // position and dimension
-        this.groundLevel = groundLevel;
-        this.rect = new Rect();
-        this.rect.bottom = groundLevel;
-        this.rect.left = Measure.pw(5);
-        this.rect.right = this.rect.left + this.animation.getWidth();
-        this.rect.top = this.rect.bottom - this.animation.getHeight();
         this.velocityY = 0;
         this.jumpVelocity = Central.getDisplayHeight() / -30;
         this.pixelGravity = jumpVelocity / -40;
@@ -58,48 +77,36 @@ public class Player {
         this.isColliding = false;
     }
 
-    private Animation createJumpAnimation(int height) {
-
-        Bitmap[] bitmaps = new Bitmap[]{
-                ResourceProvider.loadImageByHeight(R.drawable.sprung, height)
-        };
-
-        int[] repeats = new int[]{
-                15
-        };
-
-        return new Animation(bitmaps, repeats);
-    }
 
     // Methods
     protected void jump() {
         if (!this.isJumping) {
+            // Physics
             this.velocityY = jumpVelocity;
             this.isJumping = true;
-            int oldHeight = this.animation.getHeight();
-            // switch animation
-            this.animation = this.animationJump;
 
-            // fix y pos
-            this.rect.top += oldHeight - this.animation.getHeight();
-
-            // stop ducking, if so
+            // Stop ducking, if so
             if (this.isDucking) { this.isDucking = false; }
+
+            // Update hitbox and animation
+            this.updateHitbox(this.boxes.switchBox(this.hitboxJump, true));
+            this.updateImageAndHitbox();
+
         }
     }
 
     protected void duck() {
         if (!this.isDucking) {
-            // switch animation
-            this.animationDuck.reset();
-            int oldHeight = this.animation.getHeight();
-            this.animation = this.animationDuck;
-            // different behavior when jumping
-            if (this.isJumping) { this.rect.bottom -= oldHeight - this.animation.getHeight(); }
-            else { this.rect.top += oldHeight - this.animation.getHeight(); }
             // Set state
             this.duckTimer = this.duckTimerDefault;
             this.isDucking = true;
+
+            // Reset animation
+            this.animationDuck.reset();
+
+            // switch hitbox animation, only stick to bottom, when not jumping
+            this.updateImageAndHitbox();
+            this.updateHitbox(this.boxes.switchBox(this.hitboxDuck, !this.isJumping));
         }
         else {
             // reset timer > duck longer
@@ -112,102 +119,88 @@ public class Player {
         this.isColliding = collide;
     }
 
-    public Rect getHitbox() {
-        return this.rect;
-    }
-
-    public void draw(Canvas canvas) {
-        canvas.drawBitmap(this.animation.currentFrame(), this.rect.left, this.rect.top, null);
-        // draw rect
-        if (this.isColliding) {
-            Paint p = new Paint();
-            p.setColor(Color.RED);
-            p.setStyle(Paint.Style.STROKE);
-            canvas.drawRect(this.rect, p);
-        }
-    }
-
+    @Override
     public void update() {
+        super.update();
+        this.updateJumping();
+        this.updateDucking();
+    }
 
-        // Update animation
-        this.animation.update();
-
-        // Update jumping
+    private void updateJumping() {
         if (this.isJumping) {
             // test, if the new position will be on the ground
-            if (this.rect.bottom + velocityY >= this.groundLevel) {
-                this.rect.offsetTo(this.rect.left, this.groundLevel - this.rect.height());
-                this.isJumping = false;
-                if(!this.isDucking) {
-                    this.animation = this.animationWalk;
-                }
+            if (this.getHitbox().getY() + velocityY >= this.groundLevel) {
+                this.stopJumping();
             }
             else {
-                this.rect.offset(0, (int) velocityY);
+                this.getHitbox().move(0, (int) velocityY);
+                this.velocityY += pixelGravity;
             }
-            this.velocityY += pixelGravity;
         }
+    }
 
-        // Update ducking
+    private void stopJumping() {
+        // Set state
+        this.isJumping = false;
+        this.updateImageAndHitbox();
+
+        // Move to ground
+        Hitbox box = this.getHitbox();
+        box.moveTo(box.getX(), this.groundLevel - box.getHeight());
+
+    }
+
+    private void updateDucking() {
         if (this.isDucking) {
             this.duckTimer--;
             if (this.duckTimer <= 0) {
-                // switch img
-
-
-                int oldHeight = this.animation.getHeight();
-                this.animation = this.animationWalk;
-                this.rect.top += oldHeight - this.animation.getHeight();
-                // Set state
-                this.isDucking = false;
+                this.stopDucking();
             }
+        }
+    }
+
+    private void stopDucking() {
+        // Set state
+        this.isDucking = false;
+        this.updateImageAndHitbox();
+    }
+
+    private void updateImageAndHitbox() {
+        if (this.isDucking) {
+            this.updateHitbox(this.boxes.switchBox(this.hitboxDuck, !this.isJumping));
+            this.updateImage(this.animationDuck);
+        }
+        else if (this.isJumping) {
+            this.updateHitbox(this.boxes.switchBox(this.hitboxJump, true));
+            this.updateImage(this.imageJump);
+        }
+        else {
+            this.updateHitbox(this.boxes.switchBox(this.hitboxRun, true));
+            this.updateImage(this.animationRun);
         }
     }
 
     // Statics for creation
-
-    public static Animation createRunAnimation(int height) {
-        // Create Bitmap
-        Bitmap[] bitmaps = new Bitmap[] {
-                ResourceProvider.loadImageByHeight(R.drawable.run1, height),
-                ResourceProvider.loadImageByHeight(R.drawable.run2, height),
-                ResourceProvider.loadImageByHeight(R.drawable.run3, height),
-                ResourceProvider.loadImageByHeight(R.drawable.run4, height),
-                ResourceProvider.loadImageByHeight(R.drawable.run5, height),
-                ResourceProvider.loadImageByHeight(R.drawable.run6, height),
-        };
-        // Set timing
-        int[] repeats = new int[] {
-                15,
-                15,
-                15,
-                15,
-                15,
-                15
-        };
-        return new Animation(bitmaps, repeats);
+    public static Animation createRunAnimation() {
+        int height = Measure.ph(Central.getResources().getInteger(R.integer.animation_player_run_height));
+        return ResourceProvider.loadAnimation(
+                R.array.animation_player_run_frames,
+                R.array.animation_player_run_repeats,
+                height);
     }
 
-    public static Animation createDuckAnimation(int height) {
-        // Create Bitmap
-        Bitmap[] bitmaps = new Bitmap[]{
-                ResourceProvider.loadImageByHeight(R.drawable.rolle1, height),
-                ResourceProvider.loadImageByHeight(R.drawable.rolle2, height),
-                ResourceProvider.loadImageByHeight(R.drawable.rolle3, height),
-                ResourceProvider.loadImageByHeight(R.drawable.rolle4, height),
-                ResourceProvider.loadImageByHeight(R.drawable.rolle5, height),
-                ResourceProvider.loadImageByHeight(R.drawable.rolle6, height)
-        };
-        // Set timing
-        int[] repeats = new int[] {
-                15,
-                15,
-                15,
-                15,
-                15,
-                15
-        };
-        return new Animation(bitmaps, repeats);
+    public static Animation createDuckAnimation() {
+        int height = Measure.ph(Central.getResources().getInteger(R.integer.animation_player_duck_height));
+        return ResourceProvider.loadAnimation(
+                R.array.animation_player_duck_frames,
+                R.array.animation_player_duck_repeats,
+                height);
+    }
+
+
+    private Image loadJumpImage() {
+        int height = Measure.ph(Central.getResources().getInteger(R.integer.image_player_jump_height));
+        return new Image(ResourceProvider.loadImageByHeight(R.drawable.sprung, height));
     }
 
 

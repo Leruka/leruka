@@ -3,6 +3,8 @@ package com.leruka.leruka.game.track.obstacle;
 import android.graphics.Bitmap;
 
 import com.leruka.leruka.R;
+import com.leruka.leruka.game.draw.Drawable;
+import com.leruka.leruka.game.draw.Image;
 import com.leruka.leruka.res.ResourceProvider;
 
 /**
@@ -11,8 +13,8 @@ import com.leruka.leruka.res.ResourceProvider;
 public class ObstacleBottom2 extends ObstacleBottom {
 
     @Override
-    protected Bitmap loadImage() {
-        return ResourceProvider.loadImageByHeight(R.drawable.hindernissuntern2, this.rect.height());
+    protected Drawable loadImage() {
+        return new Image(ResourceProvider.loadImageByHeight(R.drawable.hindernissuntern2, this.hitbox.getHeight()));
     }
 
     @Override

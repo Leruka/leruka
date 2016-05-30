@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 /**
  * Created by leif on 09.11.15.
  */
-public class Animation {
+public class Animation implements Drawable {
 
     // Attributes
     private int totalFrames;
@@ -28,6 +28,11 @@ public class Animation {
 
     public Bitmap currentFrame() {
         return this.frames[this.currentFrame];
+    }
+
+    @Override
+    public Bitmap getImage() {
+        return this.currentFrame();
     }
 
     public void update() {
