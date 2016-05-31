@@ -6,7 +6,7 @@ Feature: View personal highscore
     Given I press "Einloggen"
     And I enter "Hugo" into input field number 1
     And I enter "lustig" into input field number 2
-    And I press "Login"
+    And I press "Einloggen"
     And I see "Hi, hugo"
     And I press "Persoenlicher Highscore"
     Then I see "Dein Highscore"
