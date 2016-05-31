@@ -126,7 +126,7 @@ public class ChangeSettingsActivity extends LerukaActivity {
     public static void processResponse(User.ResponseChangeSettings changeSettings) {
         // Check for success
         if (changeSettings != null && changeSettings.getSuccess()) {
-            ChangeSettingsActivity.receiveSuccessChangeSettings(changeSettings);
+            ChangeSettingsActivity.receiveSuccessChangeSettings();
         }
         else {
             ChangeSettingsActivity.receiveFailedChangeSettings(changeSettings);
@@ -147,7 +147,7 @@ public class ChangeSettingsActivity extends LerukaActivity {
 
     }
 
-    private static void receiveSuccessChangeSettings(User.ResponseChangeSettings changeSettings) {
+    private static void receiveSuccessChangeSettings() {
         // Show a success message
         Message.showMessage("Änderungen erfolgreich");
 
