@@ -129,7 +129,6 @@ public class ChangeSettings {
                 return User.ResponseChangeSettings.parseFrom(in);
             } catch (IOException e) {
                 Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
-                e.printStackTrace();
                 return null;
             }
         }
