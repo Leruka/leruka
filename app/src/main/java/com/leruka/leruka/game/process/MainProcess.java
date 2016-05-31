@@ -85,14 +85,13 @@ public class MainProcess {
                     if (!isPaused) MainProcess.tick();
                     long sleep = (targetNanoTime - (System.nanoTime() - start)) / 1000000;
                     if (sleep > 0)
-                    Thread.sleep(sleep);
+                        Thread.sleep(sleep);
                     else
                         Log.w("leruka", "Main Thread took too long: " + sleep);
                 }
             } catch (InterruptedException e) {
-                // This should not happen
-                Message.showErrorMessage("Main Thread has been interrupted!");
-                //TODO what to do? go to main menu? quit? WHAT? AND WHO DID IT???
+                Log.w("leruka", "draw thread has been interupted");
+                Thread.currentThread().interrupt();
             }
         }
 
