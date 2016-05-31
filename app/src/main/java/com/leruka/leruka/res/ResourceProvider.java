@@ -168,7 +168,7 @@ public class ResourceProvider {
     }
 
     private static Bitmap scaleBitmapToHeight(Bitmap bitmap, double targetHeight) {
-        if (bitmap.getHeight() != targetHeight) {
+        if (bitmap.getHeight() != (int) targetHeight) {
             return Bitmap.createScaledBitmap(
                     bitmap,
                     (int) (((double)bitmap.getWidth()) / ((double)bitmap.getHeight())
@@ -180,7 +180,7 @@ public class ResourceProvider {
     }
 
     private static Bitmap scaleBitmapToWidth(Bitmap bitmap, double targetWidth) {
-        if (bitmap.getWidth() != targetWidth) {
+        if (bitmap.getWidth() != ((int) targetWidth)) {
             return Bitmap.createScaledBitmap(
                     bitmap,
                     (int) targetWidth,

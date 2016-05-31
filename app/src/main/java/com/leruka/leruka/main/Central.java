@@ -20,6 +20,8 @@ public class Central {
     /** The time that should be between each tick. Adjusting later on may cause problems! */
     public static final int targetTickNanos = (int) 1e+7; // 1/10 s
 
+    public static final String LOG_TAG_MAIN = "leruka";
+
     private static final double groundLevelPercentage = 5.0;
 
 

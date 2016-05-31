@@ -1,8 +1,12 @@
 package com.leruka.leruka.highcore;
 
+import android.util.Log;
+
 import com.leruka.leruka.R;
 import com.leruka.leruka.activity.PrivateHighscoreActivity;
 import com.leruka.leruka.activity.PublicHighscoreActivity;
+import com.leruka.leruka.helper.Measure;
+import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpGet;
@@ -76,8 +80,8 @@ public class HighscoreConnection {
             try {
                 return Highscore.ResponseScores.parseFrom(in);
             } catch (IOException e) {
-                //TODO
-                e.printStackTrace();
+                Log.i(Central.LOG_TAG_MAIN, "Could not read public highscore response.");
+                Message.showErrorMessage("Communication with the server failed, please try again later!");
                 return null;
             }
         }
@@ -110,8 +114,8 @@ public class HighscoreConnection {
             try {
                 return Highscore.ResponseScores.parseFrom(in);
             } catch (IOException e) {
-                //TODO
-                e.printStackTrace();
+                Log.i(Central.LOG_TAG_MAIN, "Could not read private highscore response.");
+                Message.showErrorMessage("Communication with the server failed, please try again later!");
                 return null;
             }
         }

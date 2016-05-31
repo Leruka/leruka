@@ -1,6 +1,7 @@
 package com.leruka.leruka.user;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.activity.GuestMainActivity;
@@ -43,6 +44,7 @@ public class Login {
         try {
             sendLogin(user);
         } catch (IOException e) {
+            Log.i(Central.LOG_TAG_MAIN, "IO exception in login");
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
         }

@@ -1,8 +1,10 @@
 package com.leruka.leruka.net;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.leruka.leruka.helper.Message;
+import com.leruka.leruka.main.Central;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,14 +38,10 @@ public abstract class HttpGet<T> extends AsyncTask<String, Integer, T> {
             conn.setDoInput(true);
 
             conn.connect();
-            if (conn.getResponseCode() != 200) {
-                Message.showErrorMessage("code " + conn.getResponseCode());
-                return null;
-            }
 
             return this.createResponseObject(conn.getInputStream());
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.i(Central.LOG_TAG_MAIN, "Http GET failed with an IO exception");
             return null;
         }
     }
