@@ -67,10 +67,9 @@ public class LUser {
         // Check length
         if (name.length() < USERNAME_MIN_LENGTH || name.length() > USERNAME_MAX_LENGTH)
             return false;
-        if (pass.length() != 64) return false;
+        return pass.length() == 64;
 
 
-        return true;
     }
 
     public static boolean isValid() {
