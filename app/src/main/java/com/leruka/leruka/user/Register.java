@@ -13,7 +13,6 @@ import com.leruka.protobuf.User;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.logging.Logger;
 
 /**
  * Created by leif on 09.11.15.
