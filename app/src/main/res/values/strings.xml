@@ -53,7 +53,7 @@
     <string name="getrating_url">http://78.46.212.166:8080/leruka/getrating</string>
     <string name="register_url">http://78.46.212.166:8080/leruka/register</string>
     <string name="publicHighscore_url">http://78.46.212.166:8080/leruka/score</string>
-    <string name="privateHighscore">http://78.46.212.166:8080/leruka/privatescore</string>
+    <string name="privateHighscore_url">http://78.46.212.166:8080/leruka/privatescore</string>
     <string name="PasswortEingabeAufforderung">Bitte gib dein aktuelles Passwort an</string>
     <string name="VerbindungsfehlerServer">Es konnte keine Verbindung zum Server hergestellt werden. Bite überprüfe deine Internetverbindung.</string>
 </resources>

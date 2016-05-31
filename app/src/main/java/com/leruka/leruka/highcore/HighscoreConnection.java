@@ -1,7 +1,9 @@
 package com.leruka.leruka.highcore;
 
+import com.leruka.leruka.R;
 import com.leruka.leruka.activity.PrivateHighscoreActivity;
 import com.leruka.leruka.activity.PublicHighscoreActivity;
+import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpGet;
 import com.leruka.leruka.net.HttpPost;
@@ -22,8 +24,8 @@ import java.util.List;
  */
 public class HighscoreConnection {
 
-    private static final String PUBLIC_SCORE_URL = "http://78.46.212.166:8080/leruka/score"; //TODO get from res
-    private static final String PRIVATE_SCORE_URL = "http://78.46.212.166:8080/leruka/privatescore"; //TODO get from res
+    private static final String PUBLIC_SCORE_URL = Central.getCurrentActivity().getResources().getString(R.string.publicHighscore_url);
+    private static final String PRIVATE_SCORE_URL = Central.getCurrentActivity().getResources().getString(R.string.privateHighscore_url);
 
     public static void GetPublicScore() {
         new PublicScoreGet().execute(PUBLIC_SCORE_URL);
