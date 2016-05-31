@@ -40,6 +40,8 @@ sonarqube {
                 "src/main/java/com/leruka/leruka/user/Register.java," +
                 "src/main/java/com/leruka/leruka/highcore/HighscoreConnection.java," +
                 "src/main/java/com/leruka/leruka/helper/Measure.java," +
+                "src/main/java/com/leruka/leruka/net/HttpGett.java," +
+                "src/main/java/com/leruka/leruka/net/HttpPost.java," +
                 "src/main/java/com/leruka/leruka/res/*.java," +
                 "src/main/java/com/leruka/leruka/game/Game.java," +
                 "src/main/java/com/leruka/leruka/game/Player.java," +
