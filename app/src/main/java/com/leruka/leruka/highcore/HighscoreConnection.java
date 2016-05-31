@@ -27,11 +27,11 @@ public class HighscoreConnection {
     private static final String PUBLIC_SCORE_URL = Central.getCurrentActivity().getResources().getString(R.string.publicHighscore_url);
     private static final String PRIVATE_SCORE_URL = Central.getCurrentActivity().getResources().getString(R.string.privateHighscore_url);
 
-    public static void GetPublicScore() {
+    public static void getPublicScore() {
         new PublicScoreGet().execute(PUBLIC_SCORE_URL);
     }
 
-    public static void GetPrivateScore() {
+    public static void getPrivateScore() {
         // Create the request object
         Highscore.RequestPrivateScore requestObject = Highscore.RequestPrivateScore.newBuilder()
                 .setSessionID(LUser.getSessionID()).build();
