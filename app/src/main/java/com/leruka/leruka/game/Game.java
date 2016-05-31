@@ -150,9 +150,15 @@ public class Game {
         }
 
         @Override
-        public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {}
+        public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+            //This method is empty because it needs to be inherited by GestureHandler but there is
+            // no need for her
+        }
 
         @Override
-        public void surfaceDestroyed(SurfaceHolder holder) {}
+        public void surfaceDestroyed(SurfaceHolder holder) {
+            //This method is empty because it needs to be inherited by GestureHandler but there is
+            // no need for her
+        }
     }
 }

@@ -20,8 +20,4 @@ public class DefaultBackgroundTest {
         Player player = new Player();
     }
 
-    @Test
-    public void testCreateBackground() throws Exception {
-
-    }
 }

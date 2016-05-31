@@ -21,11 +21,6 @@ public class Stage1Test {
     }
 
     @Test
-    public void testCreateObstacle() throws Exception {
-
-    }
-
-    @Test
     public void testGetObstacleSpeed() throws Exception {
         stage1.getObstacleSpeed();
     }
