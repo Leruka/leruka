@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import com.leruka.leruka.activity.GameMainActivity;
 import com.leruka.leruka.game.Game;
 import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.draw.Background;
@@ -27,9 +28,8 @@ public abstract class Track {
     private Player player;
     private List<Obstacle> obstacles;
     private Queue<QueuedObstacle> queuedObstacles;
-    private int position;
-    private int speed;
     private Paint scorePaint;
+    private int afterColisionTimer;
 
     protected Random random;
 
@@ -38,10 +38,10 @@ public abstract class Track {
         this.player = player;
 
         // Init
-        this.position = 0;
         this.obstacles = new DynamicArrayList<>();
         this.queuedObstacles = new LinkedList<>();
         this.random = new Random();
+        this.afterColisionTimer = 150;
 
         // Abstract settings
         this.background = this.createBackground();
@@ -76,21 +76,36 @@ public abstract class Track {
     }
 
     public void update() {
+        if (this.player.hasCollided()) {
+            this.updateAfterCollision();
+        }
+        else this.updateDefault();
+
+    }
+
+    private void updateDefault() {
         this.background.update();
         this.player.update();
         this.updateQueuedObstacles();
         this.updateObstacles();
 
         // Check for collision
-        boolean collide = false;
         for (Obstacle o : this.obstacles) {
             if (o.intersects(player)) {
-                collide = true;
-                break;
+                this.player.collide();
+                return;
             }
         }
-        this.player.setCollide(collide);
     }
+
+    private void updateAfterCollision() {
+        this.player.update();
+        this.afterColisionTimer--;
+        if (this.afterColisionTimer <= 0) {
+            Game.gameOver();
+        }
+    }
+
 
     private void updateQueuedObstacles() {
         if (!this.queuedObstacles.isEmpty() && this.queuedObstacles.peek().tick()) {

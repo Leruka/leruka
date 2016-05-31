@@ -1,14 +1,18 @@
 package com.leruka.leruka.game;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
+import com.leruka.leruka.activity.GameMainActivity;
+import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.game.process.DrawProcess;
 import com.leruka.leruka.game.process.MainProcess;
 import com.leruka.leruka.game.track.Track;
 import com.leruka.leruka.game.track.stage.Stage1;
 import com.leruka.leruka.game.track.stage.Stage2;
 import com.leruka.leruka.input.Gesture;
+import com.leruka.leruka.main.Central;
 
 /**
  * This class is controlling all the actions that have to be done in order to run the game itself.
@@ -76,6 +80,13 @@ public class Game {
         DrawProcess.end();
     }
 
+    public static void gameOver() {
+        Game.stop();
+        if (Central.getCurrentActivity().getClass().equals(GameMainActivity.class)) {
+            ((GameMainActivity) Central.getCurrentActivity()).goToGameOverScreen();
+        }
+    }
+
 
     /**
      * This method will cause the game to be rendered one time to the surface holder.
@@ -91,11 +102,7 @@ public class Game {
      */
     public static void tick() {
         track.update();
-        //TODO Hintergrund & Hinderniss bewegen
-        //TODO Kollision prüfen
-        //TODO Animationen aktualisieren
-        //TODO Punktestand merken
-        increaseCounter();
+        Game.increaseCounter();
     }
 
 

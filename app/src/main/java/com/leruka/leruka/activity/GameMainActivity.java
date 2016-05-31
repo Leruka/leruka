@@ -61,6 +61,11 @@ public class GameMainActivity extends LerukaActivity {
         startActivity(intent);
     }
 
+    public void goToGameOverScreen() {
+        Intent intent = new Intent(this, GameOverMenuActivity.class);
+        startActivity(intent);
+    }
+
     private void goToFullscreen() {
         int opts;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

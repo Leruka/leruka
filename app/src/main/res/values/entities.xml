@@ -5,9 +5,9 @@
     <integer name="box_player_run_ratio">40</integer>
 
     <!-- Animation player run -->
-    <integer name="animation_player_run_height">41</integer>
+    <integer name="animation_player_run_height">43</integer>
     <integer name="animation_player_run_shift_x">-2</integer>
-    <integer name="animation_player_run_shift_y">1</integer>
+    <integer name="animation_player_run_shift_y">-1</integer>
     <array name="animation_player_run_frames">
         <item>@drawable/run1</item>
         <item>@drawable/run2</item>
@@ -27,11 +27,11 @@
 
     <!-- Hitbox player duck -->
     <integer name="box_player_duck_height">27</integer>
-    <integer name="box_player_duck_ratio">100</integer>
+    <integer name="box_player_duck_ratio">80</integer>
 
     <!-- Animation player duck -->
-    <integer name="animation_player_duck_height">27</integer>
-    <integer name="animation_player_duck_shift_x">-5</integer>
+    <integer name="animation_player_duck_height">33</integer>
+    <integer name="animation_player_duck_shift_x">-1</integer>
     <integer name="animation_player_duck_shift_y">-5</integer>
     <array name="animation_player_duck_frames">
         <item>@drawable/rolle1</item>
@@ -51,34 +51,44 @@
     </integer-array>
 
     <!-- Hitbox player jump -->
-    <integer name="box_player_jump_height">36</integer>
+    <integer name="box_player_jump_height">32</integer>
     <integer name="box_player_jump_ratio">50</integer>
 
     <!-- Image player jump -->
-    <integer name="image_player_jump_height">40</integer>
-    <integer name="image_player_jump_shift_x">-15</integer>
-    <integer name="image_player_jump_shift_y">-5</integer>
+    <integer name="image_player_jump_height">36</integer>
+    <integer name="image_player_jump_shift_x">-8</integer>
+    <integer name="image_player_jump_shift_y">-2</integer>
+
+
+    <!-- Hitbox player fallen -->
+    <integer name="box_player_fallen_height">10</integer>
+    <integer name="box_player_fallen_ratio">500</integer>
+
+    <!-- Image player fallen -->
+    <integer name="image_player_fallen_height">12</integer>
+    <integer name="image_player_fallen_shift_x">0</integer>
+    <integer name="image_player_fallen_shift_y">-1</integer>
 
     <!-- Obstacles -->
     <!-- Top1 -->
-    <integer name="box_obstacle_top1_height">60</integer>
-    <integer name="box_obstacle_top1_ratio">65</integer>
+    <integer name="box_obstacle_top1_height">62</integer>
+    <integer name="box_obstacle_top1_ratio">40</integer>
     <integer name="image_obstacle_top1_height">65</integer>
-    <integer name="image_obstacle_top1_shift_x">-10</integer>
-    <integer name="image_obstacle_top1_shift_y">5</integer>
+    <integer name="image_obstacle_top1_shift_x">-5</integer>
+    <integer name="image_obstacle_top1_shift_y">0</integer>
 
     <!-- Top2 -->
     <integer name="box_obstacle_top2_height">60</integer>
-    <integer name="box_obstacle_top2_ratio">65</integer>
+    <integer name="box_obstacle_top2_ratio">30</integer>
     <integer name="image_obstacle_top2_height">65</integer>
-    <integer name="image_obstacle_top2_shift_x">-2</integer>
-    <integer name="image_obstacle_top2_shift_y">5</integer>
+    <integer name="image_obstacle_top2_shift_x">-9</integer>
+    <integer name="image_obstacle_top2_shift_y">-3</integer>
 
     <!-- Bottom1 -->
     <integer name="box_obstacle_bottom1_height">20</integer>
     <integer name="box_obstacle_bottom1_ratio">90</integer>
     <integer name="image_obstacle_bottom1_height">25</integer>
-    <integer name="image_obstacle_bottom1_shift_x">-10</integer>
+    <integer name="image_obstacle_bottom1_shift_x">-15</integer>
     <integer name="image_obstacle_bottom1_shift_y">-20</integer>
 
     <!-- Bottom2 -->
@@ -90,6 +100,6 @@
 
 
     <!-- etc. -->
-    <integer name="box_player_left">5</integer>
+    <integer name="box_player_left">15</integer>
     <integer name="box_player_bottom">95</integer>
 </resources>

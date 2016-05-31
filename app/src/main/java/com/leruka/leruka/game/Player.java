@@ -4,6 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
+import android.provider.ContactsContract;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;
@@ -25,23 +26,26 @@ public class Player extends Entity {
     private float jumpVelocity;
     private boolean isJumping;
     private boolean isDucking;
-    private boolean isColliding;
+    private boolean hasCollided;
     private int duckTimer;
     private int duckTimerDefault = 100;
     private Paint groundPaint;
 
     private Animation animationRun;
     private Animation animationDuck;
+    private Image imageFallen;
     private Image imageJump;
 
     private MorphingHitbox boxes;
     private final int hitboxRun;
     private final int hitboxDuck;
     private final int hitboxJump;
+    private final int hitboxFallen;
 
     private final Point imageShiftRun;
     private final Point imageShiftDuck;
     private final Point imageShiftJump;
+    private final Point imageShiftFallen;
 
     // Constructor
     public Player() {
@@ -52,15 +56,18 @@ public class Player extends Entity {
         this.animationRun = createRunAnimation();
         this.animationDuck = createDuckAnimation();
         this.imageJump = loadJumpImage();
+        this.imageFallen = loadFallenImage();
         this.updateImage(this.animationRun);
 
         // Load hitboxes
         Hitbox run = ResourceProvider.loadHitbox(R.integer.box_player_run_height, R.integer.box_player_run_ratio, null);
         Hitbox duck = ResourceProvider.loadHitbox(R.integer.box_player_duck_height, R.integer.box_player_duck_ratio, null);
         Hitbox jump = ResourceProvider.loadHitbox(R.integer.box_player_jump_height, R.integer.box_player_jump_ratio, null);
+        Hitbox fallen = ResourceProvider.loadHitbox(R.integer.box_player_fallen_height, R.integer.box_player_fallen_ratio, null);
         run.calcHeight();
         jump.calcHeight();
         duck.calcHeight();
+        fallen.calcHeight();
 
         // move hitboxes
         this.groundLevel = Measure.ph(Central.getResources().getInteger(R.integer.box_player_bottom));
@@ -70,19 +77,22 @@ public class Player extends Entity {
         duck.moveTo(left, this.groundLevel - duck.getHeight());
 
         // Create morphing hitbox
-        this.boxes = new MorphingHitbox(run, duck, jump);
+        this.boxes = new MorphingHitbox(run, duck, jump, fallen);
         this.hitboxRun = 0;
         this.hitboxDuck = 1;
         this.hitboxJump = 2;
+        this.hitboxFallen = 3;
         this.updateHitbox(this.boxes.getHitbox());
 
         // Load image shifts
-        this.imageShiftRun = new Point(Measure.pw(Central.getResources().getInteger(R.integer.animation_player_run_shift_x)),
-                Measure.ph(Central.getResources().getInteger(R.integer.animation_player_run_shift_y)));
-        this.imageShiftDuck = new Point(Measure.pw(Central.getResources().getInteger(R.integer.animation_player_duck_shift_x)),
-                Measure.ph(Central.getResources().getInteger(R.integer.animation_player_duck_shift_y)));
-        this.imageShiftJump = new Point(Measure.pw(Central.getResources().getInteger(R.integer.image_player_jump_shift_x)),
-                Measure.ph(Central.getResources().getInteger(R.integer.image_player_jump_shift_y)));
+        this.imageShiftRun = new Point(Measure.pwr(R.integer.animation_player_run_shift_x),
+                Measure.phr(R.integer.animation_player_run_shift_y));
+        this.imageShiftDuck = new Point(Measure.pwr(R.integer.animation_player_duck_shift_x),
+                Measure.phr(R.integer.animation_player_duck_shift_y));
+        this.imageShiftJump = new Point(Measure.pwr(R.integer.image_player_jump_shift_x),
+                Measure.phr(R.integer.image_player_jump_shift_y));
+        this.imageShiftFallen = new Point(Measure.pwr(R.integer.image_player_fallen_shift_x),
+                Measure.phr(R.integer.image_player_fallen_shift_y));
         this.updateImageShift(this.imageShiftRun);
 
         // position and dimension
@@ -92,7 +102,7 @@ public class Player extends Entity {
         // state
         this.isJumping = false;
         this.isDucking = false;
-        this.isColliding = false;
+        this.hasCollided = false;
 
         // debug paint
         this.groundPaint = new Paint();
@@ -100,10 +110,9 @@ public class Player extends Entity {
         this.groundPaint.setStyle(Paint.Style.FILL);
     }
 
-
     // Methods
     protected void jump() {
-        if (!this.isJumping) {
+        if (!this.isJumping && !this.hasCollided) {
             // Physics
             this.velocityY = jumpVelocity;
             this.isJumping = true;
@@ -114,12 +123,12 @@ public class Player extends Entity {
             // Update hitbox and animation
             this.updateHitbox(this.boxes.switchBox(this.hitboxJump, true));
             this.updateEntity();
-
         }
     }
 
+
     protected void duck() {
-        if (!this.isDucking) {
+        if (!this.isDucking && !this.hasCollided) {
             // Set state
             this.duckTimer = this.duckTimerDefault;
             this.isDucking = true;
@@ -137,9 +146,13 @@ public class Player extends Entity {
         }
     }
 
-    public void setCollide(boolean collide) {
-        //TODO
-        this.isColliding = collide;
+    public boolean hasCollided() {
+        return this.hasCollided;
+    }
+
+    public void collide() {
+        this.hasCollided = true;
+        this.updateEntity();
     }
 
     @Override
@@ -189,7 +202,12 @@ public class Player extends Entity {
     }
 
     private void updateEntity() {
-        if (this.isDucking) {
+        if (this.hasCollided) {
+            this.updateHitbox(this.boxes.switchBox(this.hitboxFallen, true,  true));
+            this.updateImage(this.imageFallen);
+            this.updateImageShift(this.imageShiftFallen);
+        }
+        else if (this.isDucking) {
             this.updateHitbox(this.boxes.switchBox(this.hitboxDuck, !this.isJumping));
             this.updateImage(this.animationDuck);
             this.updateImageShift(this.imageShiftDuck);
@@ -223,10 +241,15 @@ public class Player extends Entity {
                 height);
     }
 
-
     private Image loadJumpImage() {
-        int height = Measure.ph(Central.getResources().getInteger(R.integer.image_player_jump_height));
+        int height = Measure.phr(R.integer.image_player_jump_height);
         return new Image(ResourceProvider.loadImageByHeight(R.drawable.sprung, height));
+    }
+
+
+    private Image loadFallenImage() {
+        int height = Measure.phr(R.integer.image_player_fallen_height);
+        return new Image(ResourceProvider.loadImageByHeight(R.drawable.umgefallen, height));
     }
 
     @Override
