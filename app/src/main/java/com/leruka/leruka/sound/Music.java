@@ -39,12 +39,24 @@ public class Music {
         if (play) Music.play();
     }
 
+    public static boolean isPlaying() {
+        return isPlaying;
+    }
+
+    public static boolean isPaused() {
+        return isPaused;
+    }
+
+    public static boolean isMuted() {
+        return isMuted;
+    }
+
     // Methods
     public static void play() {
+        Music.isPaused = false;
         if (Music.isInitialized) {
-            Music.musicPlayer.start();
             Music.isPlaying = true;
-            Music.isPaused = false;
+            Music.musicPlayer.start();
         }
     }
 
