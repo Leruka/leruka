@@ -1,5 +1,7 @@
 package com.leruka.leruka.game.process;
 
+import android.util.Log;
+
 import com.leruka.leruka.game.Game;
 
 /**
@@ -54,9 +56,8 @@ public class DrawProcess {
                 }
                 Thread.sleep(sleepTime);
             } catch (InterruptedException e) {
-                // NOOOOOO
-                // just, don't know
-                e.printStackTrace();
+                Log.i("leruka", "draw thread has been interupted");
+                Thread.currentThread().interrupt();
             }
         }
 

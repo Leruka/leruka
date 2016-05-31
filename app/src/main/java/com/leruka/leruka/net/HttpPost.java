@@ -1,6 +1,9 @@
 package com.leruka.leruka.net;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
+import com.leruka.leruka.main.Central;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,7 +60,7 @@ public abstract class HttpPost<T> extends AsyncTask<PostObject, Integer, T> {
 
             return this.createResponseObject(in);
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.i(Central.LOG_TAG_MAIN, "Http POST failed with an IO exception");
             return null;
         }
     }

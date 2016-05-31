@@ -87,7 +87,7 @@ public class Player extends Entity {
 
         // position and dimension
         this.velocityY = 0;
-        this.jumpVelocity = Central.getDisplayHeight() / -30;
+        this.jumpVelocity = Central.getDisplayHeight() / -30f;
         this.pixelGravity = jumpVelocity / -40;
         // state
         this.isJumping = false;

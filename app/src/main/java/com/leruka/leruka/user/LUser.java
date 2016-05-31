@@ -1,6 +1,9 @@
 package com.leruka.leruka.user;
 
+import android.util.Log;
+
 import com.leruka.leruka.helper.Message;
+import com.leruka.leruka.main.Central;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -98,11 +101,10 @@ public class LUser {
                 sb.append(Integer.toString((aResult & 0xff) + 0x100, 16).substring(1));
             }
             return sb.toString();
-        } catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException | NullPointerException e) {
+            Log.w(Central.LOG_TAG_MAIN, "Faild hashing");
             Message.showErrorMessage("Failed hashing your Password. Cannot log in");
             // won't happen
-        } catch (NullPointerException e) {
-            Message.showErrorMessage("Failed hashing your Password. Cannot log in");
         }
         return null;
     }

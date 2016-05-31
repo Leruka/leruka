@@ -20,7 +20,7 @@ public class Hitbox {
     private int height;
     private int width;
 
-    public static Hitbox EMPTY = new Hitbox(0, 0, 0, 0);
+    public static final Hitbox EMPTY = new Hitbox(0, 0, 0, 0);
 
     public Hitbox(Rect... rects) {
         if (rects.length < 1) {
