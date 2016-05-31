@@ -13,6 +13,7 @@ import com.leruka.protobuf.User;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.logging.Logger;
 
 /**
  * Created by leif on 09.11.15.
@@ -39,7 +40,7 @@ public class Register {
         try {
             sendRegister(user);
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, e.getMessage());
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
         }
@@ -82,7 +83,7 @@ public class Register {
             try {
                 return User.ResponseRegister.parseFrom(in);
             } catch (IOException e) {
-                Log.i(Central.LOG_TAG_MAIN, e.getMessage());
+                Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
                 return null;
             }
         }

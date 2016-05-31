@@ -101,7 +101,7 @@ public class LUser {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException | NullPointerException e) {
-            Log.w(Central.LOG_TAG_MAIN, e.getMessage());
+            Log.w(Central.LOG_TAG_MAIN, e.getMessage(), e);
             Message.showErrorMessage("Failed hashing your Password. Cannot log in");
             // won't happen
         }

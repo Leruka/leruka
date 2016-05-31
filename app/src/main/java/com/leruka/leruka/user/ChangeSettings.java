@@ -37,7 +37,7 @@ public class ChangeSettings {
         try {
             sendChangeSettings(new LUser(newName, null), LUser.sha256(oldPass));
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, "IO exception in change settings");
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
             return new LoginResult(false, Central.getCurrentActivity().getResources().getString(R.string.VerbindungsfehlerServer
             ));
         }
@@ -64,7 +64,7 @@ public class ChangeSettings {
         try {
             sendChangeSettings(new LUser(null, LUser.sha256(pw1)), LUser.sha256(oldPass));
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, e.getMessage());
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
             return new LoginResult(false, Central.getCurrentActivity().getResources().getString(R.string.VerbindungsfehlerServer));
         }
 
@@ -95,7 +95,7 @@ public class ChangeSettings {
         try {
             sendChangeSettings(new LUser(newName, LUser.sha256(newPass1)), LUser.sha256(oldPass));
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, e.getMessage());
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
             return new LoginResult(false, Central.getCurrentActivity().getResources().getString(R.string.VerbindungsfehlerServer));
         }
 
@@ -128,7 +128,7 @@ public class ChangeSettings {
             try {
                 return User.ResponseChangeSettings.parseFrom(in);
             } catch (IOException e) {
-                Log.i(Central.LOG_TAG_MAIN, e.getMessage());
+                Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
                 e.printStackTrace();
                 return null;
             }

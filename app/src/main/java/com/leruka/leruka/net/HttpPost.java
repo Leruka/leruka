@@ -60,7 +60,7 @@ public abstract class HttpPost<T> extends AsyncTask<PostObject, Integer, T> {
 
             return this.createResponseObject(in);
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, e.getMessage());
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
             return null;
         }
     }

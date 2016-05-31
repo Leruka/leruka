@@ -40,7 +40,7 @@ public abstract class HttpGet<T> extends AsyncTask<String, Integer, T> {
 
             return this.createResponseObject(conn.getInputStream());
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, e.getMessage());
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
             return null;
         }
     }
