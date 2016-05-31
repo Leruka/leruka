@@ -100,13 +100,14 @@ public class ChangeSettingsActivity extends LerukaActivity {
         boolean changeName = !name.isEmpty() && !LUser.getCurrentUser().getUserName().equals(name);
         boolean changePass = !pw1.isEmpty() || !pw2.isEmpty();
 
-        // Change both
-        if (changeName && changePass) {
-            changeBoth(name, pw1, pw2, pwOld);
-        }
-        // Change name
-        else if (changeName) {
-            changeUsername(name, pwOld);
+        // Change Name
+        if (changeName) {
+            // Change Both
+            if(changePass) {
+                changeBoth(name, pw1, pw2, pwOld);
+            } else {
+                changeUsername(name, pwOld);
+            }
         }
         // Change pass
         else if (changePass) {
