@@ -3,8 +3,6 @@ package com.leruka.leruka.sound;
 import android.content.Context;
 import android.media.MediaPlayer;
 
-import com.leruka.leruka.main.Central;
-
 /**
  * Created by leif on 09.11.15.
  */

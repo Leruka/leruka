@@ -1,7 +1,5 @@
 package com.leruka.leruka.game.track.obstacle;
 
-import android.graphics.Point;
-
 import com.leruka.leruka.R;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.res.ResourceProvider;

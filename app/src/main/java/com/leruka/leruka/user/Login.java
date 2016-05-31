@@ -1,13 +1,9 @@
 package com.leruka.leruka.user;
 
-import android.app.Activity;
 import android.util.Log;
 
 import com.leruka.leruka.R;
-import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.activity.LoginActivity;
-import com.leruka.leruka.activity.RegisterActivity;
-import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpPost;

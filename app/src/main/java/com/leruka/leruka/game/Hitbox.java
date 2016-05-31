@@ -3,11 +3,9 @@ package com.leruka.leruka.game;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Point;
 import android.graphics.Rect;
 
 import java.security.InvalidParameterException;
-import java.util.List;
 
 /**
  * Created by leifb on 28.05.16.

@@ -10,7 +10,6 @@ import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpPost;
 import com.leruka.leruka.net.PostObject;
 import com.leruka.protobuf.Rating;
-import com.leruka.protobuf.User;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -2,7 +2,10 @@ package com.leruka.leruka.game.track.stage;
 
 import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.track.background.DefaultBackground;
-import com.leruka.leruka.game.track.obstacle.*;
+import com.leruka.leruka.game.track.obstacle.Obstacle;
+import com.leruka.leruka.game.track.obstacle.ObstacleBottom1;
+import com.leruka.leruka.game.track.obstacle.ObstacleBottom2;
+import com.leruka.leruka.game.track.obstacle.QueuedObstacle;
 import com.leruka.leruka.helper.Measure;
 
 /**

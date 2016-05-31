@@ -5,8 +5,6 @@ import android.widget.Toast;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ErrorCodes;
 
-import java.io.FileDescriptor;
-
 /**
  * This Class provides Methods for displaying messages to the user
  */

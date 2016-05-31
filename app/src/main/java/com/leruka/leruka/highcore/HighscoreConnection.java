@@ -5,7 +5,6 @@ import android.util.Log;
 import com.leruka.leruka.R;
 import com.leruka.leruka.activity.PrivateHighscoreActivity;
 import com.leruka.leruka.activity.PublicHighscoreActivity;
-import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;

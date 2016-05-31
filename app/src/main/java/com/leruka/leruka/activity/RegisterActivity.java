@@ -7,16 +7,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
-import android.support.v7.widget.Toolbar;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.user.LoginResult;
 import com.leruka.leruka.user.Register;
-import com.leruka.leruka.user.LUser;
 import com.leruka.protobuf.ErrorCodes;
 import com.leruka.protobuf.User;
 

@@ -10,8 +10,8 @@ import com.leruka.leruka.game.draw.Animation;
 import com.leruka.leruka.game.draw.Image;
 import com.leruka.leruka.game.track.Entity;
 import com.leruka.leruka.helper.Measure;
-import com.leruka.leruka.res.ResourceProvider;
 import com.leruka.leruka.main.Central;
+import com.leruka.leruka.res.ResourceProvider;
 
 /**
  * Created by leif on 09.11.15.

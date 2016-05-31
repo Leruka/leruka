@@ -4,12 +4,10 @@ import android.util.Log;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.activity.RegisterActivity;
-import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 import com.leruka.leruka.net.ContentType;
 import com.leruka.leruka.net.HttpPost;
 import com.leruka.leruka.net.PostObject;
-
 import com.leruka.protobuf.User;
 
 import java.io.IOException;

@@ -17,8 +17,6 @@ import com.leruka.leruka.user.LoginResult;
 import com.leruka.protobuf.ErrorCodes;
 import com.leruka.protobuf.User;
 
-import java.lang.annotation.Retention;
-
 public class LoginActivity extends LerukaActivity {
 
     private EditText inputName;

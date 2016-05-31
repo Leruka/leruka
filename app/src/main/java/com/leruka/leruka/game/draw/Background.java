@@ -3,7 +3,6 @@ package com.leruka.leruka.game.draw;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
-import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.main.Central;
 
 /**

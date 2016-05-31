@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.EditText;
 
 import com.leruka.leruka.R;
-import com.leruka.leruka.user.Login;
 
 public class GuestMainActivity extends LerukaActivity {
 

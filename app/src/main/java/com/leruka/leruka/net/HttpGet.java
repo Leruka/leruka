@@ -3,7 +3,6 @@ package com.leruka.leruka.net;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.leruka.leruka.helper.Message;
 import com.leruka.leruka.main.Central;
 
 import java.io.IOException;

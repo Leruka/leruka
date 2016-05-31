@@ -1,7 +1,6 @@
 package com.leruka.leruka.res;
 
 import android.graphics.Bitmap;
-import android.graphics.Point;
 
 import java.util.HashMap;
 import java.util.Map;

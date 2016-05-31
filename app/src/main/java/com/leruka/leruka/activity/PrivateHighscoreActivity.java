@@ -2,8 +2,6 @@ package com.leruka.leruka.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -14,8 +12,6 @@ import com.leruka.leruka.highcore.Score;
 import com.leruka.leruka.main.Central;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class PrivateHighscoreActivity extends HighscoreActivity {

@@ -1,7 +1,5 @@
 package com.leruka.leruka.res;
 
-import android.graphics.Point;
-
 /**
  * Created by leifb on 11.05.16.
  */
