@@ -25,7 +25,7 @@ public class PrivateHighscoreActivity extends HighscoreActivity {
         // First, make the layout available to allow refreshing it
         setContentView(R.layout.activity_private_highscore);
         super.onCreate(savedInstanceState);
-        HighscoreConnection.GetPrivateScore();
+        HighscoreConnection.getPrivateScore();
     }
 
     public void updateTable() {

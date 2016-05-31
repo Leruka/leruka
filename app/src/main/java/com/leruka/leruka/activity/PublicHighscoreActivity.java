@@ -29,7 +29,7 @@ public class PublicHighscoreActivity extends HighscoreActivity {
         // First, make the layout  available to allow refreshing it
         setContentView(R.layout.activity_public_highscore);
         super.onCreate(savedInstanceState);
-        HighscoreConnection.GetPublicScore();
+        HighscoreConnection.getPublicScore();
     }
 
     public void updateTable() {
