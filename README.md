@@ -1,5 +1,6 @@
 # leruka
 [![Quality Gate](http://sonarqube.it.dh-karlsruhe.de/api/badges/gate?key=leruka)](http://sonarqube.it.dh-karlsruhe.de/overview?id=leruka)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fb6fab3242c34400997b8c8207895f9f)](https://www.codacy.com/app/leruka/leruka?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Leruka/leruka&amp;utm_campaign=Badge_Grade)
 
 Here we will create our jump'n'run game! It is a project by Kassandra, Ruth and Leif, part of our course "Software Engineering" at the DHBW Karlsruhe.
 
