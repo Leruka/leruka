@@ -77,7 +77,7 @@ public class Login {
             try {
                 return User.ResponseLogin.parseFrom(in);
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.i(Central.LOG_TAG_MAIN, "Could not parse Login POST response");
                 return null;
             }
         }

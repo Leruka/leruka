@@ -1,5 +1,7 @@
 package com.leruka.leruka.user;
 
+import android.util.Log;
+
 import com.leruka.leruka.R;
 import com.leruka.leruka.activity.RegisterActivity;
 import com.leruka.leruka.helper.Message;
@@ -39,6 +41,7 @@ public class Register {
         try {
             sendRegister(user);
         } catch (IOException e) {
+            Log.i(Central.LOG_TAG_MAIN, "IO exception in register");
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
         }
@@ -81,7 +84,7 @@ public class Register {
             try {
                 return User.ResponseRegister.parseFrom(in);
             } catch (IOException e) {
-                e.printStackTrace();
+                Log.i(Central.LOG_TAG_MAIN, "Could not parse register POST response");
                 return null;
             }
         }
