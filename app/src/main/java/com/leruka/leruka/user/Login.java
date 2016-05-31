@@ -40,7 +40,7 @@ public class Login {
         try {
             sendLogin(user);
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, "IO exception in login");
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
         }
@@ -73,7 +73,7 @@ public class Login {
             try {
                 return User.ResponseLogin.parseFrom(in);
             } catch (IOException e) {
-                Log.i(Central.LOG_TAG_MAIN, "Could not parse Login POST response");
+                Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
                 return null;
             }
         }

@@ -39,7 +39,7 @@ public class Register {
         try {
             sendRegister(user);
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, "IO exception in register");
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
         }
@@ -82,7 +82,7 @@ public class Register {
             try {
                 return User.ResponseRegister.parseFrom(in);
             } catch (IOException e) {
-                Log.i(Central.LOG_TAG_MAIN, "Could not parse register POST response");
+                Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
                 return null;
             }
         }
