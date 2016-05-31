@@ -79,7 +79,7 @@ public class HighscoreConnection {
             try {
                 return Highscore.ResponseScores.parseFrom(in);
             } catch (IOException e) {
-                Log.i(Central.LOG_TAG_MAIN, "Could not read public highscore response.");
+                Log.i(Central.LOG_TAG_MAIN, e.getMessage());
                 Message.showErrorMessage("Communication with the server failed, please try again later!");
                 return null;
             }
@@ -113,7 +113,7 @@ public class HighscoreConnection {
             try {
                 return Highscore.ResponseScores.parseFrom(in);
             } catch (IOException e) {
-                Log.i(Central.LOG_TAG_MAIN, "Could not read private highscore response.");
+                Log.i(Central.LOG_TAG_MAIN, e.getMessage());
                 Message.showErrorMessage("Communication with the server failed, please try again later!");
                 return null;
             }

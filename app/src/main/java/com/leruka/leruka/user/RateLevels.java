@@ -35,7 +35,7 @@ public class RateLevels {
         try {
             sendRateLevel(rating, levelID);
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, "IO exception in rate levels");
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage());
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
         }
@@ -49,7 +49,7 @@ public class RateLevels {
         try {
             sendGetRating(levelID);
         } catch (IOException e) {
-            Log.i(Central.LOG_TAG_MAIN, "IO exception in rate levels");
+            Log.i(Central.LOG_TAG_MAIN, e.getMessage());
             return new LoginResult(false, "Es konnte keine Verbindung zum Server hergestellt " +
                     "werden. Bite überprüfe deine Internetverbindung.");
         }
@@ -107,7 +107,7 @@ public class RateLevels {
             try {
                 return Rating.ResponseRateLevel.parseFrom(in);
             } catch (IOException e) {
-                Log.i(Central.LOG_TAG_MAIN, "Could not parse rate level POST response");
+                Log.i(Central.LOG_TAG_MAIN, e.getMessage());
                 return null;
             }
         }
@@ -124,7 +124,7 @@ public class RateLevels {
             try {
                 return Rating.ResponseGetRating.parseFrom(in);
             } catch (IOException e) {
-                Log.i(Central.LOG_TAG_MAIN, "Could not parse get rating POST response");
+                Log.i(Central.LOG_TAG_MAIN, e.getMessage());
                 return null;
             }
         }
