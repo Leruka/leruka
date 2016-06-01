@@ -152,6 +152,9 @@ public class Player extends Entity {
 
     public void collide() {
         this.hasCollided = true;
+        if (this.isJumping && this.velocityY < 0) {
+            this.velocityY = 0;
+        }
         this.updateEntity();
     }
 
