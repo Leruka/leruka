@@ -4,7 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import com.leruka.leruka.activity.GameMainActivity;
 import com.leruka.leruka.game.Game;
 import com.leruka.leruka.game.Player;
 import com.leruka.leruka.game.draw.Background;
@@ -32,7 +31,7 @@ public abstract class Track {
     private List<Obstacle> obstacles;
     private Queue<QueuedObstacle> queuedObstacles;
     private Paint scorePaint;
-    private int afterColisionTimer;
+    private int afterCollisionTimer;
     private Effects effects;
 
     protected Random random;
@@ -45,7 +44,7 @@ public abstract class Track {
         this.obstacles = new DynamicArrayList<>();
         this.queuedObstacles = new LinkedList<>();
         this.random = new Random();
-        this.afterColisionTimer = 150;
+        this.afterCollisionTimer = 150;
         this.effects = Central.createEffects();
 
         // Abstract settings
@@ -107,8 +106,8 @@ public abstract class Track {
 
     private void updateAfterCollision() {
         this.player.update();
-        this.afterColisionTimer--;
-        if (this.afterColisionTimer <= 0) {
+        this.afterCollisionTimer--;
+        if (this.afterCollisionTimer <= 0) {
             Game.gameOver();
         }
     }
