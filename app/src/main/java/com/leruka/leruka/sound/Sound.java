@@ -11,7 +11,7 @@ public enum Sound {
     Theme(R.raw.music),
 
     // Sounds
-    Step(R.raw.music);
+    Hit(R.raw.bang_1);
 
     // enum stuff
     private int resId;

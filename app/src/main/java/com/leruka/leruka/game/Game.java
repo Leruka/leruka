@@ -14,6 +14,7 @@ import com.leruka.leruka.game.track.stage.Stage2;
 import com.leruka.leruka.highcore.HighscoreConnection;
 import com.leruka.leruka.input.Gesture;
 import com.leruka.leruka.main.Central;
+import com.leruka.leruka.sound.Music;
 import com.leruka.leruka.user.LUser;
 
 /**

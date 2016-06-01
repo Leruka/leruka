@@ -1,21 +1,32 @@
 package com.leruka.leruka.sound;
 
+import android.content.Context;
+import android.media.MediaPlayer;
+
 /**
  * Created by leif on 09.11.15.
  */
 public class Effects {
 
     // Attributes
-    private static boolean isMuted;
+    private boolean isMuted;
+    private Context context;
 
-    // Methods
-    public static void play(Sound s) {
-        //TODO
+    public Effects(Context context) {
+        this.context = context;
     }
 
-    public static void setMute(boolean isMuted) {
-        //TODO
-        Effects.isMuted = isMuted;
+    // Methods
+    public void play(Sound s) {
+        if (!isMuted) MediaPlayer.create(this.context, s.getRes()).start();
+    }
+
+    public void mute() {
+        this.isMuted = true;
+    }
+
+    public void unmute()  {
+        this.isMuted = false;
     }
 
 }

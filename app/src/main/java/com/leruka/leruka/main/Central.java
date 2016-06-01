@@ -12,6 +12,7 @@ import com.leruka.leruka.activity.GameMainActivity;
 import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.activity.UserMainActivity;
 import com.leruka.leruka.helper.Measure;
+import com.leruka.leruka.sound.Effects;
 import com.leruka.leruka.user.LUser;
 import com.leruka.protobuf.User;
 
@@ -75,6 +76,10 @@ public class Central {
 
     public static int getObstacleSpeed() {
         return obstacleSpeed;
+    }
+
+    public static Effects createEffects() {
+        return new Effects(Central.getCurrentActivity());
     }
 
     // SETTER

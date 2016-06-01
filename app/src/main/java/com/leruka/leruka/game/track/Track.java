@@ -12,6 +12,9 @@ import com.leruka.leruka.game.track.obstacle.Obstacle;
 import com.leruka.leruka.game.track.obstacle.QueuedObstacle;
 import com.leruka.leruka.helper.DynamicArrayList;
 import com.leruka.leruka.main.Central;
+import com.leruka.leruka.sound.Effects;
+import com.leruka.leruka.sound.Music;
+import com.leruka.leruka.sound.Sound;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -30,6 +33,7 @@ public abstract class Track {
     private Queue<QueuedObstacle> queuedObstacles;
     private Paint scorePaint;
     private int afterColisionTimer;
+    private Effects effects;
 
     protected Random random;
 
@@ -42,6 +46,7 @@ public abstract class Track {
         this.queuedObstacles = new LinkedList<>();
         this.random = new Random();
         this.afterColisionTimer = 150;
+        this.effects = Central.createEffects();
 
         // Abstract settings
         this.background = this.createBackground();
@@ -93,6 +98,8 @@ public abstract class Track {
         for (Obstacle o : this.obstacles) {
             if (o.intersects(player)) {
                 this.player.collide();
+                this.effects.play(Sound.Hit);
+                Music.stop();
                 return;
             }
         }
