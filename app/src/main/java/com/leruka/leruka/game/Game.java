@@ -115,7 +115,8 @@ public class Game {
      */
     public static void tick() {
         track.update();
-        Game.increaseCounter();
+        if (!Game.player.hasCollided())
+            Game.increaseCounter();
     }
 
 
