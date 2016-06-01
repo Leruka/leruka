@@ -9,9 +9,6 @@ jacocoAndroidUnitTestReport {
     csv.enabled false
     html.enabled true
     xml.enabled true
-    excludes += ['**/game/track/obstacle/*.*',
-                 '**/*JavascriptBridge.class',
-    ]
 }
 
 sonarqube {
