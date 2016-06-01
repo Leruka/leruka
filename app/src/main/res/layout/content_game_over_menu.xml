@@ -1,65 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.leruka.leruka.activity.GameOverMenuActivity"
-    tools:showIn="@layout/activity_game_over_menu">
+    tools:showIn="@layout/activity_game_over_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:stretchColumns="1">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Punktzahl"
-            android:id="@+id/tvPunktzehl"
+            android:text="@string/score"
             android:layout_marginTop="30dp"
-            android:layout_below="@+id/textGameOver"
-            android:layout_centerHorizontal="true"
-                android:layout_column="1" />
+            android:layout_gravity="center_horizontal" />
 
-        </TableRow>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/score_default"
+            android:id="@+id/tvScore"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center_horizontal" />
 
         <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nochmal spielen"
-        android:id="@+id/btnNochmalSpielen"
-        android:layout_marginTop="55dp"
-        android:layout_below="@+id/tvPunktzehl"
-        android:layout_centerHorizontal="true" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/restart_game"
+            android:onClick="onButtonRestart"
+            android:layout_gravity="center_horizontal" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hauptmenü"
-        android:id="@+id/btnHauptmenue"
-        android:layout_below="@+id/btnNochmalSpielen"
-        android:layout_alignRight="@+id/btnNochmalSpielen"
-        android:layout_alignEnd="@+id/btnNochmalSpielen"
-        android:layout_marginTop="47dp"
-        android:layout_alignLeft="@+id/btnNochmalSpielen"
-        android:layout_alignStart="@+id/btnNochmalSpielen" />
-    </TableLayout>
-    </ScrollView>
-
-</RelativeLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_menu"
+            android:onClick="onButtonMain"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+</ScrollView>

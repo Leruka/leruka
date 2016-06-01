@@ -51,6 +51,10 @@ public class HighscoreConnection {
         }
     }
 
+    public static void pushPrivateScore(int score) {
+        //TODO
+    }
+
     private static class PublicScoreGet extends HttpGet<Highscore.ResponseScores> {
 
         @Override

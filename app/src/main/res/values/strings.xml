@@ -56,4 +56,7 @@
     <string name="privateHighscore_url">http://78.46.212.166:8080/leruka/privatescore</string>
     <string name="PasswortEingabeAufforderung">Bitte gib dein aktuelles Passwort an</string>
     <string name="VerbindungsfehlerServer">Es konnte keine Verbindung zum Server hergestellt werden. Bite überprüfe deine Internetverbindung.</string>
+    <string name="restart_game">Nochmal spielen</string>
+    <string name="main_menu">Hauptmenü</string>
+    <string name="score_default">0</string>
 </resources>
