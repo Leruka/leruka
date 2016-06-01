@@ -66,6 +66,7 @@ public class Central {
 
     // SETTER
 
+    @SuppressWarnings("SuspiciousNameCombination")
     public static void setCurrentActivity(Activity currentActivity) {
         // On first time: get the display metrics
         if (Central.currentActivity == null) {

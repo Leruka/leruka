@@ -17,19 +17,17 @@ jacocoAndroidUnitTestReport {
 sonarqube {
     properties {
         property "sonar.projectName", "Leruka"
-        property "sonar.projectVersion", "1.0"
+        property "sonar.projectVersion", "1.0.0"
         property "sonar.version", "2.0"
+        property "sonar.verbose", "false"
 
         property "sonar.sources", "./src/main/java/com/leruka/leruka"
         property "sonar.tests", "./src/test/java"
-
         property "sonar.java.binaries", "./build/intermediates/classes/debug"
         property "sonar.junit.reportsPath", "./build/test-results/debug"
         property "sonar.jacoco.reportPath", "./build/jacoco/testDebugUnitTest.exec"
-
         property "sonar.java.libraries", "./libs"
-
-        property "sonar.verbose", "false"
+        property "sonar.exclusions", "./src/main/java/com/leruka/protobuf/*.java"
 
         property "sonar.coverage.exclusions",
                 "src/main/java/com/leruka/leruka/game/track/obstacle/*.java," +
@@ -51,7 +49,6 @@ sonarqube {
                 "src/main/java/com/leruka/leruka/game/draw/Animation.java," +
                 "src/main/java/com/leruka/leruka/game/track/Entity.java," +
                 "src/main/java/com/leruka/leruka/sound/Music.java"
-        property "sonar.exclusions", "./src/main/java/com/leruka/protobuf/*.java"
     }
 }
 
