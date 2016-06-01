@@ -29,6 +29,8 @@ public class HighscoreConnection {
 
     private static final String PUBLIC_SCORE_URL = Central.getCurrentActivity().getResources().getString(R.string.publicHighscore_url);
     private static final String PRIVATE_SCORE_URL = Central.getCurrentActivity().getResources().getString(R.string.privateHighscore_url);
+    private static final String PUSH_SCORE_URL = Central.getCurrentActivity().getResources().getString(R.string.pushScore_url);
+
 
     public static void getPublicScore() {
         new PublicScoreGet().execute(PUBLIC_SCORE_URL);
@@ -52,7 +54,25 @@ public class HighscoreConnection {
     }
 
     public static void pushPrivateScore(int score) {
-        //TODO
+
+        // Create proto
+        Highscore.RequestPushScore proto = Highscore.RequestPushScore.newBuilder()
+                .setScore(score)
+                .setSessionID(LUser.getSessionID())
+                .build();
+
+        // Push
+        try {
+            new PushScorePost().execute(
+                    new PostObject(
+                            new URL(PUSH_SCORE_URL),
+                            ContentType.protobuf,
+                            proto.toByteArray()
+                    )
+            );
+        } catch (MalformedURLException e) {
+            /* this will not happen, I promise */
+        }
     }
 
     private static class PublicScoreGet extends HttpGet<Highscore.ResponseScores> {
@@ -109,6 +129,27 @@ public class HighscoreConnection {
             }
             else {
                 //TODO
+            }
+        }
+
+        @Override
+        protected Highscore.ResponseScores createResponseObject(InputStream in) {
+            try {
+                return Highscore.ResponseScores.parseFrom(in);
+            } catch (IOException e) {
+                Log.i(Central.LOG_TAG_MAIN, e.getMessage(), e);
+                Message.showErrorMessage("Communication with the server failed, please try again later!");
+                return null;
+            }
+        }
+    }
+
+    private static class PushScorePost extends HttpPost<Highscore.ResponseScores> {
+
+        @Override
+        protected void onPostExecute(Highscore.ResponseScores response) {
+            if (response == null || !response.getSuccess()) {
+                Message.showErrorMessage("Could not push score");
             }
         }
 

@@ -45,7 +45,7 @@ public class Central {
 
 
     public static void goToMain(Context context) {
-        Intent intent = new Intent(context, LUser.hasValidUser() ? UserMainActivity.class : GuestMainActivity.class);
+        Intent intent = new Intent(context, LUser.isLoggedIn() ? UserMainActivity.class : GuestMainActivity.class);
         context.startActivity(intent);
     }
 

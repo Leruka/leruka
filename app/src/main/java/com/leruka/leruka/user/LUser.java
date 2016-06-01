@@ -45,6 +45,10 @@ public class LUser {
         LUser.currentUser = currentUser;
     }
 
+    public static boolean isLoggedIn() {
+        return LUser.getSessionID() != null && !LUser.getSessionID().isEmpty();
+    }
+
     public static boolean hasValidUser() {
         return isCurrentValid;
     }

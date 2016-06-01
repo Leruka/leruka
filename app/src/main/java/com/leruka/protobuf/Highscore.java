@@ -1157,6 +1157,514 @@ public final class Highscore {
 
   }
 
+  public interface RequestPushScoreOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:leruka.RequestPushScore)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string sessionID = 1;</code>
+     */
+    String getSessionID();
+    /**
+     * <code>optional string sessionID = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSessionIDBytes();
+
+    /**
+     * <code>optional uint64 score = 2;</code>
+     */
+    long getScore();
+  }
+  /**
+   * Protobuf type {@code leruka.RequestPushScore}
+   */
+  public  static final class RequestPushScore extends
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:leruka.RequestPushScore)
+      RequestPushScoreOrBuilder {
+    // Use RequestPushScore.newBuilder() to construct.
+    private RequestPushScore(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+    }
+    private RequestPushScore() {
+      sessionID_ = "";
+      score_ = 0L;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private RequestPushScore(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry) {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              sessionID_ = s;
+              break;
+            }
+            case 16: {
+
+              score_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw new RuntimeException(e.setUnfinishedMessage(this));
+      } catch (java.io.IOException e) {
+        throw new RuntimeException(
+            new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this));
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return Highscore.internal_static_leruka_RequestPushScore_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return Highscore.internal_static_leruka_RequestPushScore_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              RequestPushScore.class, Builder.class);
+    }
+
+    public static final int SESSIONID_FIELD_NUMBER = 1;
+    private volatile Object sessionID_;
+    /**
+     * <code>optional string sessionID = 1;</code>
+     */
+    public String getSessionID() {
+      Object ref = sessionID_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        sessionID_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string sessionID = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSessionIDBytes() {
+      Object ref = sessionID_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        sessionID_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SCORE_FIELD_NUMBER = 2;
+    private long score_;
+    /**
+     * <code>optional uint64 score = 2;</code>
+     */
+    public long getScore() {
+      return score_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getSessionIDBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessage.writeString(output, 1, sessionID_);
+      }
+      if (score_ != 0L) {
+        output.writeUInt64(2, score_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getSessionIDBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessage.computeStringSize(1, sessionID_);
+      }
+      if (score_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, score_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    public static RequestPushScore parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RequestPushScore parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RequestPushScore parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static RequestPushScore parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static RequestPushScore parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static RequestPushScore parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static RequestPushScore parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static RequestPushScore parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static RequestPushScore parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static RequestPushScore parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(RequestPushScore prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code leruka.RequestPushScore}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:leruka.RequestPushScore)
+        RequestPushScoreOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return Highscore.internal_static_leruka_RequestPushScore_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return Highscore.internal_static_leruka_RequestPushScore_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                RequestPushScore.class, Builder.class);
+      }
+
+      // Construct using com.leruka.protobuf.Highscore.RequestPushScore.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        sessionID_ = "";
+
+        score_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return Highscore.internal_static_leruka_RequestPushScore_descriptor;
+      }
+
+      public RequestPushScore getDefaultInstanceForType() {
+        return RequestPushScore.getDefaultInstance();
+      }
+
+      public RequestPushScore build() {
+        RequestPushScore result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public RequestPushScore buildPartial() {
+        RequestPushScore result = new RequestPushScore(this);
+        result.sessionID_ = sessionID_;
+        result.score_ = score_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof RequestPushScore) {
+          return mergeFrom((RequestPushScore)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(RequestPushScore other) {
+        if (other == RequestPushScore.getDefaultInstance()) return this;
+        if (!other.getSessionID().isEmpty()) {
+          sessionID_ = other.sessionID_;
+          onChanged();
+        }
+        if (other.getScore() != 0L) {
+          setScore(other.getScore());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        RequestPushScore parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (RequestPushScore) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private Object sessionID_ = "";
+      /**
+       * <code>optional string sessionID = 1;</code>
+       */
+      public String getSessionID() {
+        Object ref = sessionID_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          sessionID_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>optional string sessionID = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSessionIDBytes() {
+        Object ref = sessionID_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          sessionID_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string sessionID = 1;</code>
+       */
+      public Builder setSessionID(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        sessionID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string sessionID = 1;</code>
+       */
+      public Builder clearSessionID() {
+        
+        sessionID_ = getDefaultInstance().getSessionID();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string sessionID = 1;</code>
+       */
+      public Builder setSessionIDBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        sessionID_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long score_ ;
+      /**
+       * <code>optional uint64 score = 2;</code>
+       */
+      public long getScore() {
+        return score_;
+      }
+      /**
+       * <code>optional uint64 score = 2;</code>
+       */
+      public Builder setScore(long value) {
+        
+        score_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 score = 2;</code>
+       */
+      public Builder clearScore() {
+        
+        score_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:leruka.RequestPushScore)
+    }
+
+    // @@protoc_insertion_point(class_scope:leruka.RequestPushScore)
+    private static final RequestPushScore DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new RequestPushScore();
+    }
+
+    public static RequestPushScore getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RequestPushScore>
+        PARSER = new com.google.protobuf.AbstractParser<RequestPushScore>() {
+      public RequestPushScore parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        try {
+          return new RequestPushScore(input, extensionRegistry);
+        } catch (RuntimeException e) {
+          if (e.getCause() instanceof
+              com.google.protobuf.InvalidProtocolBufferException) {
+            throw (com.google.protobuf.InvalidProtocolBufferException)
+                e.getCause();
+          }
+          throw e;
+        }
+      }
+    };
+
+    public static com.google.protobuf.Parser<RequestPushScore> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<RequestPushScore> getParserForType() {
+      return PARSER;
+    }
+
+    public RequestPushScore getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ResponseScoresOrBuilder extends
       // @@protoc_insertion_point(interface_extends:leruka.ResponseScores)
       com.google.protobuf.MessageOrBuilder {
@@ -2916,6 +3424,11 @@ public final class Highscore {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_leruka_RequestPrivateScore_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_leruka_RequestPushScore_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_leruka_RequestPushScore_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_leruka_ResponseScores_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -2938,13 +3451,14 @@ public final class Highscore {
       "oto\"J\n\023RequestGlobalScores\022\021\n\tlevelName\030" +
       "\001 \001(\t\022\020\n\010fromRank\030\002 \001(\004\022\016\n\006toRank\030\003 \001(\004\"" +
       ";\n\023RequestPrivateScore\022\021\n\tsessionID\030\001 \001(" +
-      "\t\022\021\n\tlevelName\030\002 \001(\t\"y\n\016ResponseScores\022\017" +
-      "\n\007success\030\001 \001(\010\022\021\n\tlevelName\030\002 \001(\t\022\035\n\006sc" +
-      "ores\030\003 \003(\0132\r.leruka.Score\022$\n\terrorCode\030\004" +
-      " \003(\0162\021.leruka.ErrorCode\"I\n\005Score\022\020\n\010user" +
-      "Name\030\001 \001(\t\022\014\n\004rank\030\002 \001(\004\022\r\n\005score\030\003 \001(\004\022" +
-      "\021\n\ttimestamp\030\004 \001(\004B\025\n\023com.leruka.protobu",
-      "fb\006proto3"
+      "\t\022\021\n\tlevelName\030\002 \001(\t\"4\n\020RequestPushScore" +
+      "\022\021\n\tsessionID\030\001 \001(\t\022\r\n\005score\030\002 \001(\004\"y\n\016Re" +
+      "sponseScores\022\017\n\007success\030\001 \001(\010\022\021\n\tlevelNa" +
+      "me\030\002 \001(\t\022\035\n\006scores\030\003 \003(\0132\r.leruka.Score\022" +
+      "$\n\terrorCode\030\004 \003(\0162\021.leruka.ErrorCode\"I\n" +
+      "\005Score\022\020\n\010userName\030\001 \001(\t\022\014\n\004rank\030\002 \001(\004\022\r",
+      "\n\005score\030\003 \001(\004\022\021\n\ttimestamp\030\004 \001(\004B\025\n\023com." +
+      "leruka.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2971,14 +3485,20 @@ public final class Highscore {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_RequestPrivateScore_descriptor,
         new String[] { "SessionID", "LevelName", });
-    internal_static_leruka_ResponseScores_descriptor =
+    internal_static_leruka_RequestPushScore_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_leruka_RequestPushScore_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_leruka_RequestPushScore_descriptor,
+        new String[] { "SessionID", "Score", });
+    internal_static_leruka_ResponseScores_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_leruka_ResponseScores_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_ResponseScores_descriptor,
         new String[] { "Success", "LevelName", "Scores", "ErrorCode", });
     internal_static_leruka_Score_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_leruka_Score_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_leruka_Score_descriptor,

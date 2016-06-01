@@ -11,8 +11,10 @@ import com.leruka.leruka.game.process.MainProcess;
 import com.leruka.leruka.game.track.Track;
 import com.leruka.leruka.game.track.stage.Stage1;
 import com.leruka.leruka.game.track.stage.Stage2;
+import com.leruka.leruka.highcore.HighscoreConnection;
 import com.leruka.leruka.input.Gesture;
 import com.leruka.leruka.main.Central;
+import com.leruka.leruka.user.LUser;
 
 /**
  * This class is controlling all the actions that have to be done in order to run the game itself.
@@ -51,6 +53,8 @@ public class Game {
         player = new Player();
         // Create Track
         track = createTrack(1);
+        // Reset Score
+        counter = 0;
     }
 
     /**
@@ -81,7 +85,15 @@ public class Game {
     }
 
     public static void gameOver() {
+        // Stop threads
         Game.stop();
+
+        // Push score
+        if (LUser.isLoggedIn()) {
+            HighscoreConnection.pushPrivateScore(Game.getScore());
+        }
+
+        // Go to game over
         if (Central.getCurrentActivity().getClass().equals(GameMainActivity.class)) {
             ((GameMainActivity) Central.getCurrentActivity()).goToGameOverScreen();
         }
@@ -139,7 +151,11 @@ public class Game {
     }
 
     public static String getCounter() {
-        return Integer.toString(counter / 100);
+        return Integer.toString(Game.getScore());
+    }
+
+    private static int getScore() {
+        return counter / 100;
     }
 
     public static void increaseCounter() {
