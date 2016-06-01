@@ -47,7 +47,7 @@ public class Entity {
                 this.hitbox.getY() + this.imageShift.y,
                 null);
 
-        if (Central.isDev)
+        if (Central.drawRects)
             this.hitbox.draw(canvas);
     }
 

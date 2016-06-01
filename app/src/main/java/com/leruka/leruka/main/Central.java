@@ -24,10 +24,12 @@ public class Central {
 
     /** Determines, if the app should run for developers: This will enable debug messages */
     public static final boolean isDev = true;
+    public static final boolean drawRects = false;
     /** The time that should be between each tick. Adjusting later on may cause problems! */
     public static final int targetTickNanos = (int) 1e+7; // 1/100 s
 
     public static final String LOG_TAG_MAIN = "leruka";
+
 
     private static final double groundLevelPercentage = 5.0;
 

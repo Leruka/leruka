@@ -255,7 +255,7 @@ public class Player extends Entity {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        if (Central.isDev) {
+        if (Central.drawRects) {
             this.drawGroundLine(canvas);
         }
     }
