@@ -11,7 +11,7 @@ import com.leruka.leruka.R;
 import com.leruka.leruka.game.Game;
 import com.leruka.leruka.main.Central;
 
-public class GameOverMenuActivity extends AppCompatActivity {
+public class GameOverMenuActivity extends LerukaActivity {
 
 
     @Override
