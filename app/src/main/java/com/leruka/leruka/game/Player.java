@@ -4,7 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
-import android.provider.ContactsContract;
 
 import com.leruka.leruka.R;
 import com.leruka.leruka.game.draw.Animation;

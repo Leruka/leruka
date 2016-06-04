@@ -8,13 +8,11 @@ import android.graphics.Point;
 import android.os.Build;
 import android.util.DisplayMetrics;
 
-import com.leruka.leruka.activity.GameMainActivity;
 import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.activity.UserMainActivity;
 import com.leruka.leruka.helper.Measure;
 import com.leruka.leruka.sound.Effects;
 import com.leruka.leruka.user.LUser;
-import com.leruka.protobuf.User;
 
 /**
  * This Class is a central place to temporary store data and settings.

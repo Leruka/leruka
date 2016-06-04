@@ -1,11 +1,9 @@
 package com.leruka.leruka.game;
 
-import android.content.Intent;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
 import com.leruka.leruka.activity.GameMainActivity;
-import com.leruka.leruka.activity.GuestMainActivity;
 import com.leruka.leruka.game.process.DrawProcess;
 import com.leruka.leruka.game.process.MainProcess;
 import com.leruka.leruka.game.track.Track;
@@ -14,7 +12,6 @@ import com.leruka.leruka.game.track.stage.Stage2;
 import com.leruka.leruka.highcore.HighscoreConnection;
 import com.leruka.leruka.input.Gesture;
 import com.leruka.leruka.main.Central;
-import com.leruka.leruka.sound.Music;
 import com.leruka.leruka.user.LUser;
 
 /**
