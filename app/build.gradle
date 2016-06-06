@@ -35,7 +35,7 @@ sonarqube {
                 "src/main/java/com/leruka/leruka/user/Register.java," +
                 "src/main/java/com/leruka/leruka/highcore/HighscoreConnection.java," +
                 "src/main/java/com/leruka/leruka/helper/Measure.java," +
-                "src/main/java/com/leruka/leruka/net/HttpGett.java," +
+                "src/main/java/com/leruka/leruka/net/HttpGet.java," +
                 "src/main/java/com/leruka/leruka/net/HttpPost.java," +
                 "src/main/java/com/leruka/leruka/res/*.java," +
                 "src/main/java/com/leruka/leruka/game/Game.java," +
@@ -45,7 +45,9 @@ sonarqube {
                 "src/main/java/com/leruka/leruka/game/MorphingHitbox.java," +
                 "src/main/java/com/leruka/leruka/game/draw/Animation.java," +
                 "src/main/java/com/leruka/leruka/game/track/Entity.java," +
-                "src/main/java/com/leruka/leruka/sound/Music.java"
+                "src/main/java/com/leruka/leruka/game/process/DrawProcess.java," +
+                "src/main/java/com/leruka/leruka/sound/Music.java," +
+                "src/main/java/com/leruka/leruka/sound/Effects.java"
     }
 }
 
