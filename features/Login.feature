@@ -1,5 +1,8 @@
 Feature: Login feature
 
+  As a member
+  I want to login
+
   Scenario: Login works fine
     Given I wait for "Leruka" to appear
     When I press "Einloggen"

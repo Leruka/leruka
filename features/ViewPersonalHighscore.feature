@@ -1,4 +1,5 @@
 Feature: View personal highscore
+
   As a app user
   I want to see my highscore
 

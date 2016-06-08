@@ -1,6 +1,9 @@
 Feature: Register feature
 
-  Scenario: Register with different passwords
+  As a guest
+  I want to create an account
+
+  Scenario: Register with different passwords fails
     Given I wait for "Leruka" to appear
     When I press "Registrieren"
     And I enter "Gustav" into input field number 1
@@ -9,7 +12,7 @@ Feature: Register feature
     And I press "Registrieren"
     Then I should see "Registrieren"
 
-  Scenario: Register with already existing user
+  Scenario: Register with already existing username fails
     Given I wait for "Leruka" to appear
     When I press "Registrieren"
     And I enter "Hugo" into input field number 1

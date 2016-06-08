@@ -1,9 +1,9 @@
 Feature: Change Settings
+
   As a logged in user
   I want to change my settings
 
-
-  Scenario: change password with invalid old password
+  Scenario: change password with invalid old password fails
     Given I press "Einloggen"
     And I enter "Opa" into input field number 1
     And I enter "123456" into input field number 2
@@ -16,7 +16,7 @@ Feature: Change Settings
     Then I should see "Einstellungen"
 
 
-  Scenario: change password with invalid new password
+  Scenario: change password with invalid new password fails
     Given I press "Einloggen"
     And I enter "Opa" into input field number 1
     And I enter "123456" into input field number 2
@@ -29,7 +29,7 @@ Feature: Change Settings
     Then I should see "Einstellungen"
 
 
-  Scenario: change display name with name in use
+  Scenario: change display name with name in use fails
     Given I press "Einloggen"
     And I enter "Opa" into input field number 1
     And I enter "123456" into input field number 2
@@ -41,7 +41,7 @@ Feature: Change Settings
     Then I should see "Einstellungen"
 
 
-  Scenario: Cancel change the password
+  Scenario: Change password by clicking cancel fails
     Given I press "Einloggen"
     And I enter "Opa" into input field number 1
     And I enter "123456" into input field number 2
@@ -53,7 +53,7 @@ Feature: Change Settings
     And I press "Abbrechen"
     Then I should see "Leruka"
 
-  Scenario: Cancel change the display name
+  Scenario: Change the display name by clicking cancel fails
     Given I press "Einloggen"
     And I enter "Opa" into input field number 1
     And I enter "123456" into input field number 2

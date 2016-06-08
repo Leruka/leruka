@@ -1,4 +1,5 @@
 Feature: new public highscore
+
   As a app user
   I want to view the public highscore
 
